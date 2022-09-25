@@ -40,10 +40,23 @@
 
 > Short (1-2 min' read max)
  * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
+ * 
+ * We will be using Android Studio to build an Android App based on Jetpack Compose
+ * Language: Kotlin
+ * libraries: Jetpack Compose
+ * 
  * How will you deploy the application?
+ * We will use the Android Studio tools to Build APK
+ * 
  * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
+ * MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to integrate API responses
+ * ![plot](./ImageRes/Missing%20Seven%20Architecture.drawio.png)
+ * 
  * Will you be using third party applications or APIs? If so, what are they?
+ * Currently not found any
+ * 
  * What is your testing strategy?
+ * We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
 
 #### Q5: What are the user stories that make up the MVP?
 https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=sharing
