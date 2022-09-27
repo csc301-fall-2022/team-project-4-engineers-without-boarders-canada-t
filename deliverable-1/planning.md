@@ -117,14 +117,17 @@ We plan to have a meeting among the group member at least twice a week, both onl
 #### Q8: What artifacts will you use to self-organize?
 
 List/describe the artifacts you will produce in order to organize your team.       
-
  * Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
  * We want to understand:
    * How do you keep track of what needs to get done?
-   * **How do you prioritize tasks?**
-   * How do tasks get assigned to team members?
-   * How do you determine the status of work from inception to completion?
+   Have lists of tasks with proirities and deadlines to make sure we stay on top of our schedule.
 
+   * **How do you prioritize tasks?**
+   Tasks are prioritized based on dependency and urgency. For example, if a file is needed for the whole team to move on. This file is on top of our priority and is addressed as soon as possible. Or if we need to have a feature to be completed at a deadline, we would proitize to work on this feature and delay other unnecessary features.
+   * How do tasks get assigned to team members?
+   Tasks are assigned to each team member according to there role/experience, so everyone can work on the tasks they are good at.
+   * How do you determine the status of work from inception to completion?
+   We plan to have four status for each task in our team. Which are unassigned, assigned, need help, and completed. This way, we can keep track of the status of each task, and get help when we need.
 #### Q9: What are the rules regarding how your team works?
 
 Describe your team's working culture.
