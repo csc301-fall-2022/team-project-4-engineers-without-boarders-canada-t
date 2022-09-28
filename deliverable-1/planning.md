@@ -79,6 +79,13 @@ List each team member and:
  * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
  * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
 
+Xuhui Chen (Team Leader)
+Haonan Gao
+Yuelin Jiang
+Tong Su
+Ziyuan Gu
+Yaowei Liu
+Wenzhi Lin
 
 #### Q7: What operational events will you have as a team?
 
