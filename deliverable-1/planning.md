@@ -90,8 +90,10 @@ Describe meetings (and other events) you are planning to have.
    * What did you discuss during the meetings?
    * What were the outcomes of each meeting?
    * You must keep track of meeting minutes and add them to your repo.
-   * You must have a regular meeting schedule established by the second meeting.  
-  
+   * You must have a regular meeting schedule established by the second meeting.
+
+We plan to have a meeting among the group member at least twice a week, both online via Zoom / Google Meet.
+
 #### Q8: What artifacts will you use to self-organize?
 
 List/describe the artifacts you will produce in order to organize your team.       
