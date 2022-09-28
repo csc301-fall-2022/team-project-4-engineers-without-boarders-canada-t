@@ -21,9 +21,7 @@
 
 #### Q2: Who are your target users?
 
-  > Short (1 - 2 min' read max)
- * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
- * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
+https://workspace5276499.xtensio.com/pzg7libj
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
