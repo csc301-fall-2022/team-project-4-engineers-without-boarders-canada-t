@@ -134,11 +134,14 @@ Describe your team's working culture.
 
 **Communications:**
  * What is the expected frequency? What methods/channels are appropriate? 
+   - We expect to hold team meetings at least three times a week, and hold Partner meeting weekly at Monday night. And these meetings will be hold on Zoom. 
+   - Besides these meetings, we have a private group chat that is used for real-time, quick communication.
  * If you have a partner project, what is your process (in detail) for communicating with your partner?
+   - Our partner has decided to meet with us once a week on Zoom or Google Meeting. For short communication and announcement we will be sending emails.
  
 **Meetings:**
  * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
-
+   - We post group announcement in our group chat to remind everyone about the action items. Our team leader will be the moderator and be responsible for communicating with each individual regarding the attendace and work completion problem.
 
 ----
 ## Highlights
