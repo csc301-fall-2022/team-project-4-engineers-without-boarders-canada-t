@@ -1,4 +1,4 @@
-# YOUR PRODUCT/TEAM NAME
+# Engineers Without Boarders/Missing Seven
 > _Note:_ This document is meant to evolve throughout the planning phase of your project.   That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section). Most importantly, it is a reflection of all the planning you work you've done in the first iteration. 
  > **This document will serve as a master plan between your team, your partner and your TA.**
 
@@ -17,6 +17,10 @@
  * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
    For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
  * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
+ * The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice.
+ * Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers.
+ * The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries
+ * The app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
 
 
 #### Q2: Who are your target users?
@@ -40,21 +44,21 @@
 
 > Short (1-2 min' read max)
  * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
- * 
+
  * We will be using Android Studio to build an Android App based on Jetpack Compose
  * Language: Kotlin
  * libraries: Jetpack Compose
- * 
+
  * How will you deploy the application?
  * We will use the Android Studio tools to Build APK
- * 
+
  * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
  * MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to integrate API responses
- * ![plot](./ImageRes/Missing%20Seven%20Architecture.drawio.png)
- * 
+![plot](./ImageRes/Missing%20Seven%20Architecture.drawio.png)
+
  * Will you be using third party applications or APIs? If so, what are they?
  * Currently not found any
- * 
+
  * What is your testing strategy?
  * We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
 
