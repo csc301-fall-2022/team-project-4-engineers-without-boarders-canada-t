@@ -103,7 +103,13 @@ List each team member and:
 
 Xuhui Chen (Team Leader)
 Haonan Gao
-Yuelin Jiang
+
+   - Yuelin Jiang:
+     - Role: Front End Developer
+     - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
+     - Strength: Python, C, SQL
+     - Weakness: Java, IOS, React
+
    - Tong Su：
       - Role: Backend/ViewModel Designer
       - Responsibilities: 
