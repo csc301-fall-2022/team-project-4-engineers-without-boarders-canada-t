@@ -68,12 +68,7 @@ https://workspace5276499.xtensio.com/pzg7libj
  * We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
 
 #### Q5: What are the user stories that make up the MVP?
-
- * At least 5 user stories concerning the main features of the application - note that this can broken down further
- * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
- * User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: https://www.justinmind.com/blog/user-story-examples/. **It is important that you provide a link to an artifact containing your user stories**.
- * If you have a partner, these must be reviewed and accepted by them. You need to include the evidence of partner approval (e.g., screenshot from email) or at least communication to the partner (e.g., email you sent)
-
+https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=sharing
 ----
 ## Intellectual Property Confidentiality Agreement 
 > Note this section is **not marked** but must be completed briefly if you have a partner. If you have any questions, please ask on Piazza.
@@ -106,6 +101,14 @@ List each team member and:
       - Strength: Java, Spring, .NET
       - Weakness: Infra, system code, DevOps
 
+Xuhui Chen (Team Leader)
+Haonan Gao
+Yuelin Jiang
+Tong Su
+Ziyuan Gu
+Yaowei Liu
+Wenzhi Lin
+
 
 #### Q7: What operational events will you have as a team?
 
@@ -118,6 +121,9 @@ Describe meetings (and other events) you are planning to have.
    * What were the outcomes of each meeting?
    * You must keep track of meeting minutes and add them to your repo.
    * You must have a regular meeting schedule established by the second meeting.  
+
+We plan to have a meeting among the group member at least twice a week, both online via Zoom / Google Meet.
+
   
 #### Q8: What artifacts will you use to self-organize?
 
