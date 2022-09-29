@@ -93,7 +93,7 @@ List each team member and:
  * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
    - Ziyuan Gu: 
       - Role: Front End Developer
-      - Responsibilities: Will mainly work with Android front stack, and do scenario tests.
+      - Responsibilities: Will mainly work with Android front end, and do scenario tests.
       - Strength: Java, Spring, .NET
       - Weakness: Infra, system code, DevOps
 
