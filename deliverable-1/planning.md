@@ -92,8 +92,8 @@ List each team member and:
  * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
  * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
    - Ziyuan Gu: 
-      - Role: Full Stack Developer
-      - Responsibilities: Will be working full stack, and do scenario tests.
+      - Role: Front End Developer
+      - Responsibilities: Will mainly work with Android front stack, and do scenario tests.
       - Strength: Java, Spring, .NET
       - Weakness: Infra, system code, DevOps
 
@@ -162,5 +162,6 @@ and/or collaborative process.
  * Essentially, we want to understand how (and why) you ended up with your current product and process plan.
  * This section is useful for important information regarding your decision making process that may not necessarily fit in other sections. 
 
- 1. During our discussion with our partner, we noticed that the target audience of the application may have difficult access to the internet  Thus we made the decision to make a majority of our application run offline. The only part of the app that requires internet is sending the workshop result to the teacher/insturctor. This design choice will allow people without stable access to the internet to utilize the application without compromising the user experience and help us to reach more target audiences.
+ 1. During our discussion with our partner, we noticed that the target audience of the application may have difficult access to the internet. Thus we made the decision to make a majority of our application run offline. The only part of the app that requires internet is sending the workshop result to the teacher/insturctor. This design choice will allow people without stable access to the internet to utilize the application without compromising the user experience and help us to reach more target audiences.
 
+2. During our team meeting, we made an agreement on the team structure. Our team will be separated into three small groups, which are front end group, back end group and database group. Each group will contain two to three person. But in the future, group size could change, people could be moved to a different group and the group work scope could also be modified. Therefore we can be flexible enough to maximize our productivity.
