@@ -95,34 +95,42 @@ Describe the different roles on the team and the responsibilities associated wit
 List each team member and:
  * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
  * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
-   - Ziyuan Gu: 
+
+    - Xuhui Chen：
+      - Role: Full Stack/Architect
+      - Responsibilities:
+      1. Design the overall architecture of the app
+      2. Jump into and develop any part of the project 
+      3. Offer help to teammates better understand Android development
+      - Strength: Kotlin, Android, MVVM
+      - Weakness: dependency injection, Jetpack Compose, Database design
+
+    - Haonan Gao:
+      - Role: Back-End Developer
+      - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
+      - Strength: JAVA, C, SQL
+      - Weakness: All front-end related
+      
+    - Ziyuan Gu:
+        - Role: Front End Developer
+        - Responsibilities: Will mainly work with Android front end, and do scenario tests.
+        - Strength: Java, Spring, .NET
+        - Weakness: Infra, system code, DevOps
+
+    - Yuelin Jiang:
       - Role: Front End Developer
-      - Responsibilities: Will mainly work with Android front end, and do scenario tests.
-      - Strength: Java, Spring, .NET
-      - Weakness: Infra, system code, DevOps
+      - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
+      - Strength: Python, C, SQL
+      - Weakness: Java, IOS, React
 
-Xuhui Chen (Team Leader)
-
-   - Haonan Gao:
-     - Role: Back-End Developer
-     - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
-     - Strength: JAVA, C, SQL
-     - Weakness: All front-end related
-
-   - Yuelin Jiang:
-     - Role: Front End Developer
-     - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
-     - Strength: Python, C, SQL
-     - Weakness: Java, IOS, React
-
-   - Tong Su：
-      - Role: Backend/ViewModel Designer
-      - Responsibilities: 
-      1. Design ViewModels for different activities
-      2. Integrate use cases
-      3. Manage UI state changes
-      - Strength: Java, SQL, C
-      - Weakness: Kotlin, Jetpack, Andriod
+    - Tong Su：
+       - Role: Backend/ViewModel Designer
+       - Responsibilities: 
+       1. Design ViewModels for different activities
+       2. Integrate use cases
+       3. Manage UI state changes
+       - Strength: Java, SQL, C
+       - Weakness: Kotlin, Jetpack, Andriod
 Ziyuan Gu
 Yaowei Liu
 Wenzhi Lin
