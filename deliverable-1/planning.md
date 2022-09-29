@@ -39,6 +39,13 @@
     * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
     * Does this application exist in another form? If so, how does your differ and provide value to the users?
     * How does this align with your partner's organization's values/mission/mandate?
+   
+    We believe the users would choose our Water For The World (W4TW) mobile app not only because of its customizable user interface with other interesting and useful functionalities but also because this app comes in many different forms and is easy to get started.
+    Firstly, our W4TW mobile app can definitely save users’ time, since the original format of W4TW is happening during an in-person workshop, so normally it will take the W4TW members a long time on the road to meet at the same place. By using our app, they can skip the process of going to the meeting, instead, they can just stay at home and use our app to connect online which saves the users tons of time.
+    Secondly, the users have many different ways to discover and learn new information and technologies from our W4TW mobile app. W4TW workshop is designed to teach volunteers about water filter building knowledge, so definitely there are tons of knowledge to learn and we will make sure to include those in our app even with specific video. We decided to divide that information and pair them with related game functionalities, so the users can play and learn at the same time. All the information and knowledge will directly come from the official W4TW website and summarize from the previous hundreds of in-person workshops, so of course, the information is accurate and reliable. 
+    Thirdly, our W4TW mobile app has many forms and can be used even under difficult circumstances.  As the partner mentioned during our weekly meeting, some of the W4TW users might not have the access to the internet, so our app will be including an offline mode which allows the users to ignore the limitations of the internet and access and use the app, so once the user gets our app installed, they can use it even without internet. When the phone connects to the internet, our app will automatically upload the data online. 
+
+
 
 #### Q4: How will you build it?
 
@@ -165,3 +172,5 @@ and/or collaborative process.
  1. During our discussion with our partner, we noticed that the target audience of the application may have difficult access to the internet. Thus we made the decision to make a majority of our application run offline. The only part of the app that requires internet is sending the workshop result to the teacher/insturctor. This design choice will allow people without stable access to the internet to utilize the application without compromising the user experience and help us to reach more target audiences.
 
 2. During our team meeting, we made an agreement on the team structure. Our team will be separated into three small groups, which are front end group, back end group and database group. Each group will contain two to three person. But in the future, group size could change, people could be moved to a different group and the group work scope could also be modified. Therefore we can be flexible enough to maximize our productivity.
+
+3. One of the key decisions that came up during our meeting with the project owner is to put down what we have in hand aside to attend the Water For The World Workshop. In the first meeting with the project owner, we found a serious problem. Our task is to design mobile phone software used to simulate the in-person workshop. Although the partner has done his best to describe the workshop, some details are still not very clear. In order to make our project closer to the real workshop, our group temporarily decided to participate in the most recent in-person workshop to understand the real situation. We believe that this can help us understand more about the project and to achieve better results.
