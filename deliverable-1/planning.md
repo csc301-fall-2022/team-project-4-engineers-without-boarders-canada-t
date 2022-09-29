@@ -68,7 +68,11 @@ https://workspace5276499.xtensio.com/pzg7libj
  * We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
 
 #### Q5: What are the user stories that make up the MVP?
-https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=sharing
+
+ * At least 5 user stories concerning the main features of the application - note that this can broken down further
+ * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
+ * User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: https://www.justinmind.com/blog/user-story-examples/. **It is important that you provide a link to an artifact containing your user stories**.
+ * If you have a partner, these must be reviewed and accepted by them. You need to include the evidence of partner approval (e.g., screenshot from email) or at least communication to the partner (e.g., email you sent)
 
 ----
 ## Intellectual Property Confidentiality Agreement 
@@ -102,13 +106,6 @@ List each team member and:
       - Strength: Java, Spring, .NET
       - Weakness: Infra, system code, DevOps
 
-Xuhui Chen (Team Leader)
-Haonan Gao
-Yuelin Jiang
-Tong Su
-Ziyuan Gu
-Yaowei Liu
-Wenzhi Lin
 
 #### Q7: What operational events will you have as a team?
 
@@ -120,10 +117,8 @@ Describe meetings (and other events) you are planning to have.
    * What did you discuss during the meetings?
    * What were the outcomes of each meeting?
    * You must keep track of meeting minutes and add them to your repo.
-   * You must have a regular meeting schedule established by the second meeting.
-
-We plan to have a meeting among the group member at least twice a week, both online via Zoom / Google Meet.
-
+   * You must have a regular meeting schedule established by the second meeting.  
+  
 #### Q8: What artifacts will you use to self-organize?
 
 List/describe the artifacts you will produce in order to organize your team.       
@@ -172,3 +167,6 @@ and/or collaborative process.
 2. During our team meeting, we made an agreement on the team structure. Our team will be separated into three small groups, which are front end group, back end group and database group. Each group will contain two to three person. But in the future, group size could change, people could be moved to a different group and the group work scope could also be modified. Therefore we can be flexible enough to maximize our productivity.
 
 3. One of the key decisions that came up during our meeting with the project owner is to put down what we have in hand aside to attend the Water For The World Workshop. In the first meeting with the project owner, we found a serious problem. Our task is to design mobile phone software used to simulate the in-person workshop. Although the partner has done his best to describe the workshop, some details are still not very clear. In order to make our project closer to the real workshop, our group temporarily decided to participate in the most recent in-person workshop to understand the real situation. We believe that this can help us understand more about the project and to achieve better results.
+
+4. Another decision we have made during our meeting is to use survey form to share results. During our meeting with John, he mentioned that he would like to receieve feedback from student about what do they learn and how the workshop could be improved. He suggested that the result could be sent through email. After the meeting, our group thought this app is not intended to collect any sensitive information from the user. If we use email, the users will need to type in their email account and password which is not ideal. Another issue may arise is that students may not have their email address and thus could not share their thoughts wuith the teacher. In that case, our team decided to use the survey form to replace the email for the feedback.  Students could write their feedback inside the app and the teacher will receive it in his/her side.
+
