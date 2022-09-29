@@ -104,7 +104,14 @@ List each team member and:
 Xuhui Chen (Team Leader)
 Haonan Gao
 Yuelin Jiang
-Tong Su
+   - Tong Su：
+      - Role: ViewModel Designer
+      - Responsibilities: 
+      1. Design ViewModels for different activities
+      2. Integrate use cases
+      3. Manage UI state changes
+      - Strength: Java, SQL, C
+      - Weakness: Kotlin, Jetpack, Andriod
 Ziyuan Gu
 Yaowei Liu
 Wenzhi Lin
