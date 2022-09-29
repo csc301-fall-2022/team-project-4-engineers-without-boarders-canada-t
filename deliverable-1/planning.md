@@ -105,7 +105,7 @@ Xuhui Chen (Team Leader)
 Haonan Gao
 Yuelin Jiang
    - Tong Su：
-      - Role: ViewModel Designer
+      - Role: Backend/ViewModel Designer
       - Responsibilities: 
       1. Design ViewModels for different activities
       2. Integrate use cases
