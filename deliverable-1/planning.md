@@ -102,7 +102,12 @@ List each team member and:
       - Weakness: Infra, system code, DevOps
 
 Xuhui Chen (Team Leader)
-Haonan Gao
+
+   - Haonan Gao:
+     - Role: Back-End Developer
+     - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
+     - Strength: JAVA, C, SQL
+     - Weakness: All front-end related
 
    - Yuelin Jiang:
      - Role: Front End Developer
