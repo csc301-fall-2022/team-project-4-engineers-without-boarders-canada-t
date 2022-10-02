@@ -133,7 +133,15 @@ List each team member and:
        - Weakness: Kotlin, Jetpack, Andriod
 Ziyuan Gu
 Yaowei Liu
-Wenzhi Lin
+    - Wenzhi Lin:
+      - Role: Local Database Designer
+      - Responsibilities:
+       1. Design a database(Room or SQLite) to save complex data.
+       2. Implement database gateways.
+       3. Use SharedPreferences to save simple key-value pairs.
+      - Strength: Python, C/C++, MySQL, Java
+      - Weakness: No experience in any frontend and backend coding, mobile application development
+
 
 
 #### Q7: What operational events will you have as a team?
