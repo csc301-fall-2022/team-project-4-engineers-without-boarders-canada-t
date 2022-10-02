@@ -79,58 +79,76 @@ https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=shari
 
 ## Process Details
 
-## Q6: What are the roles & responsibilities on the team?
 
-   - Xuhui Chen：
-     - Role: Full Stack/Architect
-     - Responsibilities:
-        1. Design the overall architecture of the app
-        2. Jump into and develop any part of the project 
-        3. Offer help to teammates better understand Android development
-     - Strength: Kotlin, Android, MVVM
-     - Weakness: dependency injection, Jetpack Compose, Database design
+#### Q6: What are the roles & responsibilities on the team?
 
-   - Haonan Gao:
-     - Role: Back-End Developer
-     - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
-     - Strength: JAVA, C, SQL
-     - Weakness: All front-end related
+Describe the different roles on the team and the responsibilities associated with each role. 
+ * Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.  
+ * Add role(s) to your Team-[Team_Number]-[Team_Name].csv file on the main folder
 
-   - Ziyuan Gu:
-       - Role: Front End Developer
-       - Responsibilities: Will mainly work with Android front end, and do scenario tests.
-       - Strength: Java, Spring, .NET
-       - Weakness: Infra, system code, DevOps
+List each team member and:
+ * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
+ * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
 
-   - Yuelin Jiang:
-     - Role: Front End Developer
-     - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
-     - Strength: Python, C, SQL
-     - Weakness: Java, IOS, React
+    - Xuhui Chen：
+      - Role: Full Stack/Architect
+      - Responsibilities:
+      1. Design the overall architecture of the app
+      2. Jump into and develop any part of the project 
+      3. Offer help to teammates better understand Android development
+      - Strength: Kotlin, Android, MVVM
+      - Weakness: dependency injection, Jetpack Compose, Database design
 
-   - Tong Su：
-      - Role: Backend/ViewModel Designer
-      - Responsibilities: 
-         1. Design ViewModels for different activities
-         2. Integrate use cases
-         3. Manage UI state changes
-      - Strength: Java, SQL, C
-      - Weakness: Kotlin, Jetpack, Andriod
+    - Haonan Gao:
+      - Role: Back-End Developer
+      - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
+      - Strength: JAVA, C, SQL
+      - Weakness: All front-end related
+      
+    - Ziyuan Gu:
+        - Role: Front End Developer
+        - Responsibilities: Will mainly work with Android front end, and do scenario tests.
+        - Strength: Java, Spring, .NET
+        - Weakness: Infra, system code, DevOps
 
-   - Wenzhi Lin:
-     - Role: Local Database Designer
-     - Responsibilities:
-         1. Design a database(Room or SQLite) to save complex data.
-         2. Implement database gateways.
-         3. Use SharedPreferences to save simple key-value pairs.
-     - Strength: Python, C/C++, MySQL, Java
-     - Weakness: No experience in any frontend and backend coding, mobile application development
+    - Yuelin Jiang:
+      - Role: Front End Developer
+      - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
+      - Strength: Python, C, SQL
+      - Weakness: Java, IOS, React
 
+    - Tong Su：
+       - Role: Backend/ViewModel Designer
+       - Responsibilities: 
+       1. Design ViewModels for different activities
+       2. Integrate use cases
+       3. Manage UI state changes
+       - Strength: Java, SQL, C
+       - Weakness: Kotlin, Jetpack, Andriod
+
+    - Wenzhi Lin:
+      - Role: Local Database Designer
+      - Responsibilities:
+       1. Design a database(Room or SQLite) to save complex data.
+       2. Implement database gateways.
+       3. Use SharedPreferences to save simple key-value pairs.
+      - Strength: Python, C/C++, MySQL, Java
+      - Weakness: No experience in any frontend and backend coding, mobile application development
+
+
+    - Yaowei Liu:
+      - Role: Backend developer
+      - Responsibilities:
+       1. Use data from the database to genrate data provider model.
+       2. Use the data provider model to impelement data usecases.
+      - Strength: Python, Java, SQL
+      - Weakness: limited experience with developing as a team, limited knowledge about andriod sepecific technologies
 
 ## Q7: What operational events will you have as a team?
 
 - We plan to have regular meetings among the group member twice a week, both online via Zoom / Google Meet. And some additional discussion if we need them. And we plan to meet the project partner once a week.
 - We have held 2 meetings with our project partner (Engineers Without Borders Canada). For the first online meeting, we introduce ourselves separately then the partner introduces the organization's background. we have a preliminary understanding of the software content. The second meeting, actually, was an in-person workshop, the collaborator showed us the specific principle and process of the water filtration system, which is also part of the software content, which is helpful for us to simulate this process in our application.
+
 
   
 ## Q8: What artifacts will you use to self-organize?
