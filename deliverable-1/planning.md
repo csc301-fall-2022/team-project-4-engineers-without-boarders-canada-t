@@ -142,6 +142,15 @@ List each team member and:
       - Weakness: No experience in any frontend and backend coding, mobile application development
 
 
+    - Yaowei Liu:
+      - Role: Backend developer
+      - Responsibilities:
+       1. Use data from the database to genrate data provider model.
+       2. Use the data provider model to impelement data usecases.
+      - Strength: Python, Java, SQL
+      - Weakness: limited experience with developing as a team, limited knowledge about andriod sepecific technologies
+
+
 
 #### Q7: What operational events will you have as a team?
 
