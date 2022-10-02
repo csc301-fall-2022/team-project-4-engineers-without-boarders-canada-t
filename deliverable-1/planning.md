@@ -1,4 +1,4 @@
-# Engineers Without Boarders —————————————— Missing Seven
+# Engineers Without Boarders ————————— Missing Seven
 ## Product Details
  
 #### Q1: What are you planning to build?
