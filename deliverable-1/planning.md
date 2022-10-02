@@ -1,27 +1,8 @@
-# Engineers Without Boarders/Missing Seven
-> _Note:_ This document is meant to evolve throughout the planning phase of your project.   That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section). Most importantly, it is a reflection of all the planning you work you've done in the first iteration. 
- > **This document will serve as a master plan between your team, your partner and your TA.**
-
+# Engineers Without Boarders —————————————— Missing Seven
 ## Product Details
  
 #### Q1: What are you planning to build?
-
- > Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
-    * Assume your the reader knows nothing about the problem domain and provide the necessary context. 
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
- * The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice.
- * Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers.
- * The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries
- * The app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
-
+ The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice. Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers. The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries. This app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
 
 #### Q2: Who are your target users?
 
@@ -29,25 +10,13 @@ https://workspace5276499.xtensio.com/pzg7libj
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-> Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-    * Does this application exist in another form? If so, how does your differ and provide value to the users?
-    * How does this align with your partner's organization's values/mission/mandate?
-   
     We believe the users would choose our Water For The World (W4TW) mobile app not only because of its customizable user interface with other interesting and useful functionalities but also because this app comes in many different forms and is easy to get started.
     Firstly, our W4TW mobile app can definitely save users’ time, since the original format of W4TW is happening during an in-person workshop, so normally it will take the W4TW members a long time on the road to meet at the same place. By using our app, they can skip the process of going to the meeting, instead, they can just stay at home and use our app to connect online which saves the users tons of time.
     Secondly, the users have many different ways to discover and learn new information and technologies from our W4TW mobile app. W4TW workshop is designed to teach volunteers about water filter building knowledge, so definitely there are tons of knowledge to learn and we will make sure to include those in our app even with specific video. We decided to divide that information and pair them with related game functionalities, so the users can play and learn at the same time. All the information and knowledge will directly come from the official W4TW website and summarize from the previous hundreds of in-person workshops, so of course, the information is accurate and reliable. 
     Thirdly, our W4TW mobile app has many forms and can be used even under difficult circumstances.  As the partner mentioned during our weekly meeting, some of the W4TW users might not have the access to the internet, so our app will be including an offline mode which allows the users to ignore the limitations of the internet and access and use the app, so once the user gets our app installed, they can use it even without internet. When the phone connects to the internet, our app will automatically upload the data online. 
 
-
-
 #### Q4: How will you build it?
 
-> Short (1-2 min' read max)
  * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
 
  * We will be using Android Studio to build an Android App based on Jetpack Compose
@@ -88,14 +57,6 @@ https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=shari
 
 #### Q6: What are the roles & responsibilities on the team?
 
-Describe the different roles on the team and the responsibilities associated with each role. 
- * Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.  
- * Add role(s) to your Team-[Team_Number]-[Team_Name].csv file on the main folder
-
-List each team member and:
- * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
- * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
-
     - Xuhui Chen：
       - Role: Full Stack/Architect
       - Responsibilities:
@@ -131,7 +92,7 @@ List each team member and:
        3. Manage UI state changes
        - Strength: Java, SQL, C
        - Weakness: Kotlin, Jetpack, Andriod
-Yaowei Liu
+
     - Wenzhi Lin:
       - Role: Local Database Designer
       - Responsibilities:
@@ -142,18 +103,7 @@ Yaowei Liu
       - Weakness: No experience in any frontend and backend coding, mobile application development
 
 
-
 #### Q7: What operational events will you have as a team?
-
-Describe meetings (and other events) you are planning to have. 
- * When and where? Recurring or ad hoc? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync meeting online, etc.
- * You should have at least 2 meetings with your project partner (if you have one) before D1 is due. Describe them here:
-   * What did you discuss during the meetings?
-   * What were the outcomes of each meeting?
-   * You must keep track of meeting minutes and add them to your repo.
-   * You must have a regular meeting schedule established by the second meeting.  
 
 - We plan to have regular meeting among the group member twice a week, both online via Zoom / Google Meet. And some addtional meeting if we need. And we plan to meet the project partner once a week.
 - We have hold 2 meeting with our project partner (Engineers Without Borders Canada). For the first meeting, 
@@ -161,9 +111,6 @@ Describe meetings (and other events) you are planning to have.
   
 #### Q8: What artifacts will you use to self-organize?
 
-List/describe the artifacts you will produce in order to organize your team.       
- * Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
- * We want to understand:
    * How do you keep track of what needs to get done?
    Have lists of tasks with proirities and deadlines to make sure we stay on top of our schedule.
 
@@ -190,17 +137,6 @@ Describe your team's working culture.
 
 ----
 ## Highlights
-
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
-
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product and process plan.
- * This section is useful for important information regarding your decision making process that may not necessarily fit in other sections. 
 
  1. During our discussion with our partner, we noticed that the target audience of the application may have difficult access to the internet. Thus we made the decision to make a majority of our application run offline. The only part of the app that requires internet is sending the workshop result to the teacher/insturctor. This design choice will allow people without stable access to the internet to utilize the application without compromising the user experience and help us to reach more target audiences.
 
