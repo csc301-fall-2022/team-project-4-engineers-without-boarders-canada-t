@@ -1,43 +1,67 @@
-# Engineers Without Boarders ————————— Missing Seven
+# Engineers Without Boarders  - Missing Seven
+* [Product Details](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#product-details)
+   - [Q1: What are you planning to build?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q1-what-are-you-planning-to-build)
+   - [Q2: Who are your target users?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q2-who-are-your-target-users)
+   - [Q3: Why would your users choose your product? What are they using today to solve their problem/need?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q3-why-would-your-users-choose-your-product-what-are-they-using-today-to-solve-their-problemneed)
+   - [Q4: How will you build it?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q4-how-will-you-build-it)
+   - [Q5: What are the user stories that make up the MVP?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q5-what-are-the-user-stories-that-make-up-the-mvp)
+   
+* [Process Details](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#process-details)
+  - [Q6: What are the roles & responsibilities on the team?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q6-what-are-the-roles--responsibilities-on-the-team)
+  - [Q7: What operational events will you have as a team?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q7-what-operational-events-will-you-have-as-a-team)
+  - [Q8: What artifacts will you use to self-organize?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q8-what-artifacts-will-you-use-to-self-organize)
+  - [Q9: What are the rules regarding how your team works?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q9-what-are-the-rules-regarding-how-your-team-works)
+
+* [Highlights](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#highlights)
+
 ## Product Details
- 
-#### Q1: What are you planning to build?
+## **Q1: What are you planning to build?**
  The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice. Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers. The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries. This app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
 
-#### Q2: Who are your target users?
+## **Q2: Who are your target users?**
 
 https://workspace5276499.xtensio.com/pzg7libj
 
-#### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
+## **Q3: Why would your users choose your product? What are they using today to solve their problem/need?**
 
-    We believe the users would choose our Water For The World (W4TW) mobile app not only because of its customizable user interface with other interesting and useful functionalities but also because this app comes in many different forms and is easy to get started.
-    Firstly, our W4TW mobile app can definitely save users’ time, since the original format of W4TW is happening during an in-person workshop, so normally it will take the W4TW members a long time on the road to meet at the same place. By using our app, they can skip the process of going to the meeting, instead, they can just stay at home and use our app to connect online which saves the users tons of time.
-    Secondly, the users have many different ways to discover and learn new information and technologies from our W4TW mobile app. W4TW workshop is designed to teach volunteers about water filter building knowledge, so definitely there are tons of knowledge to learn and we will make sure to include those in our app even with specific video. We decided to divide that information and pair them with related game functionalities, so the users can play and learn at the same time. All the information and knowledge will directly come from the official W4TW website and summarize from the previous hundreds of in-person workshops, so of course, the information is accurate and reliable. 
-    Thirdly, our W4TW mobile app has many forms and can be used even under difficult circumstances.  As the partner mentioned during our weekly meeting, some of the W4TW users might not have the access to the internet, so our app will be including an offline mode which allows the users to ignore the limitations of the internet and access and use the app, so once the user gets our app installed, they can use it even without internet. When the phone connects to the internet, our app will automatically upload the data online. 
+We believe the users would choose our Water For The World (W4TW) mobile app not only because of its customizable user interface with other interesting and useful functionalities but also because this app comes in many different forms and is easy to get started.
 
-#### Q4: How will you build it?
+Firstly, our W4TW mobile app can definitely save users’ time, since the original format of W4TW is happening during an in-person workshop, so normally it will take the W4TW members a long time on the road to meet at the same place. By using our app, they can skip the process of going to the meeting, instead, they can just stay at home and use our app to connect online which saves the users tons of time.
 
- * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
+Secondly, the users have many different ways to discover and learn new information and technologies from our W4TW mobile app. W4TW workshop is designed to teach volunteers about water filter building knowledge, so definitely there are tons of knowledge to learn and we will make sure to include those in our app even with specific video. We decided to divide that information and pair them with related game functionalities, so the users can play and learn at the same time. All the information and knowledge will directly come from the official W4TW website and summarize from the previous hundreds of in-person workshops, so of course, the information is accurate and reliable. 
 
- * We will be using Android Studio to build an Android App based on Jetpack Compose
- * Language: Kotlin
- * libraries: Jetpack Compose
+Thirdly, our W4TW mobile app has many forms and can be used even under difficult circumstances.  As the partner mentioned during our weekly meeting, some of the W4TW users might not have the access to the internet, so our app will be including an offline mode which allows the users to ignore the limitations of the internet and access and use the app, so once the user gets our app installed, they can use it even without internet. When the phone connects to the internet, our app will automatically upload the data online. 
 
- * How will you deploy the application?
- * We will use the Android Studio tools to Build APK
+## **Q4: How will you build it?**
 
- * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
- * MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to integrate API responses
-![plot](./ImageRes/Missing%20Seven%20Architecture.drawio.png)
+ * **What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools.**\
+   We will be using Android Studio to build an Android App based on Jetpack Compose
+   
+ * **Language?**\
+   Kotlin
+   
+  * **libraries?**\
+   Jetpack Compose
 
- * Will you be using third party applications or APIs? If so, what are they?
- * Currently not found any
+  * **How will you deploy the application?**\
+  We will use the Android Studio tools to Build APK
 
- * What is your testing strategy?
- * We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
+  * **Will you be using third party applications or APIs? If so, what are they?**\
+   Currently not found any
+ 
+  * **What is your testing strategy?**\
+   We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
+     
+ * **Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here.**\
+   MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to integrate API responses
+<p align="center">
+  <img src=./ImageRes/Missing%20Seven%20Architecture.drawio.png alt="plot" width="600"/>
+</p>
 
-#### Q5: What are the user stories that make up the MVP?
+## **Q5: What are the user stories that make up the MVP?**
+
 https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=sharing
+
 ----
 ## Intellectual Property Confidentiality Agreement 
 > Note this section is **not marked** but must be completed briefly if you have a partner. If you have any questions, please ask on Piazza.
@@ -55,72 +79,76 @@ https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=shari
 
 ## Process Details
 
-#### Q6: What are the roles & responsibilities on the team?
+## Q6: What are the roles & responsibilities on the team?
 
-    - Xuhui Chen：
-      - Role: Full Stack/Architect
-      - Responsibilities:
-      1. Design the overall architecture of the app
-      2. Jump into and develop any part of the project 
-      3. Offer help to teammates better understand Android development
-      - Strength: Kotlin, Android, MVVM
-      - Weakness: dependency injection, Jetpack Compose, Database design
+   - Xuhui Chen：
+     - Role: Full Stack/Architect
+     - Responsibilities:
+        1. Design the overall architecture of the app
+        2. Jump into and develop any part of the project 
+        3. Offer help to teammates better understand Android development
+     - Strength: Kotlin, Android, MVVM
+     - Weakness: dependency injection, Jetpack Compose, Database design
 
-    - Haonan Gao:
-      - Role: Back-End Developer
-      - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
-      - Strength: JAVA, C, SQL
-      - Weakness: All front-end related
-      
-    - Ziyuan Gu:
-        - Role: Front End Developer
-        - Responsibilities: Will mainly work with Android front end, and do scenario tests.
-        - Strength: Java, Spring, .NET
-        - Weakness: Infra, system code, DevOps
+   - Haonan Gao:
+     - Role: Back-End Developer
+     - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
+     - Strength: JAVA, C, SQL
+     - Weakness: All front-end related
 
-    - Yuelin Jiang:
-      - Role: Front End Developer
-      - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
-      - Strength: Python, C, SQL
-      - Weakness: Java, IOS, React
+   - Ziyuan Gu:
+       - Role: Front End Developer
+       - Responsibilities: Will mainly work with Android front end, and do scenario tests.
+       - Strength: Java, Spring, .NET
+       - Weakness: Infra, system code, DevOps
 
-    - Tong Su：
-       - Role: Backend/ViewModel Designer
-       - Responsibilities: 
-       1. Design ViewModels for different activities
-       2. Integrate use cases
-       3. Manage UI state changes
-       - Strength: Java, SQL, C
-       - Weakness: Kotlin, Jetpack, Andriod
+   - Yuelin Jiang:
+     - Role: Front End Developer
+     - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
+     - Strength: Python, C, SQL
+     - Weakness: Java, IOS, React
 
-    - Wenzhi Lin:
-      - Role: Local Database Designer
-      - Responsibilities:
-       1. Design a database(Room or SQLite) to save complex data.
-       2. Implement database gateways.
-       3. Use SharedPreferences to save simple key-value pairs.
-      - Strength: Python, C/C++, MySQL, Java
-      - Weakness: No experience in any frontend and backend coding, mobile application development
+   - Tong Su：
+      - Role: Backend/ViewModel Designer
+      - Responsibilities: 
+         1. Design ViewModels for different activities
+         2. Integrate use cases
+         3. Manage UI state changes
+      - Strength: Java, SQL, C
+      - Weakness: Kotlin, Jetpack, Andriod
+
+   - Wenzhi Lin:
+     - Role: Local Database Designer
+     - Responsibilities:
+         1. Design a database(Room or SQLite) to save complex data.
+         2. Implement database gateways.
+         3. Use SharedPreferences to save simple key-value pairs.
+     - Strength: Python, C/C++, MySQL, Java
+     - Weakness: No experience in any frontend and backend coding, mobile application development
 
 
-#### Q7: What operational events will you have as a team?
+## Q7: What operational events will you have as a team?
 
 - We plan to have regular meeting among the group member twice a week, both online via Zoom / Google Meet. And some addtional meeting if we need. And we plan to meet the project partner once a week.
 - We have hold 2 meeting with our project partner (Engineers Without Borders Canada). For the first meeting, 
 
   
-#### Q8: What artifacts will you use to self-organize?
+## Q8: What artifacts will you use to self-organize?
 
-   * How do you keep track of what needs to get done?
+   * **How do you keep track of what needs to get done?**\
    Have lists of tasks with proirities and deadlines to make sure we stay on top of our schedule.
 
-   * **How do you prioritize tasks?**
+   * **How do you prioritize tasks?**\
    Tasks are prioritized based on dependency and urgency. For example, if a file is needed for the whole team to move on. This file is on top of our priority and is addressed as soon as possible. Or if we need to have a feature to be completed at a deadline, we would proitize to work on this feature and delay other unnecessary features.
-   * How do tasks get assigned to team members?
+   
+   * **How do tasks get assigned to team members?**\
    Tasks are assigned to each team member according to there role/experience, so everyone can work on the tasks they are good at.
-   * How do you determine the status of work from inception to completion?
+   
+   * **How do you determine the status of work from inception to completion?**\
    We plan to have four status for each task in our team. Which are unassigned, assigned, need help, and completed. This way, we can keep track of the status of each task, and get help when we need.
-#### Q9: What are the rules regarding how your team works?
+   
+   
+## Q9: What are the rules regarding how your team works?
 
 Describe your team's working culture.
 
