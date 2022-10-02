@@ -155,7 +155,8 @@ Describe meetings (and other events) you are planning to have.
    * You must keep track of meeting minutes and add them to your repo.
    * You must have a regular meeting schedule established by the second meeting.  
 
-- We plan to have regular meeting among the group member twice a week, both online via Zoom / Google Meet. And some addtional meeting if we need. And we 
+- We plan to have regular meeting among the group member twice a week, both online via Zoom / Google Meet. And some addtional meeting if we need. And we plan to meet the project partner once a week.
+- We have hold 2 meeting with our project partner (Engineers Without Borders Canada). For the first meeting, 
 
   
 #### Q8: What artifacts will you use to self-organize?
