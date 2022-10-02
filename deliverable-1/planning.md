@@ -17,6 +17,10 @@
 ## Product Details
 ## **Q1: What are you planning to build?**
  The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice. Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers. The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries. This app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
+<p align="center">
+  <img src=./ImageRes/Missing%20Seven%20Screens.drawio.png alt="plot" width="600"/>
+</p>
+
 
 ## **Q2: Who are your target users?**
 
@@ -37,22 +41,22 @@ Thirdly, our W4TW mobile app has many forms and can be used even under difficult
  * **What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools.**\
    We will be using Android Studio to build an Android App based on Jetpack Compose
    
- * **Language?**\
+ * **Language**\
    Kotlin
    
-  * **libraries?**\
+  * **libraries**\
    Jetpack Compose
 
-  * **How will you deploy the application?**\
+  * **Deploy the application**\
   We will use the Android Studio tools to Build APK
 
-  * **Will you be using third party applications or APIs? If so, what are they?**\
+  * **Third party applications or APIs**\
    Currently not found any
  
-  * **What is your testing strategy?**\
+  * **Testing strategy**\
    We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
      
- * **Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here.**\
+ * **Architecture**\
    MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to integrate API responses
 <p align="center">
   <img src=./ImageRes/Missing%20Seven%20Architecture.drawio.png alt="plot" width="600"/>
