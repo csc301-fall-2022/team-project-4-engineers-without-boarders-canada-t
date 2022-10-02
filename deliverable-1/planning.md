@@ -131,7 +131,7 @@ List each team member and:
        3. Manage UI state changes
        - Strength: Java, SQL, C
        - Weakness: Kotlin, Jetpack, Andriod
-Yaowei Liu
+
     - Wenzhi Lin:
       - Role: Local Database Designer
       - Responsibilities:
