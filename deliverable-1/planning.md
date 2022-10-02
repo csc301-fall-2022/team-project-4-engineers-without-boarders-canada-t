@@ -129,8 +129,8 @@ https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=shari
 
 ## Q7: What operational events will you have as a team?
 
-- We plan to have regular meeting among the group member twice a week, both online via Zoom / Google Meet. And some addtional meeting if we need. And we plan to meet the project partner once a week.
-- We have hold 2 meeting with our project partner (Engineers Without Borders Canada). For the first online meeting, we introduce ourselves seperately then the partner introduce the background of the organization for us. we have a preliminary understanding of the software content. For the second meeting, actually, it was a in person workshop, the collaborator showed us the specific principle and process of the water filtration system, which is also part of the software content, which is helpful for us to simulate this process in our application.
+- We plan to have regular meetings among the group member twice a week, both online via Zoom / Google Meet. And some additional discussion if we need them. And we plan to meet the project partner once a week.
+- We have held 2 meetings with our project partner (Engineers Without Borders Canada). For the first online meeting, we introduce ourselves separately then the partner introduces the organization's background. we have a preliminary understanding of the software content. The second meeting, actually, was an in-person workshop, the collaborator showed us the specific principle and process of the water filtration system, which is also part of the software content, which is helpful for us to simulate this process in our application.
 
   
 ## Q8: What artifacts will you use to self-organize?
