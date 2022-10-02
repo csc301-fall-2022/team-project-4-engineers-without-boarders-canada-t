@@ -1,18 +1,18 @@
 # Engineers Without Boarders  - Missing Seven
-* [Product Details](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#product-details)
-   - [Q1: What are you planning to build?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q1-what-are-you-planning-to-build)
-   - [Q2: Who are your target users?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q2-who-are-your-target-users)
-   - [Q3: Why would your users choose your product? What are they using today to solve their problem/need?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q3-why-would-your-users-choose-your-product-what-are-they-using-today-to-solve-their-problemneed)
-   - [Q4: How will you build it?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q4-how-will-you-build-it)
-   - [Q5: What are the user stories that make up the MVP?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q5-what-are-the-user-stories-that-make-up-the-mvp)
+* [Product Details](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#product-details)
+   - [Q1: What are you planning to build?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q1-what-are-you-planning-to-build)
+   - [Q2: Who are your target users?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q2-who-are-your-target-users)
+   - [Q3: Why would your users choose your product? What are they using today to solve their problem/need?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q3-why-would-your-users-choose-your-product-what-are-they-using-today-to-solve-their-problemneed)
+   - [Q4: How will you build it?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q4-how-will-you-build-it)
+   - [Q5: What are the user stories that make up the MVP?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q5-what-are-the-user-stories-that-make-up-the-mvp)
    
-* [Process Details](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#process-details)
-  - [Q6: What are the roles & responsibilities on the team?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q6-what-are-the-roles--responsibilities-on-the-team)
-  - [Q7: What operational events will you have as a team?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q7-what-operational-events-will-you-have-as-a-team)
-  - [Q8: What artifacts will you use to self-organize?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q8-what-artifacts-will-you-use-to-self-organize)
-  - [Q9: What are the rules regarding how your team works?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#q9-what-are-the-rules-regarding-how-your-team-works)
+* [Process Details](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#process-details)
+  - [Q6: What are the roles & responsibilities on the team?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q6-what-are-the-roles--responsibilities-on-the-team)
+  - [Q7: What operational events will you have as a team?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q7-what-operational-events-will-you-have-as-a-team)
+  - [Q8: What artifacts will you use to self-organize?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q8-what-artifacts-will-you-use-to-self-organize)
+  - [Q9: What are the rules regarding how your team works?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q9-what-are-the-rules-regarding-how-your-team-works)
 
-* [Highlights](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/edit/main/deliverable-1/planning.md#highlights)
+* [Highlights](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#highlights)
 
 ## Product Details
 ## **Q1: What are you planning to build?**
