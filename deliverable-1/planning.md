@@ -131,7 +131,6 @@ List each team member and:
        3. Manage UI state changes
        - Strength: Java, SQL, C
        - Weakness: Kotlin, Jetpack, Andriod
-Ziyuan Gu
 Yaowei Liu
     - Wenzhi Lin:
       - Role: Local Database Designer
@@ -156,7 +155,7 @@ Describe meetings (and other events) you are planning to have.
    * You must keep track of meeting minutes and add them to your repo.
    * You must have a regular meeting schedule established by the second meeting.  
 
-We plan to have a meeting among the group member at least twice a week, both online via Zoom / Google Meet.
+- We plan to have regular meeting among the group member twice a week, both online via Zoom / Google Meet. And some addtional meeting if we need. And we 
 
   
 #### Q8: What artifacts will you use to self-organize?
