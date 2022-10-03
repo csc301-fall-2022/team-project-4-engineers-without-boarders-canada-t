@@ -19,7 +19,7 @@
 The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice. Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers. The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries. This app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
 The diagram below is our mockup diagrams
 <p align="center">
-  <img src=./ImageRes/Missing%20Seven%20Screens.drawio.png alt="plot" width="600"/>
+  <img src=./ImageRes/Missing%20Seven%20Screens.drawio.png alt="plot" width="1000"/>
 </p>
 
 
@@ -40,25 +40,25 @@ Thirdly, our W4TW mobile app has many forms and can be used even under difficult
 ## **Q4: How will you build it?**
 
  * **Technology stack**\
-   We will be using Android Studio to build an Android App based on Jetpack Compose
+   We will be using Android Studio to build an Android App based on Jetpack Compose, we use Jetpack Compose as our UI framework because it does not need xml files and the code will be maintained better. It also makes the app fragment free.
    
  * **Language**\
-   Kotlin
+   We will use Kotlin. Google android team is now focusing on supporting Kotlin supports, so Kotlin is better than Java in android Development
    
-  * **libraries**\
+ * **libraries**\
    Jetpack Compose related libraries
 
-  * **Deploy the application**\
+ * **Deploy the application**\
   We will use the Android Studio tools to Build APK, and upload the APK to partner's website and/or Google Play Store
 
-  * **Third party applications or APIs**\
-   Currently not found any
+ * **Third party applications or APIs**\
+   We did not find any APIs needed yet, the data will be directed provided by our partner by email/messages, will update if we get some later.
  
-  * **Testing strategy**\
+ * **Testing strategy**\
    We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
      
  * **Architecture**\
-   MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to handle data from our local database
+   MVVM (Model - View - ViewModel) + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to handle data from our local database. We use MVVM because this is the most common android architecture, also androidx library has support in viewModel and MVVM is recommended for Android development
 <p align="center">
   <img src=./ImageRes/Missing%20Seven%20Architecture.drawio.png alt="plot" width="600"/>
 </p>
@@ -80,7 +80,7 @@ We will update this part once we get response from our partner
 #### Q6: What are the roles & responsibilities on the team?
 
  - Xuhui Chen：
-   - Role: Full Stack Developer - Architect
+   - Role: Scrum Master/Full Stack Developer - Architect
    - Responsibilities:
    1. Design the overall architecture of the app
    2. Jump into and develop any part of the project 
