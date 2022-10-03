@@ -1,4 +1,4 @@
-# Engineers Without Boarders  - Missing Seven
+# Water For The World(W4TW)  - Missing Seven
 * [Product Details](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#product-details)
    - [Q1: What are you planning to build?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q1-what-are-you-planning-to-build)
    - [Q2: Who are your target users?](https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/main/deliverable-1/planning.md#q2-who-are-your-target-users)
@@ -16,7 +16,8 @@
 
 ## Product Details
 ## **Q1: What are you planning to build?**
- The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice. Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers. The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries. This app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
+The project is to develop an Android App to simulate the Engineers Without Boarders workshop on water filter building practice. Many people in this world do not have access to clean water, the workshop is aimed at improving peoples' awareness on difficulties accessing clean water in different countries, and the target users are mostly high school students and teachers. The onsite workshop generally have small capacity, there are no enough public locations to hold the workshop, and it is difficult to get all equipments needed in some countries. This app is an replacement to the onsite workshop as people can download the app and start the workshop, more people are involved.
+The diagram below is our mockup diagrams
 <p align="center">
   <img src=./ImageRes/Missing%20Seven%20Screens.drawio.png alt="plot" width="600"/>
 </p>
@@ -68,16 +69,8 @@ https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=shari
 
 ----
 ## Intellectual Property Confidentiality Agreement 
-> Note this section is **not marked** but must be completed briefly if you have a partner. If you have any questions, please ask on Piazza.
->  
-**By default, you own any work that you do as part of your coursework.** However, some partners may want you to keep the project confidential after the course is complete. As part of your first deliverable, you should discuss and agree upon an option with your partner. Examples include:
-1. You can share the software and the code freely with anyone with or without a license, regardless of domain, for any use.
-2. You can upload the code to GitHub or other similar publicly available domains.
-3. You will only share the code under an open-source license with the partner but agree to not distribute it in any way to any other entity or individual. 
-4. You will share the code under an open-source license and distribute it as you wish but only the partner can access the system deployed during the course.
-5. You will only reference the work you did in your resume, interviews, etc. You agree to not share the code or software in any capacity with anyone unless your partner has agreed to it.
-
-**Briefly describe which option you have agreed to. Your partner cannot ask you to sign any legally binding agreements or documents pertaining to non-disclosure, confidentiality, IP ownership, etc.**
+We have sent an email about confidentiality to our partner but have not received the response yet, but from the previous meeting since this project is non-profit and is for public welfare we believe it can be shared.
+We will update this part once we get response from our partner
 
 ----
 
@@ -86,67 +79,58 @@ https://drive.google.com/file/d/1FtkFjvEuns3qunmjAE3l3A_F8x8FFtKy/view?usp=shari
 
 #### Q6: What are the roles & responsibilities on the team?
 
-Describe the different roles on the team and the responsibilities associated with each role. 
- * Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.  
- * Add role(s) to your Team-[Team_Number]-[Team_Name].csv file on the main folder
+ - Xuhui Chen：
+   - Role: Full Stack Developer - Architect
+   - Responsibilities:
+   1. Design the overall architecture of the app
+   2. Jump into and develop any part of the project 
+   3. Offer help to teammates better understand Android development
+   - Strength: Kotlin, Android, MVVM
+   - Weakness: dependency injection, Jetpack Compose, Database design
 
-List each team member and:
- * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
- * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
+ - Haonan Gao:
+   - Role: Back-End Developer
+   - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
+   - Strength: JAVA, C, SQL
+   - Weakness: All front-end related
+   
+ - Ziyuan Gu:
+     - Role: Front End Developer
+     - Responsibilities: Will mainly work with Android front end, and do scenario tests.
+     - Strength: Java, Spring, .NET
+     - Weakness: Infra, system code, DevOps
 
-    - Xuhui Chen：
-      - Role: Full Stack/Architect
-      - Responsibilities:
-      1. Design the overall architecture of the app
-      2. Jump into and develop any part of the project 
-      3. Offer help to teammates better understand Android development
-      - Strength: Kotlin, Android, MVVM
-      - Weakness: dependency injection, Jetpack Compose, Database design
+ - Yuelin Jiang:
+   - Role: Front End Developer
+   - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
+   - Strength: Python, C, SQL
+   - Weakness: Java, IOS, React
 
-    - Haonan Gao:
-      - Role: Back-End Developer
-      - Responsibility: Design data classes needed to be passed into different screens; Generate data class instances from the database; Provide use cases for data classes;
-      - Strength: JAVA, C, SQL
-      - Weakness: All front-end related
-      
-    - Ziyuan Gu:
-        - Role: Front End Developer
-        - Responsibilities: Will mainly work with Android front end, and do scenario tests.
-        - Strength: Java, Spring, .NET
-        - Weakness: Infra, system code, DevOps
+ - Wenzhi Lin:
+   - Role: Local Database Designer
+   - Responsibilities:
+    1. Design a database(Room or SQLite) to save complex data.
+    2. Implement database gateways.
+    3. Use SharedPreferences to save simple key-value pairs.
+   - Strength: Python, C/C++, MySQL, Java
+   - Weakness: No experience in any frontend and backend coding, mobile application development
+   
+ - Yaowei(Jason) Liu:
+   - Role: Backend developer
+   - Responsibilities:
+    1. Use data from the database to genrate data provider model.
+    2. Use the data provider model to impelement data usecases.
+   - Strength: Python, Java, SQL
+   - Weakness: limited experience with developing as a team, limited knowledge about andriod sepecific technologies
 
-    - Yuelin Jiang:
-      - Role: Front End Developer
-      - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
-      - Strength: Python, C, SQL
-      - Weakness: Java, IOS, React
-
-    - Tong Su：
-       - Role: Backend/ViewModel Designer
-       - Responsibilities: 
-       1. Design ViewModels for different activities
-       2. Integrate use cases
-       3. Manage UI state changes
-       - Strength: Java, SQL, C
-       - Weakness: Kotlin, Jetpack, Andriod
-
-    - Wenzhi Lin:
-      - Role: Local Database Designer
-      - Responsibilities:
-       1. Design a database(Room or SQLite) to save complex data.
-       2. Implement database gateways.
-       3. Use SharedPreferences to save simple key-value pairs.
-      - Strength: Python, C/C++, MySQL, Java
-      - Weakness: No experience in any frontend and backend coding, mobile application development
-
-
-    - Yaowei Liu:
-      - Role: Backend developer
-      - Responsibilities:
-       1. Use data from the database to genrate data provider model.
-       2. Use the data provider model to impelement data usecases.
-      - Strength: Python, Java, SQL
-      - Weakness: limited experience with developing as a team, limited knowledge about andriod sepecific technologies
+ - Tong Su：
+    - Role: Backend Developer - ViewModel Designer
+    - Responsibilities: 
+    1. Design ViewModels for different activities
+    2. Integrate use cases
+    3. Manage UI state changes
+    - Strength: Java, SQL, C
+    - Weakness: Kotlin, Jetpack, Android
 
 ## Q7: What operational events will you have as a team?
 
@@ -188,7 +172,7 @@ Describe your team's working culture.
 ----
 ## Highlights
 
- 1. During our discussion with our partner, we noticed that the target audience of the application may have difficult access to the internet. Thus we made the decision to make a majority of our application run offline. The only part of the app that requires internet is sending the workshop result to the teacher/insturctor. This design choice will allow people without stable access to the internet to utilize the application without compromising the user experience and help us to reach more target audiences.
+1. During our discussion with our partner, we noticed that the target audience of the application may have difficult access to the internet. Thus we made the decision to make a majority of our application run offline. The only part of the app that requires internet is sending the workshop result to the teacher/insturctor. This design choice will allow people without stable access to the internet to utilize the application without compromising the user experience and help us to reach more target audiences.
 
 2. During our team meeting, we made an agreement on the team structure. Our team will be separated into three small groups, which are front end group, back end group and database group. Each group will contain two to three person. But in the future, group size could change, people could be moved to a different group and the group work scope could also be modified. Therefore we can be flexible enough to maximize our productivity.
 
