@@ -80,7 +80,7 @@ We will update this part once we get response from our partner
 #### Q6: What are the roles & responsibilities on the team?
 
  - Xuhui Chen：
-   - Role: Scrum Master/Full Stack Developer - Architect
+   - Role: Product Manager/Full Stack Developer - Architect
    - Responsibilities:
    1. Design the overall architecture of the app
    2. Jump into and develop any part of the project 
@@ -101,7 +101,7 @@ We will update this part once we get response from our partner
      - Weakness: Infra, system code, DevOps
 
  - Yuelin Jiang:
-   - Role: Front End Developer
+   - Role: Scrum Master/Front End Developer
    - Responsibilities: Will be working on the front-end part of the project, and dealing with front-end features like UI components and Screen Design. 
    - Strength: Python, C, SQL
    - Weakness: Java, IOS, React
@@ -124,7 +124,7 @@ We will update this part once we get response from our partner
    - Weakness: limited experience with developing as a team, limited knowledge about andriod sepecific technologies
 
  - Tong Su：
-    - Role: Backend Developer - ViewModel Designer
+    - Role: Product Owner/Backend Developer - ViewModel Designer
     - Responsibilities: 
     1. Design ViewModels for different activities
     2. Integrate use cases
