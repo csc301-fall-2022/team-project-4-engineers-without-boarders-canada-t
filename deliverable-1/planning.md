@@ -96,7 +96,7 @@ We will update this part once we get response from our partner
    
  - Ziyuan Gu:
      - Role: Front End Developer
-     - Responsibilities: Will mainly work with Android front end, and do scenario tests.
+     - Responsibilities: Will mainly work with Android front end including the page design and implementation; and also responsible for scenario tests.
      - Strength: Java, Spring, .NET
      - Weakness: Infra, system code, DevOps
 
