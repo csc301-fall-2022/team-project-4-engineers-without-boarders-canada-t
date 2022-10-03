@@ -39,17 +39,17 @@ Thirdly, our W4TW mobile app has many forms and can be used even under difficult
 
 ## **Q4: How will you build it?**
 
- * **What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools.**\
+ * **Technology stack**\
    We will be using Android Studio to build an Android App based on Jetpack Compose
    
  * **Language**\
    Kotlin
    
   * **libraries**\
-   Jetpack Compose
+   Jetpack Compose related libraries
 
   * **Deploy the application**\
-  We will use the Android Studio tools to Build APK
+  We will use the Android Studio tools to Build APK, and upload the APK to partner's website and/or Google Play Store
 
   * **Third party applications or APIs**\
    Currently not found any
@@ -58,7 +58,7 @@ Thirdly, our W4TW mobile app has many forms and can be used even under difficult
    We will write unittests on every functions in the model classes and viewModel classes, for the UI classes, we will test them on the Android emulator/physical devices
      
  * **Architecture**\
-   MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to integrate API responses
+   MVVM + clean architecture pattern, we will use Jetpack Compose to make the UI of the app, use view models to handle data from our local database
 <p align="center">
   <img src=./ImageRes/Missing%20Seven%20Architecture.drawio.png alt="plot" width="600"/>
 </p>
