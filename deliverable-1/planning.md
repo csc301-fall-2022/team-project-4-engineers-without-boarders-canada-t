@@ -80,7 +80,7 @@ We will update this part once we get response from our partner
 #### Q6: What are the roles & responsibilities on the team?
 
  - Xuhui Chen：
-   - Role: Product Manager/Full Stack Developer - Architect
+   - Role: Project Manager/Full Stack Developer - Architect
    - Responsibilities:
    1. Design the overall architecture of the app
    2. Jump into and develop any part of the project 
