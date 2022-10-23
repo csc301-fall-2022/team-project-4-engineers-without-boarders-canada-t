@@ -25,10 +25,6 @@ class NavControl constructor(
     fun SetUpNavGraph() {
         val viewModel: TaskViewModel = hiltViewModel()
         viewModel.setupNavControl(this@NavControl)
-        val db = Room.databaseBuilder(applicationContext, MainDatabase::class.java, "main-database").build()
-
-        viewModel.setupDB(db)
-        viewModel.initDbData()
 
 
         NavHost(navController = navController, startDestination = Screen.Home.route) {

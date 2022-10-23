@@ -1,37 +1,34 @@
 package com.example.missingseven.ViewModel
 
-import android.util.Log
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.Room
+import com.example.missingseven.Database.DAO.TaskDao
 import com.example.missingseven.Database.Entity.TaskEntity
 import com.example.missingseven.Database.MainDatabase
 import com.example.missingseven.Navigation.NavControl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
-import kotlin.math.log
+import javax.inject.Inject
 
 @HiltViewModel
-class TaskViewModel: ViewModel() {
+class TaskViewModel @Inject constructor(
+    private val db: MainDatabase,
+    private val taskDao: TaskDao
+): ViewModel() {
     lateinit var navControl: NavControl
-    lateinit var db: MainDatabase
     var currentTaskEntity: TaskEntity? = null
 
     fun setupNavControl(navControl: NavControl){
         this.navControl = navControl
+        initDbData()
     }
 
-    fun setupDB(db:MainDatabase){
-        this.db = db
-    }
 
     fun initDbData(){
         viewModelScope.launch {
             if (setTasks() == 0){
-                val taskDao = db.taskDao()
                     taskDao.insertAll(TaskEntity(1, false), TaskEntity(2, false))
             }
         }
@@ -46,7 +43,7 @@ class TaskViewModel: ViewModel() {
             if (count == 0){
                 taskDao.insertAll(TaskEntity(1, false), TaskEntity(2, false))
             } else {
-                taskDao.getAll().collect(){ task ->
+                taskDao.getAll().collect { task ->
                     currentTaskEntity = task[0]
                 }
             }

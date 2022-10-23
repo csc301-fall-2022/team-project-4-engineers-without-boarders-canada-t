@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.missingseven.Model.TaskType
 import com.example.missingseven.Model.TaskUiState
 
 @Preview
@@ -21,7 +22,7 @@ fun TaskTemplate(
         Text(text = "Hello")
     }
     },
-    taskUiState: TaskUiState = TaskUiState(1, mutableStateOf(false)),
+    taskUiState: TaskUiState = TaskUiState(1, mutableStateOf(false), TaskType.ReadingTask(1, 2)),
     backHandler: () -> Unit = {},
     nextHandler: () -> Unit = {}
 ){
