@@ -1,15 +1,13 @@
 package com.example.missingseven.ViewModel
 
-import android.content.SharedPreferences
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.missingseven.DI.PrefManager
 import com.example.missingseven.Database.DAO.TaskDao
-import com.example.missingseven.Database.Entity.TaskEntity
+import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Database.MainDatabase
-import com.example.missingseven.Model.TaskType
 import com.example.missingseven.Navigation.NavControl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +21,6 @@ class TaskViewModel @Inject constructor(
     private val preferenceManager: PrefManager
 ): ViewModel() {
     lateinit var navControl: NavControl
-    var currentTaskEntity: TaskEntity? = null
     val currentTask: MutableState<TaskType?> = mutableStateOf(null)
 
     fun setupNavControl(navControl: NavControl){
@@ -35,7 +32,7 @@ class TaskViewModel @Inject constructor(
     fun initDbData(){
         viewModelScope.launch {
             if (setTasks() == 0){
-                    taskDao.insertAll(TaskEntity(1, false), TaskEntity(2, false))
+//                    taskDao.insertAll(TaskEntity(1, false), TaskEntity(2, false))
             }
         }
     }
@@ -47,10 +44,10 @@ class TaskViewModel @Inject constructor(
         taskcount.collect {
             count = it
             if (count == 0){
-                taskDao.insertAll(TaskEntity(1, false), TaskEntity(2, false))
+//                taskDao.insertAll(TaskEntity(1, false), TaskEntity(2, false))
             } else {
                 taskDao.getAll().collect { task ->
-                    currentTaskEntity = task[0]
+//                    currentTaskEntity = task[0]
                 }
             }
         }

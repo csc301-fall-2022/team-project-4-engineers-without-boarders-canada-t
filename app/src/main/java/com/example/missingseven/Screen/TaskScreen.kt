@@ -5,7 +5,7 @@ import com.example.missingseven.Component.MultipleChoiceTaskBody
 import com.example.missingseven.Component.ReadingTaskBody
 import com.example.missingseven.Component.SlidingScaleTaskBody
 import com.example.missingseven.Component.TaskTemplate
-import com.example.missingseven.Model.TaskType
+import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.ViewModel.TaskViewModel
 
 @Composable

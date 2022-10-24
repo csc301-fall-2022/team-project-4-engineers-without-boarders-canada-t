@@ -74,8 +74,9 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.2.1'
 
     // To use Kotlin annotation processing tool (kapt)
-//    kapt("androidx.room:room-compiler:$room_version")
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+    implementation 'com.google.code.gson:gson:2.8.9'
 }
