@@ -1,24 +1,17 @@
 package com.example.missingseven.Navigation
 
-import android.content.Context
 import android.os.Parcelable
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.room.Room
-import com.example.missingseven.Database.MainDatabase
 import com.example.missingseven.Screen.HomeScreen
 import com.example.missingseven.Screen.TaskScreen
 import com.example.missingseven.ViewModel.TaskViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.parcelize.Parcelize
 
 class NavControl constructor(
     private val navController: NavHostController,
-    private val applicationContext: Context
 ) {
 
     @Composable
