@@ -34,7 +34,7 @@ class NavControl constructor(
             }
 
             composable(route = Screen.Task.route){
-                TaskScreen(viewModel, viewModel.currentTaskEntity)
+                TaskScreen(viewModel)
             }
         }
     }
