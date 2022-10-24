@@ -1,11 +1,15 @@
 package com.example.missingseven.ViewModel
 
 import android.content.SharedPreferences
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.missingseven.DI.PrefManager
 import com.example.missingseven.Database.DAO.TaskDao
 import com.example.missingseven.Database.Entity.TaskEntity
 import com.example.missingseven.Database.MainDatabase
+import com.example.missingseven.Model.TaskType
 import com.example.missingseven.Navigation.NavControl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -15,10 +19,12 @@ import javax.inject.Inject
 @HiltViewModel
 class TaskViewModel @Inject constructor(
     private val db: MainDatabase,
-    private val taskDao: TaskDao
+    private val taskDao: TaskDao,
+    private val preferenceManager: PrefManager
 ): ViewModel() {
     lateinit var navControl: NavControl
     var currentTaskEntity: TaskEntity? = null
+    val currentTask: MutableState<TaskType?> = mutableStateOf(null)
 
     fun setupNavControl(navControl: NavControl){
         this.navControl = navControl

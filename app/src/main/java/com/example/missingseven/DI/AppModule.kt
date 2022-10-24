@@ -2,8 +2,6 @@ package com.example.missingseven.DI
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.room.Room
-import com.example.missingseven.Database.MainDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,6 +9,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/***
+ * Hilt Dependency Inject
+ * module object for app level dependencies
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
