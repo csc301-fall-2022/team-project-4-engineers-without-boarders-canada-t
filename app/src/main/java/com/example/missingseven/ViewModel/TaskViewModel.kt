@@ -55,4 +55,8 @@ class TaskViewModel @Inject constructor(
             allFetched.value = true
         }
     }
+
+    fun sortTasks(list: List<TaskType>): List<TaskType> {
+        return list.sortedBy { it.tid }
+    }
 }
