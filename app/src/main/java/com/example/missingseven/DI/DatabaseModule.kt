@@ -20,7 +20,7 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Provides
-    fun provideLogDao(database: MainDatabase): TaskDao {
+    fun provideTaskDao(database: MainDatabase): TaskDao {
         return database.taskDao()
     }
 

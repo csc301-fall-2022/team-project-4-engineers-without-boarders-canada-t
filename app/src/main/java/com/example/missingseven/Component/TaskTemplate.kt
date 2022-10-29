@@ -23,7 +23,7 @@ fun TaskTemplate(
         Text(text = "Hello")
     }
     },
-    taskUiState: TaskUiState = TaskUiState(1, mutableStateOf(false), TaskType.ReadingTask(1, "HI", "hi" )),
+    taskUiState: TaskUiState = TaskUiState(1, mutableStateOf(false), TaskType.ReadingTask(1, false,"HI", "hi" )),
     backHandler: () -> Unit = {},
     nextHandler: () -> Unit = {}
 ){
