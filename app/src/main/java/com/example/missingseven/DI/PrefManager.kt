@@ -8,7 +8,7 @@ class PrefManager @Inject constructor(
 ){
     private val editor = preferences.edit()
 
-    fun getInt(pair: IntPair.CurrTask) = preferences.getInt(pair.key, pair.default)
+    fun getInt(pair: IntPair) = preferences.getInt(pair.key, pair.default)
 
     fun putInt(key: String, value: Int){
         editor.putInt(key, value).apply()
