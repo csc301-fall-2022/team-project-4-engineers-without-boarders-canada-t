@@ -4,19 +4,21 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-sealed class TaskType(tid: Int, completed: Boolean) {
+sealed class TaskType(
+    open val tid: Int,
+    open var completed: Boolean) {
     @Entity
     data class ReadingTask(
-        @PrimaryKey val tid: Int,
-        @ColumnInfo var completed: Boolean,
+        @PrimaryKey override val tid: Int,
+        @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "header") val header: String,
         @ColumnInfo(name = "content") val content: String
     ) : TaskType(tid, completed)
 
     @Entity
     data class MultipleChoiceTask(
-        @PrimaryKey val tid: Int,
-        @ColumnInfo var completed: Boolean,
+        @PrimaryKey override val tid: Int,
+        @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "header") val header: String,
         @ColumnInfo(name = "options")val options: List<String>,
         @ColumnInfo(name = "correctIndex")val correctIndex: Int,
@@ -25,8 +27,8 @@ sealed class TaskType(tid: Int, completed: Boolean) {
 
     @Entity
     data class SlidingScaleTask(
-        @PrimaryKey val tid: Int,
-        @ColumnInfo var completed: Boolean,
+        @PrimaryKey override val tid: Int,
+        @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "start") val start: Int,
         @ColumnInfo(name = "end") val end: Int,
         @ColumnInfo(name = "scale") var scale: Int,
