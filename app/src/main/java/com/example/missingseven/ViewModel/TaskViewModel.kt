@@ -28,7 +28,6 @@ class TaskViewModel @Inject constructor(
         initDbData()
     }
 
-
     fun initDbData(){
         viewModelScope.launch {
             if (setTasks() == 0){
@@ -39,7 +38,7 @@ class TaskViewModel @Inject constructor(
 
     suspend fun setTasks(): Int{
         val taskDao = db.taskDao()
-        val taskcount: Flow<Int> = taskDao.getCount()
+        val taskCount: Flow<Int> = taskDao.getCount()
         var count = 0
         taskcount.collect {
             count = it
@@ -52,5 +51,9 @@ class TaskViewModel @Inject constructor(
             }
         }
         return count
+    }
+
+    fun sortTasks(list: List<TaskType>): List<TaskType> {
+        return list.sortedBy { it.tid }
     }
 }
