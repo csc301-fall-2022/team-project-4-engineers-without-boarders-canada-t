@@ -5,14 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.missingseven.DI.PrefManager
-import com.example.missingseven.Database.DAO.TaskDao
 import com.example.missingseven.Database.Entity.TaskType
-import com.example.missingseven.Database.MainDatabase
 import com.example.missingseven.Database.Repository.TaskRepository
 import com.example.missingseven.Navigation.NavControl
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
