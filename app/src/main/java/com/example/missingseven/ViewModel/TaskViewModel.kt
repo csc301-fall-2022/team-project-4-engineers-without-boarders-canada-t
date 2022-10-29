@@ -4,6 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.missingseven.DI.IntPair
 import com.example.missingseven.DI.PrefManager
 import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Database.Repository.TaskRepository
@@ -18,7 +19,7 @@ class TaskViewModel @Inject constructor(
     private val preferenceManager: PrefManager
 ): ViewModel() {
     lateinit var navControl: NavControl
-    val currentTask: MutableState<TaskType?> = mutableStateOf(null)
+    var currentTask: MutableState<TaskType?> = mutableStateOf(null)
     private var taskListCount = 0
     val allFetched = mutableStateOf(false)
     private val allTasks: MutableList<TaskType> = mutableListOf()
@@ -58,5 +59,19 @@ class TaskViewModel @Inject constructor(
 
     fun sortTasks(list: List<TaskType>): List<TaskType> {
         return list.sortedBy { it.tid }
+    }
+
+    fun checkSharedPreference(){
+        val number = preferenceManager.getInt(IntPair.CurrTask)
+        if (number == -1){
+            currentTask.value = allTasks[0]
+        } else {
+            for (task in allTasks){
+                if (task.tid == number){
+                    currentTask.value = task
+                    return
+                }
+        }
+        }
     }
 }
