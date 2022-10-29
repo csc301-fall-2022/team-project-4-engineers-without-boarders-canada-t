@@ -13,6 +13,15 @@ interface TaskDao {
     @Query("SELECT * FROM readingtask")
     fun getAll(): Flow<List<TaskType.ReadingTask>>
 
+    @Query("SELECT * FROM readingtask")
+    fun getAllReadingTasks(): Flow<List<TaskType.ReadingTask>>
+
+    @Query("SELECT * FROM multiplechoicetask")
+    fun getAllMultipleChoiceTasks(): Flow<List<TaskType.MultipleChoiceTask>>
+
+    @Query("SELECT * FROM slidingscaletask")
+    fun getAllSlidingScaleTasks(): Flow<List<TaskType.SlidingScaleTask>>
+
     @Insert
     suspend fun insertAll(vararg tasks: TaskType.ReadingTask)
 
