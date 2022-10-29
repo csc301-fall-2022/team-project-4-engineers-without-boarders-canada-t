@@ -19,7 +19,7 @@ class TaskViewModel @Inject constructor(
     private val preferenceManager: PrefManager
 ): ViewModel() {
     lateinit var navControl: NavControl
-    var currentTask: MutableState<TaskType?> = mutableStateOf(null)
+    var currentTaskId = mutableStateOf(-1)
     private var taskListCount = 0
     val allFetched = mutableStateOf(false)
     private val allTasks: MutableList<TaskType> = mutableListOf()
@@ -61,17 +61,23 @@ class TaskViewModel @Inject constructor(
         return list.sortedBy { it.tid }
     }
 
-    fun checkSharedPreference(){
+    fun checkSharedPreference() {
         val number = preferenceManager.getInt(IntPair.CurrTask)
         if (number == -1){
-            currentTask.value = allTasks[0]
+            currentTaskId.value  = allTasks[0].tid
         } else {
             for (task in allTasks){
                 if (task.tid == number){
-                    currentTask.value = task
-                    return
+                    currentTaskId.value  = task.tid
                 }
         }
         }
     }
+
+    fun getCurrentTask(index: Int): TaskType {
+        for (task in allTasks){
+            if (task.tid ==currentTaskId.value){
+                return task
+            }
+    }}
 }
