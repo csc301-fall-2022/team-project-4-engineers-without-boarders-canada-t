@@ -2,6 +2,8 @@ package com.example.missingseven.DI
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.missingseven.Database.DataInitializer
+import com.example.missingseven.Database.PrefManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +28,11 @@ object AppModule {
     @Singleton
     @Provides
     fun providePrefManager(preferences: SharedPreferences) = PrefManager(preferences)
+
+    @Singleton
+    @Provides
+    fun provideDataInitializer(@ApplicationContext context: Context): DataInitializer {
+        return DataInitializer(context)
+    }
 
 }
