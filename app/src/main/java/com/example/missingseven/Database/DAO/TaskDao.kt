@@ -10,8 +10,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface TaskDao {
 
-    @Query("SELECT * FROM readingtask")
-    fun getAll(): Flow<List<TaskType.ReadingTask>>
 
     @Query("SELECT * FROM readingtask")
     fun getAllReadingTasks(): Flow<List<TaskType.ReadingTask>>
@@ -23,7 +21,13 @@ interface TaskDao {
     fun getAllSlidingScaleTasks(): Flow<List<TaskType.SlidingScaleTask>>
 
     @Insert
-    suspend fun insertAll(vararg tasks: TaskType.ReadingTask)
+    suspend fun insertAllReadingTasks(tasks: List<TaskType.ReadingTask>)
+
+    @Insert
+    suspend fun insertAllMultipleChoiceTasks(tasks: List<TaskType.MultipleChoiceTask>)
+
+    @Insert
+    suspend fun insertAllSlidingScaleTasks(tasks: List<TaskType.SlidingScaleTask>)
 
     @Delete
     fun delete(task: TaskType.ReadingTask)
