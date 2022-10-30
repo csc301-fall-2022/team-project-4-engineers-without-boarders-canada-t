@@ -16,7 +16,7 @@ fun TaskScreen(
         content = {
             when (viewModel.getCurrentTask()){
                 is TaskUiState.ReadingTask -> {
-                    ReadingTaskBody(viewModel.getCurrentTask() as TaskUiState.ReadingTask)
+                    ReadingTaskBody({}, viewModel.getCurrentTask() as TaskUiState.ReadingTask)
                 }
                 is TaskUiState.MultipleChoiceTask -> {
                     MultipleChoiceTaskBody(viewModel.getCurrentTask() as TaskUiState.MultipleChoiceTask)
