@@ -17,7 +17,7 @@ class NavControl constructor(
     @Composable
     fun SetUpNavGraph() {
         val viewModel: TaskViewModel = hiltViewModel()
-        viewModel.setupNavControl(this@NavControl)
+        viewModel.setup(this@NavControl)
 
 
         NavHost(navController = navController, startDestination = Screen.Home.route) {

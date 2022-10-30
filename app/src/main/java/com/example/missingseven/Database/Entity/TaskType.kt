@@ -35,4 +35,8 @@ sealed class TaskType(
         @ColumnInfo(name = "correct") val correct: Int,
         @ColumnInfo(name = "current") var current: Int
     ): TaskType(tid, completed)
+
+    companion object {
+        const val TASK_TYPE_NUM = 3
+    }
 }
