@@ -14,12 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import com.example.missingseven.Database.Entity.TaskType
 
 @Preview
 @Composable
 fun ReadingTaskBody(
-    completeHandler: () -> Unit = {},
-    task: TaskUiState.ReadingTask = TaskUiState.ReadingTask(1, mutableStateOf(false), "Test Reading Title",
+    completeHandler: (Boolean) -> Unit = {},
+    task: TaskType.ReadingTask = TaskType.ReadingTask(1, false, "Test Reading Title",
         "The @Preview annotation lets you" +
                 "package com.example.missingseven.Component\n" +
                 "\n" +
@@ -59,8 +60,10 @@ fun ReadingTaskBody(
 //        }
         Row() {
             Checkbox(
-                checked = false,
-                onCheckedChange = { checkedState.value = it },
+                checked = task.completed,
+                onCheckedChange = {
+                    completeHandler(it)
+                                  },
                 enabled = true
             )
             Text(
