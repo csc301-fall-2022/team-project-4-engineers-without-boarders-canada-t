@@ -181,7 +181,18 @@ class TaskViewModel @Inject constructor(
         }
     }
 
-    fun slidingScaleTaskChangeHandler(current: Int){
-
+    fun slidingScaleTaskChangeHandler(cur: Int){
+        (getCurrentTask() as TaskUiState.SlidingScaleTask).apply {
+            current.value = cur
+            completed.value = (correct - offset) <=  cur && cur <= (correct + offset)
+            if (completed.value){
+            getCurrentTaskType()?.let { task ->
+                task.completed = completed.value
+                viewModelScope.launch {
+                    taskRepository.updateSlidingScaleTask(task as TaskType.SlidingScaleTask)
+                }
+            }
+            }
+        }
     }
 }
