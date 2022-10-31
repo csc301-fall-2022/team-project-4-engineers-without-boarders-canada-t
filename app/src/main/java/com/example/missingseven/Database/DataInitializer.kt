@@ -14,7 +14,7 @@ class DataInitializer constructor(
 
     fun getAllMultipleChoiceTasks(): List<TaskType.MultipleChoiceTask> = listOf(
         TaskType.MultipleChoiceTask(
-            2, false, context.getString(R.string.mc_task2_header),
+            3, false, context.getString(R.string.mc_task2_header),
             listOf(
                 context.getString(R.string.mc_task2_option0),
                 context.getString(R.string.mc_task2_option1),

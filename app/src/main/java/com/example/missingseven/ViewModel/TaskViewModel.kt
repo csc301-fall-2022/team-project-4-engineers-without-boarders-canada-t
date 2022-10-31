@@ -91,19 +91,17 @@ class TaskViewModel @Inject constructor(
 
 
     private fun updateTasks(list: List<TaskType>){
-        allTasks.addAll(list)
-        taskListCount += 1
-        if (taskListCount == TaskType.TASK_TYPE_NUM){
-            allFetched.value = true
-            sortTasks(allTasks)
-            setTaskUiStates()
-            insertCompleted.removeObserver(observer)
-            checkSharedPreference()
+        if (taskListCount != TaskType.TASK_TYPE_NUM){
+            allTasks.addAll(list)
+            taskListCount += 1
+            if (taskListCount == TaskType.TASK_TYPE_NUM){
+                allFetched.value = true
+                allTasks.sortBy { it.tid }
+                setTaskUiStates()
+                insertCompleted.removeObserver(observer)
+                checkSharedPreference()
+            }
         }
-    }
-
-    private fun sortTasks(list: List<TaskType>): List<TaskType> {
-        return list.sortedBy { it.tid }
     }
 
     private fun checkSharedPreference() {
@@ -178,20 +176,28 @@ class TaskViewModel @Inject constructor(
         (getCurrentTask() as TaskUiState.MultipleChoiceTask).apply {
             studentAnswerIndex.value = index
             completed.value = index == correctIndex
+            (getCurrentTaskType() as TaskType.MultipleChoiceTask).let { task ->
+                task.studentAnswerIndex = index
+                task.completed = completed.value
+                viewModelScope.launch {
+                    taskRepository.updateMultipleChoiceTask(task)
+                }
+            }
         }
     }
 
     fun slidingScaleTaskChangeHandler(cur: Int){
         (getCurrentTask() as TaskUiState.SlidingScaleTask).apply {
+            val prevCompleted = completed.value
             current.value = cur
             completed.value = (correct - offset) <=  cur && cur <= (correct + offset)
-            if (completed.value){
-            getCurrentTaskType()?.let { task ->
+            if (completed.value != prevCompleted){
+                (getCurrentTaskType() as TaskType.SlidingScaleTask).let { task ->
+                task.current = cur
                 task.completed = completed.value
                 viewModelScope.launch {
-                    taskRepository.updateSlidingScaleTask(task as TaskType.SlidingScaleTask)
+                    taskRepository.updateSlidingScaleTask(task) }
                 }
-            }
             }
         }
     }

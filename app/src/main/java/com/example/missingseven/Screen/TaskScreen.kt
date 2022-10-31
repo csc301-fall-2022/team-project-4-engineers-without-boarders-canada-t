@@ -24,7 +24,7 @@ fun TaskScreen(
                         viewModel.getCurrentTask() as TaskUiState.MultipleChoiceTask)
                 }
                 is TaskUiState.SlidingScaleTask -> {
-                    SlidingScaleTaskBody({},
+                    SlidingScaleTaskBody({curr -> viewModel.slidingScaleTaskChangeHandler(curr)},
                         viewModel.getCurrentTask() as TaskUiState.SlidingScaleTask)
                 }
                 else -> {}
