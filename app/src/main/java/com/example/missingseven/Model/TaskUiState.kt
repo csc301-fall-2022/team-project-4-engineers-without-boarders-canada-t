@@ -28,9 +28,13 @@ sealed class TaskUiState(
         val content: String,
         val start: Int,
         val end: Int,
-        val scale: Int,
+        val offset: Int,
+        val unit: String,
         val correct: Int,
-        val current: MutableState<Int>
+        val current: MutableState<Int>,
+        val tooSmallInfo: String,
+        val tooLargeInfo: String,
+        val correctInfo: String,
     ): TaskUiState(tid, completed)
 
 

@@ -36,9 +36,13 @@ class TaskConverter {
                             content,
                             start,
                             end,
-                            scale,
+                            offset,
+                            unit,
                             correct,
-                            mutableStateOf(current)
+                            mutableStateOf(current),
+                            tooSmallInfo,
+                            tooLargeInfo,
+                            correctInfo
                         )
                     }
                     else -> null

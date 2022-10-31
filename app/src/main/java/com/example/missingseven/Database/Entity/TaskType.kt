@@ -32,9 +32,13 @@ sealed class TaskType(
         @ColumnInfo(name = "content") val content: String,
         @ColumnInfo(name = "start") val start: Int,
         @ColumnInfo(name = "end") val end: Int,
-        @ColumnInfo(name = "scale") var scale: Int,
+        @ColumnInfo(name = "offset") var offset: Int,
+        @ColumnInfo(name = "unit") val unit: String,
         @ColumnInfo(name = "correct") val correct: Int,
-        @ColumnInfo(name = "current") var current: Int
+        @ColumnInfo(name = "current") var current: Int,
+        @ColumnInfo(name = "too_small_info") val tooSmallInfo: String,
+        @ColumnInfo(name = "too_large_info") val tooLargeInfo: String,
+        @ColumnInfo(name = "correct_info") val correctInfo: String,
     ): TaskType(tid, completed)
 
     companion object {

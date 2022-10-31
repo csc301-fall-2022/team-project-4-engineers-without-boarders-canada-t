@@ -17,6 +17,12 @@ class DataInitializer constructor(
     )
 
     fun getAllSlidingScaleTasks(): List<TaskType.SlidingScaleTask> = listOf(
-
+        TaskType.SlidingScaleTask(
+            2, false, context.getString(R.string.task2_header), 0, 8000,
+            50,"M", 800, 4000,
+            context.getString(R.string.tooShort),
+            context.getString(R.string.tooLarge),
+            context.getString(R.string.task2_correctInfo),
+        )
     )
 }

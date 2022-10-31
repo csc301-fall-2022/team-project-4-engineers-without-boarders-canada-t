@@ -10,28 +10,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Model.TaskUiState
 
-@Preview
 @Composable
 fun SlidingScaleTaskBody(
     completeHandler: (Int) -> Unit = {},
-    task: TaskUiState.SlidingScaleTask = TaskUiState.SlidingScaleTask(2,
-        mutableStateOf(false),
-        "How many days are there in a year?",
-        100,
-        500,
-        10,
-        365,
-        mutableStateOf(-1))
+    task: TaskUiState.SlidingScaleTask
 ){
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxSize()
             .padding(10.dp)
     ){
         Text(
@@ -40,17 +30,24 @@ fun SlidingScaleTaskBody(
             textAlign = TextAlign.Center
         )
 
-        var sliderPosition by remember { mutableStateOf(task.start) }
         Text(
-            text = sliderPosition.toString(),
-            modifier = Modifier.paddingFromBaseline(top =60.dp)
+            text = displayedText(task),
+            modifier = Modifier.padding(top =60.dp)
         )
-        Slider(value = sliderPosition.toFloat(),
-            onValueChange = { sliderPosition = it.toInt() },
+        Slider(value = task.current.value.toFloat(),
+            onValueChange = { task.current.value = it.toInt() },
             valueRange = task.start.toFloat()..task.end.toFloat(),
-            steps = task.scale,
-            modifier = Modifier.paddingFromBaseline(top =5.dp)
+            modifier = Modifier.padding(top =5.dp)
         )
+    }
+}
 
+fun displayedText(task: TaskUiState.SlidingScaleTask) = task.current.value.toString() + task.unit + ": "+ task.current.value.run {
+    if (this < task.correct - task.offset){
+        task.tooSmallInfo
+    } else if (this > task.correct + task.offset){
+        task.tooLargeInfo
+    } else {
+        task.correctInfo
     }
 }
