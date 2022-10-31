@@ -180,4 +180,8 @@ class TaskViewModel @Inject constructor(
             completed.value = index == correctIndex
         }
     }
+
+    fun slidingScaleTaskChangeHandler(current: Int){
+
+    }
 }
