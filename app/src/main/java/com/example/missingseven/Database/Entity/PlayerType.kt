@@ -10,9 +10,4 @@ data class PlayerType(
     @PrimaryKey val pid: Int,
     @ColumnInfo val cid: Int,
     @ColumnInfo var curr_money: Int
-) {
-
-    companion object {
-        const val PLAYER_TYPE_NUM = 4
-    }
-}
+)

@@ -10,8 +10,4 @@ data class CountryType(
     @ColumnInfo val name: String,
     @ColumnInfo val money: Int,
     @ColumnInfo val instruction: String
-){
-    companion object {
-        const val COUNTRY_TYPE_NUM = 6
-    }
-}
+)

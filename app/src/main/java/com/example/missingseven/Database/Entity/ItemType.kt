@@ -9,8 +9,4 @@ data class ItemType(
     @ColumnInfo var quantity: Int,
     @ColumnInfo var price: Int
 
-){
-    companion object {
-        const val ITEM_TYPE_NUM = 5
-    }
-}
+)
