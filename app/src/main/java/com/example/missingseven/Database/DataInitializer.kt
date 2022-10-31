@@ -23,15 +23,15 @@ class DataInitializer constructor(
 
     )
 
-    fun getAllCountries(): List<CountryType.Country> = listOf(
+    fun getAllCountries(): List<CountryType> = listOf(
 
     )
 
-    fun getAllItem(): List<ItemType.Item> = listOf(
+    fun getAllItem(): List<ItemType> = listOf(
 
     )
 
-    fun getAllPlayer(): List<PlayerType.Player> = listOf(
+    fun getAllPlayer(): List<PlayerType> = listOf(
 
     )
 

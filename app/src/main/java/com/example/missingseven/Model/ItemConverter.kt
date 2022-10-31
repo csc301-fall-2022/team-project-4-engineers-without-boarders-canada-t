@@ -7,8 +7,8 @@ class ItemConverter {
     companion object {
         fun databaseEntityToUiState(itemType: ItemType?){
             return itemType.run {
-                if (this is ItemType.Item) {
-                    ItemUiState.Item(
+                if (this is ItemType) {
+                    ItemUiState(
                         iid,
                         quantity,
                         price

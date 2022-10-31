@@ -7,8 +7,8 @@ class PlayerConverter {
     companion object {
         fun databaseEntityToUiState(playerType: PlayerType?) {
             return playerType.run {
-                if(this is PlayerType.Player) {
-                    PlayerUiState.Player(
+                if(this is PlayerType) {
+                    PlayerUiState(
                         cid,
                         pid,
                         curr_money
