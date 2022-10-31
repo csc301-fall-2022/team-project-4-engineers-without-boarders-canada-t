@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.missingseven.Database.Entity.TaskType
 import kotlinx.coroutines.flow.Flow
 
@@ -34,4 +35,13 @@ interface TaskDao {
 
     @Query("SELECT COUNT(*) FROM readingtask")
     fun getCount(): Flow<Int>
+
+    @Update
+    suspend fun updateReadingTask(task: TaskType.ReadingTask)
+
+    @Update
+    suspend fun updateMultipleChoiceTask(task: TaskType.MultipleChoiceTask)
+
+    @Update
+    suspend fun updateSlidingScaleTasks(task: TaskType.SlidingScaleTask)
 }
