@@ -28,7 +28,7 @@ fun TaskTemplate(
         .padding(10.dp)) {
         content()
         Spacer(modifier = Modifier.weight(1f))
-        Row {
+        Row() {
             Button(onClick =  backHandler ) {
                 Text(text = "Back")
             }
