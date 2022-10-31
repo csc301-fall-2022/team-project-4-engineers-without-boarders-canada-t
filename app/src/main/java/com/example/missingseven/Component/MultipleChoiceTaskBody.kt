@@ -10,6 +10,8 @@ import androidx.compose.material.Checkbox
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,16 +20,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.missingseven.Database.Entity.TaskType
+import com.example.missingseven.Model.TaskUiState
 
 @Preview
 @Composable
 @LazyScopeMarker
 fun MultipleChoiceTaskBody(
     completeHandler: (Int) -> Unit = {},
-    task: TaskType.MultipleChoiceTask = TaskType.MultipleChoiceTask(1, false,
-    "When was the book “To Kill a Mockingbird” by Harper Lee published?",
+    task: TaskUiState.MultipleChoiceTask = TaskUiState.MultipleChoiceTask(1,
+        mutableStateOf(false),
+"When was the book “To Kill a Mockingbird” by Harper Lee published?",
         listOf<String>("1950", "1960", "1970", "1980"),
-    1, 0)
+        1,
+        mutableStateOf(-1))
 ) {
     val index = 0;
     Column(

@@ -20,7 +20,9 @@ import com.example.missingseven.Database.Entity.TaskType
 @Composable
 fun ReadingTaskBody(
     completeHandler: (Boolean) -> Unit = {},
-    task: TaskType.ReadingTask = TaskType.ReadingTask(1, false, "Test Reading Title",
+    task: TaskUiState.ReadingTask = TaskUiState.ReadingTask(1,
+                mutableStateOf(false),
+        "Test Reading Title",
         "The @Preview annotation lets you" +
                 "package com.example.missingseven.Component\n" +
                 "\n" +
@@ -60,7 +62,7 @@ fun ReadingTaskBody(
 //        }
         Row() {
             Checkbox(
-                checked = task.completed,
+                checked = task.completed.value,
                 onCheckedChange = {
                     completeHandler(it)
                                   },
