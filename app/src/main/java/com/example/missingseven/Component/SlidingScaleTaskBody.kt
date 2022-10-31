@@ -20,7 +20,7 @@ fun SlidingScaleTaskBody(
     task: TaskUiState.SlidingScaleTask = TaskUiState.SlidingScaleTask(2,
         mutableStateOf(false),
         "How many days are there in a year?",
-        0,
+        100,
         500,
         10,
         365,
@@ -47,7 +47,8 @@ fun SlidingScaleTaskBody(
         )
         Slider(value = sliderPosition.toFloat(),
             onValueChange = { sliderPosition = it.toInt() },
-            valueRange = 0f..task.end.toFloat(),
+            valueRange = task.start.toFloat()..task.end.toFloat(),
+            steps = task.scale,
             modifier = Modifier.paddingFromBaseline(top =5.dp)
         )
 
