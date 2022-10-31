@@ -2,6 +2,7 @@ package com.example.missingseven.DI
 
 import android.content.Context
 import androidx.room.Room
+import com.example.missingseven.Database.DAO.InstructionDao
 import com.example.missingseven.Database.DAO.TaskDao
 import com.example.missingseven.Database.MainDatabase
 import dagger.Module
@@ -22,6 +23,11 @@ object DatabaseModule {
     @Provides
     fun provideTaskDao(database: MainDatabase): TaskDao {
         return database.taskDao()
+    }
+
+    @Provides
+    fun provideInstructionDao(database: MainDatabase): InstructionDao {
+        return database.instructionDao()
     }
 
     @Provides

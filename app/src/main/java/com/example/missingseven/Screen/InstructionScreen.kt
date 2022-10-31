@@ -1,11 +1,21 @@
 package com.example.missingseven.Screen
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import com.example.missingseven.Component.*
+import com.example.missingseven.Model.InstructionUiState
+import com.example.missingseven.ViewModel.InstructionViewModel
 
 @Composable
 fun InstructionScreen(
-    instruction: String
+    viewModel: InstructionViewModel
 ){
-    Text(text = instruction)
+    InstructionTemplate(
+        content = {
+            ReadingInstructionBody({}, viewModel.getCurrent() as InstructionUiState.ReadingInstruction)
+        },
+        viewModel.getPosition(),
+        viewModel.getSize(),
+        nextHandler = {viewModel.onNextClicked()},
+        backHandler = {viewModel.onBackClicked()}
+    )
 }

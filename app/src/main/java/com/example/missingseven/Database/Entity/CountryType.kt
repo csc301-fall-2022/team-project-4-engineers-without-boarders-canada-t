@@ -1,13 +1,23 @@
 package com.example.missingseven.Database.Entity
 
 import androidx.room.ColumnInfo
-import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-data class CountryType(
-    @PrimaryKey val cid: Int,
-    @ColumnInfo val name: String,
-    @ColumnInfo val money: Int,
-    @ColumnInfo val instruction: String
-)
+sealed class CountryType(
+    open val cid: Int,
+    open val name: String,
+    open val money: Int,
+    open val instruction: String
+) {
+    data class Country(
+        @PrimaryKey override val cid: Int,
+        @ColumnInfo override val name: String,
+        @ColumnInfo override val money: Int,
+        @ColumnInfo override val instruction: String
+    ) : CountryType(cid, name, money, instruction)
+
+    companion object {
+        const val COUNTRY_TYPE_NUM = 6
+    }
+
+}

@@ -23,6 +23,8 @@ class PrefManager @Inject constructor(
     companion object {
         const val CURR_TASK_ID = "FLAG_CURR_TASK_ID"
         const val DATA_INITIALIZED = "FLAG_DATA_INITIALIZED"
+        const val CURR_INSTRUCTION_ID = "FLAG_CURR_INSTRUCTION_ID"
+        const val DATA_INITIALIZED_INSTRUCTION = "FLAG_DATA_INITIALIZED_INSTRUCTION"
     }
 }
 
@@ -31,6 +33,7 @@ sealed class IntPair(
     val default: Int
 ) {
     object CurrTask: IntPair(PrefManager.CURR_TASK_ID, -1)
+    object CurrInstruction: IntPair(PrefManager.CURR_INSTRUCTION_ID, -1)
 }
 
 sealed class BooleanPair(
@@ -38,4 +41,5 @@ sealed class BooleanPair(
     val default: Boolean
 ) {
     object DataInitialized: BooleanPair(PrefManager.DATA_INITIALIZED, false)
+    object DataInitializedInstruction: BooleanPair(PrefManager.DATA_INITIALIZED_INSTRUCTION, false)
 }

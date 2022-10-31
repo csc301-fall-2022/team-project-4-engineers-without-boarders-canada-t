@@ -7,7 +7,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.missingseven.Screen.HomeScreen
+import com.example.missingseven.Screen.InstructionScreen
 import com.example.missingseven.Screen.TaskScreen
+import com.example.missingseven.ViewModel.InstructionViewModel
 import com.example.missingseven.ViewModel.TaskViewModel
 
 class NavControl constructor(
@@ -16,18 +18,25 @@ class NavControl constructor(
 
     @Composable
     fun SetUpNavGraph() {
-        val viewModel: TaskViewModel = hiltViewModel()
-        viewModel.setup(this@NavControl)
+        val taskModel: TaskViewModel = hiltViewModel()
+        taskModel.setup(this@NavControl)
 
+
+        val instructionModel: InstructionViewModel = hiltViewModel()
+        instructionModel.setup(this@NavControl)
 
         NavHost(navController = navController, startDestination = Screen.Home.route) {
 
             composable(route = Screen.Home.route){
-                HomeScreen(viewModel)
+                HomeScreen(taskModel, instructionModel)
             }
 
             composable(route = Screen.Task.route){
-                TaskScreen(viewModel)
+                TaskScreen(taskModel)
+            }
+
+            composable(route = Screen.Instruction.route){
+                InstructionScreen(instructionModel)
             }
         }
     }
@@ -58,6 +67,7 @@ class NavControl constructor(
 sealed class Screen(val route: String) {
     object Home: Screen("home")
     object Task: Screen("task")
+    object Instruction: Screen("instruction")
 
 }
 

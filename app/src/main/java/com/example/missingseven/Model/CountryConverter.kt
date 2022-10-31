@@ -8,8 +8,8 @@ class CountryConverter {
     companion object {
         fun databaseEntityToUiState(countryType: CountryType?) {
             return countryType.run {
-                if (this is CountryType) {
-                    CountryUiState(
+                if (this is CountryType.Country) {
+                    CountryUiState.Country(
                         cid,
                         name,
                         money,

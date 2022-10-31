@@ -23,7 +23,7 @@ class TaskViewModel @Inject constructor(
     private val taskRepository: TaskRepository,
     private val preferenceManager: PrefManager,
     private val dataInitializer: DataInitializer
-): ViewModel() {
+) : ViewModel() {
     lateinit var navControl: NavControl
     private val currentTaskId = mutableStateOf(-1)
     private var taskListCount = 0
@@ -33,45 +33,45 @@ class TaskViewModel @Inject constructor(
     private val allUiStates: MutableList<TaskUiState> = mutableListOf()
 
     private val observer = Observer<Int> {
-        if (it == TaskType.TASK_TYPE_NUM){
+        if (it == TaskType.TASK_TYPE_NUM) {
             preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, true)
             initTasks()
         }
     }
 
-    fun setup(navControl: NavControl){
+    fun setup(navControl: NavControl) {
         this.navControl = navControl
         insertCompleted.observeForever(observer)
-        if (preferenceManager.getBoolean(BooleanPair.DataInitialized)){
+        if (preferenceManager.getBoolean(BooleanPair.DataInitialized)) {
             insertCompleted.value = TaskType.TASK_TYPE_NUM
         } else {
             insertTasks()
         }
     }
 
-    private fun insertTasks(){
+    private fun insertTasks() {
         viewModelScope.launch {
-            taskRepository.insertAllReadingTasks(dataInitializer.getAllReadingTasks()){
+            taskRepository.insertAllReadingTasks(dataInitializer.getAllReadingTasks()) {
                 insertCallback()
             }
         }
         viewModelScope.launch {
-            taskRepository.insertAllMultipleChoiceTasks(dataInitializer.getAllMultipleChoiceTasks()){
+            taskRepository.insertAllMultipleChoiceTasks(dataInitializer.getAllMultipleChoiceTasks()) {
                 insertCallback()
             }
         }
         viewModelScope.launch {
-            taskRepository.insertAllSlidingScaleTasks(dataInitializer.getAllSlidingScaleTasks()){
+            taskRepository.insertAllSlidingScaleTasks(dataInitializer.getAllSlidingScaleTasks()) {
                 insertCallback()
             }
         }
     }
 
-    private fun insertCallback(){
+    private fun insertCallback() {
         insertCompleted.value = insertCompleted.value?.plus(1)
     }
 
-    private fun initTasks(){
+    private fun initTasks() {
         viewModelScope.launch {
             taskRepository.getReadingTasks {
                 updateTasks(it)
@@ -90,10 +90,10 @@ class TaskViewModel @Inject constructor(
     }
 
 
-    private fun updateTasks(list: List<TaskType>){
+    private fun updateTasks(list: List<TaskType>) {
         allTasks.addAll(list)
         taskListCount += 1
-        if (taskListCount == TaskType.TASK_TYPE_NUM){
+        if (taskListCount == TaskType.TASK_TYPE_NUM) {
             allFetched.value = true
             sortTasks(allTasks)
             setTaskUiStates()
@@ -108,18 +108,18 @@ class TaskViewModel @Inject constructor(
 
     private fun checkSharedPreference() {
         val number = preferenceManager.getInt(IntPair.CurrTask)
-        if (number == -1){
-            currentTaskId.value  = allTasks[0].tid
+        if (number == -1) {
+            currentTaskId.value = allTasks[0].tid
         } else {
-            for (task in allTasks){
-                if (task.tid == number){
-                    currentTaskId.value  = task.tid
+            for (task in allTasks) {
+                if (task.tid == number) {
+                    currentTaskId.value = task.tid
                 }
             }
         }
     }
 
-    private fun setTaskUiStates(){
+    private fun setTaskUiStates() {
         allTasks.forEach {
             TaskConverter.databaseEntityToUiState(it)?.let { task -> allUiStates.add(task) }
         }
@@ -129,15 +129,15 @@ class TaskViewModel @Inject constructor(
         return if (currentTaskId.value == -1) null else allUiStates[currentTaskId.value]
     }
 
-    fun onNextClicked(){
+    fun onNextClicked() {
         currentTaskId.value += 1
     }
 
-    fun onBackClicked(){
+    fun onBackClicked() {
         currentTaskId.value -= 1
     }
 
-    fun completeReadingHandler(){
+    fun completeReadingHandler() {
         getCurrentTask()?.let {
             it.completed.value = true
         }
