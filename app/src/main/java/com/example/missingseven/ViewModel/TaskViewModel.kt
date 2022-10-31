@@ -154,4 +154,11 @@ class TaskViewModel @Inject constructor(
             it.completed.value = completed
         }
     }
+
+    fun updateChooseHandler(index: Int){
+        (getCurrentTask() as TaskUiState.MultipleChoiceTask).apply {
+            studentAnswerIndex.value = index
+            completed.value = index == correctIndex
+        }
+    }
 }
