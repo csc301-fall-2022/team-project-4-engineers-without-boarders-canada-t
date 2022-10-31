@@ -33,6 +33,7 @@ class TaskConverter {
                         TaskUiState.SlidingScaleTask(
                             tid,
                             mutableStateOf(completed),
+                            content,
                             start,
                             end,
                             scale,

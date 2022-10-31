@@ -25,6 +25,7 @@ sealed class TaskUiState(
     data class SlidingScaleTask(
         override val tid: Int,
         override val completed: MutableState<Boolean>,
+        val content: String,
         val start: Int,
         val end: Int,
         val scale: Int,

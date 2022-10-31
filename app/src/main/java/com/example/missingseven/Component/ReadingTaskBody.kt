@@ -41,7 +41,6 @@ fun ReadingTaskBody(
                 "import androidx.compose.ui.tooling.preview.Preview\n" +
                 "import com.example.missingseven.Database.Entity.TaskType")
 ){
-    val checkedState = remember { mutableStateOf(true) }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier

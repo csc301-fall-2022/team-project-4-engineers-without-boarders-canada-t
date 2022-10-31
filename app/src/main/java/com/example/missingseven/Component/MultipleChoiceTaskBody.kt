@@ -34,7 +34,6 @@ fun MultipleChoiceTaskBody(
         1,
         mutableStateOf(-1))
 ) {
-    val index = 0;
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier

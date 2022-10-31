@@ -29,6 +29,7 @@ sealed class TaskType(
     data class SlidingScaleTask(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
+        @ColumnInfo(name = "content") val content: String,
         @ColumnInfo(name = "start") val start: Int,
         @ColumnInfo(name = "end") val end: Int,
         @ColumnInfo(name = "scale") var scale: Int,
