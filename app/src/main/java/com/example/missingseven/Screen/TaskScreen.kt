@@ -16,7 +16,7 @@ fun TaskScreen(
         content = {
             when (viewModel.getCurrentTask()){
                 is TaskUiState.ReadingTask -> {
-                    ReadingTaskBody({viewModel.completeReadingHandler()}, viewModel.getCurrentTask() as TaskUiState.ReadingTask)
+                    ReadingTaskBody({completed -> viewModel.completeReadingHandler(completed)}, viewModel.getCurrentTask() as TaskUiState.ReadingTask)
                 }
                 is TaskUiState.MultipleChoiceTask -> {
                     MultipleChoiceTaskBody({}, viewModel.getCurrentTask() as TaskUiState.MultipleChoiceTask)
@@ -29,6 +29,8 @@ fun TaskScreen(
         },
         nextHandler = {viewModel.onNextClicked()},
         backHandler = {viewModel.onBackClicked()},
-        taskUiState = viewModel.getCurrentTask()!!
+        taskUiState = viewModel.getCurrentTask()!!,
+        shouldShowFirst = !viewModel.isFirstTask(),
+        shouldShowLast = !viewModel.isLastTask()
     )
 }

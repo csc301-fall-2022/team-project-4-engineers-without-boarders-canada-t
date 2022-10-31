@@ -20,7 +20,9 @@ fun TaskTemplate(
     },
     taskUiState: TaskUiState,
     backHandler: () -> Unit,
-    nextHandler: () -> Unit
+    nextHandler: () -> Unit,
+    shouldShowFirst: Boolean,
+    shouldShowLast: Boolean
 ){
     Column(modifier = Modifier
         .fillMaxSize()
@@ -29,13 +31,17 @@ fun TaskTemplate(
         content()
         Spacer(modifier = Modifier.weight(1f))
         Row() {
-            Button(onClick =  backHandler ) {
-                Text(text = "Back")
+            if (shouldShowFirst){
+                Button(onClick =  backHandler ) {
+                    Text(text = "Back")
+                }
             }
             Spacer(modifier = Modifier.weight(1f))
-            Button(onClick = nextHandler,
-            colors = ButtonDefaults.buttonColors(backgroundColor = if (taskUiState.completed.value) Color.Green else Color.Gray)) {
-                Text(text = "Next")
+            if (shouldShowLast){
+                Button(onClick = nextHandler,
+                    colors = ButtonDefaults.buttonColors(backgroundColor = if (taskUiState.completed.value) Color.Green else Color.Gray)) {
+                    Text(text = "Next")
+                }
             }
         }
     }

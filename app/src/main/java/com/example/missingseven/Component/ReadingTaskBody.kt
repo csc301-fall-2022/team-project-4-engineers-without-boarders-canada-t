@@ -63,8 +63,7 @@ fun ReadingTaskBody(
             Checkbox(
                 checked = task.completed.value,
                 onCheckedChange = {
-                    completeHandler(it)
-                                  },
+                    completeHandler(it)},
                 enabled = true
             )
             Text(

@@ -130,16 +130,28 @@ class TaskViewModel @Inject constructor(
     }
 
     fun onNextClicked(){
-        currentTaskId.value += 1
+        getCurrentTask()?.let {
+            if (it.completed.value){
+                currentTaskId.value += 1
+            }
+        }
+    }
+
+    fun isLastTask(): Boolean{
+        return currentTaskId.value == allTasks.last().tid
+    }
+
+    fun isFirstTask(): Boolean {
+        return currentTaskId.value == 0
     }
 
     fun onBackClicked(){
         currentTaskId.value -= 1
     }
 
-    fun completeReadingHandler(){
+    fun completeReadingHandler(completed: Boolean){
         getCurrentTask()?.let {
-            it.completed.value = true
+            it.completed.value = completed
         }
     }
 }
