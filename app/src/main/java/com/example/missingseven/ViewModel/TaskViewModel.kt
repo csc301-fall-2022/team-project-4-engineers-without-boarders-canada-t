@@ -119,6 +119,17 @@ class TaskViewModel @Inject constructor(
         }
     }
 
+    private fun putCurrTaskToSharedPreference(){
+        preferenceManager.putInt(PrefManager.CURR_TASK_ID, currentTaskId.value)
+    }
+
+    private fun getCurrentTaskType(): TaskType? {
+        getCurrentTask()?.let {
+            return allTasks[it.tid]
+        }
+        return null
+    }
+
     private fun setTaskUiStates(){
         allTasks.forEach {
             TaskConverter.databaseEntityToUiState(it)?.let { task -> allUiStates.add(task) }
@@ -133,6 +144,7 @@ class TaskViewModel @Inject constructor(
         getCurrentTask()?.let {
             if (it.completed.value){
                 currentTaskId.value += 1
+                putCurrTaskToSharedPreference()
             }
         }
     }
@@ -147,11 +159,18 @@ class TaskViewModel @Inject constructor(
 
     fun onBackClicked(){
         currentTaskId.value -= 1
+        putCurrTaskToSharedPreference()
     }
 
     fun completeReadingHandler(completed: Boolean){
         getCurrentTask()?.let {
             it.completed.value = completed
+            getCurrentTaskType()?.let { task ->
+                task.completed = completed
+                viewModelScope.launch {
+                    taskRepository.updateReadingTask(task as TaskType.ReadingTask)
+                }
+            }
         }
     }
 
