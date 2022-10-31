@@ -9,7 +9,11 @@ import com.example.missingseven.Navigation.Screen
 fun HomeScreen(
     viewModel: TaskViewModel
 ){
-    Button(onClick = { viewModel.navControl.navigate(Screen.Home.route, Screen.Task.route) }) {
+
+    Button(onClick = {
+        if (viewModel.allFetched.value){
+          viewModel.navControl.navigate(Screen.Home.route, Screen.Task.route)
+        } }) {
 
     }
 }

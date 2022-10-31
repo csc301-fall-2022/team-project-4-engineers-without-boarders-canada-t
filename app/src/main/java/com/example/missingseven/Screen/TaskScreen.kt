@@ -5,7 +5,7 @@ import com.example.missingseven.Component.MultipleChoiceTaskBody
 import com.example.missingseven.Component.ReadingTaskBody
 import com.example.missingseven.Component.SlidingScaleTaskBody
 import com.example.missingseven.Component.TaskTemplate
-import com.example.missingseven.Database.Entity.TaskType
+import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.ViewModel.TaskViewModel
 
 @Composable
@@ -14,18 +14,23 @@ fun TaskScreen(
 ){
     TaskTemplate(
         content = {
-            when (viewModel.currentTask.value){
-                is TaskType.ReadingTask -> {
-                    ReadingTaskBody(task = viewModel.currentTask.value as TaskType.ReadingTask)
+            when (viewModel.getCurrentTask()){
+                is TaskUiState.ReadingTask -> {
+                    ReadingTaskBody({completed -> viewModel.completeReadingHandler(completed)}, viewModel.getCurrentTask() as TaskUiState.ReadingTask)
                 }
-                is TaskType.MultipleChoiceTask -> {
-                    MultipleChoiceTaskBody(viewModel.currentTask.value as TaskType.MultipleChoiceTask)
+                is TaskUiState.MultipleChoiceTask -> {
+                    MultipleChoiceTaskBody({}, viewModel.getCurrentTask() as TaskUiState.MultipleChoiceTask)
                 }
-                is TaskType.SlidingScaleTask -> {
-                    SlidingScaleTaskBody(viewModel.currentTask.value as TaskType.SlidingScaleTask)
+                is TaskUiState.SlidingScaleTask -> {
+                    SlidingScaleTaskBody({}, viewModel.getCurrentTask() as TaskUiState.SlidingScaleTask)
                 }
                 else -> {}
             }
-        }
+        },
+        nextHandler = {viewModel.onNextClicked()},
+        backHandler = {viewModel.onBackClicked()},
+        taskUiState = viewModel.getCurrentTask()!!,
+        shouldShowFirst = !viewModel.isFirstTask(),
+        shouldShowLast = !viewModel.isLastTask()
     )
 }

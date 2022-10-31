@@ -1,4 +1,4 @@
-package com.example.missingseven.DI
+package com.example.missingseven.Database
 
 import android.content.SharedPreferences
 import javax.inject.Inject
@@ -13,8 +13,16 @@ class PrefManager @Inject constructor(
     fun putInt(key: String, value: Int){
         editor.putInt(key, value).apply()
     }
+
+    fun getBoolean(pair: BooleanPair) = preferences.getBoolean(pair.key, pair.default)
+
+    fun putBoolean(key: String, value: Boolean){
+        editor.putBoolean(key, value).apply()
+    }
+
     companion object {
         const val CURR_TASK_ID = "FLAG_CURR_TASK_ID"
+        const val DATA_INITIALIZED = "FLAG_DATA_INITIALIZED"
     }
 }
 
@@ -23,4 +31,11 @@ sealed class IntPair(
     val default: Int
 ) {
     object CurrTask: IntPair(PrefManager.CURR_TASK_ID, -1)
+}
+
+sealed class BooleanPair(
+    val key: String,
+    val default: Boolean
+) {
+    object DataInitialized: BooleanPair(PrefManager.DATA_INITIALIZED, false)
 }

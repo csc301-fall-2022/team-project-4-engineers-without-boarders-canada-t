@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Missing Seven</string>
+
+    <!-- reading task -->
+    <string name="reading_task0_header">About W4TW</string>
+    <string name="reading_task0_content">In the next 25 years, a third of the population will face severe water scarcity. With 20 percent of the world’s total freshwater resources and the longest marine coastline of any country in the world, Canada plays a pivotal role in managing global water resources. The next generation of Canadians must be well equipped to tackle the world’s water challenges. Water for the World aims to ignite a sense of pragmatism to develop systemic change leaders.\nWater for the World will partner with Toronto Public Library to teach students about global water issues. Workshops will be delivered to students in grades 7 to 9 by engaged volunteers with diverse backgrounds as engineers and social innovators. As a volunteer, you can help to introduce a new generation to the power of youth leaders in the global fight to increase access to clean water.</string>
+
+    <string name="reading_task1_header">The Workshop</string>
+    <string name="reading_task1_content">The Water for the World presentation is an engaging hour and a half that educates, challenges, and inspires students to think about creative solutions to global water access issues. Our program is divided into a three–part learning format as recommended by the Ontario Ministry of Education – Opening (Minds On), Middle (Action – Interactive/Hands–On), Closing (Debrief/Consolidation).\nA large component of the presentation involves hands–on interaction where groups of 4–6 students construct their own water filters using recycled plastic bottles and multiple layers of sand and gravel. The students are grouped into different countries, and are provided with different levels of information and amounts of play money, depending on their country’s literacy rate and wealth, respectively.\nThrough this activity, students are challenged to think critically and creatively, while collaborating with their peers. Students will gain a better understanding of social issues in technological development, while being exposed to the concept of international interdependence and cooperation as it relates to the global need for potable water. We also aim to engage students by highlighting the potential role youth can have in addressing these issues.</string>
+
+    <!-- sliding scale task -->
+    <string name="tooShort">The answer is too small</string>
+    <string name="tooLarge">The answer is too large</string>
+    <string name="task2_header">“There are approaching 8 billion people in the world how many don’t have access to clean drinking water in their home?”</string>
+    <string name="task2_correctInfo">“Yes, 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home”</string>
 </resources>
