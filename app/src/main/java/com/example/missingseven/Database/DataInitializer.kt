@@ -13,7 +13,15 @@ class DataInitializer constructor(
     )
 
     fun getAllMultipleChoiceTasks(): List<TaskType.MultipleChoiceTask> = listOf(
-
+        TaskType.MultipleChoiceTask(
+            2, false, context.getString(R.string.mc_task2_header),
+            listOf(
+                context.getString(R.string.mc_task2_option0),
+                context.getString(R.string.mc_task2_option1),
+                context.getString(R.string.mc_task2_option2),
+                context.getString(R.string.mc_task2_option3),
+                context.getString(R.string.mc_task2_option4),
+            ), 4, -1)
     )
 
     fun getAllSlidingScaleTasks(): List<TaskType.SlidingScaleTask> = listOf(
