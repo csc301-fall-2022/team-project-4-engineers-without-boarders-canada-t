@@ -13,4 +13,11 @@
     <string name="tooLarge">The answer is too large</string>
     <string name="task2_header">“There are approaching 8 billion people in the world how many don’t have access to clean drinking water in their home?”</string>
     <string name="task2_correctInfo">“Yes, 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home”</string>
+
+    <string name="mc_task2_header">Where do most of these people live?</string>
+    <string name="mc_task2_option0">North America</string>
+    <string name="mc_task2_option1">South America</string>
+    <string name="mc_task2_option2">Europe</string>
+    <string name="mc_task2_option3">Asia</string>
+    <string name="mc_task2_option4">Africa</string>
 </resources>

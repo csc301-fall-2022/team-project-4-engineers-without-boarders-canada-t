@@ -16,13 +16,16 @@ fun TaskScreen(
         content = {
             when (viewModel.getCurrentTask()){
                 is TaskUiState.ReadingTask -> {
-                    ReadingTaskBody({completed -> viewModel.completeReadingHandler(completed)}, viewModel.getCurrentTask() as TaskUiState.ReadingTask)
+                    ReadingTaskBody({completed -> viewModel.completeReadingHandler(completed)},
+                        viewModel.getCurrentTask() as TaskUiState.ReadingTask)
                 }
                 is TaskUiState.MultipleChoiceTask -> {
-                    MultipleChoiceTaskBody({}, viewModel.getCurrentTask() as TaskUiState.MultipleChoiceTask)
+                    MultipleChoiceTaskBody({index->viewModel.updateChooseHandler(index)},
+                        viewModel.getCurrentTask() as TaskUiState.MultipleChoiceTask)
                 }
                 is TaskUiState.SlidingScaleTask -> {
-                    SlidingScaleTaskBody({}, viewModel.getCurrentTask() as TaskUiState.SlidingScaleTask)
+                    SlidingScaleTaskBody({},
+                        viewModel.getCurrentTask() as TaskUiState.SlidingScaleTask)
                 }
                 else -> {}
             }
