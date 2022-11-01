@@ -42,4 +42,19 @@ class TaskRepository @Inject constructor(
             callback()
         }
     }
+
+    suspend fun updateReadingTask(
+        task: TaskType.ReadingTask){
+        taskDao.updateReadingTask(task)
+    }
+
+    suspend fun updateMultipleChoiceTask(
+        task: TaskType.MultipleChoiceTask){
+        taskDao.updateMultipleChoiceTask(task)
+    }
+
+    suspend fun updateSlidingScaleTask(
+        task: TaskType.SlidingScaleTask){
+        taskDao.updateSlidingScaleTasks(task)
+    }
 }

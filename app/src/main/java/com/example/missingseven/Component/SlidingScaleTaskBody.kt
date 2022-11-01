@@ -14,7 +14,7 @@ import com.example.missingseven.Model.TaskUiState
 
 @Composable
 fun SlidingScaleTaskBody(
-    completeHandler: (Int) -> Unit = {},
+    valueChangeHandler: (Int) -> Unit,
     task: TaskUiState.SlidingScaleTask
 ){
     Column(
@@ -35,14 +35,14 @@ fun SlidingScaleTaskBody(
             modifier = Modifier.padding(top =60.dp)
         )
         Slider(value = task.current.value.toFloat(),
-            onValueChange = { task.current.value = it.toInt() },
+            onValueChange = { valueChangeHandler(it.toInt()) },
             valueRange = task.start.toFloat()..task.end.toFloat(),
             modifier = Modifier.padding(top =5.dp)
         )
     }
 }
 
-fun displayedText(task: TaskUiState.SlidingScaleTask) = task.current.value.toString() + task.unit + ": "+ task.current.value.run {
+private fun displayedText(task: TaskUiState.SlidingScaleTask) = task.current.value.toString() + task.unit + ": "+ task.current.value.run {
     if (this < task.correct - task.offset){
         task.tooSmallInfo
     } else if (this > task.correct + task.offset){
