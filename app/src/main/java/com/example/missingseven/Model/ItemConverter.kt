@@ -1,6 +1,8 @@
 package com.example.missingseven.Model
 
+import androidx.compose.runtime.mutableStateOf
 import com.example.missingseven.Database.Entity.ItemType
+import com.example.missingseven.R
 
 class ItemConverter {
 
@@ -11,7 +13,8 @@ class ItemConverter {
                     ItemUiState(
                         iid,
                         quantity,
-                        price
+                        price,
+                        R.mipmap.ic_launcher
                     )
                 }
             }
