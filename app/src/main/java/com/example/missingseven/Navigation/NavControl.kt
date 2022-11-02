@@ -10,7 +10,7 @@ import com.example.missingseven.Screen.HomeScreen
 import com.example.missingseven.Screen.TaskScreen
 import com.example.missingseven.Screen.WaterFilterScreen
 import com.example.missingseven.ViewModel.TaskViewModel
-import com.example.missingseven.ViewModel.WaterFilterViewModel
+import kotlinx.parcelize.Parcelize
 
 class NavControl constructor(
     private val navController: NavHostController,
