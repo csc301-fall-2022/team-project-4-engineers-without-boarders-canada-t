@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity
-data class PlayerType(
+data class Player(
     @PrimaryKey val pid: Int,
     @ColumnInfo val cid: Int,
     @ColumnInfo var curr_money: Int

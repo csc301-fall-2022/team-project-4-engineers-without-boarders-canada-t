@@ -104,12 +104,3 @@ fun CardView(item: ItemUiState, index: Int, viewModel: FilterViewModel) {
     }
 }
 
-
-@ExperimentalFoundationApi
-@Preview
-@Composable
-fun Preview() {
-    val viewModel: FilterViewModel = hiltViewModel()
-    viewModel.loadData()
-    InitView(viewModel)
-}

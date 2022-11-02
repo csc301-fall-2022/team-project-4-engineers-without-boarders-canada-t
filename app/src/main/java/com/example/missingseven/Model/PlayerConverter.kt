@@ -1,11 +1,11 @@
 package com.example.missingseven.Model
 
 import androidx.compose.runtime.mutableStateOf
-import com.example.missingseven.Database.Entity.PlayerType
+import com.example.missingseven.Database.Entity.Player
 class PlayerConverter {
 
     companion object {
-        fun databaseEntityToUiState(playerType: PlayerType, countryName: String, instructions: String) {
+        fun databaseEntityToUiState(playerType: Player, countryName: String, instructions: String) {
             return playerType.run {
                 PlayerUiState(
                     cid,
