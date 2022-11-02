@@ -1,5 +1,6 @@
 package com.example.missingseven.ViewModel
 
+import android.os.Parcelable
 import androidx.lifecycle.ViewModel
 import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Model.ItemUiState
@@ -20,54 +21,36 @@ class FilterViewModel @Inject constructor(
     // map for index and item stored in the water filter
     val indexItemMap: Map<Int, ItemUiState?> = mapOf()
 
+    // map for shop selected item(Iid) and selected count
+    private val shopIidCountMap: Map<Int, Int> = mapOf()
+
+    // all maps, key: Iid, Value: ItemUiState
+    private val allIIdItemsMap: Map<Int, ItemUiState> = mapOf()
+
     // TODO replace with FilterTask when ready
     fun setup(task: TaskType){
 
     }
 
-    fun loadData() {
-        playerUiState = PlayerUiState(
-            0,
-            0,
-            100,
-            "China",
-            "the People's Republic of China"
-        )
-        itemList.add(ItemUiState(0, 1, 10, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(1, 10, 100, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(2, 20, 200, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(3, 30, 300, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(4, 40, 400, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(5, 50, 500, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(6, 60, 600, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(7, 70, 700, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(8, 80, 800, R.mipmap.ic_demo))
-        itemList.add(ItemUiState(9, 90, 900, R.mipmap.ic_demo))
-        changeMoney()
+    fun add(iid: Int){
+        shopIidCountMap[iid] = shopIidCountMap[iid]?.plus(1)
     }
 
-    fun sub(index: Int) {
-        itemList[index].quantity -= 1
-        if (itemList[index].quantity <= 0) {
-            itemList.removeAt(index)
+    fun sub(iid: Int){
+        if (shopIidCountMap[iid]!! >0) {
+            shopIidCountMap[iid] = shopIidCountMap[iid]?.minus(1)
         }
-        changeMoney()
     }
 
-    fun add(index: Int) {
-        itemList[index].quantity += 1
-        changeMoney()
-    }
-
-    private fun changeMoney() {
-        var newMoney = BigDecimal.ZERO
-        for (item in itemList) {
-            val money = BigDecimal(item.quantity).multiply(BigDecimal(item.price))
-            newMoney = newMoney.add(money)
-            println("money = ${money}, quantity = ${item.quantity}, price = ${item.price}")
-            println(newMoney.toInt())
+    fun checkout(): Int{
+        // TODO update count in allIidItemMap subtract money, reset all values in shopMap to 0
+        var money: Int = 0
+        for ((iid, item) in allIIdItemsMap) {
+            money += (allIIdItemsMap[iid]?.price ?: 0) * shopIidCountMap[iid]!!
+            allIIdItemsMap[iid]?.getQuantity()?.value ?:  += shopIidCountMap[iid]!!
+            shopIidCountMap[iid] = 0
         }
-        playerUiState?.currMoney = newMoney.toInt()
+        return money
     }
 
     fun getCheckoutScreenParamSet(): ParamSet.CheckoutParamSet {
