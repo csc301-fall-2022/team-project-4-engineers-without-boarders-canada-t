@@ -1,6 +1,7 @@
 package com.example.missingseven.ViewModel
 
 import androidx.lifecycle.ViewModel
+import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Model.ItemUiState
 import com.example.missingseven.Model.PlayerUiState
 import com.example.missingseven.R
@@ -14,6 +15,11 @@ class FilterViewModel @Inject constructor(
 
     var itemList = mutableListOf<ItemUiState>()
     var playerUiState: PlayerUiState? = null
+
+    // TODO replace with FilterTask when ready
+    fun setup(task: TaskType){
+
+    }
 
     fun loadData() {
         playerUiState = PlayerUiState(
