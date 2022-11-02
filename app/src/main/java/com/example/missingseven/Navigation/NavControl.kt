@@ -7,12 +7,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.missingseven.Model.ItemUiState
 import com.example.missingseven.Screen.HomeScreen
 import com.example.missingseven.Screen.InstructionScreen
 import com.example.missingseven.Screen.ShopScreen
 import com.example.missingseven.Screen.TaskScreen
 import com.example.missingseven.Screen.WaterFilterScreen
 import com.example.missingseven.ViewModel.TaskViewModel
+import kotlinx.parcelize.Parcelize
 
 class NavControl constructor(
     private val navController: NavHostController,
@@ -78,11 +80,10 @@ sealed class Screen(val route: String) {
 }
 
 sealed class ParamSet : Parcelable {
-
-//    @Parcelize
-//    data class CheckoutParamSet(
-//        val itemList: List<ItemUiState>,
-//        val totalPrice: Int,
-//    ): ParamSet()
+    @Parcelize
+    data class CheckoutParamSet(
+        val itemList: List<ItemUiState>,
+        val totalPrice: Int,
+    ): ParamSet()
 
 }
