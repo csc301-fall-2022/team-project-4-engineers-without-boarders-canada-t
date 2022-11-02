@@ -50,6 +50,13 @@ sealed class TaskType(
         @ColumnInfo(name = "answer") var answer: String
     ) : TaskType(tid, completed)
 
+    @Entity
+    data class FilterTask(
+        @PrimaryKey override val tid: Int,
+        @ColumnInfo override var completed: Boolean,
+        @ColumnInfo(name = "pid") val pid: Int,
+    ) : TaskType(tid, completed)
+
     companion object {
         const val TASK_TYPE_NUM = 4
     }
