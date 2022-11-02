@@ -18,20 +18,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.missingseven.Model.ItemUiState
-import com.example.missingseven.ViewModel.ShopViewModel
+import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ui.theme.ItemBg
 
 @ExperimentalFoundationApi
 @Composable
 fun ShopScreen(
-    viewModel: ShopViewModel
+    viewModel: FilterViewModel
 ) {
     InitView(viewModel)
 }
 
 @ExperimentalFoundationApi
 @Composable
-fun InitView(viewModel: ShopViewModel) {
+fun InitView(viewModel: FilterViewModel) {
     val itemList = rememberUpdatedState { viewModel.itemList }
     val playerUiState = rememberUpdatedState { viewModel.playerUiState }
 
@@ -62,7 +62,7 @@ fun InitView(viewModel: ShopViewModel) {
 
 
 @Composable
-fun CardView(item: ItemUiState, index: Int, viewModel: ShopViewModel) {
+fun CardView(item: ItemUiState, index: Int, viewModel: FilterViewModel) {
     Column(
         modifier = Modifier
             .padding(8.dp)
@@ -109,7 +109,7 @@ fun CardView(item: ItemUiState, index: Int, viewModel: ShopViewModel) {
 @Preview
 @Composable
 fun Preview() {
-    val viewModel: ShopViewModel = hiltViewModel()
+    val viewModel: FilterViewModel = hiltViewModel()
     viewModel.loadData()
     InitView(viewModel)
 }

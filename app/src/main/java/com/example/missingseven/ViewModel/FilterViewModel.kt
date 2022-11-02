@@ -1,7 +1,5 @@
 package com.example.missingseven.ViewModel
 
-import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.missingseven.Model.ItemUiState
 import com.example.missingseven.Model.PlayerUiState
@@ -11,7 +9,7 @@ import java.math.BigDecimal
 import javax.inject.Inject
 
 @HiltViewModel
-class ShopViewModel @Inject constructor(
+class FilterViewModel @Inject constructor(
 ) : ViewModel() {
 
      var itemList = mutableListOf<ItemUiState>()
