@@ -1,6 +1,9 @@
 package com.example.missingseven.Database
 
 import android.content.Context
+import com.example.missingseven.Database.Entity.CountryType
+import com.example.missingseven.Database.Entity.ItemType
+import com.example.missingseven.Database.Entity.PlayerType
 import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.R
 
@@ -33,4 +36,18 @@ class DataInitializer constructor(
             context.getString(R.string.task2_correctInfo),
         )
     )
+
+    fun getAllCountries(): List<CountryType> = listOf(
+
+    )
+
+    fun getAllItem(): List<ItemType> = listOf(
+
+    )
+
+    fun getAllPlayer(): List<PlayerType> = listOf(
+
+    )
+
+
 }
