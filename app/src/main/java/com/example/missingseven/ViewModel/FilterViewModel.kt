@@ -19,13 +19,13 @@ class FilterViewModel @Inject constructor(
     var playerUiState :PlayerUiState?= null
 
     // map for index and item stored in the water filter
-    val indexItemMap: Map<Int, ItemUiState?> = mapOf()
+    val indexItemMap: Map<Int, ItemUiState?> = mutableMapOf()
 
     // map for shop selected item(Iid) and selected count
-    private val shopIidCountMap: Map<Int, Int> = mapOf()
+    private val shopIidCountMap: Map<Int, Int> = mutableMapOf()
 
     // all maps, key: Iid, Value: ItemUiState
-    private val allIIdItemsMap: Map<Int, ItemUiState> = mapOf()
+    private val allIIdItemsMap: Map<Int, ItemUiState> = mutableMapOf()
 
     // TODO replace with FilterTask when ready
     fun setup(task: TaskType){
