@@ -6,9 +6,7 @@ import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Model.ItemUiState
 import com.example.missingseven.Model.PlayerUiState
 import com.example.missingseven.Navigation.ParamSet
-import com.example.missingseven.R
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.math.BigDecimal
 import javax.inject.Inject
 
 @HiltViewModel
@@ -47,16 +45,10 @@ class FilterViewModel @Inject constructor(
         var money: Int = 0
         for ((iid, item) in allIIdItemsMap) {
             money += (allIIdItemsMap[iid]?.price ?: 0) * shopIidCountMap[iid]!!
-            allIIdItemsMap[iid]?.getQuantity()?.value ?:  += shopIidCountMap[iid]!!
+            allIIdItemsMap[iid]?.quantity?  += shopIidCountMap[iid]!!
             shopIidCountMap[iid] = 0
         }
         return money
     }
 
-    fun getCheckoutScreenParamSet(): ParamSet.CheckoutParamSet {
-        return ParamSet.CheckoutParamSet(
-            itemListUiState.itemList.filter { it.getQuantity().value > 0 },
-            itemListUiState.totalPrice.value
-        )
-    }
 }

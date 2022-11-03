@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Item(
     @PrimaryKey val iid: Int,
+    @ColumnInfo val name: String,
     @ColumnInfo var quantity: Int,
     @ColumnInfo var price: Int
 

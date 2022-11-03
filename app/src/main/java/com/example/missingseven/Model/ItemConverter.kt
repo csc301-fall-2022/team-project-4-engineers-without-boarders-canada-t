@@ -11,6 +11,7 @@ class ItemConverter {
                 if (this is Item) {
                     ItemUiState(
                         iid,
+                        name,
                         quantity,
                         price,
                         R.mipmap.ic_launcher
