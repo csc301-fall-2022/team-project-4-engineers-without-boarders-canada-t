@@ -31,22 +31,27 @@ class FilterViewModel @Inject constructor(
     }
 
     fun add(iid: Int){
-        shopIidCountMap[iid] = shopIidCountMap[iid]?.plus(1)
-    }
+        shopIidCountMap[iid]?.let{
+            shopIidCountMap.put(iid, it.plus(1))
+        }
+        }
 
     fun sub(iid: Int){
         if (shopIidCountMap[iid]!! >0) {
-            shopIidCountMap[iid] = shopIidCountMap[iid]?.minus(1)
+            shopIidCountMap[iid]?.let{
+                shopIidCountMap.put(iid, it.minus(1))
         }
-    }
+    }}
 
     fun checkout(): Int{
         // TODO update count in allIidItemMap subtract money, reset all values in shopMap to 0
         var money: Int = 0
         for ((iid, item) in allIIdItemsMap) {
             money += (allIIdItemsMap[iid]?.price ?: 0) * shopIidCountMap[iid]!!
-            allIIdItemsMap[iid]?.quantity?  += shopIidCountMap[iid]!!
-            shopIidCountMap[iid] = 0
+            allIIdItemsMap[iid]?.quantity.let{
+                allIIdItemsMap[iid]?.quantity?  += shopIidCountMap[iid]!!
+            }
+            shopIidCountMap.put(iid, 0)
         }
         return money
     }
