@@ -37,6 +37,10 @@ class DataInitializer constructor(
         )
     )
 
+    fun getFilterTasks(): List<TaskType.FilterTask> = listOf(
+        TaskType.FilterTask(4, false, 0)
+    )
+
     fun getAllCountries(): List<Country> = listOf(
 
     )

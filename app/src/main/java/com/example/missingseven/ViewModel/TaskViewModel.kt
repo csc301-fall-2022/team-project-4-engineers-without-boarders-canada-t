@@ -65,6 +65,11 @@ class TaskViewModel @Inject constructor(
                 insertCallback()
             }
         }
+        viewModelScope.launch {
+            taskRepository.insertAllFilterTasks(dataInitializer.getFilterTasks()){
+                insertCallback()
+            }
+        }
     }
 
     private fun insertCallback(){
@@ -84,6 +89,11 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.getSlidingScaleTasks {
+                updateTasks(it)
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.getFilterTasks {
                 updateTasks(it)
             }
         }
