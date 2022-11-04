@@ -12,8 +12,8 @@ import javax.inject.Inject
 class FilterViewModel @Inject constructor(
 ) : ViewModel() {
 
-     var itemList = mutableListOf<ItemUiState>()
-     var playerUiState :PlayerUiState?= null
+    var itemList = mutableListOf<ItemUiState>()
+    var playerUiState: PlayerUiState? = null
 
     fun loadData() {
         playerUiState = PlayerUiState(

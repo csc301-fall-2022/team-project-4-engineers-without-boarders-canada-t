@@ -8,7 +8,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.missingseven.Screen.HomeScreen
 import com.example.missingseven.Screen.TaskScreen
+import com.example.missingseven.Screen.WaterFilterScreen
 import com.example.missingseven.ViewModel.TaskViewModel
+import com.example.missingseven.ViewModel.WaterFilterViewModel
 
 class NavControl constructor(
     private val navController: NavHostController,
@@ -19,6 +21,8 @@ class NavControl constructor(
         val viewModel: TaskViewModel = hiltViewModel()
         viewModel.setup(this@NavControl)
 
+        val waterFilterViewModel: WaterFilterViewModel = hiltViewModel()
+        waterFilterViewModel.initData()
 
         NavHost(navController = navController, startDestination = Screen.Home.route) {
 
@@ -28,6 +32,10 @@ class NavControl constructor(
 
             composable(route = Screen.Task.route){
                 TaskScreen(viewModel)
+            }
+
+            composable(route = Screen.WaterFilter.route){
+                WaterFilterScreen(waterFilterViewModel)
             }
         }
     }
@@ -58,7 +66,7 @@ class NavControl constructor(
 sealed class Screen(val route: String) {
     object Home: Screen("home")
     object Task: Screen("task")
-
+    object WaterFilter: Screen("Water Filter")
 }
 
 sealed class ParamSet : Parcelable {
