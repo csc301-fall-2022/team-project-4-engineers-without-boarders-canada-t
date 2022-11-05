@@ -41,7 +41,15 @@ sealed class TaskType(
         @ColumnInfo(name = "correct_info") val correctInfo: String,
     ): TaskType(tid, completed)
 
+    @Entity
+    data class ShortAnswerTask(
+        @PrimaryKey override val tid: Int,
+        @ColumnInfo override var completed: Boolean,
+        @ColumnInfo(name = "question") val question: String,
+        @ColumnInfo(name = "answer") val answer: String
+    ) : TaskType(tid, completed)
+
     companion object {
-        const val TASK_TYPE_NUM = 3
+        const val TASK_TYPE_NUM = 4
     }
 }
