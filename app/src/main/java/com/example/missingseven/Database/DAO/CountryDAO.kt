@@ -7,7 +7,7 @@ import com.example.missingseven.Database.Entity.TaskType
 
 @Dao
 interface CountryDAO {
-    @Query("SELECT * FROM countrylist")
+    @Query("SELECT * FROM country")
     fun getAllCountries()
 
     @Insert

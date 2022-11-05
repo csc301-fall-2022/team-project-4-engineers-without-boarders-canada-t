@@ -7,7 +7,7 @@ import com.example.missingseven.Database.Entity.TaskType
 
 @Dao
 interface ItemDAO {
-    @Query("SELECT * FROM itemlist")
+    @Query("SELECT * FROM item")
     fun getAllItems()
 
     @Insert
