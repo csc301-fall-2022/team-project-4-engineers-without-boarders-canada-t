@@ -1,8 +1,5 @@
 package com.example.missingseven.Model
 
-import android.os.Parcelable
-import androidx.compose.runtime.MutableState
-import kotlinx.parcelize.Parcelize
 
 data class ItemUiState(
     val iid: Int,
