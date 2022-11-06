@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 
 sealed class TaskType(
     open val tid: Int,
-    open var completed: Boolean) {
+    open var completed: Boolean
+) {
     @Entity
     data class ReadingTask(
         @PrimaryKey override val tid: Int,
@@ -20,9 +21,9 @@ sealed class TaskType(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "header") val header: String,
-        @ColumnInfo(name = "options")val options: List<String>,
-        @ColumnInfo(name = "correctIndex")val correctIndex: Int,
-        @ColumnInfo(name = "ansIndex")var studentAnswerIndex: Int
+        @ColumnInfo(name = "options") val options: List<String>,
+        @ColumnInfo(name = "correctIndex") val correctIndex: Int,
+        @ColumnInfo(name = "ansIndex") var studentAnswerIndex: Int
     ) : TaskType(tid, completed)
 
     @Entity
@@ -39,7 +40,7 @@ sealed class TaskType(
         @ColumnInfo(name = "too_small_info") val tooSmallInfo: String,
         @ColumnInfo(name = "too_large_info") val tooLargeInfo: String,
         @ColumnInfo(name = "correct_info") val correctInfo: String,
-    ): TaskType(tid, completed)
+    ) : TaskType(tid, completed)
 
     @Entity
     data class ShortAnswerTask(
