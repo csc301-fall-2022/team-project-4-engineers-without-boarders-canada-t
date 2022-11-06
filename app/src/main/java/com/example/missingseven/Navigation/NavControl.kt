@@ -24,8 +24,6 @@ class NavControl constructor(
         val viewModel: TaskViewModel = hiltViewModel()
         viewModel.setup(this@NavControl)
 
-        val waterFilterViewModel: WaterFilterViewModel = hiltViewModel()
-        waterFilterViewModel.initData()
 
         NavHost(navController = navController, startDestination = Screen.Home.route) {
 
@@ -35,10 +33,6 @@ class NavControl constructor(
 
             composable(route = Screen.Task.route){
                 TaskScreen(viewModel)
-            }
-
-            composable(route = Screen.WaterFilter.route){
-                WaterFilterScreen(waterFilterViewModel)
             }
 
             composable(route = Screen.Shop.route){
@@ -81,7 +75,6 @@ sealed class Screen(val route: String) {
     object Shop: Screen("shop")
     object ItemSelect: Screen("item select")
 
-    object WaterFilter: Screen("Water Filter")
 }
 
 sealed class ParamSet : Parcelable {
