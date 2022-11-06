@@ -46,7 +46,7 @@ sealed class TaskType(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "question") val question: String,
-        @ColumnInfo(name = "answer") val answer: String
+        @ColumnInfo(name = "answer") var answer: String
     ) : TaskType(tid, completed)
 
     companion object {

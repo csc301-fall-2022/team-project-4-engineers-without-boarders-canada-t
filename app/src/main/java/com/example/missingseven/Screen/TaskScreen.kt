@@ -26,7 +26,8 @@ fun TaskScreen(
                 }
                 is TaskUiState.ShortAnswerTask -> {
                     ShortAnswerTaskBody({}, //TODO
-                        viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask)
+                        viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask,
+                        {})
                 }
                 else -> {}
             }

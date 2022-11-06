@@ -41,7 +41,7 @@ sealed class TaskUiState(
         override val tid: Int,
         override val completed: MutableState<Boolean>,
         val question: String,
-        val answer: String
+        val answer: MutableState<String>
     ): TaskUiState(tid, completed)
 }
 

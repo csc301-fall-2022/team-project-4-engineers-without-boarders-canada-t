@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.input.TextFieldValue
 
 @Preview
@@ -23,7 +22,8 @@ fun ShortAnswerTaskBody(
     task: TaskUiState.ShortAnswerTask = TaskUiState.ShortAnswerTask(1,
         mutableStateOf(false),
         "Give a pseudocode for the same \"R left outer join S\" given B(S) = M-l, and B(R) > M.",
-        "")
+        mutableStateOf("")),
+    answerValueHandler: (String) -> Unit
 ){
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -40,10 +40,10 @@ fun ShortAnswerTaskBody(
 
         var text by remember { mutableStateOf(TextFieldValue("")) }
         OutlinedTextField(
-            value = text,
+            value = task.answer.value,
             label = { Text(text = "Enter Your Answer") },
             onValueChange = {
-                text = it
+                answerValueHandler(it)
             }
         )
 
