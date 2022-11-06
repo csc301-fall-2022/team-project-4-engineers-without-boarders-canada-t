@@ -136,18 +136,38 @@ class FilterViewModel @Inject constructor(
     }
 
 
+    fun onStackClicked(){
+        }
+
+    fun getSelectableItemList(): List<ItemUiState>{
+
+    }
+
+    fun selectItem(item: ItemUiState){
+
+    }
+
+    fun getPlayerCountry(): Country{
+
+    }
+
+    fun shopClicked(){
+
+    }
+
     fun add(iid: Int){
         shopIidCountMap[iid]?.let{
             shopIidCountMap.put(iid, it.plus(1))
         }
-        }
+    }
 
     fun sub(iid: Int){
         if (shopIidCountMap[iid]!! >0) {
             shopIidCountMap[iid]?.let{
                 shopIidCountMap.put(iid, it.minus(1))
+            }
         }
-    }}
+    }
 
     fun checkout(): Int{
         // TODO update count in allIidItemMap subtract money, reset all values in shopMap to 0
