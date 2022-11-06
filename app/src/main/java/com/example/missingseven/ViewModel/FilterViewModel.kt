@@ -51,55 +51,74 @@ class FilterViewModel @Inject constructor(
     private val shopIidCountMap: MutableMap<Int, MutableState<Int>> = mutableMapOf()
 
     // store all items by the key-value pair of the items iid and the ItemUiState
-    private val allIIdItemsMap: Map<Int, ItemUiState> = mutableMapOf()
+    private val allIIdItemsMap: MutableMap<Int, ItemUiState> = mutableMapOf()
 
-    fun setup(control: NavControl, filter:TaskUiState.FilterTask,stack: FilterStack){
+    fun setup(control: NavControl, filter:TaskUiState.FilterTask){
         navControl = control
         filterTask = filter
-        filterStack = stack
+        fetchPlayer()
     }
 
     fun fetchPlayer(){
         viewModelScope.launch{
             val allPlayer = playerRepository.getPlayers {
                 player = it[0]
+                fetchCountries()
             }
         }
     }
 
-    fun fetchCountries(){
+    private fun fetchCountries(){
         viewModelScope.launch{
-            countries = countryRepository.getAllCountries(it)
-        }
-
-        if (player.cid == -1){
-            viewModelScope.launch{
-                val random = countries.random()
-                player.cid = random.cid
-                player.curr_money = random.money
+            countryRepository.getAllCountries {
+                countries = it
+                if (player.cid == -1){
+                    viewModelScope.launch{
+                        val random = countries.random()
+                        player.cid = random.cid
+                        player.curr_money = random.money
+                        viewModelScope.launch {
+                            playerRepository.updatePlayer(player)
+                        }
+                    }
+                }
+                fetchItems()
             }
         }
+
     }
 
-    fun fetchItems() {
+    private fun fetchItems() {
         viewModelScope.launch {
-            val items = itemRepository.getItems {
+            itemRepository.getItems {
                 for (item in it) {
-                    shopIidCountMap.put(item.iid, 0)
-                    allIIdItemsMap.put(item.iid, ItemUiState(item.iid, item.name, 0, item.price, 0))
+                    shopIidCountMap[item.iid] = mutableStateOf(0)
+                    allIIdItemsMap[item.iid] = ItemConverter.databaseEntityToUiState(item)
                 }
             }
         }
+        setupPlayerUiState()
+        setupStack()
     }
 
-    fun setupPlayerUiState(){
+    private fun setupPlayerUiState(){
+        // TODO replace by get playerCountry
         PlayerConverter.databaseEntityToUiState(player,
             countries[player.cid].name, countries[player.cid].instruction)
     }
 
-    fun setupStack(){
+    private fun setupStack(){
         val itemList = mutableListOf<ItemUiState?>()
-        filterStack = FilterStack(itemList, mutableStateOf(0))
+        var currTop = 0
+        for (i in 0 until FilterStack.MAX_LAYER){
+            if (playerUiState.getLayerValueByIndex(i).value != -1){
+                itemList.add(allIIdItemsMap[playerUiState.getLayerValueByIndex(i).value])
+                currTop += 1
+            } else {
+                itemList.add(null)
+            }
+        }
+        filterStack = FilterStack(itemList, mutableStateOf(currTop))
         setupCompleted.value = true
     }
 

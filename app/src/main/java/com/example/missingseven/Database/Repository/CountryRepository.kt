@@ -6,7 +6,7 @@ import javax.inject.Inject
 import javax.security.auth.callback.Callback
 
 class CountryRepository @Inject constructor(private val countryDAO: CountryDAO) {
-    suspend fun getAllCountries(callback: () -> Unit) {
+    suspend fun getAllCountries(callback: (List<Country>) -> Unit) {
         countryDAO.getAllCountries()
     }
 
