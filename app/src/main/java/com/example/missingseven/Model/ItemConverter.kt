@@ -13,8 +13,21 @@ class ItemConverter {
                         name,
                         quantity,
                         price,
-                        R.mipmap.ic_launcher,
+                        getImageRes(iid),
                         mark)
+            }
+        }
+
+        private fun getImageRes(iid: Int): Int {
+            return when (iid){
+                1 -> R.drawable.rubberband
+                2 -> R.drawable.cheesecloth
+                3 -> R.drawable.cotton
+                4 -> R.drawable.finesand
+                5 -> R.drawable.coarsesand
+                6 -> R.drawable.finegravel
+                7 -> R.drawable.coarsegravel
+                else -> -1
             }
         }
     }
