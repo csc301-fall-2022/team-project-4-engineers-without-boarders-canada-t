@@ -16,6 +16,7 @@ import com.example.missingseven.Database.Entity.TaskType
     TaskType.ReadingTask:: class,
     TaskType.MultipleChoiceTask::class,
     TaskType.SlidingScaleTask:: class,
+    TaskType.FilterTask:: class,
                      Item:: class,
                      Country::class,
                      Player::class], version = 1)

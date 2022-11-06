@@ -23,17 +23,17 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Provides
-    fun provideCountryDAP(database: MainDatabase): CountryDAO{
+    fun provideCountryDAO(database: MainDatabase): CountryDAO{
         return database.countryDao()
     }
 
     @Provides
-    fun provideItemDAP(database: MainDatabase): ItemDAO{
+    fun provideItemDAO(database: MainDatabase): ItemDAO{
         return database.itemDao()
     }
 
     @Provides
-    fun providePlayerDAP(database: MainDatabase): PlayerDAO{
+    fun providePlayerDAO(database: MainDatabase): PlayerDAO{
         return database.playerDao()
     }
 

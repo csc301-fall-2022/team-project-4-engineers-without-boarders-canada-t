@@ -13,7 +13,6 @@ import com.example.missingseven.Screen.ShopScreen
 import com.example.missingseven.Screen.TaskScreen
 import com.example.missingseven.Screen.WaterFilterScreen
 import com.example.missingseven.ViewModel.TaskViewModel
-import kotlinx.parcelize.Parcelize
 
 class NavControl constructor(
     private val navController: NavHostController,

@@ -19,7 +19,7 @@ data class PlayerUiState(
     val layer6: MutableState<Int>,
     val layer7: MutableState<Int>
 ){
-    fun getIndexedLayer(index: Int): MutableState<Int>{
+    fun getLayerValueByIndex(index: Int): MutableState<Int>{
         return when (index){
             0 -> layer0
             1 -> layer1

@@ -1,25 +1,20 @@
 package com.example.missingseven.ViewModel
 
-import android.os.Parcelable
 import androidx.lifecycle.ViewModel
 import com.example.missingseven.Database.Entity.Country
 import com.example.missingseven.Database.Entity.Player
-import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Database.Repository.CountryRepository
 import com.example.missingseven.Database.Repository.ItemRepository
 import com.example.missingseven.Database.Repository.PlayerRepository
-import com.example.missingseven.Navigation.ParamSet
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import com.example.missingseven.Navigation.NavControl
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
-import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Model.*
 import com.example.missingseven.Navigation.Screen
 import kotlinx.coroutines.launch
-import kotlin.math.absoluteValue
 
 @HiltViewModel
 class FilterViewModel @Inject constructor(
@@ -50,10 +45,10 @@ class FilterViewModel @Inject constructor(
 
     // store the key-value pair of (Iid, Count) for each item in the shop
     // count means how many items are selected in the shop
-    private val shopIidCountMap: MutableMap<Int, MutableState<Int>> = mutableMapOf()
+    val shopIidCountMap: MutableMap<Int, MutableState<Int>> = mutableMapOf()
 
     // store all items by the key-value pair of the items iid and the ItemUiState
-    private val allIIdItemsMap: MutableMap<Int, ItemUiState> = mutableMapOf()
+    val allIIdItemsMap: MutableMap<Int, ItemUiState> = mutableMapOf()
 
     fun setup(control: NavControl, filter:TaskUiState.FilterTask){
         navControl = control
@@ -105,8 +100,9 @@ class FilterViewModel @Inject constructor(
 
     private fun setupPlayerUiState(){
         // TODO replace by get playerCountry
-        PlayerConverter.databaseEntityToUiState(player,
-            countries[player.cid].name, countries[player.cid].instruction)
+        getPlayerCountry()?.let {
+            playerUiState = PlayerConverter.databaseEntityToUiState(player, it.name, it.instruction)
+        }
     }
 
     private fun setupStack(){
