@@ -25,9 +25,9 @@ fun TaskScreen(
                         viewModel.getCurrentTask() as TaskUiState.SlidingScaleTask)
                 }
                 is TaskUiState.ShortAnswerTask -> {
-                    ShortAnswerTaskBody({}, //TODO
+                    ShortAnswerTaskBody({viewModel.shortAnswerSaveHandler()},
                         viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask,
-                        {})
+                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)})
                 }
                 else -> {}
             }
