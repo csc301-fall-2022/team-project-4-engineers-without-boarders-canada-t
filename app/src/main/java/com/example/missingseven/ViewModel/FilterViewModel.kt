@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Model.*
+import com.example.missingseven.Navigation.Screen
 import kotlinx.coroutines.launch
 
 @HiltViewModel
@@ -120,6 +121,18 @@ class FilterViewModel @Inject constructor(
         }
         filterStack = FilterStack(itemList, mutableStateOf(currTop))
         setupCompleted.value = true
+    }
+
+    fun getInstruction(): String{
+        return playerUiState.instruction
+    }
+
+    fun openInstruction(){
+        navControl.navigate(Screen.Task.route, Screen.Instruction.route)
+    }
+
+    fun closeInstruction(){
+        navControl.navigateBack()
     }
 
 

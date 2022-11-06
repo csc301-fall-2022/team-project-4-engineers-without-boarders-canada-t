@@ -1,12 +1,15 @@
 package com.example.missingseven.Navigation
 
 import android.os.Parcelable
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.missingseven.Screen.HomeScreen
+import com.example.missingseven.Screen.InstructionScreen
+import com.example.missingseven.Screen.ShopScreen
 import com.example.missingseven.Screen.TaskScreen
 import com.example.missingseven.Screen.WaterFilterScreen
 import com.example.missingseven.ViewModel.TaskViewModel
@@ -16,6 +19,7 @@ class NavControl constructor(
     private val navController: NavHostController,
 ) {
 
+    @OptIn(ExperimentalFoundationApi::class)
     @Composable
     fun SetUpNavGraph() {
         val viewModel: TaskViewModel = hiltViewModel()
@@ -36,6 +40,14 @@ class NavControl constructor(
 
             composable(route = Screen.WaterFilter.route){
                 WaterFilterScreen(waterFilterViewModel)
+            }
+
+            composable(route = Screen.Shop.route){
+                ShopScreen(viewModel = hiltViewModel(navController.previousBackStackEntry!!))
+            }
+
+            composable(route = Screen.Instruction.route){
+                InstructionScreen(viewModel = hiltViewModel(navController.previousBackStackEntry!!))
             }
         }
     }
@@ -66,6 +78,9 @@ class NavControl constructor(
 sealed class Screen(val route: String) {
     object Home: Screen("home")
     object Task: Screen("task")
+    object Instruction: Screen("instruction")
+    object Shop: Screen("shop")
+
     object WaterFilter: Screen("Water Filter")
 }
 
