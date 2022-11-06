@@ -6,5 +6,6 @@ data class ItemUiState(
     val name: String,
     var quantity: Int,
     var price: Int,
-    var img: Int
+    var img: Int,
+    val mark: Int
 )

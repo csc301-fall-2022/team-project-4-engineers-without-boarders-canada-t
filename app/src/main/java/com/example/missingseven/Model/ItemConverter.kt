@@ -13,7 +13,8 @@ class ItemConverter {
                         name,
                         quantity,
                         price,
-                        R.mipmap.ic_launcher)
+                        R.mipmap.ic_launcher,
+                        mark)
             }
         }
     }
