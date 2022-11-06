@@ -35,6 +35,7 @@ class TaskRepository @Inject constructor(
             callback(it)
         }
     }
+
     suspend fun insertAllReadingTasks(
         tasks: List<TaskType.ReadingTask>, callback: () -> Unit
     ) {
@@ -60,7 +61,8 @@ class TaskRepository @Inject constructor(
     }
 
     suspend fun insertAllFilterTasks(
-        tasks: List<TaskType.FilterTask>, callback: () -> Unit){
+        tasks: List<TaskType.FilterTask>, callback: () -> Unit
+    ) {
         taskDao.insertAllFilterTasks(tasks).run {
             callback()
         }
@@ -91,7 +93,8 @@ class TaskRepository @Inject constructor(
     }
 
     suspend fun updateFilterTask(
-        task: TaskType.FilterTask){
+        task: TaskType.FilterTask
+    ) {
         taskDao.updateFilterTasks(task)
     }
 

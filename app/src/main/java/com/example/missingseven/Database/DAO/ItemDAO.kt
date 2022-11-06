@@ -1,9 +1,10 @@
 package com.example.missingseven.Database.DAO
+
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.missingseven.Database.Entity.TaskType
+import com.example.missingseven.Database.Entity.Item
 
 @Dao
 interface ItemDAO {
@@ -11,8 +12,8 @@ interface ItemDAO {
     fun getAllItems()
 
     @Insert
-    suspend fun insertAllItems(items: List<String>)
+    suspend fun insertAllItems(items: List<Item>)
 
     @Delete
-    suspend fun deleteItem(item: String)
+    suspend fun deleteItem(item: Item)
 }
