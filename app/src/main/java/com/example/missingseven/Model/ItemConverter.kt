@@ -18,6 +18,18 @@ class ItemConverter {
             }
         }
 
+        fun UiStateToDatabaseEntity(item: ItemUiState): Item{
+            return item.run {
+                Item(
+                    iid,
+                    name,
+                    quantity,
+                    price,
+                    mark
+                )
+            }
+        }
+
         private fun getImageRes(iid: Int): Int {
             return when (iid){
                 1 -> R.drawable.rubberband

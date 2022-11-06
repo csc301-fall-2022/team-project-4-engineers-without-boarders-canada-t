@@ -19,6 +19,7 @@ import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Model.*
 import com.example.missingseven.Navigation.Screen
 import kotlinx.coroutines.launch
+import kotlin.math.absoluteValue
 
 @HiltViewModel
 class FilterViewModel @Inject constructor(
@@ -137,49 +138,83 @@ class FilterViewModel @Inject constructor(
 
 
     fun onStackClicked(){
+        if (!filterStack.isFull()){
+            navControl.navigate(Screen.Task.route, Screen.ItemSelect.route)
         }
+    }
 
     fun getSelectableItemList(): List<ItemUiState>{
-
+        val result = mutableListOf<ItemUiState>()
+        for (item in allIIdItemsMap.values) {
+            if (item.quantity > 0){
+                result.add(item)
+            }
+        }
+        return result
     }
 
     fun selectItem(item: ItemUiState){
-
+        filterStack.add(item)
+        player.updatePlayerByIndex(filterStack.topIndex.value - 1, item.iid)
+        allIIdItemsMap[item.iid]?.apply {
+            quantity -= 1
+            viewModelScope.launch {
+                itemRepository.updateItem(ItemConverter.UiStateToDatabaseEntity(this@apply))
+            }
+            viewModelScope.launch {
+                playerRepository.updatePlayer(player)
+            }
+        }
+        navControl.navigateBack()
     }
 
-    fun getPlayerCountry(): Country{
-
+    fun getPlayerCountry(): Country?{
+        for (country in countries) {
+            if (player.cid == country.cid){
+                return country
+            }
+        }
+        return null
     }
 
     fun shopClicked(){
-
+        navControl.navigate(Screen.Task.route, Screen.Shop.route)
     }
 
     fun add(iid: Int){
         shopIidCountMap[iid]?.let{
-            shopIidCountMap.put(iid, it.plus(1))
+            it.value += 1
         }
     }
 
     fun sub(iid: Int){
-        if (shopIidCountMap[iid]!! >0) {
-            shopIidCountMap[iid]?.let{
-                shopIidCountMap.put(iid, it.minus(1))
-            }
+        shopIidCountMap[iid]?.let{
+            it.value -= 1
         }
     }
 
-    fun checkout(): Int{
-        // TODO update count in allIidItemMap subtract money, reset all values in shopMap to 0
+    fun checkout(){
         var money: Int = 0
         for ((iid, item) in allIIdItemsMap) {
-            money += (allIIdItemsMap[iid]?.price ?: 0) * shopIidCountMap[iid]!!
-            allIIdItemsMap[iid]?.quantity.let{
-                allIIdItemsMap[iid]?.quantity? += shopIidCountMap[iid]!!
+            money += (allIIdItemsMap[iid]?.price ?: 0) * shopIidCountMap[iid]!!.value
+            allIIdItemsMap[iid]?.let{
+                it.quantity += shopIidCountMap[iid]!!.value
+                viewModelScope.launch {
+                    itemRepository.updateItem(ItemConverter.UiStateToDatabaseEntity(it))
+                }
             }
-            shopIidCountMap.put(iid, 0)
+            shopIidCountMap[iid]!!.value = 0
         }
-        return money
+        playerUiState.currMoney -= money
+        player.curr_money = playerUiState.currMoney
+        viewModelScope.launch {
+            playerRepository.updatePlayer(player)
+        }
+        navControl.navigateBack()
+    }
+
+    fun evaluate(){
+
     }
 
 }

@@ -80,6 +80,7 @@ sealed class Screen(val route: String) {
     object Task: Screen("task")
     object Instruction: Screen("instruction")
     object Shop: Screen("shop")
+    object ItemSelect: Screen("item select")
 
     object WaterFilter: Screen("Water Filter")
 }
