@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Player(
     @PrimaryKey val pid: Int,
-    @ColumnInfo val cid: Int,
+    @ColumnInfo var cid: Int,
     @ColumnInfo var curr_money: Int
 ) {
     fun updatePlayerByIndex(index: Int, value: Int) {

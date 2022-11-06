@@ -8,17 +8,15 @@ import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Database.Repository.CountryRepository
 import com.example.missingseven.Database.Repository.ItemRepository
 import com.example.missingseven.Database.Repository.PlayerRepository
-import com.example.missingseven.Model.ItemUiState
-import com.example.missingseven.Model.PlayerUiState
 import com.example.missingseven.Navigation.ParamSet
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import com.example.missingseven.Model.FilterStack
-import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
+import com.example.missingseven.Database.Entity.Item
+import com.example.missingseven.Model.*
 import kotlinx.coroutines.launch
 
 @HiltViewModel
@@ -55,20 +53,54 @@ class FilterViewModel @Inject constructor(
     // store all items by the key-value pair of the items iid and the ItemUiState
     private val allIIdItemsMap: Map<Int, ItemUiState> = mutableMapOf()
 
-    fun setup(control: NavControl, filter:TaskUiState.FilterTask,stack: FilterStack,
-    country: List<Country>,playerUiState: PlayerUiState){
+    fun setup(control: NavControl, filter:TaskUiState.FilterTask,stack: FilterStack){
         navControl = control
         filterTask = filter
         filterStack = stack
-        countries = country
-        this.playerUiState = playerUiState
+    }
 
-        fun fetchPlayer(){
-            val allPlayer = viewModelScope.launch{
-                PlayerRepository.getPlayers()}
-                this.player = allPlayer[0]
+    fun fetchPlayer(){
+        viewModelScope.launch{
+            val allPlayer = playerRepository.getPlayers {
+                player = it[0]
             }
         }
+    }
+
+    fun fetchCountries(){
+        viewModelScope.launch{
+            countries = countryRepository.getAllCountries(it)
+        }
+
+        if (player.cid == -1){
+            viewModelScope.launch{
+                val random = countries.random()
+                player.cid = random.cid
+                player.curr_money = random.money
+            }
+        }
+    }
+
+    fun fetchItems() {
+        viewModelScope.launch {
+            val items = itemRepository.getItems {
+                for (item in it) {
+                    shopIidCountMap.put(item.iid, 0)
+                    allIIdItemsMap.put(item.iid, ItemUiState(item.iid, item.name, 0, item.price, 0))
+                }
+            }
+        }
+    }
+
+    fun setupPlayerUiState(){
+        PlayerConverter.databaseEntityToUiState(player,
+            countries[player.cid].name, countries[player.cid].instruction)
+    }
+
+    fun setupStack(){
+        val itemList = mutableListOf<ItemUiState?>()
+        filterStack = FilterStack(itemList, mutableStateOf(0))
+        setupCompleted.value = true
     }
 
 
