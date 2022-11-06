@@ -205,8 +205,8 @@ class FilterViewModel @Inject constructor(
             }
             shopIidCountMap[iid]!!.value = 0
         }
-        playerUiState.currMoney -= money
-        player.curr_money = playerUiState.currMoney
+        playerUiState.currMoney.value -= money
+        player.curr_money = playerUiState.currMoney.value
         viewModelScope.launch {
             playerRepository.updatePlayer(player)
         }
