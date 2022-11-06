@@ -1,10 +1,7 @@
 package com.example.missingseven.Screen
 
 import androidx.compose.runtime.Composable
-import com.example.missingseven.Component.MultipleChoiceTaskBody
-import com.example.missingseven.Component.ReadingTaskBody
-import com.example.missingseven.Component.SlidingScaleTaskBody
-import com.example.missingseven.Component.TaskTemplate
+import com.example.missingseven.Component.*
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.ViewModel.TaskViewModel
 
@@ -26,6 +23,11 @@ fun TaskScreen(
                 is TaskUiState.SlidingScaleTask -> {
                     SlidingScaleTaskBody({curr -> viewModel.slidingScaleTaskChangeHandler(curr)},
                         viewModel.getCurrentTask() as TaskUiState.SlidingScaleTask)
+                }
+                is TaskUiState.ShortAnswerTask -> {
+                    ShortAnswerTaskBody({viewModel.shortAnswerSaveHandler()},
+                        viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask,
+                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)})
                 }
                 else -> {}
             }

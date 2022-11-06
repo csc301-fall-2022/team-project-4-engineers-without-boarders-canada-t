@@ -201,4 +201,23 @@ class TaskViewModel @Inject constructor(
             }
         }
     }
+
+    fun shortAnswerTaskValueChangeHandler(value: String){
+        (getCurrentTask() as TaskUiState.ShortAnswerTask).apply {
+            answer.value = value
+            completed.value = false
+        }
+    }
+
+    fun shortAnswerSaveHandler(){
+        (getCurrentTask() as TaskUiState.ShortAnswerTask).apply {
+            completed.value = true
+            (getCurrentTaskType() as TaskType.ShortAnswerTask).let { task ->
+                task.completed = true
+                viewModelScope.launch {
+                    taskRepository.updateShortAnswerTask(task)
+                }
+            }
+        }
+    }
 }
