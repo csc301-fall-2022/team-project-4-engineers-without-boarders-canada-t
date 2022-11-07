@@ -45,8 +45,7 @@ The evaluate button will give the user a score on the water filter they have bui
 
 ## Development requirements
 - There's no requirement regarding OS. As long as Android Studio is installed, you can clone our codes and build the project locally. The download link of
-Android Studio can be found here 
-https://developer.android.com/studio?gclid=CjwKCAjwtp2bBhAGEiwAOZZTuHFTHsdXGF5dyEeAVvV1wCzRoQovlRF91SkEpikS3aeretue1yp5GxoC_VYQAvD_BwE&gclsrc=aw.ds
+Android Studio can be found [here](https://developer.android.com/studio?gclid=CjwKCAjwtp2bBhAGEiwAOZZTuHFTHsdXGF5dyEeAVvV1wCzRoQovlRF91SkEpikS3aeretue1yp5GxoC_VYQAvD_BwE&gclsrc=aw.ds)
 - If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". After an APK is built, you could install the application to any Android machine. We have already uploaded an APK under this folder, the user can download it here to install it on an Android device
 
 ## Deployment and Github Workflow
