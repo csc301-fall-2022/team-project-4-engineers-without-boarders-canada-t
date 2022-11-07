@@ -56,9 +56,9 @@ class FilterViewModel @Inject constructor(
         fetchPlayer()
     }
 
-    fun fetchPlayer(){
+    private fun fetchPlayer(){
         viewModelScope.launch{
-            val allPlayer = playerRepository.getPlayers {
+            playerRepository.getPlayers {
                 player = it[0]
                 fetchCountries()
             }
@@ -92,14 +92,13 @@ class FilterViewModel @Inject constructor(
                     shopIidCountMap[item.iid] = mutableStateOf(0)
                     allIIdItemsMap[item.iid] = ItemConverter.databaseEntityToUiState(item)
                 }
+                setupPlayerUiState()
+                setupStack()
             }
         }
-        setupPlayerUiState()
-        setupStack()
     }
 
     private fun setupPlayerUiState(){
-        // TODO replace by get playerCountry
         getPlayerCountry()?.let {
             playerUiState = PlayerConverter.databaseEntityToUiState(player, it.name, it.instruction)
         }

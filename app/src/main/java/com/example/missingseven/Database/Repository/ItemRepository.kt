@@ -9,7 +9,9 @@ class ItemRepository @Inject constructor(
     private val itemDAO: ItemDAO
 ) {
     suspend fun getItems(callback: (List<Item>) -> Unit) {
-        itemDAO.getAllItems()
+        itemDAO.getAllItems().collect {
+            callback(it)
+        }
     }
 
     suspend fun insertAllItems(items: List<Item>, callback: () -> Unit) {

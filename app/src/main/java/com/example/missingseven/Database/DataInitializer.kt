@@ -73,6 +73,8 @@ class DataInitializer constructor(
         TaskType.FilterTask(4, false, 0)
     )
 
-
+    companion object {
+        const val INSERT_NUM = 7
+    }
 
 }

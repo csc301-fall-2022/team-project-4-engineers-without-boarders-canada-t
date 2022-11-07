@@ -29,14 +29,14 @@ fun WaterFilterScreen(
 ) {
     LaunchedEffect(Unit){
         if (!filterViewModel.setupCompleted.value){
-            filterViewModel.setup(task, navControl)
+            filterViewModel.setup(navControl, task)
         }
     }
     if (filterViewModel.setupCompleted.value){
         Column() {
             Text(text = "Country: " + filterViewModel.getPlayerCountry()?.name.orEmpty())
             Text(text = "Money: " + filterViewModel.playerUiState.currMoney.value)
-            WaterFilter(stack = filterViewModel.stack) { filterViewModel.stackClick() }
+            WaterFilter(stack = filterViewModel.filterStack) { filterViewModel.onStackClicked() }
             Row(verticalAlignment = Alignment.Bottom) {
                 IconButton(onClick = { filterViewModel.shopClicked()}) {
                     Image(
@@ -45,7 +45,7 @@ fun WaterFilterScreen(
                         modifier = Modifier.size(40.dp)
                     )
                 }
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = { filterViewModel.openInstruction() }) {
                     Text(text = "Instruction")
                 }
                 Button(onClick = {

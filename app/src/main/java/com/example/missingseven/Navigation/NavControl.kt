@@ -8,11 +8,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.missingseven.Model.ItemUiState
-import com.example.missingseven.Screen.HomeScreen
-import com.example.missingseven.Screen.InstructionScreen
-import com.example.missingseven.Screen.ShopScreen
-import com.example.missingseven.Screen.TaskScreen
-import com.example.missingseven.Screen.WaterFilterScreen
+import com.example.missingseven.Screen.*
+import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ViewModel.TaskViewModel
 import kotlinx.parcelize.Parcelize
 
@@ -24,6 +21,7 @@ class NavControl constructor(
     @Composable
     fun SetUpNavGraph() {
         val viewModel: TaskViewModel = hiltViewModel()
+        val filterViewModel: FilterViewModel = hiltViewModel()
         viewModel.setup(this@NavControl)
 
 
@@ -34,15 +32,19 @@ class NavControl constructor(
             }
 
             composable(route = Screen.Task.route){
-                TaskScreen(viewModel)
+                TaskScreen(viewModel, filterViewModel)
             }
 
             composable(route = Screen.Shop.route){
-                ShopScreen(viewModel = hiltViewModel(navController.previousBackStackEntry!!))
+                ShopScreen(viewModel = filterViewModel)
+            }
+
+            composable(route = Screen.ItemSelect.route){
+                ItemSelectScreen(viewModel = filterViewModel)
             }
 
             composable(route = Screen.Instruction.route){
-                InstructionScreen(viewModel = hiltViewModel(navController.previousBackStackEntry!!))
+                InstructionScreen(viewModel = filterViewModel)
             }
         }
     }
@@ -80,10 +82,5 @@ sealed class Screen(val route: String) {
 }
 
 sealed class ParamSet : Parcelable {
-    @Parcelize
-    data class CheckoutParamSet(
-        val itemList: List<ItemUiState>,
-        val totalPrice: Int,
-    ): ParamSet()
 
 }

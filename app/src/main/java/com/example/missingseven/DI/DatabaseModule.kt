@@ -45,6 +45,7 @@ object DatabaseModule {
 
 
 
+    @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext appContext: Context): MainDatabase {
         return Room.databaseBuilder(
