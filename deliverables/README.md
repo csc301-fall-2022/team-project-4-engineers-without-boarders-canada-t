@@ -53,6 +53,7 @@ After an APK is built, you could find the apk file by clicking "locate" on the b
 <img width="375" alt="Screen Shot 2022-11-06 at 23 32 07" src="https://user-images.githubusercontent.com/90353234/200227246-c02a3ed2-d563-444a-b992-14a966611355.png">
 
 Then you could install the application by copying the file to any Android machine. 
+
 We have also uploaded an APK under this folder, the user can download it here to install it on an Android device
 
 ## Deployment and Github Workflow
