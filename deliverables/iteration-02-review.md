@@ -38,6 +38,7 @@ Firstly, we did some internal demos to evaluate the level of presentation of the
 * What did you manage to demo to your partner?\
 \
 We showed all the pages of the project that we currently done and all the features by now, for example, the multiple question page, the introduction/home page, and the main feature: the water filter simulator page. Although the UI is still simple and needed more polishing, but all the functionality works fine as demo goes. At last, we introduced some more feature that still need to be worked on and some ideas about features that can be add on the project.
+In our first online demo with our partners, they gave us some feedback about our app. We made some changes on our project based on their feedback and created a recorded video demo to them. You can also find the demo video(demo.mp4) under the deliverables folder.
 
 * Did your partner accept the features?\
 \
