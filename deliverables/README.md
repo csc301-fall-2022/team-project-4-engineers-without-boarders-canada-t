@@ -58,3 +58,8 @@ APK. We have uploaded an APK under this folder.
 ## Licenses
 
 We are using the MIT license. We choose this license because our project is non-profit and is for social welfare. We have discussed with our partner before about confidentiality. They hope others can update this project later to better serve the society. The MIT license allow others to make copy and modify our codebase which serves our partner's purpose well.
+
+## Link to our deployed application:
+https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/D2/deliverables/W4TW_D2.apk
+## Link to our demo video:
+https://github.com/csc301-fall-2022/team-project-4-engineers-without-boarders-canada-t/blob/D2/deliverables/demo.mp4
