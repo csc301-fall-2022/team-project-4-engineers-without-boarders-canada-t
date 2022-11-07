@@ -54,6 +54,9 @@ interface TaskDao {
     @Query("DELETE FROM filtertask")
     suspend fun deleteAllFilterTasks()
 
+    @Query("DELETE FROM shortanswertask")
+    suspend fun deleteAllShortAnswerTasks()
+
     @Update
     suspend fun updateReadingTask(task: TaskType.ReadingTask)
 

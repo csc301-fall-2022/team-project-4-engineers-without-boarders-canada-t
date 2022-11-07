@@ -87,6 +87,11 @@ class TaskViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
+            taskRepository.insertAllShortAnswerTasks(dataInitializer.getShortAnswerTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
             countryRepository.insertAllCountries(dataInitializer.getAllCountries()){
                 insertCallback()
             }
@@ -118,6 +123,10 @@ class TaskViewModel @Inject constructor(
 
         viewModelScope.launch {
             taskRepository.deleteFilterTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteShortAnswerTasks { deleteCallback() }
         }
 
         viewModelScope.launch {
@@ -167,6 +176,11 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.getFilterTasks {
+                updateTasks(it)
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.getShortAnswerTasks {
                 updateTasks(it)
             }
         }

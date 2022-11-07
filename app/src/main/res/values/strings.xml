@@ -8,16 +8,29 @@
     <string name="reading_task1_header">The Workshop</string>
     <string name="reading_task1_content">The Water for the World presentation is an engaging hour and a half that educates, challenges, and inspires students to think about creative solutions to global water access issues. Our program is divided into a three–part learning format as recommended by the Ontario Ministry of Education – Opening (Minds On), Middle (Action – Interactive/Hands–On), Closing (Debrief/Consolidation).\nA large component of the presentation involves hands–on interaction where groups of 4–6 students construct their own water filters using recycled plastic bottles and multiple layers of sand and gravel. The students are grouped into different countries, and are provided with different levels of information and amounts of play money, depending on their country’s literacy rate and wealth, respectively.\nThrough this activity, students are challenged to think critically and creatively, while collaborating with their peers. Students will gain a better understanding of social issues in technological development, while being exposed to the concept of international interdependence and cooperation as it relates to the global need for potable water. We also aim to engage students by highlighting the potential role youth can have in addressing these issues.</string>
 
+    <string name="task4_header">Literacy Rate</string>
+    <string name="task4_content">The Literacy rate Note 2 is a good indication of the general level of education in a country. Explore this map and ask you self – where are the literacy rates the lowest in the world?</string>
+
     <!-- sliding scale task -->
     <string name="tooShort">The answer is too small</string>
     <string name="tooLarge">The answer is too large</string>
     <string name="task2_header">“There are approaching 8 billion people in the world how many don’t have access to clean drinking water in their home?”</string>
     <string name="task2_correctInfo">“Yes, 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home”</string>
 
+    <string name="task5_header">How many people live on less than $2.50 a day?</string>
+    <string name="task5_correctInfo">Yes 1 Billion people in the world live in Extreme Poverty – think what you could buy with $2.50 – what could you eat and how would your or your parents be able to pay your rent</string>
+
+    <!-- mc task-->
     <string name="mc_task2_header">Where do most of these people live?</string>
     <string name="mc_task2_option0">North America</string>
     <string name="mc_task2_option1">South America</string>
     <string name="mc_task2_option2">Europe</string>
     <string name="mc_task2_option3">Asia</string>
     <string name="mc_task2_option4">Africa</string>
+
+    <!-- short answer task -->
+    <string name="task8_question">How did the money and literacy rate you were given for each affect your ability to build a water filter?</string>
+    <string name="task9_question">Do you think water and its use around the world is fair and equal? Should people have the same access to water everywhere?</string>
+    <string name="task10_question">What can you do in your daily life to conserve water?</string>
+    <string name="task11_question">What is the most important thing you have learned doing this activity?</string>
 </resources>

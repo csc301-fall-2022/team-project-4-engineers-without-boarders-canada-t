@@ -59,6 +59,6 @@ sealed class TaskType(
 
 
     companion object {
-        const val TASK_TYPE_NUM = 4
+        const val TASK_TYPE_NUM = 5
     }
 }

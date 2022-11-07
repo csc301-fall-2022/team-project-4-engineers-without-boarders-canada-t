@@ -127,4 +127,10 @@ class TaskRepository @Inject constructor(
             callback()
         }
     }
+
+    suspend fun deleteShortAnswerTasks(callback: () -> Unit){
+        taskDao.deleteAllShortAnswerTasks().run {
+            callback()
+        }
+    }
 }
