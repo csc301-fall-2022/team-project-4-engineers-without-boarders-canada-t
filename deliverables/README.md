@@ -42,9 +42,11 @@ The evaluate button will give the user a score on the water filter they have bui
 
 ## Development requirements
 - There's no requirement regarding OS. As long as Android Studio is installed, a developer can clone our codes and build the project locally.
-- If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". After an APK is built, you could install the application to any Android machine.
+- If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". After an APK is built, you could install the application to any Android machine. We have already uploaded an APK under this folder, the user can download it here to install it on an Android device
 
 ## Deployment and Github Workflow
-
+- We cut a branch called D2 off the main branch. We are entirely working on D2 branch. For each feature, we will cut off a branch from D2. e.g. The integration of multiple choice tasks, we cut off a branch called MultipleChoiceTaskIntegration and all the tasks related to multiple choice task is done on that branch. Everytime a member wish to push the code onto the sub-brach, we will first git pull to and resolve conflicts using android studio's github GUI, then push the code onto the sub-branch. When the last person finishes the tasks, first rebase the sub-branch onto D2 and then the person will create a pull request, another teammate will review the code. When the pull request is approved, either the person requests the pull request or the reviewer will merge the code onto D2. This flow can resolve conflicts on both stages of development - pushing changes to sub-branch and merging into D2.
+- To deploy the application, when we run the code on Android Studio, a debug version of the app will be installed on the Android device selected, or on an Android emulator provided by android studio, and then we can use and debug our app. After the development of the entire app(for D2) is finished, we generated a product release 
+APK. We have uploaded an APK under this folder.
 ## Licenses
 
