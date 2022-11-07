@@ -53,3 +53,4 @@ The evaluate button will give the user a score on the water filter they have bui
 APK. We have uploaded an APK under this folder.
 ## Licenses
 
+We are using the MIT license. We choose this license because our project is non-profit and is for social welfare. We have discussed with our partner before about confidentiality. They hope others can update this project later to better serve the society. The MIT license allow others to make copy and modify our codebase which serves our partner's purpose well.
