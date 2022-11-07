@@ -133,7 +133,7 @@ class FilterViewModel @Inject constructor(
 
 
     fun onStackClicked(){
-        if (!filterStack.isFull()){
+        if (!filterStack.isFull() && !filterTask.completed.value){
             navControl.navigate(Screen.Task.route, Screen.ItemSelect.route)
         }
     }
