@@ -16,7 +16,7 @@ We intended to divide the work into distinct sections of the application, with e
 Q4. How was your product demo?
 * How did you prepare your demo? \
 \
-Firstly, we did some internal demos to evaluate the level of presentation of the team's work on the project before showing it to the client. During these internal demo, we try to improve the demo on various aspects, for example, we added more visialization content, where we consider that texts and images are important for the client. Then, we finalized the process of demonstrate the working software and the explanation to the client on what we have done and what we haven't. Lastly, we decide to leave some time to the client to let them ask any questions related to the project.
+Firstly, we did some internal demos to evaluate the level of presentation of the team's work on the project before showing it to the client. During these internal demo, we try to improve the demo on various aspects, for example, we added more visualization content, where we consider that texts and images are important for the client. Then, we finalized the process of demonstrate the working software and the explanation to the client on what we have done and what we haven't. Lastly, we decide to leave some time to the client to let them ask any questions related to the project.
 
 * What did you manage to demo to your partner?\
 \
@@ -32,5 +32,5 @@ Not much, only probably need more UI improvement on the overall software experie
 
 * What did you learn from the demo from either a process or product perspective?\
 \
-Practice is important. There will be a lot of situations that we cannot expect if we didn't do some internal demo before demoing to the partner. Also, we should be clear on what is important and what is not before the demo, only showing important part will make the demo easy to follow and demonstrate good dimplicity.
+Practice is important. There will be a lot of situations that we cannot expect if we didn't do some internal demo before demoing to the partner. Also, we should be clear on what is important and what is not before the demo, only showing important part will make the demo easy to follow and demonstrate good simplicity.
 
