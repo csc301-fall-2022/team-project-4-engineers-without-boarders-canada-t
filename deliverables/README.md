@@ -19,8 +19,8 @@ On an Android smartphone, the user can install our application using an APK pack
 Following installation, the user can begin a new workshop session, and from there, instructions will be provided to walk them through the app's workflow.
 
 The program opens to a page with two options: create new session or resume current session. You can only select the create new session option when using the app for the first time and if you quit while a workshop session was in progress. You can pick up where you left off by selecting "Resume Session."
-In every page, there will be a back and next button for navigating between pages. 
-Genrally, we have 4 types of pages,
+
+Other than the create new workshop/resume workshop page, We have 5 types of pages in our app, and these pages are ordered in sequential order, In every page, there will be a back and next button for navigating between pages. 
 
 The text information page has the following logic:
 At the bottom of the page, there will be a checkbox to confirm you have read the text above.  You will only be able to navigate to the next page after checking the checkbox.
@@ -30,6 +30,9 @@ There will be options on the screen, and you can choose any of them, but the nex
 
 The logic behind the sliding scale page is as follows:
 A question with a sliding bar asking the user to select the right response will be presented. The next page button will become available as soon as the user slides to the correct portion, at which point a text explanation describing why this is the correct area will be presented.
+
+The logic of short answer page is as follows:
+User will see a question and a text input box to write their answer, they will only be able to proceed to the next page once they have filled in the text input.
 
 The final type of page is one used to construct a water filer. There will be 7 spaces on this page where the user can select the material to use for this layer. When a user clicks on an empty layer, they are taken to a page showing all the available items. After selecting an item, they are taken back to the page for creating the water filter, where the view has been modified to reflect the new additions. The page also display the amount of money the user have and the country the user representing. There will also be a store button, instruction button, and a evaluate button.
 
