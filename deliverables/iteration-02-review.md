@@ -1,3 +1,11 @@
+# Water For The World(W4TW) - Missing Seven
+Time: November 6, 2022\
+Location: google meet
+
+## Q1. Decisions that turned out well
+
+
+
 
 ## Q2. Decisions that did not turn out as well as we hoped
 
