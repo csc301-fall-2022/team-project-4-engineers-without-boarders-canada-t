@@ -1,5 +1,6 @@
 package com.example.missingseven.ViewModel
 
+import android.provider.ContactsContract.Data
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -10,6 +11,9 @@ import com.example.missingseven.Database.IntPair
 import com.example.missingseven.Database.PrefManager
 import com.example.missingseven.Database.DataInitializer
 import com.example.missingseven.Database.Entity.TaskType
+import com.example.missingseven.Database.Repository.CountryRepository
+import com.example.missingseven.Database.Repository.ItemRepository
+import com.example.missingseven.Database.Repository.PlayerRepository
 import com.example.missingseven.Database.Repository.TaskRepository
 import com.example.missingseven.Model.TaskConverter
 import com.example.missingseven.Model.TaskUiState
@@ -21,6 +25,9 @@ import javax.inject.Inject
 @HiltViewModel
 class TaskViewModel @Inject constructor(
     private val taskRepository: TaskRepository,
+    private val countryRepository: CountryRepository,
+    private val itemRepository: ItemRepository,
+    private val playerRepository: PlayerRepository,
     private val preferenceManager: PrefManager,
     private val dataInitializer: DataInitializer
 ): ViewModel() {
@@ -33,7 +40,7 @@ class TaskViewModel @Inject constructor(
     private val allUiStates: MutableList<TaskUiState> = mutableListOf()
 
     private val observer = Observer<Int> {
-        if (it == TaskType.TASK_TYPE_NUM){
+        if (it == DataInitializer.INSERT_NUM){
             preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, true)
             initTasks()
         }
@@ -43,7 +50,7 @@ class TaskViewModel @Inject constructor(
         this.navControl = navControl
         insertCompleted.observeForever(observer)
         if (preferenceManager.getBoolean(BooleanPair.DataInitialized)){
-            insertCompleted.value = TaskType.TASK_TYPE_NUM
+            insertCompleted.value = DataInitializer.INSERT_NUM
         } else {
             insertTasks()
         }
@@ -62,6 +69,26 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.insertAllSlidingScaleTasks(dataInitializer.getAllSlidingScaleTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.insertAllFilterTasks(dataInitializer.getFilterTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            countryRepository.insertAllCountries(dataInitializer.getAllCountries()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            playerRepository.insertPlayers(dataInitializer.getAllPlayer()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            itemRepository.insertAllItems(dataInitializer.getAllItem()){
                 insertCallback()
             }
         }
@@ -84,6 +111,11 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.getSlidingScaleTasks {
+                updateTasks(it)
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.getFilterTasks {
                 updateTasks(it)
             }
         }

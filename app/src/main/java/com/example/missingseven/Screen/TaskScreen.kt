@@ -3,11 +3,13 @@ package com.example.missingseven.Screen
 import androidx.compose.runtime.Composable
 import com.example.missingseven.Component.*
 import com.example.missingseven.Model.TaskUiState
+import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ViewModel.TaskViewModel
 
 @Composable
 fun TaskScreen(
-    viewModel: TaskViewModel
+    viewModel: TaskViewModel,
+    filterViewModel: FilterViewModel
 ){
     TaskTemplate(
         content = {
@@ -28,6 +30,14 @@ fun TaskScreen(
                     ShortAnswerTaskBody({viewModel.shortAnswerSaveHandler()},
                         viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask,
                         {value -> viewModel.shortAnswerTaskValueChangeHandler(value)})
+                }
+                is TaskUiState.FilterTask -> {
+                    WaterFilterScreen(
+                        task = viewModel.getCurrentTask() as TaskUiState.FilterTask,
+                        filterViewModel = filterViewModel,
+                        navControl = viewModel.navControl) {
+                        
+                    }
                 }
                 else -> {}
             }

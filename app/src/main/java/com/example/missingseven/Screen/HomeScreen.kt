@@ -21,10 +21,5 @@ fun HomeScreen(
         }) {
             Text(text = "Task")
         }
-        Button(onClick = {
-            viewModel.navControl.navigate(Screen.Home.route, Screen.WaterFilter.route)
-        }) {
-            Text(text = "WaterFilter")
-        }
     }
 }

@@ -1,22 +1,45 @@
 package com.example.missingseven.Model
 
-import androidx.compose.runtime.mutableStateOf
-import com.example.missingseven.Database.Entity.ItemType
+import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.R
 
 class ItemConverter {
 
     companion object {
-        fun databaseEntityToUiState(itemType: ItemType?){
-            return itemType.run {
-                if (this is ItemType) {
+        fun databaseEntityToUiState(item: Item): ItemUiState{
+            return item.run {
                     ItemUiState(
                         iid,
+                        name,
                         quantity,
                         price,
-                        R.mipmap.ic_launcher
-                    )
-                }
+                        getImageRes(iid),
+                        mark)
+            }
+        }
+
+        fun UiStateToDatabaseEntity(item: ItemUiState): Item{
+            return item.run {
+                Item(
+                    iid,
+                    name,
+                    quantity,
+                    price,
+                    mark
+                )
+            }
+        }
+
+        private fun getImageRes(iid: Int): Int {
+            return when (iid){
+                1 -> R.drawable.rubberband
+                2 -> R.drawable.cheesecloth
+                3 -> R.drawable.cotton
+                4 -> R.drawable.finesand
+                5 -> R.drawable.coarsesand
+                6 -> R.drawable.finegravel
+                7 -> R.drawable.coarsegravel
+                else -> -1
             }
         }
     }

@@ -45,6 +45,13 @@ class TaskConverter {
                             correctInfo
                         )
                     }
+                    is TaskType.FilterTask -> {
+                        TaskUiState.FilterTask(
+                            tid,
+                            mutableStateOf(completed),
+                            pid
+                        )
+                    }
                     else -> null
                 }
             }

@@ -21,6 +21,9 @@ interface TaskDao {
     @Query("SELECT * FROM slidingscaletask")
     fun getAllSlidingScaleTasks(): Flow<List<TaskType.SlidingScaleTask>>
 
+    @Query("SELECT * FROM FilterTask")
+    fun getAllFilterTasks(): Flow<List<TaskType.FilterTask>>
+
     @Query("SELECT * FROM shortanswertask")
     fun getAllShortAnswerTasks(): Flow<List<TaskType.ShortAnswerTask>>
 
@@ -32,6 +35,9 @@ interface TaskDao {
 
     @Insert
     suspend fun insertAllSlidingScaleTasks(tasks: List<TaskType.SlidingScaleTask>)
+
+    @Insert
+    suspend fun insertAllFilterTasks(tasks: List<TaskType.FilterTask>)
 
     @Insert
     suspend fun insertAllShortAnswerTasks(tasks: List<TaskType.ShortAnswerTask>)
@@ -50,6 +56,9 @@ interface TaskDao {
 
     @Update
     suspend fun updateSlidingScaleTasks(task: TaskType.SlidingScaleTask)
+
+    @Update
+    suspend fun updateFilterTasks(task: TaskType.FilterTask)
 
     @Update
     suspend fun updateShortAnswerTasks(task: TaskType.ShortAnswerTask)

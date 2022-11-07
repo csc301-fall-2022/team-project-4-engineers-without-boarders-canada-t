@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class CountryType(
+data class Country(
     @PrimaryKey val cid: Int,
     @ColumnInfo val name: String,
     @ColumnInfo val money: Int,

@@ -29,6 +29,13 @@ class TaskRepository @Inject constructor(
         taskDao.getAllShortAnswerTasks().collect { callback(it) }
     }
 
+
+    suspend fun getFilterTasks(callback: (List<TaskType>) -> Unit){
+        taskDao.getAllFilterTasks().collect {
+            callback(it)
+        }
+    }
+
     suspend fun insertAllReadingTasks(
         tasks: List<TaskType.ReadingTask>, callback: () -> Unit
     ) {
@@ -49,6 +56,14 @@ class TaskRepository @Inject constructor(
         tasks: List<TaskType.SlidingScaleTask>, callback: () -> Unit
     ) {
         taskDao.insertAllSlidingScaleTasks(tasks).run {
+            callback()
+        }
+    }
+
+    suspend fun insertAllFilterTasks(
+        tasks: List<TaskType.FilterTask>, callback: () -> Unit
+    ) {
+        taskDao.insertAllFilterTasks(tasks).run {
             callback()
         }
     }
@@ -75,6 +90,12 @@ class TaskRepository @Inject constructor(
         task: TaskType.SlidingScaleTask
     ) {
         taskDao.updateSlidingScaleTasks(task)
+    }
+
+    suspend fun updateFilterTask(
+        task: TaskType.FilterTask
+    ) {
+        taskDao.updateFilterTasks(task)
     }
 
     suspend fun updateShortAnswerTask(
