@@ -1,7 +1,9 @@
 
+Q2 List process-related (i.e. team organization and how you work) decisions that, in retrospect, were not as successful as you thought they would be.
 
+Another decision that was not successful would be the updating decisions. During our process artifact of defining requirements, we needed to build our Class Responsibility Collaborator (CRC) model for the water filter application. Since many of us were having midterm during this period, it was difficult to set up a meeting time that was available for all memeber. In this case, we decided to use the strategy that as long as the meeting time was available for more than four team members, we would conduct a meeting. Later we would update the progress to the members who were not able to attend the meeting. Initially, we thought it would be successful as we were making the progress without waiting for everyone's free time. However, we did not consider that the teammates who missed the meeting also had new thoughts that wanted to be shared with the team. At the end, we spent extra time not making progress but kept updating and discussing new thoughts and ideas. This significantly delayed our process. We could not move on to our next stage on time.
 
-
+The last decision that was not successful would be the testing strategy. During our process artifact of testing the application, we decided to run the virtual application to test it instead of using test case. We thought this method was efficient as we did not need to spend time writing the test case for each class. Some edge cases might also not be able to be considered when we think about the test case. However, when we implemented this strategy, it was indeed very difficult to find the error without the test case. We needed to brouse through every component of the code and determine which part went wrong. This process took so much time and we spent unnecessary time on looking for the errors instaead of straight away solving them.
 
 
 Q3. Planned changes
