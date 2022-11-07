@@ -23,6 +23,7 @@ class PrefManager @Inject constructor(
     companion object {
         const val CURR_TASK_ID = "FLAG_CURR_TASK_ID"
         const val DATA_INITIALIZED = "FLAG_DATA_INITIALIZED"
+        const val IS_UNDER_RESETTING = "FLAG_IS_UNDER_RESETTING"
     }
 }
 
@@ -38,4 +39,5 @@ sealed class BooleanPair(
     val default: Boolean
 ) {
     object DataInitialized: BooleanPair(PrefManager.DATA_INITIALIZED, false)
+    object IsUnderResetting: BooleanPair(PrefManager.IS_UNDER_RESETTING, false)
 }

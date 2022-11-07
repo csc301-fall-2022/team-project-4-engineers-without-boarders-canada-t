@@ -42,11 +42,17 @@ interface TaskDao {
     @Insert
     suspend fun insertAllShortAnswerTasks(tasks: List<TaskType.ShortAnswerTask>)
 
-    @Delete
-    fun delete(task: TaskType.ReadingTask)
+    @Query("DELETE FROM readingtask")
+    suspend fun deleteAllReadingTasks()
 
-    @Query("SELECT COUNT(*) FROM readingtask")
-    fun getCount(): Flow<Int>
+    @Query("DELETE FROM multiplechoicetask")
+    suspend fun deleteAllMultipleChoiceTasks()
+
+    @Query("DELETE FROM slidingscaletask")
+    suspend fun deleteAllSlidingScaleTasks()
+
+    @Query("DELETE FROM filtertask")
+    suspend fun deleteAllFilterTasks()
 
     @Update
     suspend fun updateReadingTask(task: TaskType.ReadingTask)

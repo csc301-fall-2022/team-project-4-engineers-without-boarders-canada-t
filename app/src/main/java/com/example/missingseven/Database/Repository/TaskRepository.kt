@@ -103,4 +103,28 @@ class TaskRepository @Inject constructor(
     ) {
         taskDao.updateShortAnswerTasks(task)
     }
+
+    suspend fun deleteReadingTasks(callback: () -> Unit){
+        taskDao.deleteAllReadingTasks().run {
+            callback()
+        }
+    }
+
+    suspend fun deleteMultipleChoiceTasks(callback: () -> Unit){
+        taskDao.deleteAllMultipleChoiceTasks().run {
+            callback()
+        }
+    }
+
+    suspend fun deleteSlidingScaleTasks(callback: () -> Unit){
+        taskDao.deleteAllSlidingScaleTasks().run {
+            callback()
+        }
+    }
+
+    suspend fun deleteFilterTasks(callback: () -> Unit){
+        taskDao.deleteAllFilterTasks().run {
+            callback()
+        }
+    }
 }

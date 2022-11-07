@@ -1,9 +1,9 @@
 package com.example.missingseven.Database.DAO
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.missingseven.Database.Entity.Item
 import kotlinx.coroutines.flow.Flow
 
@@ -15,6 +15,9 @@ interface ItemDAO {
     @Insert
     suspend fun insertAllItems(items: List<Item>)
 
-    @Delete
-    suspend fun deleteItem(item: Item)
+    @Update
+    suspend fun updateItem(item: Item)
+
+    @Query("DELETE FROM item")
+    suspend fun deleteAllItems()
 }

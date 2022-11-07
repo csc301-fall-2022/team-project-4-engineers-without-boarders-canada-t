@@ -18,6 +18,7 @@ import com.example.missingseven.Database.Repository.TaskRepository
 import com.example.missingseven.Model.TaskConverter
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
+import com.example.missingseven.Navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -36,24 +37,32 @@ class TaskViewModel @Inject constructor(
     private var taskListCount = 0
     val allFetched = mutableStateOf(false)
     private val insertCompleted = MutableLiveData(0)
+    private val deleteCompleted = mutableStateOf(0)
     private val allTasks: MutableList<TaskType> = mutableListOf()
     private val allUiStates: MutableList<TaskUiState> = mutableListOf()
 
-    private val observer = Observer<Int> {
-        if (it == DataInitializer.INSERT_NUM){
-            preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, true)
+    private fun dataInitialize(){
+        if (!preferenceManager.getBoolean(BooleanPair.DataInitialized)){
+            insertTasks()
+        } else {
             initTasks()
         }
     }
 
     fun setup(navControl: NavControl){
         this.navControl = navControl
-        insertCompleted.observeForever(observer)
-        if (preferenceManager.getBoolean(BooleanPair.DataInitialized)){
-            insertCompleted.value = DataInitializer.INSERT_NUM
-        } else {
-            insertTasks()
-        }
+    }
+
+    private fun variableReset(){
+        currentTaskId.value = -1
+        taskListCount = 0
+        allFetched.value = false
+        insertCompleted.value = 0
+        deleteCompleted.value = 0
+        allTasks.clear()
+        allUiStates.clear()
+        preferenceManager.putInt(PrefManager.CURR_TASK_ID, -1)
+        preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, false)
     }
 
     private fun insertTasks(){
@@ -94,8 +103,50 @@ class TaskViewModel @Inject constructor(
         }
     }
 
+    private fun deleteTasks(){
+        viewModelScope.launch {
+            taskRepository.deleteReadingTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteMultipleChoiceTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteSlidingScaleTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteFilterTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            countryRepository.deleteCountries { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            itemRepository.deleteAllItems { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            playerRepository.deleteAllPlayers { deleteCallback() }
+        }
+    }
+
+    private fun deleteCallback(){
+        deleteCompleted.value = deleteCompleted.value.plus(1)
+        if (deleteCompleted.value == DataInitializer.INSERT_NUM){
+            preferenceManager.putBoolean(PrefManager.IS_UNDER_RESETTING, false)
+            dataInitialize()
+        }
+    }
+
     private fun insertCallback(){
         insertCompleted.value = insertCompleted.value?.plus(1)
+        if (insertCompleted.value == DataInitializer.INSERT_NUM){
+            preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, true)
+            initTasks()
+        }
     }
 
     private fun initTasks(){
@@ -123,17 +174,27 @@ class TaskViewModel @Inject constructor(
 
 
     private fun updateTasks(list: List<TaskType>){
-        if (taskListCount != TaskType.TASK_TYPE_NUM){
-            allTasks.addAll(list)
-            taskListCount += 1
+        if (taskListCount != TaskType.TASK_TYPE_NUM && !isUnderResetting()){
+            safeCheckUpdate(list)
             if (taskListCount == TaskType.TASK_TYPE_NUM){
                 allFetched.value = true
                 allTasks.sortBy { it.tid }
                 setTaskUiStates()
-                insertCompleted.removeObserver(observer)
                 checkSharedPreference()
+                navControl.navigate(Screen.Home.route, Screen.Task.route)
             }
         }
+    }
+
+    private fun safeCheckUpdate(list: List<TaskType>){
+        if (!allTasks.containsAll(list)){
+            allTasks.addAll(list)
+            taskListCount += 1
+        }
+    }
+
+    private fun isUnderResetting(): Boolean {
+        return preferenceManager.getBoolean(BooleanPair.IsUnderResetting)
     }
 
     private fun checkSharedPreference() {
@@ -202,6 +263,25 @@ class TaskViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun isResumeAble(): Boolean {
+        return preferenceManager.getInt(IntPair.CurrTask) != -1
+    }
+
+    fun resume(){
+        if (allFetched.value){
+            navControl.navigate(Screen.Home.route, Screen.Task.route)
+        } else {
+            dataInitialize()
+        }
+    }
+
+
+    fun startNewWorkshop(){
+        variableReset()
+        preferenceManager.putBoolean(PrefManager.IS_UNDER_RESETTING, true)
+        deleteTasks()
     }
 
     fun updateChooseHandler(index: Int){

@@ -15,6 +15,6 @@ interface CountryDAO {
     @Insert
     suspend fun insertAllCountries(countries: List<Country>)
 
-    @Delete
-    suspend fun deleteCountry(country: Country)
+    @Query("DELETE FROM country")
+    suspend fun deleteAllCountries()
 }
