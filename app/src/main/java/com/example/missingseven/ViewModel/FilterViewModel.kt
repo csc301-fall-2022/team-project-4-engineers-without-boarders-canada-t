@@ -127,7 +127,7 @@ class FilterViewModel @Inject constructor(
         navControl.navigate(Screen.Task.route, Screen.Instruction.route)
     }
 
-    fun closeInstruction(){
+    fun closeChildScreen(){
         navControl.navigateBack()
     }
 

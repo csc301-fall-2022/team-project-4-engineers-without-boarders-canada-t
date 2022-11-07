@@ -51,7 +51,7 @@ fun ShopScreen(
             cells = GridCells.Fixed(2),
             modifier = Modifier
                 .padding(8.dp)
-                .fillMaxHeight(0.6f)
+                .fillMaxHeight(0.75f)
                 .border(
                     0.dp,
                     brush = SolidColor(Color.Black),
@@ -76,6 +76,9 @@ fun ShopScreen(
             modifier = Modifier.padding(top = 10.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = if (viewModel.checkoutAble()) Color.Green else Color.Gray)) {
             Text(text = "Checkout")
+        }
+        Button(onClick = { viewModel.closeChildScreen() }) {
+            Text(text = "Close")
         }
     }
 }
