@@ -46,7 +46,10 @@ The evaluate button will give the user a score on the water filter they have bui
 ## Development requirements
 - There's no requirement regarding OS. As long as Android Studio is installed, you can clone our codes and build the project locally. The download link of
 Android Studio can be found [here](https://developer.android.com/studio?gclid=CjwKCAjwtp2bBhAGEiwAOZZTuHFTHsdXGF5dyEeAVvV1wCzRoQovlRF91SkEpikS3aeretue1yp5GxoC_VYQAvD_BwE&gclsrc=aw.ds)
-- If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". After an APK is built, you could install the application to any Android machine. We have already uploaded an APK under this folder, the user can download it here to install it on an Android device
+- If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". 
+<img width="431" alt="Screen Shot 2022-11-06 at 23 24 05" src="https://user-images.githubusercontent.com/90353234/200226219-9bd3fdf2-87f7-4106-8b3b-b97f5c82855c.png">
+
+After an APK is built, you could install the application to any Android machine. We have already uploaded an APK under this folder, the user can download it here to install it on an Android device
 
 ## Deployment and Github Workflow
 - We cut a branch called D2 off the main branch. We are entirely working on D2 branch. For each feature, we will cut off a branch from D2. e.g. The integration of multiple choice tasks, we cut off a branch called MultipleChoiceTaskIntegration and all the tasks related to multiple choice task is done on that branch. Everytime a member wish to push the code onto the sub-brach, we will first git pull to and resolve conflicts using android studio's github GUI, then push the code onto the sub-branch. When the last person finishes the tasks, first rebase the sub-branch onto D2 and then the person will create a pull request, another teammate will review the code. When the pull request is approved, either the person requests the pull request or the reviewer will merge the code onto D2. This flow can resolve conflicts on both stages of development - pushing changes to sub-branch and merging into D2.
