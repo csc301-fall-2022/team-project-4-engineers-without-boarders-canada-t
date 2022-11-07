@@ -21,8 +21,10 @@ fun InstructionScreen(
     Column(modifier = Modifier
         .fillMaxWidth()
         .padding(top = 10.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "Instructions:", textAlign = TextAlign.Center, fontSize = 20.sp)
-        Text(text = viewModel.getInstruction(), modifier = Modifier.padding(10.dp).fillMaxHeight(0.7f))
+        Text(text = "Instructions:", textAlign = TextAlign.Center, fontSize = 30.sp)
+        Text(text = viewModel.getInstruction(),
+            modifier = Modifier.padding(vertical = 5.dp, horizontal = 10.dp).fillMaxHeight(0.7f),
+        fontSize = 20.sp)
         Button(onClick = { viewModel.closeChildScreen() }) {
             Text(text = "Close")
         }
