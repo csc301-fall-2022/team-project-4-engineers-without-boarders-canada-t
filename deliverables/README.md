@@ -1,4 +1,6 @@
-## Description:
+# Water For The World(W4TW) - Missing Seven
+
+## Description
 This is an android mobile application that develops for Engineers Without Borders Canada. This application is for people who are in areas lacking water or lack knowledge about water environment protection, it contains some questions about water purifying and a water filter experiment. The user will be required to finish these questions and build a virtual water filter. Then, the user will get a score to evaluate the performance of the water filter they create. The final goal of this application is to help people raise their awareness of water protection and learn some knowledge about water purifying.
 
 
@@ -41,4 +43,8 @@ The evaluate button will give the user a score on the water filter they have bui
 ## Development requirements
 - There's no requirement regarding OS. As long as Android Studio is installed, a developer can clone our codes and build the project locally.
 - If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". After an APK is built, you could install the application to any Android machine.
+
+## Deployment and Github Workflow
+
+## Licenses
 
