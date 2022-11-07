@@ -3,6 +3,7 @@ package com.example.missingseven.Screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.IconButton
@@ -14,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.missingseven.Component.WaterFilter
-import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.R
@@ -49,11 +49,13 @@ fun WaterFilterScreen(
                     Text(text = "Instruction")
                 }
                 Button(onClick = {
-                    filterViewModel.evaluate()
                     taskCompleteHandler()
                 }) {
                     Text(text = "Evaluate")
                 }
+            }
+            if (task.completed.value){
+                Text(text = "You have scored ${filterViewModel.playerScore()}/10 on your water filter!", modifier = Modifier.padding(10.dp))
             }
         }
     }

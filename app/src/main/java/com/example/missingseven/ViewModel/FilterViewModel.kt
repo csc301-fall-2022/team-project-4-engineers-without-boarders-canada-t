@@ -18,9 +18,9 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class FilterViewModel @Inject constructor(
-    val playerRepository: PlayerRepository,
-    val countryRepository: CountryRepository,
-    val itemRepository: ItemRepository
+    private val playerRepository: PlayerRepository,
+    private val countryRepository: CountryRepository,
+    private val itemRepository: ItemRepository
 ) : ViewModel() {
     //FilterTask which stores the current task
     lateinit var filterTask: TaskUiState.FilterTask
@@ -208,8 +208,15 @@ class FilterViewModel @Inject constructor(
         navControl.navigateBack()
     }
 
-    fun evaluate(){
-
+    fun playerScore(): Int {
+        var score = 0
+        filterStack.itemList.forEach {
+            it?.let { item ->
+                score += item.mark
+            }
+        }
+        return score
     }
+
 
 }

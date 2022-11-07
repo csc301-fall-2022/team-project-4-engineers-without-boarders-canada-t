@@ -340,8 +340,21 @@ class TaskViewModel @Inject constructor(
             completed.value = true
             (getCurrentTaskType() as TaskType.ShortAnswerTask).let { task ->
                 task.completed = true
+                task.answer = answer.value
                 viewModelScope.launch {
                     taskRepository.updateShortAnswerTask(task)
+                }
+            }
+        }
+    }
+
+    fun completeFilterHandler(){
+        (getCurrentTask() as TaskUiState.FilterTask).apply {
+            completed.value = true
+            (getCurrentTaskType() as TaskType.FilterTask).let { task ->
+                task.completed = completed.value
+                viewModelScope.launch {
+                    taskRepository.updateFilterTask(task)
                 }
             }
         }

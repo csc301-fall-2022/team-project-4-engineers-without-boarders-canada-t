@@ -36,7 +36,7 @@ fun TaskScreen(
                         task = viewModel.getCurrentTask() as TaskUiState.FilterTask,
                         filterViewModel = filterViewModel,
                         navControl = viewModel.navControl) {
-                        
+                        viewModel.completeFilterHandler()
                     }
                 }
                 else -> {}

@@ -52,6 +52,14 @@ class TaskConverter {
                             pid
                         )
                     }
+                    is TaskType.ShortAnswerTask -> {
+                        TaskUiState.ShortAnswerTask(
+                            tid,
+                            mutableStateOf(completed),
+                            question,
+                            mutableStateOf(answer)
+                        )
+                    }
                     else -> null
                 }
             }

@@ -25,7 +25,7 @@ fun ShortAnswerTaskBody(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxHeight(0.8f)
             .padding(10.dp)
     ) {
         Text(
