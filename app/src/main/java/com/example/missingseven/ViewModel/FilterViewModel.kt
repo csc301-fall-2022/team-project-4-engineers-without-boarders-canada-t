@@ -184,14 +184,15 @@ class FilterViewModel @Inject constructor(
 
     fun sub(iid: Int){
         shopIidCountMap[iid]?.let{
-            it.value -= 1
+            if (it.value > 0){
+                it.value -= 1
+            }
         }
     }
 
     fun checkout(){
-        var money: Int = 0
-        for ((iid, item) in allIIdItemsMap) {
-            money += (allIIdItemsMap[iid]?.price ?: 0) * shopIidCountMap[iid]!!.value
+        playerUiState.currMoney.value -= totalPrice()
+        for ((iid) in allIIdItemsMap) {
             allIIdItemsMap[iid]?.let{
                 it.quantity += shopIidCountMap[iid]!!.value
                 viewModelScope.launch {
@@ -200,7 +201,6 @@ class FilterViewModel @Inject constructor(
             }
             shopIidCountMap[iid]!!.value = 0
         }
-        playerUiState.currMoney.value -= money
         player.curr_money = playerUiState.currMoney.value
         viewModelScope.launch {
             playerRepository.updatePlayer(player)
@@ -216,6 +216,18 @@ class FilterViewModel @Inject constructor(
             }
         }
         return score
+    }
+
+    fun checkoutAble() = totalPrice() <= player.curr_money
+
+    fun totalPrice(): Int {
+        var total = 0
+        shopIidCountMap.forEach {
+            allIIdItemsMap[it.key]?.let { item ->
+                total += item.price * it.value.value
+            }
+        }
+        return total
     }
 
 

@@ -82,8 +82,7 @@ class DataInitializer constructor(
         Item(4, "Fine Sand", 0, 20, 1),
         Item(5, "Coarse Sand", 0, 20, 1),
         Item(6, "Fine Gravel", 0, 10, 1),
-        Item(7, "Coarse Gravel", 0, 10, 1),
-        Item(8, "Clean filter with clean water", 0, 5, 1),
+        Item(7, "Coarse Gravel", 0, 10, 1)
     )
     fun getAllPlayer(): List<Player> = listOf(
         Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1)
