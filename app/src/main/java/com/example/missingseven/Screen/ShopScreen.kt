@@ -38,13 +38,13 @@ fun ShopScreen(
             Text(
                 textAlign = TextAlign.Center,
                 text = "Country:\n${playerUiState.countryName}",
-                fontSize = 32.sp
+                fontSize = 20.sp
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
                 textAlign = TextAlign.Center,
                 text = "Money:\n${playerUiState.currMoney.value}",
-                fontSize = 32.sp
+                fontSize = 20.sp
             )
         }
         LazyVerticalGrid(
