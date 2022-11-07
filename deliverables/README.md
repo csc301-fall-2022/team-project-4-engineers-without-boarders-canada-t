@@ -12,13 +12,6 @@ This is an android mobile application that develops for Engineers Without Border
 - Ability to share results of the differing filter building experiences between users to highlight the issues around accessing clean water. Also, when users(students) is firstly using the software, they will be asked to provide their teachers'/parents' email addresses, such that teachers or others who may wish to view the results of multiple users.
 
 
-
-## Development requirements
-- There's no requirement regarding OS. As long as Android Studio is installed, a developer can clone our codes and build the project locally.
-- If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". After an APK is built, you could install the application to any Android machine.
-
-
-
 ## Instructions
 On an Android smartphone, the user can install our application using an APK package. Download the APK package from our repository.
 Following installation, the user can begin a new workshop session, and from there, instructions will be provided to walk them through the app's workflow.
@@ -44,3 +37,8 @@ After choosing the things to purchase and completing the payment process, the ap
 
 Insturction button will navigate to a page displaying a guide about how to build the water filter.(i.e. what material to use in which order)
 The evaluate button will give the user a score on the water filter they have built.
+
+## Development requirements
+- There's no requirement regarding OS. As long as Android Studio is installed, a developer can clone our codes and build the project locally.
+- If you want to run the actual application, you need to go to "Build" > "Build Bundle(s) / APK (s)" > "Build APK(s)". After an APK is built, you could install the application to any Android machine.
+
