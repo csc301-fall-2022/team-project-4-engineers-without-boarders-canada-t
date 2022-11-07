@@ -51,6 +51,7 @@ class FilterViewModel @Inject constructor(
     val allIIdItemsMap: MutableMap<Int, ItemUiState> = mutableMapOf()
 
     fun setup(control: NavControl, filter:TaskUiState.FilterTask){
+        setupCompleted.value = false
         navControl = control
         filterTask = filter
         fetchPlayer()

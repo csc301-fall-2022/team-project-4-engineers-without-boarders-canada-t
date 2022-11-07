@@ -26,9 +26,8 @@ fun WaterFilterScreen(
     taskCompleteHandler: () -> Unit
 ) {
     LaunchedEffect(Unit){
-        if (!filterViewModel.setupCompleted.value){
-            filterViewModel.setup(navControl, task)
-        }
+        filterViewModel.setup(navControl, task)
+
     }
     if (filterViewModel.setupCompleted.value){
         Column() {
