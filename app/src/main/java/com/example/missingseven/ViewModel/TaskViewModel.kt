@@ -2,7 +2,6 @@ package com.example.missingseven.ViewModel
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.missingseven.Database.BooleanPair
@@ -10,10 +9,14 @@ import com.example.missingseven.Database.IntPair
 import com.example.missingseven.Database.PrefManager
 import com.example.missingseven.Database.DataInitializer
 import com.example.missingseven.Database.Entity.TaskType
+import com.example.missingseven.Database.Repository.CountryRepository
+import com.example.missingseven.Database.Repository.ItemRepository
+import com.example.missingseven.Database.Repository.PlayerRepository
 import com.example.missingseven.Database.Repository.TaskRepository
 import com.example.missingseven.Model.TaskConverter
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
+import com.example.missingseven.Navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,6 +24,9 @@ import javax.inject.Inject
 @HiltViewModel
 class TaskViewModel @Inject constructor(
     private val taskRepository: TaskRepository,
+    private val countryRepository: CountryRepository,
+    private val itemRepository: ItemRepository,
+    private val playerRepository: PlayerRepository,
     private val preferenceManager: PrefManager,
     private val dataInitializer: DataInitializer
 ): ViewModel() {
@@ -29,24 +35,32 @@ class TaskViewModel @Inject constructor(
     private var taskListCount = 0
     val allFetched = mutableStateOf(false)
     private val insertCompleted = MutableLiveData(0)
+    private val deleteCompleted = mutableStateOf(0)
     private val allTasks: MutableList<TaskType> = mutableListOf()
     private val allUiStates: MutableList<TaskUiState> = mutableListOf()
 
-    private val observer = Observer<Int> {
-        if (it == TaskType.TASK_TYPE_NUM){
-            preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, true)
+    private fun dataInitialize(){
+        if (!preferenceManager.getBoolean(BooleanPair.DataInitialized)){
+            insertTasks()
+        } else {
             initTasks()
         }
     }
 
     fun setup(navControl: NavControl){
         this.navControl = navControl
-        insertCompleted.observeForever(observer)
-        if (preferenceManager.getBoolean(BooleanPair.DataInitialized)){
-            insertCompleted.value = TaskType.TASK_TYPE_NUM
-        } else {
-            insertTasks()
-        }
+    }
+
+    private fun variableReset(){
+        currentTaskId.value = -1
+        taskListCount = 0
+        allFetched.value = false
+        insertCompleted.value = 0
+        deleteCompleted.value = 0
+        allTasks.clear()
+        allUiStates.clear()
+        preferenceManager.putInt(PrefManager.CURR_TASK_ID, -1)
+        preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, false)
     }
 
     private fun insertTasks(){
@@ -65,10 +79,81 @@ class TaskViewModel @Inject constructor(
                 insertCallback()
             }
         }
+        viewModelScope.launch {
+            taskRepository.insertAllFilterTasks(dataInitializer.getFilterTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.insertAllShortAnswerTasks(dataInitializer.getShortAnswerTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            countryRepository.insertAllCountries(dataInitializer.getAllCountries()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            playerRepository.insertPlayers(dataInitializer.getAllPlayer()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
+            itemRepository.insertAllItems(dataInitializer.getAllItem()){
+                insertCallback()
+            }
+        }
+    }
+
+    private fun deleteTasks(){
+        viewModelScope.launch {
+            taskRepository.deleteReadingTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteMultipleChoiceTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteSlidingScaleTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteFilterTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteShortAnswerTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            countryRepository.deleteCountries { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            itemRepository.deleteAllItems { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            playerRepository.deleteAllPlayers { deleteCallback() }
+        }
+    }
+
+    private fun deleteCallback(){
+        deleteCompleted.value = deleteCompleted.value.plus(1)
+        if (deleteCompleted.value == DataInitializer.INSERT_NUM){
+            preferenceManager.putBoolean(PrefManager.IS_UNDER_RESETTING, false)
+            dataInitialize()
+        }
     }
 
     private fun insertCallback(){
         insertCompleted.value = insertCompleted.value?.plus(1)
+        if (insertCompleted.value == DataInitializer.INSERT_NUM){
+            preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, true)
+            initTasks()
+        }
     }
 
     private fun initTasks(){
@@ -87,21 +172,41 @@ class TaskViewModel @Inject constructor(
                 updateTasks(it)
             }
         }
+        viewModelScope.launch {
+            taskRepository.getFilterTasks {
+                updateTasks(it)
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.getShortAnswerTasks {
+                updateTasks(it)
+            }
+        }
     }
 
 
     private fun updateTasks(list: List<TaskType>){
-        if (taskListCount != TaskType.TASK_TYPE_NUM){
-            allTasks.addAll(list)
-            taskListCount += 1
+        if (taskListCount != TaskType.TASK_TYPE_NUM && !isUnderResetting()){
+            safeCheckUpdate(list)
             if (taskListCount == TaskType.TASK_TYPE_NUM){
                 allFetched.value = true
                 allTasks.sortBy { it.tid }
                 setTaskUiStates()
-                insertCompleted.removeObserver(observer)
                 checkSharedPreference()
+                navControl.navigate(Screen.Home.route, Screen.Task.route)
             }
         }
+    }
+
+    private fun safeCheckUpdate(list: List<TaskType>){
+        if (!allTasks.containsAll(list)){
+            allTasks.addAll(list)
+            taskListCount += 1
+        }
+    }
+
+    private fun isUnderResetting(): Boolean {
+        return preferenceManager.getBoolean(BooleanPair.IsUnderResetting)
     }
 
     private fun checkSharedPreference() {
@@ -172,6 +277,25 @@ class TaskViewModel @Inject constructor(
         }
     }
 
+    fun isResumeAble(): Boolean {
+        return preferenceManager.getInt(IntPair.CurrTask) != -1
+    }
+
+    fun resume(){
+        if (allFetched.value){
+            navControl.navigate(Screen.Home.route, Screen.Task.route)
+        } else {
+            dataInitialize()
+        }
+    }
+
+
+    fun startNewWorkshop(){
+        variableReset()
+        preferenceManager.putBoolean(PrefManager.IS_UNDER_RESETTING, true)
+        deleteTasks()
+    }
+
     fun updateChooseHandler(index: Int){
         (getCurrentTask() as TaskUiState.MultipleChoiceTask).apply {
             studentAnswerIndex.value = index
@@ -197,6 +321,38 @@ class TaskViewModel @Inject constructor(
                 task.completed = completed.value
                 viewModelScope.launch {
                     taskRepository.updateSlidingScaleTask(task) }
+                }
+            }
+        }
+    }
+
+    fun shortAnswerTaskValueChangeHandler(value: String){
+        (getCurrentTask() as TaskUiState.ShortAnswerTask).apply {
+            answer.value = value
+            completed.value = false
+        }
+    }
+
+    fun shortAnswerSaveHandler(){
+        (getCurrentTask() as TaskUiState.ShortAnswerTask).apply {
+            completed.value = true
+            (getCurrentTaskType() as TaskType.ShortAnswerTask).let { task ->
+                task.completed = true
+                task.answer = answer.value
+                viewModelScope.launch {
+                    taskRepository.updateShortAnswerTask(task)
+                }
+            }
+        }
+    }
+
+    fun completeFilterHandler(){
+        (getCurrentTask() as TaskUiState.FilterTask).apply {
+            completed.value = true
+            (getCurrentTaskType() as TaskType.FilterTask).let { task ->
+                task.completed = completed.value
+                viewModelScope.launch {
+                    taskRepository.updateFilterTask(task)
                 }
             }
         }

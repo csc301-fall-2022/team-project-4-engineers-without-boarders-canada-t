@@ -21,6 +21,12 @@ interface TaskDao {
     @Query("SELECT * FROM slidingscaletask")
     fun getAllSlidingScaleTasks(): Flow<List<TaskType.SlidingScaleTask>>
 
+    @Query("SELECT * FROM FilterTask")
+    fun getAllFilterTasks(): Flow<List<TaskType.FilterTask>>
+
+    @Query("SELECT * FROM shortanswertask")
+    fun getAllShortAnswerTasks(): Flow<List<TaskType.ShortAnswerTask>>
+
     @Insert
     suspend fun insertAllReadingTasks(tasks: List<TaskType.ReadingTask>)
 
@@ -30,11 +36,26 @@ interface TaskDao {
     @Insert
     suspend fun insertAllSlidingScaleTasks(tasks: List<TaskType.SlidingScaleTask>)
 
-    @Delete
-    fun delete(task: TaskType.ReadingTask)
+    @Insert
+    suspend fun insertAllFilterTasks(tasks: List<TaskType.FilterTask>)
 
-    @Query("SELECT COUNT(*) FROM readingtask")
-    fun getCount(): Flow<Int>
+    @Insert
+    suspend fun insertAllShortAnswerTasks(tasks: List<TaskType.ShortAnswerTask>)
+
+    @Query("DELETE FROM readingtask")
+    suspend fun deleteAllReadingTasks()
+
+    @Query("DELETE FROM multiplechoicetask")
+    suspend fun deleteAllMultipleChoiceTasks()
+
+    @Query("DELETE FROM slidingscaletask")
+    suspend fun deleteAllSlidingScaleTasks()
+
+    @Query("DELETE FROM filtertask")
+    suspend fun deleteAllFilterTasks()
+
+    @Query("DELETE FROM shortanswertask")
+    suspend fun deleteAllShortAnswerTasks()
 
     @Update
     suspend fun updateReadingTask(task: TaskType.ReadingTask)
@@ -44,4 +65,10 @@ interface TaskDao {
 
     @Update
     suspend fun updateSlidingScaleTasks(task: TaskType.SlidingScaleTask)
+
+    @Update
+    suspend fun updateFilterTasks(task: TaskType.FilterTask)
+
+    @Update
+    suspend fun updateShortAnswerTasks(task: TaskType.ShortAnswerTask)
 }

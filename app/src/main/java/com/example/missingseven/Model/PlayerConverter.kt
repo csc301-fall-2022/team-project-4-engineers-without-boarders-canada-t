@@ -1,0 +1,28 @@
+package com.example.missingseven.Model
+
+import androidx.compose.runtime.mutableStateOf
+import com.example.missingseven.Database.Entity.Player
+class PlayerConverter {
+
+    companion object {
+        fun databaseEntityToUiState(playerType: Player, countryName: String, instructions: String): PlayerUiState {
+            return playerType.run {
+                PlayerUiState(
+                    cid,
+                    pid,
+                    mutableStateOf(curr_money),
+                    countryName,
+                    instructions,
+                    mutableStateOf(layer0),
+                    mutableStateOf(layer1),
+                    mutableStateOf(layer2),
+                    mutableStateOf(layer3),
+                    mutableStateOf(layer4),
+                    mutableStateOf(layer5),
+                    mutableStateOf(layer6),
+                    mutableStateOf(layer7)
+                )
+            }
+        }
+    }
+}

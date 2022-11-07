@@ -45,6 +45,21 @@ class TaskConverter {
                             correctInfo
                         )
                     }
+                    is TaskType.FilterTask -> {
+                        TaskUiState.FilterTask(
+                            tid,
+                            mutableStateOf(completed),
+                            pid
+                        )
+                    }
+                    is TaskType.ShortAnswerTask -> {
+                        TaskUiState.ShortAnswerTask(
+                            tid,
+                            mutableStateOf(completed),
+                            question,
+                            mutableStateOf(answer)
+                        )
+                    }
                     else -> null
                 }
             }
