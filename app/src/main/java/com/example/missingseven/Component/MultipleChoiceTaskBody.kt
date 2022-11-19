@@ -28,11 +28,11 @@ fun MultipleChoiceTaskBody(
             .fillMaxWidth()
             .padding(10.dp)
     ) {
-        Text(
-            text = task.header,
-            style = MaterialTheme.typography.h5,
-            textAlign = TextAlign.Center
-        )
+//        Text(
+//            text = task.header,
+//            style = MaterialTheme.typography.h5,
+//            textAlign = TextAlign.Center
+//        )
         LazyColumn () {
             itemsIndexed(task.options) { index, option ->
                 MultipleChoiceOption(
