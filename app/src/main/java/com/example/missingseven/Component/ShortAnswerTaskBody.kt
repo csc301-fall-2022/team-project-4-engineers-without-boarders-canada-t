@@ -28,11 +28,11 @@ fun ShortAnswerTaskBody(
             .fillMaxHeight(0.8f)
             .padding(10.dp)
     ) {
-        Text(
-            text = task.question,
-            style = typography.h5,
-            textAlign = TextAlign.Center
-        )
+//        Text(
+//            text = task.question,
+//            style = typography.h5,
+//            textAlign = TextAlign.Center
+//        )
 
         OutlinedTextField(
             value = task.answer.value,

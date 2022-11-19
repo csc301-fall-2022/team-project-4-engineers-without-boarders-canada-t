@@ -47,11 +47,11 @@ fun ReadingTaskBody(
             .fillMaxWidth()
             .padding(10.dp)
     ) {
-        Text(
-            text = task.header,
-            style = typography.h5,
-            textAlign = TextAlign.Center
-        )
+//        Text(
+//            text = task.header,
+//            style = typography.h5,
+//            textAlign = TextAlign.Center
+//        )
         Text(
             text = task.content,
             modifier = Modifier.paddingFromBaseline(top =40.dp)
