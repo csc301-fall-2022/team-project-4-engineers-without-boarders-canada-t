@@ -24,18 +24,15 @@ fun SlidingScaleTaskBody(
             .fillMaxWidth()
             .padding(10.dp)
     ){
-//        Text(
-//            text = task.content,
-//            style = MaterialTheme.typography.h5,
-//            textAlign = TextAlign.Center
-//        )
-
         Slider(value = task.current.value.toFloat(),
             onValueChange = { valueChangeHandler(it.toInt()) },
             valueRange = task.start.toFloat()..task.end.toFloat(),
             modifier = Modifier.padding(top =60.dp)
         )
-
+        Text(
+            text = "Use the slider to place your answer",
+            modifier = Modifier.padding(top =5.dp)
+        )
         Text(
             text = displayedText(task),
             modifier = Modifier.padding(top =5.dp)
