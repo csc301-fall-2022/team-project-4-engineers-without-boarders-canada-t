@@ -7,25 +7,61 @@ class FilterStack(
     val itemList: MutableList<ItemUiState?>,
     val topIndex: MutableState<Int>,
     val neck: MutableState<ItemUiState?>,
-    var neckRubberBanded: Boolean,
+    val mouth: MutableState<ItemUiState?>,
+    var mouthRubberBanded: Boolean,
     var cleaned: Boolean = false
 ) {
     fun isFull() = topIndex.value == MAX_LAYER
 
-    fun add(item: ItemUiState){
-        if (neck.value == null){
-            if (item.isRubberBand()){
-                neckRubberBanded = true
-            } else {
-                neck.value = item
+    fun evaluation(): Double {
+        if (!mouthRubberBanded || (mouth.value?.iid ?: -1) != 5){
+            return 0.0;
+        } else if ((neck.value?.iid ?: -1) != 6){
+            return (0.5/20)*100;
+        } else{
+            var score = 1.5
+            for (i in 0..7){
+                if ((itemList[i]?.iid ?: -1) >= 5){
+                    score = (score + itemList[i]?.strength!!)
+                } else if ((itemList[i]?.iid ?: -1) >= 0) {
+                    if (cleaned){
+                        var rare = itemList[i]?.cleanedStrength
+                        for (k in i+1..7){
+                            if (rare != null) {
+                                rare *= itemList[i]?.cleanedEffectiveness!![k]
+                            }
+                        }
+                        score = (score + rare!!)
+                    } else{
+                        var rare = itemList[i]?.strength
+                        for (k in i+1..7){
+                            if (rare != null) {
+                                rare *= itemList[i]?.effectiveness!![k]
+                            }
+                        }
+                        score = (score + rare!!)
+                    }
+                }
+                }
+            return if (score>20.0){
+                100.0
+            }else{
+                (score/20.0)*100;
             }
-        } else {
-            if (!item.isRubberBand()){
-                itemList[topIndex.value] = item
-                topIndex.value += 1
             }
-        }
     }
+    fun add(item: ItemUiState){
+        if (item.isRubberBand()){
+            mouthRubberBanded = true
+        } else if (mouth.value == null){
+            mouth.value = item
+        } else if (neck.value == null){
+            neck.value = item
+        } else {
+            itemList[topIndex.value] = item
+            topIndex.value += 1
+        }
+        }
 
     fun displayedStack(): MutableList<ItemUiState?>{
         return itemList.reversed() as MutableList<ItemUiState?>

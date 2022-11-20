@@ -76,13 +76,13 @@ class DataInitializer constructor(
         Country(7, "Malawi", 50, context.getString(R.string.instruction_general)),
     )
     fun getAllItem(): List<Item> = listOf(
-        Item(0, "Fine Sand", 0, 20, 3f, 4f, listOf(0.25f, 0.40f, 1.30f, 1.10f), listOf(0.5f, 0.8f, 1.3f, 1.1f)),
-        Item(1, "Coarse Sand", 0, 20, 2.5f, 3f, listOf(0.3f, 0.4f, 1.2f, 1.1f), listOf(0.6f, 0.8f, 1.2f, 1.1f)),
-        Item(2, "Fine Gravel", 0, 10, 2f, 2.25f, listOf(0.75f, 0.8f, 1f, 1.1f), listOf(0.75f, 0.8f, 1f, 1.1f)),
-        Item(3, "Coarse Gravel", 0, 10, 1.25f, 1.3f, listOf(0.8f, 0.9f, 0.9f, 1f), listOf(0.8f, 0.9f, 0.9f, 1f)),
-        Item(4, "Rubber band", 0, 5, -1f, -1f, listOf(), listOf()),
-        Item(5, "Cheesecloth", 0, 5, 0.5f, 0.5f, listOf(), listOf()),
-        Item(6, "Cotton", 0, 5,1f, 1f, listOf(), listOf())
+        Item(0, "Fine Sand", 0, 20, 3f, 4f, listOf(0.25f, 0.40f, 1.30f, 1.10f,1f,1f), listOf(0.5f, 0.8f, 1.3f, 1.1f,1f,1f)),
+        Item(1, "Coarse Sand", 0, 20, 2.5f, 3f, listOf(0.3f, 0.4f, 1.2f, 1.1f,1f,1f), listOf(0.6f, 0.8f, 1.2f, 1.1f,1f,1f)),
+        Item(2, "Fine Gravel", 0, 10, 2f, 2.25f, listOf(0.75f, 0.8f, 1f, 1.1f,1f,1f), listOf(0.75f, 0.8f, 1f, 1.1f,1f,1f)),
+        Item(3, "Coarse Gravel", 0, 10, 1.25f, 1.3f, listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f), listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f)),
+        Item(4, "Cheesecloth", 0, 5, 0.5f, 0.5f, listOf(), listOf()),
+        Item(5, "Cotton", 0, 5,1f, 1f, listOf(), listOf()),
+        Item(6, "Rubber band", 0, 5, -1f, -1f, listOf(), listOf()),
     )
     fun getAllPlayer(): List<Player> = listOf(
         Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, false)

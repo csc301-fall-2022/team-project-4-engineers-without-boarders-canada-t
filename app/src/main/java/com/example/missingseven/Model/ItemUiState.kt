@@ -12,5 +12,5 @@ data class ItemUiState(
     val effectiveness: List<Float>,
     val cleanedEffectiveness: List<Float>
 ){
-    fun isRubberBand() = iid == 4
+    fun isRubberBand() = iid == 6
 }
