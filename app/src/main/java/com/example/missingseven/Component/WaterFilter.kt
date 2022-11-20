@@ -35,12 +35,6 @@ fun WaterFilter(
                 FilterGrid(item = item, boarderColor = boarderColor, isEvaluated = isEvaluated, widthPercentage = 0.9f)
             }
         }
-        FilterGrid(
-            item = stack.neckTop.value,
-            boarderColor = stack.getNeckTopColor(),
-            isEvaluated = isEvaluated,
-            widthPercentage = 0.7f
-        )
         FilterGrid(item = stack.neck.value, boarderColor = stack.getNeckColor(), isEvaluated = isEvaluated, widthPercentage = 0.5f )
     }
 }

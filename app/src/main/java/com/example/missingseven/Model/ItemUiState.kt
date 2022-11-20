@@ -7,5 +7,10 @@ data class ItemUiState(
     var quantity: Int,
     var price: Int,
     var img: Int,
-    val mark: Int
-)
+    val strength: Float,
+    val cleanedStrength: Float,
+    val effectiveness: List<Float>,
+    val cleanedEffectiveness: List<Float>
+){
+    fun isRubberBand() = iid == 4
+}

@@ -11,7 +11,6 @@ data class PlayerUiState(
     val countryName: String,
     val instruction: String,
     val neck: MutableState<Int>,
-    val neckTop: MutableState<Int>,
     val layer0: MutableState<Int>,
     val layer1: MutableState<Int>,
     val layer2: MutableState<Int>,
@@ -19,7 +18,8 @@ data class PlayerUiState(
     val layer4: MutableState<Int>,
     val layer5: MutableState<Int>,
     val layer6: MutableState<Int>,
-    val layer7: MutableState<Int>
+    val layer7: MutableState<Int>,
+    var neckRubberBanded: Boolean
 ){
     fun getLayerValueByIndex(index: Int): MutableState<Int>{
         return when (index){

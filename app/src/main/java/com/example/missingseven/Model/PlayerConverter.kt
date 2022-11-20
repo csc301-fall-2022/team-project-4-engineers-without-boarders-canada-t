@@ -14,7 +14,6 @@ class PlayerConverter {
                     countryName,
                     instructions,
                     mutableStateOf(neck),
-                    mutableStateOf(neckTop),
                     mutableStateOf(layer0),
                     mutableStateOf(layer1),
                     mutableStateOf(layer2),
@@ -22,7 +21,8 @@ class PlayerConverter {
                     mutableStateOf(layer4),
                     mutableStateOf(layer5),
                     mutableStateOf(layer6),
-                    mutableStateOf(layer7)
+                    mutableStateOf(layer7),
+                    neckRubberBanded
                 )
             }
         }

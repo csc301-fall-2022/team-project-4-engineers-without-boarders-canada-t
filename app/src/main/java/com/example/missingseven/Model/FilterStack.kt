@@ -7,18 +7,23 @@ class FilterStack(
     val itemList: MutableList<ItemUiState?>,
     val topIndex: MutableState<Int>,
     val neck: MutableState<ItemUiState?>,
-    val neckTop: MutableState<ItemUiState?>
+    var neckRubberBanded: Boolean,
+    var cleaned: Boolean = false
 ) {
     fun isFull() = topIndex.value == MAX_LAYER
 
     fun add(item: ItemUiState){
         if (neck.value == null){
-            neck.value = item
-        } else if (neckTop.value == null){
-            neckTop.value = item
+            if (item.isRubberBand()){
+                neckRubberBanded = true
+            } else {
+                neck.value = item
+            }
         } else {
-            itemList[topIndex.value] = item
-            topIndex.value += 1
+            if (!item.isRubberBand()){
+                itemList[topIndex.value] = item
+                topIndex.value += 1
+            }
         }
     }
 
@@ -28,7 +33,7 @@ class FilterStack(
 
     fun getBoarderColor(reversedIndex: Int): Color {
         val index = MAX_LAYER - 1 - reversedIndex
-        return if (neck.value == null || neckTop.value == null){
+        return if (neck.value == null){
             Color.Black
         } else if (index < topIndex.value){
             Color.Red
@@ -40,14 +45,6 @@ class FilterStack(
     }
 
     fun getNeckColor() = if (neck.value == null){
-        Color.Green
-    } else {
-        Color.Red
-    }
-
-    fun getNeckTopColor() = if (neck.value == null){
-        Color.Black
-    } else if (neckTop.value == null){
         Color.Green
     } else {
         Color.Red

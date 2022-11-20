@@ -9,4 +9,10 @@ class Converters {
 
     @TypeConverter
     fun jsonToList(value: String) = Gson().fromJson(value, Array<String>::class.java).toList()
+
+    @TypeConverter
+    fun floatListToJson(value: List<Float>) = Gson().toJson(value)
+
+    @TypeConverter
+    fun jsonToFloatList(value: String) = Gson().fromJson(value, Array<Float>::class.java).toList()
 }

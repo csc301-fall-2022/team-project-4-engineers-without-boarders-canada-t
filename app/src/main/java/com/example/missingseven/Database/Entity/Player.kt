@@ -11,7 +11,6 @@ data class Player(
     @ColumnInfo var cid: Int,
     @ColumnInfo var curr_money: Int,
     @ColumnInfo var neck: Int,
-    @ColumnInfo var neckTop: Int,
     @ColumnInfo var layer0: Int,
     @ColumnInfo var layer1: Int,
     @ColumnInfo var layer2: Int,
@@ -19,13 +18,16 @@ data class Player(
     @ColumnInfo var layer4: Int,
     @ColumnInfo var layer5: Int,
     @ColumnInfo var layer6: Int,
-    @ColumnInfo var layer7: Int
+    @ColumnInfo var layer7: Int,
+    @ColumnInfo var neckRubberBanded: Boolean
 ){
     fun updatePlayerByIndex(index: Int, value: Int){
         if (neck == -1){
-            neck = value
-        } else if (neckTop == -1){
-            neckTop = value
+            if (value == 4){
+                neckRubberBanded = true
+            } else {
+                neck = value
+            }
         } else {
             when (index){
                 0 -> layer0 = value
