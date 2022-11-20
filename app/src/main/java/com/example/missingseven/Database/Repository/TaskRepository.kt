@@ -36,6 +36,12 @@ class TaskRepository @Inject constructor(
         }
     }
 
+    suspend fun getWelcomeTasks(callback: (List<TaskType>) -> Unit){
+        taskDao.getWelcomeAnswerTasks().collect {
+            callback(it)
+        }
+    }
+
     suspend fun insertAllReadingTasks(
         tasks: List<TaskType.ReadingTask>, callback: () -> Unit
     ) {
@@ -72,6 +78,12 @@ class TaskRepository @Inject constructor(
         tasks: List<TaskType.ShortAnswerTask>, callback: () -> Unit
     ) {
         taskDao.insertAllShortAnswerTasks(tasks).run { callback() }
+    }
+
+    suspend fun insertWelcomeTasks(
+        tasks: List<TaskType.WelcomeTask>, callback: () -> Unit
+    ) {
+        taskDao.insertWelcomeTasks(tasks).run { callback() }
     }
 
     suspend fun updateReadingTask(
@@ -130,6 +142,13 @@ class TaskRepository @Inject constructor(
 
     suspend fun deleteShortAnswerTasks(callback: () -> Unit){
         taskDao.deleteAllShortAnswerTasks().run {
+            callback()
+        }
+    }
+
+
+    suspend fun deleteWelcomeTasks(callback: () -> Unit){
+        taskDao.deleteWelcomeAnswerTasks().run {
             callback()
         }
     }

@@ -11,14 +11,14 @@ class DataInitializer constructor(
     private val context: Context
 ) {
     fun getAllReadingTasks(): List<TaskType.ReadingTask> = listOf(
-        TaskType.ReadingTask(0, false, context.getString(R.string.reading_task0_header), context.getString(R.string.reading_task0_content)),
-        TaskType.ReadingTask(1, false, context.getString(R.string.reading_task1_header), context.getString(R.string.reading_task1_content)),
-        TaskType.ReadingTask(4, false, context.getString(R.string.task4_header), context.getString(R.string.task4_content))
+        TaskType.ReadingTask(1, false, context.getString(R.string.reading_task0_header), context.getString(R.string.reading_task0_content)),
+        TaskType.ReadingTask(2, false, context.getString(R.string.reading_task1_header), context.getString(R.string.reading_task1_content)),
+        TaskType.ReadingTask(5, false, context.getString(R.string.task4_header), context.getString(R.string.task4_content))
     )
 
     fun getAllMultipleChoiceTasks(): List<TaskType.MultipleChoiceTask> = listOf(
         TaskType.MultipleChoiceTask(
-            3, false, context.getString(R.string.mc_task2_header),
+            4, false, context.getString(R.string.mc_task2_header),
             listOf(
                 context.getString(R.string.mc_task2_option0),
                 context.getString(R.string.mc_task2_option1),
@@ -27,7 +27,7 @@ class DataInitializer constructor(
                 context.getString(R.string.mc_task2_option4),
             ), 4, -1),
         TaskType.MultipleChoiceTask(
-            6, false, context.getString(R.string.mc_task2_header),
+            7, false, context.getString(R.string.mc_task2_header),
             listOf(
                 context.getString(R.string.mc_task2_option0),
                 context.getString(R.string.mc_task2_option1),
@@ -40,14 +40,14 @@ class DataInitializer constructor(
 
     fun getAllSlidingScaleTasks(): List<TaskType.SlidingScaleTask> = listOf(
         TaskType.SlidingScaleTask(
-            2, false, context.getString(R.string.task2_header), 0, 8000,
+            3, false, context.getString(R.string.task2_header), 0, 8000,
             50,"M", 800, 4000,
             context.getString(R.string.tooShort),
             context.getString(R.string.tooLarge),
             context.getString(R.string.task2_correctInfo),
         ),
         TaskType.SlidingScaleTask(
-            5, false, context.getString(R.string.task5_header), 0, 8000,
+            6, false, context.getString(R.string.task5_header), 0, 8000,
             50, "M", 1000, 4000,
             context.getString(R.string.tooShort),
             context.getString(R.string.tooLarge),
@@ -56,14 +56,18 @@ class DataInitializer constructor(
     )
 
     fun getFilterTasks(): List<TaskType.FilterTask> = listOf(
-        TaskType.FilterTask(7, false, -1)
+        TaskType.FilterTask(8, false, -1)
+    )
+
+    fun getWelcomeTask(): List<TaskType.WelcomeTask> = listOf(
+        TaskType.WelcomeTask(0, true)
     )
 
     fun getShortAnswerTasks(): List<TaskType.ShortAnswerTask> = listOf(
-        TaskType.ShortAnswerTask(8, false, context.getString(R.string.task8_question), ""),
-        TaskType.ShortAnswerTask(9, false, context.getString(R.string.task9_question), ""),
-        TaskType.ShortAnswerTask(10, false, context.getString(R.string.task10_question), ""),
-        TaskType.ShortAnswerTask(11, false, context.getString(R.string.task11_question), ""),
+        TaskType.ShortAnswerTask(9, false, context.getString(R.string.task8_question), ""),
+        TaskType.ShortAnswerTask(10, false, context.getString(R.string.task9_question), ""),
+        TaskType.ShortAnswerTask(11, false, context.getString(R.string.task10_question), ""),
+        TaskType.ShortAnswerTask(12, false, context.getString(R.string.task11_question), ""),
     )
 
     fun getAllCountries(): List<Country> = listOf(
@@ -89,7 +93,7 @@ class DataInitializer constructor(
     )
 
     companion object {
-        const val INSERT_NUM = 8
+        const val INSERT_NUM = 9
     }
 
 }

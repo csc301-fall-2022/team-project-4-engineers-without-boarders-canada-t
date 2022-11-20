@@ -53,25 +53,7 @@ fun TaskTemplate(
                 }
             }
         } else {
-            Row(
-//                modifier = Modifier.fillMaxHeight(0.12f),
-                verticalAlignment = Alignment.CenterVertically
-            ){
-                Text(
-                    text = taskUiState.header,
-                    style = MaterialTheme.typography.h5,
-                    modifier = Modifier.fillMaxWidth(0.7f),
-                    textAlign = TextAlign.Center
-                )
-
-                Spacer(modifier = Modifier.weight(1f))
-                Image(
-                    painter = painterResource(R.drawable.w4tw),
-                    contentDescription = "Water For The World",
-                    modifier = Modifier.size(130.dp)
-                )
-            }
-
+            HeaderView(header = taskUiState.header)
             content()
             Spacer(modifier = Modifier.weight(1f))
             Image(
@@ -94,6 +76,29 @@ fun TaskTemplate(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun HeaderView(
+    header: String
+){
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ){
+        Text(
+            text = header,
+            style = MaterialTheme.typography.h5,
+            modifier = Modifier.fillMaxWidth(0.7f),
+            textAlign = TextAlign.Center
+        )
+
+        Spacer(modifier = Modifier.weight(1f))
+        Image(
+            painter = painterResource(R.drawable.w4tw),
+            contentDescription = "Water For The World",
+            modifier = Modifier.size(130.dp)
+        )
     }
 }
 

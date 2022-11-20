@@ -90,6 +90,11 @@ class TaskViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
+            taskRepository.insertWelcomeTasks(dataInitializer.getWelcomeTask()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
             countryRepository.insertAllCountries(dataInitializer.getAllCountries()){
                 insertCallback()
             }
@@ -125,6 +130,9 @@ class TaskViewModel @Inject constructor(
 
         viewModelScope.launch {
             taskRepository.deleteShortAnswerTasks { deleteCallback() }
+        }
+        viewModelScope.launch {
+            taskRepository.deleteWelcomeTasks { deleteCallback() }
         }
 
         viewModelScope.launch {
@@ -174,6 +182,11 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.getFilterTasks {
+                updateTasks(it)
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.getWelcomeTasks {
                 updateTasks(it)
             }
         }
@@ -356,5 +369,13 @@ class TaskViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun welcomeDetailClicked(){
+        navControl.navigate(Screen.Task.route, Screen.WorkshopContact.route)
+    }
+
+    fun navigateBack(){
+        navControl.navigateBack()
     }
 }

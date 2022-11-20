@@ -57,8 +57,14 @@ sealed class TaskType(
         @ColumnInfo(name = "pid") val pid: Int,
     ) : TaskType(tid, completed)
 
+    @Entity
+    data class WelcomeTask(
+        @PrimaryKey override val tid: Int,
+        @ColumnInfo override var completed: Boolean
+    ): TaskType(tid, completed)
+
 
     companion object {
-        const val TASK_TYPE_NUM = 5
+        const val TASK_TYPE_NUM = 6
     }
 }
