@@ -13,6 +13,8 @@ class PlayerConverter {
                     mutableStateOf(curr_money),
                     countryName,
                     instructions,
+                    mutableStateOf(neck),
+                    mutableStateOf(neckTop),
                     mutableStateOf(layer0),
                     mutableStateOf(layer1),
                     mutableStateOf(layer2),

@@ -10,6 +10,8 @@ data class PlayerUiState(
     var currMoney: MutableState<Int>,
     val countryName: String,
     val instruction: String,
+    val neck: MutableState<Int>,
+    val neckTop: MutableState<Int>,
     val layer0: MutableState<Int>,
     val layer1: MutableState<Int>,
     val layer2: MutableState<Int>,

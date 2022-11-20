@@ -116,7 +116,11 @@ class FilterViewModel @Inject constructor(
                 itemList.add(null)
             }
         }
-        filterStack = FilterStack(itemList, mutableStateOf(currTop))
+        filterStack = FilterStack(
+            itemList,
+            mutableStateOf(currTop),
+            neck = mutableStateOf(allIIdItemsMap[playerUiState.neck.value]),
+            neckTop = mutableStateOf(allIIdItemsMap[playerUiState.neckTop.value]))
         setupCompleted.value = true
     }
 

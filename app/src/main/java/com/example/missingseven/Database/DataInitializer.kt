@@ -85,7 +85,7 @@ class DataInitializer constructor(
         Item(7, "Coarse Gravel", 0, 10, 1)
     )
     fun getAllPlayer(): List<Player> = listOf(
-        Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1)
+        Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
     )
 
     companion object {
