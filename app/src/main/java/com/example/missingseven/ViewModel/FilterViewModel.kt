@@ -116,7 +116,14 @@ class FilterViewModel @Inject constructor(
                 itemList.add(null)
             }
         }
-        filterStack = FilterStack(itemList, mutableStateOf(currTop))
+        filterStack = FilterStack(
+            itemList,
+            mutableStateOf(currTop),
+            neck = mutableStateOf(allIIdItemsMap[playerUiState.neck.value]),
+            mouth = mutableStateOf(allIIdItemsMap[playerUiState.mouth.value]), // place holder for value of mouth
+            playerUiState.neckRubberBanded,
+        )
+
         setupCompleted.value = true
     }
 
@@ -213,7 +220,7 @@ class FilterViewModel @Inject constructor(
         var score = 0
         filterStack.itemList.forEach {
             it?.let { item ->
-                score += item.mark
+                score += 0
             }
         }
         return score

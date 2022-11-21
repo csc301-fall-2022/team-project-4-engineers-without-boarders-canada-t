@@ -39,6 +39,9 @@ fun TaskScreen(
                         viewModel.completeFilterHandler()
                     }
                 }
+                is TaskUiState.WelcomeTask -> {
+                    WelcomeTaskBody(viewModel = viewModel)
+                }
                 else -> {}
             }
         },

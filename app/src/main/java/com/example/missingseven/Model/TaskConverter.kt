@@ -15,7 +15,8 @@ class TaskConverter {
                             tid,
                             mutableStateOf(completed),
                             header,
-                            content
+                            content,
+                            isSpecial
                         )
                     }
                     is TaskType.MultipleChoiceTask -> {
@@ -58,6 +59,13 @@ class TaskConverter {
                             mutableStateOf(completed),
                             question,
                             mutableStateOf(answer)
+                        )
+                    }
+                    is TaskType.WelcomeTask -> {
+                        TaskUiState.WelcomeTask(
+                            tid,
+                            mutableStateOf(completed),
+                            "Welcome!"
                         )
                     }
                     else -> null

@@ -10,6 +10,8 @@ data class Player(
     @PrimaryKey val pid: Int,
     @ColumnInfo var cid: Int,
     @ColumnInfo var curr_money: Int,
+    @ColumnInfo var neck: Int,
+    @ColumnInfo var mouth: Int,
     @ColumnInfo var layer0: Int,
     @ColumnInfo var layer1: Int,
     @ColumnInfo var layer2: Int,
@@ -17,18 +19,27 @@ data class Player(
     @ColumnInfo var layer4: Int,
     @ColumnInfo var layer5: Int,
     @ColumnInfo var layer6: Int,
-    @ColumnInfo var layer7: Int
+    @ColumnInfo var layer7: Int,
+    @ColumnInfo var neckRubberBanded: Boolean
 ){
     fun updatePlayerByIndex(index: Int, value: Int){
-        when (index){
-            0 -> layer0 = value
-            1 -> layer1 = value
-            2 -> layer2 = value
-            3 -> layer3 = value
-            4 -> layer4 = value
-            5 -> layer5 = value
-            6 -> layer6 = value
-            7 -> layer7 = value
+        if (neck == -1){
+            if (value == 4){
+                neckRubberBanded = true
+            } else {
+                neck = value
+            }
+        } else {
+            when (index){
+                0 -> layer0 = value
+                1 -> layer1 = value
+                2 -> layer2 = value
+                3 -> layer3 = value
+                4 -> layer4 = value
+                5 -> layer5 = value
+                6 -> layer6 = value
+                7 -> layer7 = value
+            }
         }
     }
 }
