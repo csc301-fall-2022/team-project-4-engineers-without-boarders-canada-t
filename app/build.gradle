@@ -79,4 +79,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
     implementation 'com.google.code.gson:gson:2.8.9'
+
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+    testImplementation("org.mockito:mockito-inline:2.8.47")
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
 }

@@ -57,7 +57,7 @@ class FilterViewModel @Inject constructor(
         fetchPlayer()
     }
 
-    private fun fetchPlayer(){
+    fun fetchPlayer(){
         viewModelScope.launch{
             playerRepository.getPlayers {
                 player = it[0]
@@ -86,7 +86,7 @@ class FilterViewModel @Inject constructor(
 
     }
 
-    private fun fetchItems() {
+    fun fetchItems() {
         viewModelScope.launch {
             itemRepository.getItems {
                 for (item in it) {
