@@ -27,6 +27,9 @@ interface TaskDao {
     @Query("SELECT * FROM shortanswertask")
     fun getAllShortAnswerTasks(): Flow<List<TaskType.ShortAnswerTask>>
 
+    @Query("SELECT * FROM welcometask")
+    fun getWelcomeAnswerTasks(): Flow<List<TaskType.WelcomeTask>>
+
     @Insert
     suspend fun insertAllReadingTasks(tasks: List<TaskType.ReadingTask>)
 
@@ -42,6 +45,9 @@ interface TaskDao {
     @Insert
     suspend fun insertAllShortAnswerTasks(tasks: List<TaskType.ShortAnswerTask>)
 
+    @Insert
+    suspend fun insertWelcomeTasks(tasks: List<TaskType.WelcomeTask>)
+
     @Query("DELETE FROM readingtask")
     suspend fun deleteAllReadingTasks()
 
@@ -56,6 +62,9 @@ interface TaskDao {
 
     @Query("DELETE FROM shortanswertask")
     suspend fun deleteAllShortAnswerTasks()
+
+    @Query("DELETE FROM welcometask")
+    suspend fun deleteWelcomeAnswerTasks()
 
     @Update
     suspend fun updateReadingTask(task: TaskType.ReadingTask)

@@ -68,5 +68,11 @@ sealed class TaskUiState(
         val answerCorrect: MutableState<Boolean>,
         val successPopUp: String
     ): TaskUiState(tid, completed, header)
+
+    data class WelcomeTask(
+        override val tid: Int,
+        override val completed: MutableState<Boolean>,
+        override val header: String
+    ): TaskUiState(tid, completed, header)
 }
 

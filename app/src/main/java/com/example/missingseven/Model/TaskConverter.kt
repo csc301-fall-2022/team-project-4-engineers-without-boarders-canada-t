@@ -60,6 +60,13 @@ class TaskConverter {
                             mutableStateOf(answer)
                         )
                     }
+                    is TaskType.WelcomeTask -> {
+                        TaskUiState.WelcomeTask(
+                            tid,
+                            mutableStateOf(completed),
+                            "Welcome!"
+                        )
+                    }
                     else -> null
                 }
             }

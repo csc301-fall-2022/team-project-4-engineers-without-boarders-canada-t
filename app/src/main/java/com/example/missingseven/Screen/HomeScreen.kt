@@ -1,17 +1,16 @@
 package com.example.missingseven.Screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.missingseven.R
@@ -22,17 +21,14 @@ fun HomeScreen(
     viewModel: TaskViewModel
 ){
 
-    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically
-        ){
-            Image(
-                painter = painterResource(R.drawable.w4tw),
-                contentDescription = "Water For The World",
-                modifier = Modifier.size(250.dp)
-            )
-        }
-        Spacer(modifier = Modifier.weight(1f))
+    Column(horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxSize().background(Color.White),
+        verticalArrangement = Arrangement.Center) {
+        Image(
+            painter = painterResource(R.drawable.w4tw),
+            contentDescription = "Water For The World",
+            modifier = Modifier.size(250.dp)
+        )
         Image(
             painter = painterResource(R.drawable.ewb),
             contentDescription = "engineers without borders",
