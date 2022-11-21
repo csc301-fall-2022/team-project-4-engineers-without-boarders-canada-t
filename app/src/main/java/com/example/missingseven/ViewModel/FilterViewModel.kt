@@ -119,7 +119,11 @@ class FilterViewModel @Inject constructor(
         filterStack = FilterStack(
             itemList,
             mutableStateOf(currTop),
-            neck = mutableStateOf(allIIdItemsMap[playerUiState.neck.value]), playerUiState.neckRubberBanded)
+            neck = mutableStateOf(allIIdItemsMap[playerUiState.neck.value]),
+            mouth = mutableStateOf(allIIdItemsMap[playerUiState.mouth.value]), // place holder for value of mouth
+            playerUiState.neckRubberBanded,
+        )
+
         setupCompleted.value = true
     }
 

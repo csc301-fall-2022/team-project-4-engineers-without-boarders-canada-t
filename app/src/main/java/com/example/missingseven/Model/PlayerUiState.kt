@@ -11,6 +11,7 @@ data class PlayerUiState(
     val countryName: String,
     val instruction: String,
     val neck: MutableState<Int>,
+    val mouth: MutableState<Int>,
     val layer0: MutableState<Int>,
     val layer1: MutableState<Int>,
     val layer2: MutableState<Int>,
@@ -34,4 +35,5 @@ data class PlayerUiState(
             else -> mutableStateOf(-1)
         }
     }
+
 }

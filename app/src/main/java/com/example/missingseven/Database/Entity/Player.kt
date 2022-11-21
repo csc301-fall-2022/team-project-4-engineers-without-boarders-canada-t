@@ -11,6 +11,7 @@ data class Player(
     @ColumnInfo var cid: Int,
     @ColumnInfo var curr_money: Int,
     @ColumnInfo var neck: Int,
+    @ColumnInfo var mouth: Int,
     @ColumnInfo var layer0: Int,
     @ColumnInfo var layer1: Int,
     @ColumnInfo var layer2: Int,

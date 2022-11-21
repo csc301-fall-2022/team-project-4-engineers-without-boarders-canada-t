@@ -85,7 +85,7 @@ class DataInitializer constructor(
         Item(6, "Rubber band", 0, 5, -1f, -1f, listOf(), listOf()),
     )
     fun getAllPlayer(): List<Player> = listOf(
-        Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, false)
+        Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,false)
     )
 
     companion object {

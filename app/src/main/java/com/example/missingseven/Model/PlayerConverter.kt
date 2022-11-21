@@ -14,6 +14,7 @@ class PlayerConverter {
                     countryName,
                     instructions,
                     mutableStateOf(neck),
+                    mutableStateOf(mouth),
                     mutableStateOf(layer0),
                     mutableStateOf(layer1),
                     mutableStateOf(layer2),
