@@ -39,7 +39,7 @@ fun WelcomeTaskBody(
             annotated = "LOGIN",
             after = " screen",
             modifier = Modifier.padding(top = 100.dp)) {
-
+            viewModel.loginClicked()
         }
     }
 }
