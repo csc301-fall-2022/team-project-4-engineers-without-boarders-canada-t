@@ -14,7 +14,10 @@ class ItemConverter {
                         quantity,
                         price,
                         getImageRes(iid),
-                        mark)
+                        strength,
+                        cleanedStrength,
+                        effectiveness,
+                        cleanedEffectiveness)
             }
         }
 
@@ -25,7 +28,10 @@ class ItemConverter {
                     name,
                     quantity,
                     price,
-                    mark
+                    strength,
+                    cleanedStrength,
+                    effectiveness,
+                    cleanedEffectiveness
                 )
             }
         }

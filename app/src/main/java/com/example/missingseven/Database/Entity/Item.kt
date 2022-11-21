@@ -10,6 +10,9 @@ data class Item(
     @ColumnInfo val name: String,
     @ColumnInfo var quantity: Int,
     @ColumnInfo var price: Int,
-    @ColumnInfo val mark: Int
+    @ColumnInfo val strength: Float,
+    @ColumnInfo val cleanedStrength: Float,
+    @ColumnInfo val effectiveness: List<Float>,
+    @ColumnInfo val cleanedEffectiveness: List<Float>
 
 )
