@@ -7,6 +7,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -23,6 +24,7 @@ fun WaterFilterScreen(
     task: TaskUiState.FilterTask,
     filterViewModel: FilterViewModel,
     navControl: NavControl,
+    nextClick: () -> Unit,
     taskCompleteHandler: () -> Unit
 ) {
     LaunchedEffect(Unit){
@@ -43,7 +45,7 @@ fun WaterFilterScreen(
                 filterViewModel.setupPlayerUiState()
                 filterViewModel.setupStack()
             } else {
-                FilterMainBody(task = task, filterViewModel = filterViewModel) {
+                FilterMainBody(task = task, filterViewModel = filterViewModel, nextClick) {
                     taskCompleteHandler()
                 }
             }
@@ -56,9 +58,12 @@ fun WaterFilterScreen(
 fun FilterMainBody(
     task: TaskUiState.FilterTask,
     filterViewModel: FilterViewModel,
+    nextClick: () -> Unit,
     taskCompleteHandler: () -> Unit
 ){
-    Column() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(text = "Country: " + filterViewModel.getPlayerCountry()?.name.orEmpty(),
             fontSize = 15.sp)
         Text(text = "Money: " + filterViewModel.playerUiState.currMoney.value
@@ -89,6 +94,10 @@ fun FilterMainBody(
                 " ${filterViewModel.playerScore()}/10 on your water filter!" else
             "Warning: You cannot edit your filter once you click evaluate!"
         Text(text = text, modifier = Modifier.padding(10.dp))
-
+        if (task.completed.value){
+            Button(onClick = { nextClick() }) {
+                Text(text = "Next")
+            }
+        }
     }
 }

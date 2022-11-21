@@ -306,6 +306,12 @@ class TaskViewModel @Inject constructor(
         }
     }
 
+    fun onFilterNextClicked(){
+        navControl.navigateBack()
+        currentTaskId.value += 1
+        putCurrTaskToSharedPreference()
+    }
+
     fun isLastTask(): Boolean{
         return currentTaskId.value == allTasks.last().tid
     }
@@ -404,9 +410,9 @@ class TaskViewModel @Inject constructor(
     }
 
     fun completeFilterHandler(){
-        (getCurrentTask() as TaskUiState.FilterTask).apply {
+        filterUiState.apply {
             completed.value = true
-            (getCurrentTaskType() as TaskType.FilterTask).let { task ->
+            filterTask.let { task ->
                 task.completed = completed.value
                 viewModelScope.launch {
                     taskRepository.updateFilterTask(task)

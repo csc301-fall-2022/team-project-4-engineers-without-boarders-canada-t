@@ -54,7 +54,10 @@ class NavControl constructor(
                 WaterFilterScreen(
                     filterViewModel = filterViewModel,
                     navControl = this@NavControl,
-                    task = viewModel.filterUiState
+                    task = viewModel.filterUiState,
+                    nextClick = {
+                        viewModel.onFilterNextClicked()
+                    }
                 ) {
                     viewModel.completeFilterHandler()
                 }
