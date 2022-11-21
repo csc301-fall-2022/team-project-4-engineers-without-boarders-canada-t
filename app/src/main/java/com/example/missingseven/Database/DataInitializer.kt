@@ -13,8 +13,7 @@ class DataInitializer constructor(
 ) {
     fun getAllReadingTasks(): List<TaskType.ReadingTask> = listOf(
         TaskType.ReadingTask(1, true, context.getString(R.string.reading_task0_header), context.getString(R.string.reading_task0_content)),
-        TaskType.ReadingTask(5, true, context.getString(R.string.task4_header), context.getString(R.string.task4_content)),
-        TaskType.ReadingTask(12, true, context.getString(R.string.task12_header),context.getString(R.string.task12_content), true)
+        TaskType.ReadingTask(9, true, context.getString(R.string.task12_header),context.getString(R.string.task12_content), true)
 
     )
 
@@ -58,7 +57,7 @@ class DataInitializer constructor(
     )
 
     fun getFilterTasks(): List<TaskType.FilterTask> = listOf(
-        TaskType.FilterTask(8, false, -1)
+        TaskType.FilterTask(10, false, -1)
     )
 
     fun getWelcomeTask(): List<TaskType.WelcomeTask> = listOf(
@@ -70,6 +69,25 @@ class DataInitializer constructor(
             4, false, "The literacy rate is defined by the percentage of the population of a given age group that can read and write.", 99F, 99F, 79.04F, 81.54F, 96.46F, 62.14F, 95.02F,
             "", "Yes, literacy rates are lowest in the Sub-Saharan African countries."
         )
+    )
+
+    fun getGLRTasks(): List<TaskType.GlobalLiteracyRateTask> = listOf(
+        TaskType.GlobalLiteracyRateTask(
+            5, true,
+            "Global Literacy Rate",
+            "The literacy rate is defined by the percentage of the population of " +
+                    "a given age group that can read and write.",
+            "Our World in Data",
+            "ourworldindata.org/"
+        ),
+        TaskType.GlobalLiteracyRateTask(
+            8, true,
+            "Global Extreme Poverty",
+            context.getString(R.string.task_8_content),
+            "Our World in Data",
+            "ourworldindata.org/"
+        )
+
     )
 
     fun getShortAnswerTasks(): List<TaskType.ShortAnswerTask> = listOf(
@@ -102,7 +120,7 @@ class DataInitializer constructor(
     )
 
     companion object {
-        const val INSERT_NUM = 10
+        const val INSERT_NUM = 11
     }
 
 }

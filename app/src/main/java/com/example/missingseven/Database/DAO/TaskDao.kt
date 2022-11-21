@@ -32,6 +32,9 @@ interface TaskDao {
     @Query("SELECT * FROM literacyratetask")
     fun getLRTasks(): Flow<List<TaskType.LiteracyRateTask>>
 
+    @Query("SELECT * FROM globalliteracyratetask")
+    fun getGLRTasks(): Flow<List<TaskType.GlobalLiteracyRateTask>>
+
     @Insert
     suspend fun insertAllReadingTasks(tasks: List<TaskType.ReadingTask>)
 
@@ -53,6 +56,9 @@ interface TaskDao {
     @Insert
     suspend fun insertLRTasks(tasks: List<TaskType.LiteracyRateTask>)
 
+    @Insert
+    suspend fun insertGLRTasks(tasks: List<TaskType.GlobalLiteracyRateTask>)
+
     @Query("DELETE FROM readingtask")
     suspend fun deleteAllReadingTasks()
 
@@ -73,6 +79,9 @@ interface TaskDao {
 
     @Query("DELETE FROM literacyratetask")
     suspend fun deleteLRTasks()
+
+    @Query("DELETE FROM globalliteracyratetask")
+    suspend fun deleteGLRTasks()
 
     @Update
     suspend fun updateReadingTask(task: TaskType.ReadingTask)

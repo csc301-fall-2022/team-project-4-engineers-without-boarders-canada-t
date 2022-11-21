@@ -43,7 +43,12 @@ fun TaskScreen(
                 }
                 is TaskUiState.LiteracyRateTask -> {
                     LiteracyRateTaskBody(
+                        { viewModel.lRSubmitHandler() },
                         task = viewModel.getCurrentTask() as TaskUiState.LiteracyRateTask)
+                }
+                is TaskUiState.GlobalLiteracyRateTask -> {
+                    GlobalLiteracyRateBody(
+                        task = viewModel.getCurrentTask() as TaskUiState.GlobalLiteracyRateTask)
                 }
                 else -> {}
             }

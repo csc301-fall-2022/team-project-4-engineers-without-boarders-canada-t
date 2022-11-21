@@ -100,6 +100,11 @@ class TaskViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
+            taskRepository.insertGLRTasks(dataInitializer.getGLRTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
             countryRepository.insertAllCountries(dataInitializer.getAllCountries()){
                 insertCallback()
             }
@@ -141,6 +146,10 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.deleteLRTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteGLRTasks { deleteCallback() }
         }
 
         viewModelScope.launch {
@@ -205,6 +214,12 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.getLRTasks {
+                updateTasks(it)
+            }
+        }
+
+        viewModelScope.launch {
+            taskRepository.getGLRTasks {
                 updateTasks(it)
             }
         }

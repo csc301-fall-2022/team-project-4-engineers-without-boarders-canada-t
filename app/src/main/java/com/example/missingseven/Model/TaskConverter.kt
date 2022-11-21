@@ -2,6 +2,7 @@ package com.example.missingseven.Model
 
 import androidx.compose.runtime.mutableStateOf
 import com.example.missingseven.Database.Entity.TaskType
+import com.example.missingseven.R
 
 class TaskConverter {
 
@@ -83,8 +84,27 @@ class TaskConverter {
                             mutableStateOf (studentAnswer), successPopUp
                         )
                     }
+                    is TaskType.GlobalLiteracyRateTask -> {
+                        TaskUiState.GlobalLiteracyRateTask(
+                            tid,
+                            mutableStateOf(completed),
+                            header,
+                            content,
+                            getGLRImageId(tid),
+                            hyperlinkText,
+                            hyperlink
+                        )
+                    }
                     else -> null
                 }
+            }
+        }
+
+        private fun getGLRImageId(tid: Int): Int {
+            return when (tid){
+                5 -> R.drawable.glrm
+                8 -> R.drawable.gep
+                else -> R.drawable.glrm
             }
         }
     }

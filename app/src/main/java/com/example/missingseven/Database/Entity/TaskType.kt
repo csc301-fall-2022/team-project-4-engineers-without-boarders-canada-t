@@ -81,7 +81,17 @@ sealed class TaskType(
         val successPopUp: String
     ): TaskType(tid, completed)
 
+    @Entity
+    data class GlobalLiteracyRateTask(
+        @PrimaryKey override val tid: Int,
+        override var completed: Boolean,
+        val header: String,
+        val content: String,
+        val hyperlinkText: String,
+        val hyperlink: String
+    ): TaskType(tid, completed)
+
     companion object {
-        const val TASK_TYPE_NUM = 7
+        const val TASK_TYPE_NUM = 8
     }
 }

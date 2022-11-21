@@ -28,7 +28,7 @@ import com.example.missingseven.R
 @Composable
 @LazyScopeMarker
 fun LiteracyRateTaskBody(
-    completeHandler: () -> Unit = {},
+    submitHandler: () -> Unit = {},
     task: TaskUiState.LiteracyRateTask
 ) {
     var selected_country by remember {
@@ -164,14 +164,14 @@ fun LiteracyRateTaskBody(
                 value = task.studentAnswer.value,
                 label = { Text(text = "Enter Your Answer") },
                 onValueChange = {
-                    task.studentAnswer.value = it;
+                    task.studentAnswer.value = it
                 }
             )
 
             Button(
                 modifier =  Modifier.padding(10.dp),
                 shape = RoundedCornerShape(50),
-                onClick = {completeHandler()}
+                onClick = {submitHandler()}
             ) {
                 val text = "Submit"
                 Text(text = text)
