@@ -15,8 +15,7 @@ fun TaskScreen(
         content = {
             when (viewModel.getCurrentTask()){
                 is TaskUiState.ReadingTask -> {
-                    ReadingTaskBody({completed -> viewModel.completeReadingHandler(completed)},
-                        viewModel.getCurrentTask() as TaskUiState.ReadingTask)
+                    ReadingTaskBody(viewModel.getCurrentTask() as TaskUiState.ReadingTask)
                 }
                 is TaskUiState.MultipleChoiceTask -> {
                     MultipleChoiceTaskBody({index->viewModel.updateChooseHandler(index)},
@@ -29,7 +28,9 @@ fun TaskScreen(
                 is TaskUiState.ShortAnswerTask -> {
                     ShortAnswerTaskBody({viewModel.shortAnswerSaveHandler()},
                         viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask,
-                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)})
+                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)},
+                        submitHandler = {context -> viewModel.submitAnswerHandler(context) }
+                    )
                 }
                 is TaskUiState.FilterTask -> {
                     WaterFilterScreen(
@@ -41,6 +42,15 @@ fun TaskScreen(
                 }
                 is TaskUiState.WelcomeTask -> {
                     WelcomeTaskBody(viewModel = viewModel)
+                }
+                is TaskUiState.LiteracyRateTask -> {
+                    LiteracyRateTaskBody(
+                        { viewModel.lRSubmitHandler() },
+                        task = viewModel.getCurrentTask() as TaskUiState.LiteracyRateTask)
+                }
+                is TaskUiState.GlobalLiteracyRateTask -> {
+                    GlobalLiteracyRateBody(
+                        task = viewModel.getCurrentTask() as TaskUiState.GlobalLiteracyRateTask)
                 }
                 else -> {}
             }

@@ -59,7 +59,7 @@ fun GlobalLiteracyRateBody(
 fun GlobalLiteracyRatePreview(){
     GlobalLiteracyRateBody(
         TaskUiState.GlobalLiteracyRateTask(
-            0, "Global Literacy Rate",
+            0, mutableStateOf(true), "Global Literacy Rate",
             "The literacy rate is defined by the percentage of the population of " +
                     "a given age group that can read and write.",
             R.drawable.glrm,

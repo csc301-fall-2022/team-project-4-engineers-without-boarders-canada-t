@@ -2,8 +2,8 @@
     <string name="app_name">Missing Seven</string>
 
     <!-- reading task -->
-    <string name="reading_task0_header">About W4TW</string>
-    <string name="reading_task0_content">In the next 25 years, a third of the population will face severe water scarcity. With 20% of the world’s total freshwater resources and the longest marine coastline of any country in the world, Canada plays a pivotal role in managing global water resources. The next generation of Canadians must be well equipped to tackle the world’s water challenges. Water for the World aims to ignite a sense of pragmatism to develop systemic change leaders.\nWater for the World will partner with Toronto Public Library to teach students about global water issues. Workshops will be delivered to students in grades 7 to 9 by engaged volunteers with diverse backgrounds as engineers and social innovators. As a volunteer, you can help to introduce a new generation to the power of youth leaders in the global fight to increase access to clean water.</string>
+    <string name="reading_task0_header">Introduction</string>
+    <string name="reading_task0_content">The Water for the World Workshop introduces participants to the issues of clean water access and how local economy, geography and literacy are all connected. Using this app, you will try to build a water filter to access clean water for yourself!</string>
 
     <string name="reading_task1_header">The Workshop</string>
     <string name="reading_task1_content">The Water for the World presentation is an engaging hour and a half that educates, challenges, and inspires students to think about creative solutions to global water access issues. Our program is divided into a three–part learning format as recommended by the Ontario Ministry of Education – Opening (Minds On), Middle (Action – Interactive/Hands–On), Closing (Debrief/Consolidation).\nA large component of the presentation involves hands–on interaction where groups of 4–6 students construct their own water filters using recycled plastic bottles and multiple layers of sand and gravel. The students are grouped into different countries, and are provided with different levels of information and amounts of play money, depending on their country’s literacy rate and wealth, respectively.\nThrough this activity, students are challenged to think critically and creatively, while collaborating with their peers. Students will gain a better understanding of social issues in technological development, while being exposed to the concept of international interdependence and cooperation as it relates to the global need for potable water. We also aim to engage students by highlighting the potential role youth can have in addressing these issues.</string>
@@ -19,14 +19,14 @@
     <!-- sliding scale task -->
     <string name="tooShort">The answer is too small</string>
     <string name="tooLarge">The answer is too large</string>
-    <string name="task2_header">There are approaching 8 billion people in the world. How many of them do you think do not have access to clean drinking water in their home?</string>
+    <string name="task2_header">Clean Water Access\nThere are approaching 8 billion people in the world. How many of them do you think do not have access to clean drinking water in their home?</string>
     <string name="task2_correctInfo">Yes! around 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home</string>
 
-    <string name="task5_header">How many people do you think live on less than $2.50 a day?</string>
+    <string name="task5_header">Q: What is Extreme Poverty ?\nA: Living on less than $2.50 a day\nHow many people do you think live on less than $2.50 a day?</string>
     <string name="task5_correctInfo">Yes! 1 Billion people in the world live in Extreme Poverty – think what you could buy with $2.50 – what could you eat and how would your or your parents be able to pay your rent</string>
 
     <!-- mc task-->
-    <string name="mc_task2_header">Where do you think most of these people live?</string>
+    <string name="mc_task2_header">Where do most of the people in extreme poverty live?</string>
     <string name="mc_task2_option0">North America</string>
     <string name="mc_task2_option1">South America</string>
     <string name="mc_task2_option2">Europe</string>
@@ -40,4 +40,7 @@
     <string name="task11_question">What is the most important thing you have learned doing this activity?</string>
 
     <string name="instruction_general">1. Loosely put a cotton plug in the neck of the cut bottle, then cover the neck of the bottle with a piece of cheese cloth secured with a rubber band.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm of coarse sand, fine gravel, and coarse gravel.\n3. Clean the filter by slowly and carefully pouring through 1-litre of clean water (over a bucket).\n4.Place the filter over a plastic cup. Now, test your water filter by pouring half of the dirty water through the filter.</string>
+
+    <!-- GLR task -->
+    <string name="task_8_content">Extreme Poverty is defined by the percentage of the population living on less than $2.50 a say. This amp shows where most of those suffering from extreme poverty live:</string>
 </resources>

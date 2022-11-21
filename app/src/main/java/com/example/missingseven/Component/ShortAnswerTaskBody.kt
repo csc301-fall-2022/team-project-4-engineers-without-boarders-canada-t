@@ -1,5 +1,6 @@
 package com.example.missingseven.Component
 
+import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
@@ -13,26 +14,23 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.TextFieldValue
 
 @Composable
 fun ShortAnswerTaskBody(
     saveHandler: () -> Unit,
     task: TaskUiState.ShortAnswerTask,
-    answerValueHandler: (String) -> Unit
+    answerValueHandler: (String) -> Unit,
+    submitHandler: (Context) -> Unit
 ){
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
-            .fillMaxHeight(0.8f)
             .padding(10.dp)
+            .fillMaxHeight(0.6f)
     ) {
-//        Text(
-//            text = task.question,
-//            style = typography.h5,
-//            textAlign = TextAlign.Center
-//        )
 
         OutlinedTextField(
             value = task.answer.value,
@@ -49,6 +47,12 @@ fun ShortAnswerTaskBody(
         ) {
             val text = if (task.completed.value) "Saved" else "Save Answer"
             Text(text = text)
+        }
+        if (task.isLast){
+            val context = LocalContext.current
+            Button(onClick = { submitHandler(context) }) {
+                Text(text = "Submit Your Answer to your teacher!")
+            }
         }
     }
 }

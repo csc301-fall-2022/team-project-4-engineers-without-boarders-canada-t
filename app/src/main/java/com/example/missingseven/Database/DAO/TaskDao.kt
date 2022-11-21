@@ -1,7 +1,6 @@
 package com.example.missingseven.Database.DAO
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
@@ -30,6 +29,12 @@ interface TaskDao {
     @Query("SELECT * FROM welcometask")
     fun getWelcomeAnswerTasks(): Flow<List<TaskType.WelcomeTask>>
 
+    @Query("SELECT * FROM literacyratetask")
+    fun getLRTasks(): Flow<List<TaskType.LiteracyRateTask>>
+
+    @Query("SELECT * FROM globalliteracyratetask")
+    fun getGLRTasks(): Flow<List<TaskType.GlobalLiteracyRateTask>>
+
     @Insert
     suspend fun insertAllReadingTasks(tasks: List<TaskType.ReadingTask>)
 
@@ -47,6 +52,12 @@ interface TaskDao {
 
     @Insert
     suspend fun insertWelcomeTasks(tasks: List<TaskType.WelcomeTask>)
+
+    @Insert
+    suspend fun insertLRTasks(tasks: List<TaskType.LiteracyRateTask>)
+
+    @Insert
+    suspend fun insertGLRTasks(tasks: List<TaskType.GlobalLiteracyRateTask>)
 
     @Query("DELETE FROM readingtask")
     suspend fun deleteAllReadingTasks()
@@ -66,6 +77,12 @@ interface TaskDao {
     @Query("DELETE FROM welcometask")
     suspend fun deleteWelcomeAnswerTasks()
 
+    @Query("DELETE FROM literacyratetask")
+    suspend fun deleteLRTasks()
+
+    @Query("DELETE FROM globalliteracyratetask")
+    suspend fun deleteGLRTasks()
+
     @Update
     suspend fun updateReadingTask(task: TaskType.ReadingTask)
 
@@ -80,4 +97,7 @@ interface TaskDao {
 
     @Update
     suspend fun updateShortAnswerTasks(task: TaskType.ShortAnswerTask)
+
+    @Update
+    suspend fun updateLRTasks(task: TaskType.LiteracyRateTask)
 }

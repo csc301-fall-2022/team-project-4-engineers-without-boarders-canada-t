@@ -82,7 +82,9 @@ class FilterStack(
         }
     }
 
-    fun getNeckColor() = if (neck.value == null){
+    fun getNeckColor() = if (mouth.value == null){
+        Color.Black
+    } else if (neck.value == null){
         Color.Green
     } else {
         Color.Red

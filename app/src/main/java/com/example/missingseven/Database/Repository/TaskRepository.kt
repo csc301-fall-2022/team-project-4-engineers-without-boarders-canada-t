@@ -42,6 +42,18 @@ class TaskRepository @Inject constructor(
         }
     }
 
+    suspend fun getLRTasks(callback: (List<TaskType>) -> Unit){
+        taskDao.getLRTasks().collect {
+            callback(it)
+        }
+    }
+
+    suspend fun getGLRTasks(callback: (List<TaskType>) -> Unit){
+        taskDao.getGLRTasks().collect {
+            callback(it)
+        }
+    }
+
     suspend fun insertAllReadingTasks(
         tasks: List<TaskType.ReadingTask>, callback: () -> Unit
     ) {
@@ -86,10 +98,16 @@ class TaskRepository @Inject constructor(
         taskDao.insertWelcomeTasks(tasks).run { callback() }
     }
 
-    suspend fun updateReadingTask(
-        task: TaskType.ReadingTask
+    suspend fun insertLRTasks(
+        tasks: List<TaskType.LiteracyRateTask>, callback: () -> Unit
     ) {
-        taskDao.updateReadingTask(task)
+        taskDao.insertLRTasks(tasks).run { callback() }
+    }
+
+    suspend fun insertGLRTasks(
+        tasks: List<TaskType.GlobalLiteracyRateTask>, callback: () -> Unit
+    ) {
+        taskDao.insertGLRTasks(tasks).run { callback() }
     }
 
     suspend fun updateMultipleChoiceTask(
@@ -114,6 +132,12 @@ class TaskRepository @Inject constructor(
         task: TaskType.ShortAnswerTask
     ) {
         taskDao.updateShortAnswerTasks(task)
+    }
+
+    suspend fun updateLRTask(
+        task: TaskType.LiteracyRateTask
+    ) {
+        taskDao.updateLRTasks(task)
     }
 
     suspend fun deleteReadingTasks(callback: () -> Unit){
@@ -142,6 +166,18 @@ class TaskRepository @Inject constructor(
 
     suspend fun deleteShortAnswerTasks(callback: () -> Unit){
         taskDao.deleteAllShortAnswerTasks().run {
+            callback()
+        }
+    }
+
+    suspend fun deleteLRTasks(callback: () -> Unit){
+        taskDao.deleteLRTasks().run {
+            callback()
+        }
+    }
+
+    suspend fun deleteGLRTasks(callback: () -> Unit){
+        taskDao.deleteGLRTasks().run {
             callback()
         }
     }

@@ -19,6 +19,8 @@ import com.example.missingseven.Database.Entity.TaskType
     TaskType.FilterTask:: class,
     TaskType.ShortAnswerTask:: class,
     TaskType.WelcomeTask:: class,
+    TaskType.LiteracyRateTask:: class,
+    TaskType.GlobalLiteracyRateTask:: class,
                      Item:: class,
                      Country::class,
                      Player::class], version = 1)

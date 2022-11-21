@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -21,8 +21,12 @@ fun LoginScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        var email = ""
-        var name = ""
+        var email by remember {
+            mutableStateOf("")
+        }
+        var name by remember {
+            mutableStateOf("")
+        }
         Text(text = "Login", fontWeight = FontWeight.Bold)
         Text(text = "Please login by completing the fields below")
 
