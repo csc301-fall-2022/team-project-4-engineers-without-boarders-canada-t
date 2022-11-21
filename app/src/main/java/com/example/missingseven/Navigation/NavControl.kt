@@ -52,6 +52,15 @@ class NavControl constructor(
             composable(route = Screen.Login.route){
                 LoginScreen(viewModel = viewModel)
             }
+            composable(route = Screen.Filter.route){
+                WaterFilterScreen(
+                    filterViewModel = filterViewModel,
+                    navControl = this@NavControl,
+                    task = viewModel.filterUiState
+                ) {
+
+                }
+            }
         }
     }
 
@@ -86,6 +95,7 @@ sealed class Screen(val route: String) {
     object ItemSelect: Screen("item select")
     object WorkshopContact: Screen("workshop contact")
     object Login: Screen("login")
+    object Filter: Screen("filter")
 
 }
 
