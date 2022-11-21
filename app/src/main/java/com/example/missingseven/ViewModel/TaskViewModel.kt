@@ -38,6 +38,9 @@ class TaskViewModel @Inject constructor(
     private val allTasks: MutableList<TaskType> = mutableListOf()
     private val allUiStates: MutableList<TaskUiState> = mutableListOf()
 
+    lateinit var filterTask: TaskType.FilterTask
+    lateinit var filterUiState: TaskUiState.FilterTask
+
     private fun dataInitialize(){
         if (!preferenceManager.getBoolean(BooleanPair.DataInitialized)){
             insertTasks()
@@ -240,7 +243,14 @@ class TaskViewModel @Inject constructor(
 
     private fun safeCheckUpdate(list: List<TaskType>){
         if (!allTasks.containsAll(list)){
-            allTasks.addAll(list)
+            if (list[0] is TaskType.FilterTask){
+                filterTask = list[0] as TaskType.FilterTask
+                TaskConverter.databaseEntityToUiState(filterTask)?.let {
+                    filterUiState = it as TaskUiState.FilterTask
+                }
+            } else {
+                allTasks.addAll(list)
+            }
             taskListCount += 1
         }
     }
@@ -286,10 +296,20 @@ class TaskViewModel @Inject constructor(
     fun onNextClicked(){
         getCurrentTask()?.let {
             if (it.completed.value){
-                currentTaskId.value += 1
-                putCurrTaskToSharedPreference()
+                if (it is TaskUiState.ReadingTask && it.isSpecial){
+                    navControl.navigate(Screen.Task.route, Screen.Filter.route)
+                } else {
+                    currentTaskId.value += 1
+                    putCurrTaskToSharedPreference()
+                }
             }
         }
+    }
+
+    fun onFilterNextClicked(){
+        navControl.navigateBack()
+        currentTaskId.value += 1
+        putCurrTaskToSharedPreference()
     }
 
     fun isLastTask(): Boolean{
@@ -390,9 +410,9 @@ class TaskViewModel @Inject constructor(
     }
 
     fun completeFilterHandler(){
-        (getCurrentTask() as TaskUiState.FilterTask).apply {
+        filterUiState.apply {
             completed.value = true
-            (getCurrentTaskType() as TaskType.FilterTask).let { task ->
+            filterTask.let { task ->
                 task.completed = completed.value
                 viewModelScope.launch {
                     taskRepository.updateFilterTask(task)

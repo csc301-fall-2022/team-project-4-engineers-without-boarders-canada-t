@@ -57,7 +57,7 @@ class DataInitializer constructor(
     )
 
     fun getFilterTasks(): List<TaskType.FilterTask> = listOf(
-        TaskType.FilterTask(10, false, -1)
+        TaskType.FilterTask(99, false, -1)
     )
 
     fun getWelcomeTask(): List<TaskType.WelcomeTask> = listOf(

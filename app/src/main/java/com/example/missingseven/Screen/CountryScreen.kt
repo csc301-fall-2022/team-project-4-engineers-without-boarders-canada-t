@@ -22,10 +22,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.missingseven.Model.CountryUiState
+import com.example.missingseven.Database.Entity.Country
 import com.example.missingseven.R
-import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ui.theme.ItemBg
 import com.example.missingseven.ui.theme.TextContent
 import com.example.missingseven.ui.theme.TextDes
@@ -42,8 +40,10 @@ val resIdMap = hashMapOf(
 
 @Composable
 fun CountryScreen(
-    listA: MutableList<CountryUiState>,
-    listB: MutableList<CountryUiState>
+    listA: List<Country>,
+    listB: List<Country>,
+    countryClick: (Country) -> Unit,
+    backHandler: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -81,7 +81,7 @@ fun CountryScreen(
                     .fillMaxHeight()
             ) {
                 itemsIndexed(listA) { _, item ->
-                    CountryItemView(item = item)
+                    CountryItemView(item = item, countryClick)
                 }
             }
             LazyColumn(
@@ -90,20 +90,16 @@ fun CountryScreen(
                     .fillMaxHeight()
             ) {
                 itemsIndexed(listB) { _, item ->
-                    CountryItemView(item = item)
+                    CountryItemView(item = item, countryClick)
                 }
             }
         }
-        Text(
-            text = "*Source:https://www.watertoday.ca/",
-            modifier = Modifier
-                .padding(vertical = 5.dp, horizontal = 10.dp)
-                .fillMaxWidth(),
-            color = TextDes,
-            fontSize = 14.sp
-        )
+        DeepLinkText(
+            title = "*Source:",
+            link = "www.watertoday.ca/",
+            displayTextForLink = "www.watertoday.ca/")
         Row(Modifier.padding(16.dp)) {
-            Button(onClick = { }, Modifier.fillMaxWidth()) {
+            Button(onClick = { backHandler() }, Modifier.fillMaxWidth()) {
                 Text(text = "BACK")
             }
         }
@@ -111,8 +107,10 @@ fun CountryScreen(
 }
 
 @Composable
-fun CountryItemView(item: CountryUiState) {
-    val context = LocalContext.current
+fun CountryItemView(
+    item: Country,
+    onClick: (Country) -> Unit
+) {
     Column(
         modifier = Modifier
             .padding(8.dp)
@@ -123,9 +121,7 @@ fun CountryItemView(item: CountryUiState) {
                 shape = RoundedCornerShape(5.dp)
             )
             .clickable {
-                Toast
-                    .makeText(context, item.name, Toast.LENGTH_SHORT)
-                    .show()
+                onClick(item)
             }
     ) {
         Card(
@@ -153,21 +149,3 @@ fun CountryItemView(item: CountryUiState) {
 }
 
 
-@Preview
-@Composable
-fun CountryPreview() {
-    val listA = mutableListOf<CountryUiState>()
-    val listB = mutableListOf<CountryUiState>()
-    listA.add(CountryUiState(0, "Canada", 0, ""))
-    listA.add(CountryUiState(0, "Canada", 0, ""))
-    listA.add(CountryUiState(0, "Canada", 0, ""))
-    listA.add(CountryUiState(0, "Canada", 0, ""))
-    listA.add(CountryUiState(0, "Canada", 0, ""))
-
-    listB.add(CountryUiState(0, "Canada", 0, ""))
-    listB.add(CountryUiState(0, "Canada", 0, ""))
-    listB.add(CountryUiState(0, "Canada", 0, ""))
-    listB.add(CountryUiState(0, "Canada", 0, ""))
-    listB.add(CountryUiState(0, "Canada", 0, ""))
-    CountryScreen(listA, listB)
-}

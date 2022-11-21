@@ -32,14 +32,6 @@ fun TaskScreen(
                         submitHandler = {context -> viewModel.submitAnswerHandler(context) }
                     )
                 }
-                is TaskUiState.FilterTask -> {
-                    WaterFilterScreen(
-                        task = viewModel.getCurrentTask() as TaskUiState.FilterTask,
-                        filterViewModel = filterViewModel,
-                        navControl = viewModel.navControl) {
-                        viewModel.completeFilterHandler()
-                    }
-                }
                 is TaskUiState.WelcomeTask -> {
                     WelcomeTaskBody(viewModel = viewModel)
                 }
