@@ -20,10 +20,18 @@ class PrefManager @Inject constructor(
         editor.putBoolean(key, value).apply()
     }
 
+    fun getString(pair: StringPair) = preferences.getString(pair.key, pair.default)
+
+    fun putString(key: String, value: String){
+        editor.putString(key, value).apply()
+    }
+
     companion object {
         const val CURR_TASK_ID = "FLAG_CURR_TASK_ID"
         const val DATA_INITIALIZED = "FLAG_DATA_INITIALIZED"
         const val IS_UNDER_RESETTING = "FLAG_IS_UNDER_RESETTING"
+        const val EMAIL = "EMAIL"
+        const val NAME = "NAME"
     }
 }
 
@@ -40,4 +48,12 @@ sealed class BooleanPair(
 ) {
     object DataInitialized: BooleanPair(PrefManager.DATA_INITIALIZED, false)
     object IsUnderResetting: BooleanPair(PrefManager.IS_UNDER_RESETTING, false)
+}
+
+sealed class StringPair(
+    val key: String,
+    val default: String
+) {
+   object Email: StringPair(PrefManager.EMAIL, "")
+   object Name: StringPair(PrefManager.NAME, "")
 }

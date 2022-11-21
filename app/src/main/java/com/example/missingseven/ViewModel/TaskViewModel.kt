@@ -375,7 +375,17 @@ class TaskViewModel @Inject constructor(
         navControl.navigate(Screen.Task.route, Screen.WorkshopContact.route)
     }
 
+    fun loginClicked(){
+        navControl.navigate(Screen.Task.route, Screen.Login.route)
+    }
+
     fun navigateBack(){
         navControl.navigateBack()
+    }
+
+    fun loginHandler(email: String, name: String){
+        preferenceManager.putString(PrefManager.EMAIL, email)
+        preferenceManager.putString(PrefManager.NAME, name)
+        navigateBack()
     }
 }
