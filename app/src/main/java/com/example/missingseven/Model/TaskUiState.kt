@@ -65,7 +65,6 @@ sealed class TaskUiState(
         val MalawiRate: Float,
         val SouthAfricaRate: Float,
         val studentAnswer: MutableState<String>,
-        val answerCorrect: MutableState<Boolean>,
         val successPopUp: String
     ): TaskUiState(tid, completed, header)
 

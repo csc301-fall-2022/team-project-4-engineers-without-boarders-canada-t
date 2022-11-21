@@ -68,6 +68,21 @@ class TaskConverter {
                             "Welcome!"
                         )
                     }
+                    is TaskType.LiteracyRateTask -> {
+                        TaskUiState.LiteracyRateTask(
+                            tid,
+                            mutableStateOf(completed),
+                            header,
+                            CanadaRate,
+                            GermanyRate,
+                            GhanaRate,
+                            KenyaRate,
+                            KuwaitRate,
+                            MalawiRate,
+                            SouthAfricaRate,
+                            mutableStateOf (studentAnswer), successPopUp
+                        )
+                    }
                     else -> null
                 }
             }

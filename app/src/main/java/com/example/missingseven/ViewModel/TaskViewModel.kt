@@ -95,6 +95,11 @@ class TaskViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
+            taskRepository.insertLRTasks(dataInitializer.getLiteracyRateTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
             countryRepository.insertAllCountries(dataInitializer.getAllCountries()){
                 insertCallback()
             }
@@ -133,6 +138,9 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.deleteWelcomeTasks { deleteCallback() }
+        }
+        viewModelScope.launch {
+            taskRepository.deleteLRTasks { deleteCallback() }
         }
 
         viewModelScope.launch {
@@ -192,6 +200,11 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.getShortAnswerTasks {
+                updateTasks(it)
+            }
+        }
+        viewModelScope.launch {
+            taskRepository.getLRTasks {
                 updateTasks(it)
             }
         }
@@ -276,18 +289,6 @@ class TaskViewModel @Inject constructor(
     fun onBackClicked(){
         currentTaskId.value -= 1
         putCurrTaskToSharedPreference()
-    }
-
-    fun completeReadingHandler(completed: Boolean){
-        getCurrentTask()?.let {
-            it.completed.value = completed
-            getCurrentTaskType()?.let { task ->
-                task.completed = completed
-                viewModelScope.launch {
-                    taskRepository.updateReadingTask(task as TaskType.ReadingTask)
-                }
-            }
-        }
     }
 
     fun isResumeAble(): Boolean {

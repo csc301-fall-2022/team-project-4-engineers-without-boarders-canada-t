@@ -1,5 +1,6 @@
 package com.example.missingseven.Database.Entity
 
+import androidx.compose.runtime.MutableState
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -64,8 +65,23 @@ sealed class TaskType(
         @ColumnInfo override var completed: Boolean
     ): TaskType(tid, completed)
 
+    @Entity
+    data class LiteracyRateTask(
+        @PrimaryKey override val tid: Int,
+        override var completed: Boolean,
+        val header: String,
+        val CanadaRate: Float,
+        val GermanyRate: Float,
+        val GhanaRate: Float,
+        val KenyaRate: Float,
+        val KuwaitRate: Float,
+        val MalawiRate: Float,
+        val SouthAfricaRate: Float,
+        val studentAnswer: String,
+        val successPopUp: String
+    ): TaskType(tid, completed)
 
     companion object {
-        const val TASK_TYPE_NUM = 6
+        const val TASK_TYPE_NUM = 7
     }
 }

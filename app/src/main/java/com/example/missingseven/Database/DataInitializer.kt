@@ -1,6 +1,7 @@
 package com.example.missingseven.Database
 
 import android.content.Context
+import androidx.compose.runtime.mutableStateOf
 import com.example.missingseven.Database.Entity.Country
 import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Database.Entity.Player
@@ -11,16 +12,15 @@ class DataInitializer constructor(
     private val context: Context
 ) {
     fun getAllReadingTasks(): List<TaskType.ReadingTask> = listOf(
-        TaskType.ReadingTask(1, false, context.getString(R.string.reading_task0_header), context.getString(R.string.reading_task0_content)),
-        TaskType.ReadingTask(2, false, context.getString(R.string.reading_task1_header), context.getString(R.string.reading_task1_content)),
-        TaskType.ReadingTask(5, false, context.getString(R.string.task4_header), context.getString(R.string.task4_content)),
+        TaskType.ReadingTask(1, true, context.getString(R.string.reading_task0_header), context.getString(R.string.reading_task0_content)),
+        TaskType.ReadingTask(5, true, context.getString(R.string.task4_header), context.getString(R.string.task4_content)),
         TaskType.ReadingTask(12, true, context.getString(R.string.task12_header),context.getString(R.string.task12_content), true)
 
     )
 
     fun getAllMultipleChoiceTasks(): List<TaskType.MultipleChoiceTask> = listOf(
         TaskType.MultipleChoiceTask(
-            4, false, context.getString(R.string.mc_task2_header),
+            3, false, context.getString(R.string.mc_task2_header),
             listOf(
                 context.getString(R.string.mc_task2_option0),
                 context.getString(R.string.mc_task2_option1),
@@ -42,7 +42,7 @@ class DataInitializer constructor(
 
     fun getAllSlidingScaleTasks(): List<TaskType.SlidingScaleTask> = listOf(
         TaskType.SlidingScaleTask(
-            3, false, context.getString(R.string.task2_header), 0, 8000,
+            2, false, context.getString(R.string.task2_header), 0, 8000,
             50,"M", 800, 4000,
             context.getString(R.string.tooShort),
             context.getString(R.string.tooLarge),
@@ -63,6 +63,13 @@ class DataInitializer constructor(
 
     fun getWelcomeTask(): List<TaskType.WelcomeTask> = listOf(
         TaskType.WelcomeTask(0, true)
+    )
+
+    fun getLiteracyRateTasks(): List<TaskType.LiteracyRateTask> = listOf(
+        TaskType.LiteracyRateTask(
+            4, false, "The literacy rate is defined by the percentage of the population of a given age group that can read and write.", 99F, 99F, 79.04F, 81.54F, 96.46F, 62.14F, 95.02F,
+            "", "Yes, literacy rates are lowest in the Sub-Saharan African countries."
+        )
     )
 
     fun getShortAnswerTasks(): List<TaskType.ShortAnswerTask> = listOf(
@@ -95,7 +102,7 @@ class DataInitializer constructor(
     )
 
     companion object {
-        const val INSERT_NUM = 9
+        const val INSERT_NUM = 10
     }
 
 }
