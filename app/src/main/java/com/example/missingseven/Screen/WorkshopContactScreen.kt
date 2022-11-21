@@ -37,20 +37,25 @@ fun WorkshopContactScreen(
         DeepLinkText(
             title = "Email: ",
             link = "waterfortheworldworkshops@gmail.com",
-            deepLinkEnabled = false
+            deepLinkEnabled = false,
+            null
         )
         DeepLinkText(
             title = "Facebook: ",
-            link = "www.facebook.com/WaterForTheWorld/")
+            link = "www.facebook.com/WaterForTheWorld/",
+            displayTextForLink = null)
         DeepLinkText(
             title = "Instagram: ",
-            link = "www.instagram.com/water4tworld/?hl=en")
+            link = "www.instagram.com/water4tworld/?hl=en",
+            displayTextForLink = null)
         DeepLinkText(
             title = "Twitter: ",
-            link = "twitter.com/EWBWater4World")
+            link = "twitter.com/EWBWater4World",
+            displayTextForLink = null)
         DeepLinkText(
             title = "Website: ",
-            link = "waterfortheworldto.wordpress.com/contact/")
+            link = "waterfortheworldto.wordpress.com/contact/",
+            displayTextForLink = null)
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
@@ -67,24 +72,41 @@ fun WorkshopContactScreen(
 fun DeepLinkText(
     title: String,
     link: String,
-    deepLinkEnabled: Boolean = true
+    deepLinkEnabled: Boolean = true,
+    displayTextForLink: String?
 ){
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
     Row(modifier = Modifier.padding(10.dp)) {
         Text(text = title)
-        Text(
-            text = link,
-            modifier = Modifier.clickable {
-                if (deepLinkEnabled){
-                    uriHandler.openUri("https://$link")
-                } else {
-                    sendMail(context, link, "", "")
-                }
-            },
-            color = Color.Blue,
-            style = TextStyle(textDecoration = TextDecoration.Underline)
-        )
+
+        if (displayTextForLink != null){
+            Text(
+                text = displayTextForLink,
+                modifier = Modifier.clickable {
+                    if (deepLinkEnabled){
+                        uriHandler.openUri("https://$link")
+                    } else {
+                        sendMail(context, link, "", "")
+                    }
+                },
+                color = Color.Blue,
+                style = TextStyle(textDecoration = TextDecoration.Underline)
+            )
+        }else{
+            Text(
+                text = link,
+                modifier = Modifier.clickable {
+                    if (deepLinkEnabled){
+                        uriHandler.openUri("https://$link")
+                    } else {
+                        sendMail(context, link, "", "")
+                    }
+                },
+                color = Color.Blue,
+                style = TextStyle(textDecoration = TextDecoration.Underline)
+            )
+        }
 
     }
 }
