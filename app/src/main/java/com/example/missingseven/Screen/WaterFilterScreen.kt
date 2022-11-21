@@ -91,7 +91,7 @@ fun FilterMainBody(
             }
         }
         val text = if (task.completed.value) "You have scored" +
-                " ${filterViewModel.playerScore()}/10 on your water filter!" else
+                " ${filterViewModel.filterStack.evaluation()}/100 on your water filter!" else
             "Warning: You cannot edit your filter once you click evaluate!"
         Text(text = text, modifier = Modifier.padding(10.dp))
         if (task.completed.value){
