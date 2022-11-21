@@ -389,4 +389,16 @@ class TaskViewModel @Inject constructor(
         preferenceManager.putString(PrefManager.NAME, name)
         navigateBack()
     }
+
+    fun lRSubmitHandler(){
+        (getCurrentTask() as TaskUiState.LiteracyRateTask).apply {
+            completed.value = studentAnswer.value == "South Africa"
+            (getCurrentTaskType() as TaskType.LiteracyRateTask).let { task ->
+                task.completed = completed.value
+                viewModelScope.launch {
+                    taskRepository.updateLRTask(task)
+                }
+            }
+        }
+    }
 }
