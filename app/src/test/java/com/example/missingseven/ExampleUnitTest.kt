@@ -1,12 +1,9 @@
 package com.example.missingseven
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.navigation.NavHostController
 import com.example.missingseven.Database.DAO.CountryDAO
 import com.example.missingseven.Database.DAO.ItemDAO
 import com.example.missingseven.Database.DAO.PlayerDAO
-import com.example.missingseven.Database.Entity.Country
 import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Database.Entity.Player
 import com.example.missingseven.Database.IntPair
@@ -14,28 +11,21 @@ import com.example.missingseven.Database.PrefManager
 import com.example.missingseven.Database.Repository.CountryRepository
 import com.example.missingseven.Database.Repository.ItemRepository
 import com.example.missingseven.Database.Repository.PlayerRepository
-import com.example.missingseven.Database.Repository.TaskRepository
 import com.example.missingseven.Model.ItemConverter
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
-import com.example.missingseven.Navigation.Screen
 import com.example.missingseven.ViewModel.FilterViewModel
-import com.example.missingseven.ViewModel.TaskViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
-import org.mockito.kotlin.any
-import org.mockito.kotlin.doNothing
+import org.junit.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
@@ -102,10 +92,8 @@ class ExampleUnitTest {
                 emit(listOf(player1))
             }
         )
-        val control = NavControl(mock())
-        val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
 
-        viewModel.setup(control, filter)
+        viewModel.fetchPlayer()
 
         assertEquals(viewModel.player, player1)
         assertEquals(viewModel.player.pid, 2)
@@ -121,7 +109,6 @@ class ExampleUnitTest {
         assertEquals(viewModel.player.layer5, 66)
         assertEquals(viewModel.player.layer6, 77)
         assertEquals(viewModel.player.layer7, 88)
-        assertEquals(viewModel.player.neckRubberBanded, true)
     }
 
     @Test

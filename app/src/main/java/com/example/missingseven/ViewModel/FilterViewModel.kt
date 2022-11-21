@@ -62,14 +62,11 @@ class FilterViewModel @Inject constructor(
         fetchItems()
     }
 
-    fun fetchPlayer(test: Boolean = false){
+    fun fetchPlayer(){
         viewModelScope.launch{
             playerRepository.getPlayers {
                 player = it[0]
                 fetchCallback()
-//                if (!test){
-//                    fetchCountries()
-//                }
             }
         }
     }
