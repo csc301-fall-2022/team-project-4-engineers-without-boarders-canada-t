@@ -18,6 +18,7 @@ import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.Navigation.Screen
 import com.example.missingseven.R
 import com.example.missingseven.ViewModel.FilterViewModel
+import kotlin.math.round
 import kotlin.math.roundToInt
 
 @Composable
@@ -63,6 +64,7 @@ fun FilterMainBody(
     taskCompleteHandler: () -> Unit
 ){
     Column(
+        modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Country: " + filterViewModel.getPlayerCountry()?.name.orEmpty(),
@@ -92,7 +94,7 @@ fun FilterMainBody(
             }
         }
         val text = if (task.completed.value) "You have scored " +
-                filterViewModel.filterStack.evaluation().roundToInt() / 100+ "% on your water filter!" else
+                round( filterViewModel.filterStack.evaluation() * 100 / 100)+ "% on your water filter!" else
             "Warning: You cannot edit your filter once you click evaluate!"
         Text(text = text, modifier = Modifier.padding(10.dp))
         if (task.completed.value){

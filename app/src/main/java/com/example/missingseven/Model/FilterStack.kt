@@ -20,7 +20,7 @@ class FilterStack(
             return (0.5/20)*100;
         } else{
             var score = 1.5
-            for (i in 0..topIndex.value){
+            for (i in 0 until topIndex.value){
                 if ((itemList[i]?.iid ?: -1) >= 4){
                     score = (score + itemList[i]?.strength!!)
                 } else if ((itemList[i]?.iid ?: -1) >= 0) {
