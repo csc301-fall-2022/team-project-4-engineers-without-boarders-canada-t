@@ -1,7 +1,6 @@
 package com.example.missingseven.Model
 
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 
 sealed class TaskUiState(
     open val tid: Int,
@@ -10,9 +9,10 @@ sealed class TaskUiState(
 ) {
     data class ReadingTask(
         override val tid: Int,
-        override val completed: MutableState<Boolean>,
+        override val completed:  MutableState<Boolean>,
         override val header: String,
-        val content: String
+        val content: String,
+        val isSpecial: Boolean = false
     ): TaskUiState(tid, completed, header)
 
     data class MultipleChoiceTask(
