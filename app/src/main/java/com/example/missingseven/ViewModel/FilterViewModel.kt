@@ -50,39 +50,58 @@ class FilterViewModel @Inject constructor(
     // store all items by the key-value pair of the items iid and the ItemUiState
     val allIIdItemsMap: MutableMap<Int, ItemUiState> = mutableMapOf()
 
+    private val fetchCount = mutableStateOf(0)
+
     fun setup(control: NavControl, filter:TaskUiState.FilterTask){
         setupCompleted.value = false
+        fetchCount.value = 0
         navControl = control
         filterTask = filter
         fetchPlayer()
+        fetchCountries()
+        fetchItems()
     }
 
     fun fetchPlayer(test: Boolean = false){
         viewModelScope.launch{
             playerRepository.getPlayers {
                 player = it[0]
-                if (!test){
-                    fetchCountries()
-                }
+                fetchCallback()
+//                if (!test){
+//                    fetchCountries()
+//                }
             }
         }
+    }
+
+    fun fetchCompleted() = fetchCount.value == 3
+
+    private fun fetchCallback(){
+        if (!fetchCompleted()){
+            fetchCount.value += 1
+        }
+    }
+
+    fun getParallelCountryList(): Pair<List<Country>, List<Country>>{
+        return Pair(countries.filter { it.cid < 4 }, countries.filter { it.cid >= 4 })
     }
 
     private fun fetchCountries(){
         viewModelScope.launch{
             countryRepository.getAllCountries {
                 countries = it
-                if (player.cid == -1){
-                    viewModelScope.launch{
-                        val random = countries.random()
-                        player.cid = random.cid
-                        player.curr_money = random.money
-                        viewModelScope.launch {
-                            playerRepository.updatePlayer(player)
-                        }
-                    }
-                }
-                fetchItems()
+                fetchCallback()
+//                if (player.cid == -1){
+//                    viewModelScope.launch{
+//                        val random = countries.random()
+//                        player.cid = random.cid
+//                        player.curr_money = random.money
+//                        viewModelScope.launch {
+//                            playerRepository.updatePlayer(player)
+//                        }
+//                    }
+//                }
+//                fetchItems()
             }
         }
 
@@ -95,19 +114,20 @@ class FilterViewModel @Inject constructor(
                     shopIidCountMap[item.iid] = mutableStateOf(0)
                     allIIdItemsMap[item.iid] = ItemConverter.databaseEntityToUiState(item)
                 }
-                setupPlayerUiState()
-                setupStack()
+                fetchCallback()
+//                setupPlayerUiState()
+//                setupStack()
             }
         }
     }
 
-    private fun setupPlayerUiState(){
+    fun setupPlayerUiState(){
         getPlayerCountry()?.let {
             playerUiState = PlayerConverter.databaseEntityToUiState(player, it.name, it.instruction)
         }
     }
 
-    private fun setupStack(){
+    fun setupStack(){
         val itemList = mutableListOf<ItemUiState?>()
         var currTop = 0
         for (i in 0 until FilterStack.MAX_LAYER){
@@ -129,22 +149,30 @@ class FilterViewModel @Inject constructor(
         setupCompleted.value = true
     }
 
+    fun countrySelect(country: Country){
+        player.cid = country.cid
+        player.curr_money = country.money
+        viewModelScope.launch {
+            playerRepository.updatePlayer(player)
+        }
+    }
+
     fun getInstruction(): String{
         return playerUiState.instruction
     }
 
     fun openInstruction(){
-        navControl.navigate(Screen.Task.route, Screen.Instruction.route)
+        navControl.navigate(Screen.Filter.route, Screen.Instruction.route)
     }
 
-    fun closeChildScreen(){
+    fun navigateBack(){
         navControl.navigateBack()
     }
 
 
     fun onStackClicked(){
         if (!filterStack.isFull() && !filterTask.completed.value){
-            navControl.navigate(Screen.Task.route, Screen.ItemSelect.route)
+            navControl.navigate(Screen.Filter.route, Screen.ItemSelect.route)
         }
     }
 
@@ -183,7 +211,7 @@ class FilterViewModel @Inject constructor(
     }
 
     fun shopClicked(){
-        navControl.navigate(Screen.Task.route, Screen.Shop.route)
+        navControl.navigate(Screen.Filter.route, Screen.Shop.route)
     }
 
     fun add(iid: Int){

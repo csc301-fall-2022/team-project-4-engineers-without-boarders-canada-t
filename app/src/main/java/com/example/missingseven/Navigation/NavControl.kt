@@ -7,11 +7,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.missingseven.Model.ItemUiState
 import com.example.missingseven.Screen.*
 import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ViewModel.TaskViewModel
-import kotlinx.parcelize.Parcelize
 
 class NavControl constructor(
     private val navController: NavHostController,
@@ -58,7 +56,7 @@ class NavControl constructor(
                     navControl = this@NavControl,
                     task = viewModel.filterUiState
                 ) {
-
+                    viewModel.completeFilterHandler()
                 }
             }
         }

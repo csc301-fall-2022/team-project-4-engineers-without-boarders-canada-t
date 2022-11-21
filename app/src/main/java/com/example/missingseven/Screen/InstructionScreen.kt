@@ -25,7 +25,7 @@ fun InstructionScreen(
         Text(text = viewModel.getInstruction(),
             modifier = Modifier.padding(vertical = 5.dp, horizontal = 10.dp).fillMaxHeight(0.7f),
         fontSize = 20.sp)
-        Button(onClick = { viewModel.closeChildScreen() }) {
+        Button(onClick = { viewModel.navigateBack() }) {
             Text(text = "Close")
         }
     }

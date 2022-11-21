@@ -1,7 +1,6 @@
 package com.example.missingseven.Screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
@@ -16,12 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.missingseven.Model.ItemUiState
 import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ui.theme.ItemBg
@@ -77,7 +73,7 @@ fun ShopScreen(
         colors = ButtonDefaults.buttonColors(backgroundColor = if (viewModel.checkoutAble()) Color.Green else Color.Gray)) {
             Text(text = "Checkout")
         }
-        Button(onClick = { viewModel.closeChildScreen() }) {
+        Button(onClick = { viewModel.navigateBack() }) {
             Text(text = "Close")
         }
     }
