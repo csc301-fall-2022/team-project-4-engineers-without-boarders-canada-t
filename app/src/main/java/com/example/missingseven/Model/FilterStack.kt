@@ -14,19 +14,19 @@ class FilterStack(
     fun isFull() = topIndex.value == MAX_LAYER
 
     fun evaluation(): Double {
-        if (!mouthRubberBanded || (mouth.value?.iid ?: -1) != 5){
+        if (!mouthRubberBanded || (mouth.value?.iid ?: -1) != 4){
             return 0.0;
-        } else if ((neck.value?.iid ?: -1) != 6){
+        } else if ((neck.value?.iid ?: -1) != 5){
             return (0.5/20)*100;
         } else{
             var score = 1.5
-            for (i in 0..7){
+            for (i in 0..topIndex.value){
                 if ((itemList[i]?.iid ?: -1) >= 5){
                     score = (score + itemList[i]?.strength!!)
                 } else if ((itemList[i]?.iid ?: -1) >= 0) {
                     if (cleaned){
                         var rare = itemList[i]?.cleanedStrength
-                        for (k in i+1..7){
+                        for (k in i+1..topIndex.value){
                             if (rare != null) {
                                 rare *= itemList[i]?.cleanedEffectiveness!![k]
                             }
@@ -34,7 +34,7 @@ class FilterStack(
                         score = (score + rare!!)
                     } else{
                         var rare = itemList[i]?.strength
-                        for (k in i+1..7){
+                        for (k in i+1..topIndex.value){
                             if (rare != null) {
                                 rare *= itemList[i]?.effectiveness!![k]
                             }
