@@ -13,7 +13,8 @@ sealed class TaskType(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "header") val header: String,
-        @ColumnInfo(name = "content") val content: String
+        @ColumnInfo(name = "content") val content: String,
+        @ColumnInfo val isSpecial: Boolean = false
     ) : TaskType(tid, completed)
 
     @Entity

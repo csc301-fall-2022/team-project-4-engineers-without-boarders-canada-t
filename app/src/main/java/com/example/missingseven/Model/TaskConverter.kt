@@ -15,7 +15,8 @@ class TaskConverter {
                             tid,
                             mutableStateOf(completed),
                             header,
-                            content
+                            content,
+                            isSpecial
                         )
                     }
                     is TaskType.MultipleChoiceTask -> {

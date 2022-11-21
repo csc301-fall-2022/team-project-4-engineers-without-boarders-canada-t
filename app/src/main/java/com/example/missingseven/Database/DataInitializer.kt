@@ -13,7 +13,9 @@ class DataInitializer constructor(
     fun getAllReadingTasks(): List<TaskType.ReadingTask> = listOf(
         TaskType.ReadingTask(1, false, context.getString(R.string.reading_task0_header), context.getString(R.string.reading_task0_content)),
         TaskType.ReadingTask(2, false, context.getString(R.string.reading_task1_header), context.getString(R.string.reading_task1_content)),
-        TaskType.ReadingTask(5, false, context.getString(R.string.task4_header), context.getString(R.string.task4_content))
+        TaskType.ReadingTask(5, false, context.getString(R.string.task4_header), context.getString(R.string.task4_content)),
+        TaskType.ReadingTask(12, true, context.getString(R.string.task12_header),context.getString(R.string.task12_content), true)
+
     )
 
     fun getAllMultipleChoiceTasks(): List<TaskType.MultipleChoiceTask> = listOf(

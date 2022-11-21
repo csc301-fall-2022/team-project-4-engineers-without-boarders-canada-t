@@ -11,6 +11,11 @@
     <string name="task4_header">Literacy Rate</string>
     <string name="task4_content">The Literacy rate is a good indication of the general level of education in a country. Explore this map and ask you self – where are the literacy rates the lowest in the world?</string>
 
+    <string name="task12_header">Filter Building Challenge</string>
+    <string name="task12_content">Many people in the world drink dirty water and get sick or die. \n
+    Your challenge is to build a water filter to turn the glass of water</string>
+    <string name="task12_footer">Press NEXT to start the challenge</string>
+
     <!-- sliding scale task -->
     <string name="tooShort">The answer is too small</string>
     <string name="tooLarge">The answer is too large</string>
