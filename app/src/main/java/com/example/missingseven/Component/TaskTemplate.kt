@@ -26,6 +26,7 @@ fun TaskTemplate(
     taskUiState: TaskUiState,
     backHandler: () -> Unit,
     nextHandler: () -> Unit,
+    finishHandler: () -> Unit,
     shouldShowFirst: Boolean,
     shouldShowLast: Boolean
 ){
@@ -68,10 +69,17 @@ fun TaskTemplate(
                     }
                 }
                 Spacer(modifier = Modifier.weight(1f))
+                val nextColor = ButtonDefaults.buttonColors(backgroundColor = if (taskUiState.completed.value) Color.Green else Color.Gray)
                 if (shouldShowLast){
                     Button(onClick = nextHandler,
-                        colors = ButtonDefaults.buttonColors(backgroundColor = if (taskUiState.completed.value) Color.Green else Color.Gray)) {
+                        colors = nextColor) {
                         Text(text = "Next")
+                    }
+                } else {
+                    Button(onClick = finishHandler ,
+                        colors = nextColor
+                    ) {
+                        Text(text = "Finish")
                     }
                 }
             }
@@ -109,6 +117,7 @@ fun TaskTemplatePreview(){
     TaskTemplate(
         {},
         TaskUiState.ReadingTask(1, mutableStateOf(false), "ABsssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCafaefafaABC", "qwertyuiop[qwertyuiopqwertyuiopqwertyuiop"),
+        {},
         {},
         {},
         true, true

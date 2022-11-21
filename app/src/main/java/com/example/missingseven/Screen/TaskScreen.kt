@@ -49,6 +49,7 @@ fun TaskScreen(
         },
         nextHandler = {viewModel.onNextClicked()},
         backHandler = {viewModel.onBackClicked()},
+        finishHandler = { viewModel.navigateBack()},
         taskUiState = viewModel.getCurrentTask()!!,
         shouldShowFirst = !viewModel.isFirstTask(),
         shouldShowLast = !viewModel.isLastTask()
