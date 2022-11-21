@@ -21,7 +21,7 @@ class FilterStack(
         } else{
             var score = 1.5
             for (i in 0..topIndex.value){
-                if ((itemList[i]?.iid ?: -1) >= 5){
+                if ((itemList[i]?.iid ?: -1) >= 4){
                     score = (score + itemList[i]?.strength!!)
                 } else if ((itemList[i]?.iid ?: -1) >= 0) {
                     if (cleaned){
