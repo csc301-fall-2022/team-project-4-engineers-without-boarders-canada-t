@@ -28,7 +28,9 @@ fun TaskScreen(
                 is TaskUiState.ShortAnswerTask -> {
                     ShortAnswerTaskBody({viewModel.shortAnswerSaveHandler()},
                         viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask,
-                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)})
+                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)},
+                        submitHandler = {context -> viewModel.submitAnswerHandler(context) }
+                    )
                 }
                 is TaskUiState.FilterTask -> {
                     WaterFilterScreen(
@@ -43,7 +45,12 @@ fun TaskScreen(
                 }
                 is TaskUiState.LiteracyRateTask -> {
                     LiteracyRateTaskBody(
+                        { viewModel.lRSubmitHandler() },
                         task = viewModel.getCurrentTask() as TaskUiState.LiteracyRateTask)
+                }
+                is TaskUiState.GlobalLiteracyRateTask -> {
+                    GlobalLiteracyRateBody(
+                        task = viewModel.getCurrentTask() as TaskUiState.GlobalLiteracyRateTask)
                 }
                 else -> {}
             }

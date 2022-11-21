@@ -49,7 +49,8 @@ sealed class TaskType(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "question") val question: String,
-        @ColumnInfo(name = "answer") var answer: String
+        @ColumnInfo(name = "answer") var answer: String,
+        val isLast: Boolean = false
     ) : TaskType(tid, completed)
 
     @Entity
@@ -77,11 +78,21 @@ sealed class TaskType(
         val KuwaitRate: Float,
         val MalawiRate: Float,
         val SouthAfricaRate: Float,
-        val studentAnswer: String,
+        var studentAnswer: String,
         val successPopUp: String
     ): TaskType(tid, completed)
 
+    @Entity
+    data class GlobalLiteracyRateTask(
+        @PrimaryKey override val tid: Int,
+        override var completed: Boolean,
+        val header: String,
+        val content: String,
+        val hyperlinkText: String,
+        val hyperlink: String
+    ): TaskType(tid, completed)
+
     companion object {
-        const val TASK_TYPE_NUM = 7
+        const val TASK_TYPE_NUM = 8
     }
 }

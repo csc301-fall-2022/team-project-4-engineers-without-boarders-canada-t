@@ -1,13 +1,11 @@
 package com.example.missingseven.ViewModel
 
+import android.content.Context
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.missingseven.Database.BooleanPair
-import com.example.missingseven.Database.IntPair
-import com.example.missingseven.Database.PrefManager
-import com.example.missingseven.Database.DataInitializer
+import com.example.missingseven.Database.*
 import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.Database.Repository.CountryRepository
 import com.example.missingseven.Database.Repository.ItemRepository
@@ -17,6 +15,7 @@ import com.example.missingseven.Model.TaskConverter
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.Navigation.Screen
+import com.example.missingseven.Screen.sendMail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -100,6 +99,11 @@ class TaskViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
+            taskRepository.insertGLRTasks(dataInitializer.getGLRTasks()){
+                insertCallback()
+            }
+        }
+        viewModelScope.launch {
             countryRepository.insertAllCountries(dataInitializer.getAllCountries()){
                 insertCallback()
             }
@@ -141,6 +145,10 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.deleteLRTasks { deleteCallback() }
+        }
+
+        viewModelScope.launch {
+            taskRepository.deleteGLRTasks { deleteCallback() }
         }
 
         viewModelScope.launch {
@@ -205,6 +213,12 @@ class TaskViewModel @Inject constructor(
         }
         viewModelScope.launch {
             taskRepository.getLRTasks {
+                updateTasks(it)
+            }
+        }
+
+        viewModelScope.launch {
+            taskRepository.getGLRTasks {
                 updateTasks(it)
             }
         }
@@ -360,6 +374,21 @@ class TaskViewModel @Inject constructor(
         }
     }
 
+    fun submitAnswerHandler(context: Context){
+        var text = "Student name: ${preferenceManager.getString(StringPair.Name)}\n\n"
+        allTasks.filterIsInstance<TaskType.ShortAnswerTask>().forEach {
+            text += "Question:\n${it.question}\nAnswer:\n${it.answer}\n\n"
+        }
+        preferenceManager.getString(StringPair.Email)?.let {
+            sendMail(
+                context = context,
+                to = it,
+                subject = "Water For The World Workshop Answers",
+                text = text
+            )
+        }
+    }
+
     fun completeFilterHandler(){
         (getCurrentTask() as TaskUiState.FilterTask).apply {
             completed.value = true
@@ -392,9 +421,10 @@ class TaskViewModel @Inject constructor(
 
     fun lRSubmitHandler(){
         (getCurrentTask() as TaskUiState.LiteracyRateTask).apply {
-            completed.value = studentAnswer.value == "South Africa"
+            completed.value = studentAnswer.value == "Malawi"
             (getCurrentTaskType() as TaskType.LiteracyRateTask).let { task ->
                 task.completed = completed.value
+                task.studentAnswer = studentAnswer.value
                 viewModelScope.launch {
                     taskRepository.updateLRTask(task)
                 }

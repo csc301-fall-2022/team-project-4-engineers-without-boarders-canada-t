@@ -50,7 +50,8 @@ sealed class TaskUiState(
         override val tid: Int,
         override val completed: MutableState<Boolean>,
         val question: String,
-        val answer: MutableState<String>
+        val answer: MutableState<String>,
+        val isLast: Boolean = false
     ): TaskUiState(tid, completed, question)
 
     data class LiteracyRateTask(
@@ -70,12 +71,13 @@ sealed class TaskUiState(
 
     data class GlobalLiteracyRateTask(
         override val tid: Int,
+        override val completed: MutableState<Boolean>,
         override val header: String,
         val content: String,
         val image: Int,
         val hyperlinkText: String,
         val hyperlink: String
-    ): TaskUiState(tid, mutableStateOf(true), header)
+    ): TaskUiState(tid, completed, header)
 
     data class WelcomeTask(
         override val tid: Int,

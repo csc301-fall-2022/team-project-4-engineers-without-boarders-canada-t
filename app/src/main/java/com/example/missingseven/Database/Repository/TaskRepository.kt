@@ -48,6 +48,12 @@ class TaskRepository @Inject constructor(
         }
     }
 
+    suspend fun getGLRTasks(callback: (List<TaskType>) -> Unit){
+        taskDao.getGLRTasks().collect {
+            callback(it)
+        }
+    }
+
     suspend fun insertAllReadingTasks(
         tasks: List<TaskType.ReadingTask>, callback: () -> Unit
     ) {
@@ -96,6 +102,12 @@ class TaskRepository @Inject constructor(
         tasks: List<TaskType.LiteracyRateTask>, callback: () -> Unit
     ) {
         taskDao.insertLRTasks(tasks).run { callback() }
+    }
+
+    suspend fun insertGLRTasks(
+        tasks: List<TaskType.GlobalLiteracyRateTask>, callback: () -> Unit
+    ) {
+        taskDao.insertGLRTasks(tasks).run { callback() }
     }
 
     suspend fun updateMultipleChoiceTask(
@@ -160,6 +172,12 @@ class TaskRepository @Inject constructor(
 
     suspend fun deleteLRTasks(callback: () -> Unit){
         taskDao.deleteLRTasks().run {
+            callback()
+        }
+    }
+
+    suspend fun deleteGLRTasks(callback: () -> Unit){
+        taskDao.deleteGLRTasks().run {
             callback()
         }
     }
