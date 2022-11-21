@@ -73,7 +73,7 @@ class ExampleUnitTest {
     @Test
     fun testFilterViewModelSetup() = runBlocking {
         val player1 = Player(2, 222, 100, 11, 22, 33,
-            44, 55, 66,77, 88)
+            44, 55, 66,77, 88, 99, 99, false)
 
         whenever(playerDAO.getAllPlayers()).thenReturn(
             flow {
@@ -95,30 +95,19 @@ class ExampleUnitTest {
     @Test
     fun testFetchPlayer() = runBlocking{
         val player1 = Player(2, 222, 100, 11, 22, 33,
-            44, 55, 66,77, 88)
+            44, 55, 66,77, 88, 99, 99, false)
 
         whenever(playerDAO.getAllPlayers()).thenReturn(
             flow {
                 emit(listOf(player1))
             }
         )
-        val control = NavControl(mock())
-        val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
 
-        viewModel.setup(control, filter)
+        viewModel.fetchPlayer(true)
 
         assertEquals(viewModel.player, player1)
         assertEquals(viewModel.player.pid, 2)
         assertEquals(viewModel.player.cid, 222)
-        assertEquals(viewModel.player.curr_money, 100)
-        assertEquals(viewModel.player.layer0, 11)
-        assertEquals(viewModel.player.layer1, 22)
-        assertEquals(viewModel.player.layer2, 33)
-        assertEquals(viewModel.player.layer3, 44)
-        assertEquals(viewModel.player.layer4, 55)
-        assertEquals(viewModel.player.layer5, 66)
-        assertEquals(viewModel.player.layer6, 77)
-        assertEquals(viewModel.player.layer7, 88)
     }
 
 //    @Test
@@ -144,11 +133,9 @@ class ExampleUnitTest {
 
     @Test
     fun testFetchItems() = runBlocking {
-        val item1 = Item(1, "item1", 10, 3,5)
-        val item2 = Item(2, "item2", 20, 10, 10)
-        val item3 = Item(3, "item3", 30, 20, 15)
-        val control = NavControl(mock())
-        val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
+        val item1 = Item(1, "item1", 10, 3,5f, 5f, listOf(), listOf())
+        val item2 = Item(2, "item2", 20, 10, 5f, 5f, listOf(), listOf())
+        val item3 = Item(3, "item3", 30, 20, 5f, 5f, listOf(), listOf())
 
 
         whenever(itemDAO.getAllItems()).thenReturn(
@@ -175,18 +162,13 @@ class ExampleUnitTest {
         assertEquals(3, ItemConverter.databaseEntityToUiState(item1).price)
         assertEquals(10, ItemConverter.databaseEntityToUiState(item2).price)
         assertEquals(20, ItemConverter.databaseEntityToUiState(item3).price)
-        assertEquals(5, ItemConverter.databaseEntityToUiState(item1).mark)
-        assertEquals(10, ItemConverter.databaseEntityToUiState(item2).mark)
-        assertEquals(15, ItemConverter.databaseEntityToUiState(item3).mark)
     }
 
     @Test
     fun testGetSelectableItemList(){
-        val item1 = Item(1, "item1", 10, 3,5)
-        val item2 = Item(2, "item2", 20, 10, 10)
-        val item3 = Item(3, "item3", 30, 20, 15)
-        val control = NavControl(mock())
-        val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
+        val item1 = Item(1, "item1", 10, 3,5f, 5f, listOf(), listOf())
+        val item2 = Item(2, "item2", 20, 10, 5f, 5f, listOf(), listOf())
+        val item3 = Item(3, "item3", 30, 20, 5f, 5f, listOf(), listOf())
 
 
         whenever(itemDAO.getAllItems()).thenReturn(
