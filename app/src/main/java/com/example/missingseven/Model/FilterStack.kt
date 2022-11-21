@@ -52,7 +52,9 @@ class FilterStack(
     }
     fun add(item: ItemUiState){
         if (item.isRubberBand()){
-            mouthRubberBanded = true
+            if (mouth.value == null) {
+                mouthRubberBanded = true
+            }
         } else if (mouth.value == null){
             mouth.value = item
         } else if (neck.value == null){
@@ -61,7 +63,7 @@ class FilterStack(
             itemList[topIndex.value] = item
             topIndex.value += 1
         }
-        }
+    }
 
     fun displayedStack(): MutableList<ItemUiState?>{
         return itemList.reversed() as MutableList<ItemUiState?>
@@ -81,6 +83,12 @@ class FilterStack(
     }
 
     fun getNeckColor() = if (neck.value == null){
+        Color.Green
+    } else {
+        Color.Red
+    }
+
+    fun getMouthColor() = if(mouth.value == null){
         Color.Green
     } else {
         Color.Red

@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.FilterStack
 import com.example.missingseven.Model.ItemUiState
@@ -35,10 +36,10 @@ fun WaterFilter(
                 FilterGrid(item = item, boarderColor = boarderColor, isEvaluated = isEvaluated, widthPercentage = 0.9f)
             }
         }
-        FilterGrid(item = stack.neck.value, boarderColor = stack.getNeckColor(), isEvaluated = isEvaluated, widthPercentage = 0.5f )
+        FilterGrid(item = stack.neck.value, boarderColor = stack.getNeckColor(), isEvaluated = isEvaluated, widthPercentage = 0.7f )
+        FilterGrid(item = stack.mouth.value, boarderColor = stack.getMouthColor(), isEvaluated = isEvaluated, widthPercentage = 0.5f)
     }
 }
-
 
 @Composable
 fun FilterGrid(
