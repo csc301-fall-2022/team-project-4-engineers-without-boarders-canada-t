@@ -1,5 +1,8 @@
 package com.example.missingseven.Screen
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -8,10 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import com.example.missingseven.Component.HeaderView
 import com.example.missingseven.ViewModel.TaskViewModel
 
@@ -64,6 +69,7 @@ fun DeepLinkText(
     link: String,
     deepLinkEnabled: Boolean = true
 ){
+    val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
     Row(modifier = Modifier.padding(10.dp)) {
         Text(text = title)
@@ -72,11 +78,31 @@ fun DeepLinkText(
             modifier = Modifier.clickable {
                 if (deepLinkEnabled){
                     uriHandler.openUri("https://$link")
+                } else {
+                    sendMail(context, link, "", "")
                 }
             },
             color = Color.Blue,
             style = TextStyle(textDecoration = TextDecoration.Underline)
         )
 
+    }
+}
+
+fun sendMail(
+    context: Context,
+    to: String,
+    subject: String, text: String) {
+    try {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "message/rfc822"
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(to))
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        intent.putExtra(Intent.EXTRA_TEXT, text)
+        context.startActivity(intent)
+    } catch (e: ActivityNotFoundException) {
+        // TODO: Handle case where no email app is available
+    } catch (t: Throwable) {
+        // TODO: Handle potential other type of exceptions
     }
 }
