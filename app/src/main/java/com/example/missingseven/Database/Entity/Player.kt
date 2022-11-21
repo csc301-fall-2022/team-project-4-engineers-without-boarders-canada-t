@@ -20,25 +20,30 @@ data class Player(
     @ColumnInfo var layer5: Int,
     @ColumnInfo var layer6: Int,
     @ColumnInfo var layer7: Int,
-    @ColumnInfo var neckRubberBanded: Boolean
+    @ColumnInfo var mouthRubberBanded: Boolean
 ){
     fun updatePlayerByIndex(index: Int, value: Int){
-        if (neck == -1){
-            if (value == 4){
-                neckRubberBanded = true
-            } else {
-                neck = value
+        if ( value == 6){
+            if (mouth == -1){
+                mouthRubberBanded = true
             }
-        } else {
-            when (index){
-                0 -> layer0 = value
-                1 -> layer1 = value
-                2 -> layer2 = value
-                3 -> layer3 = value
-                4 -> layer4 = value
-                5 -> layer5 = value
-                6 -> layer6 = value
-                7 -> layer7 = value
+        }
+        else {
+            if (mouth == -1){
+                mouth = value
+            } else if (neck == -1){
+                neck = value
+            } else {
+                when (index){
+                    0 -> layer0 = value
+                    1 -> layer1 = value
+                    2 -> layer2 = value
+                    3 -> layer3 = value
+                    4 -> layer4 = value
+                    5 -> layer5 = value
+                    6 -> layer6 = value
+                    7 -> layer7 = value
+                }
             }
         }
     }

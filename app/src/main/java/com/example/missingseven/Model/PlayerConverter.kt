@@ -23,7 +23,7 @@ class PlayerConverter {
                     mutableStateOf(layer5),
                     mutableStateOf(layer6),
                     mutableStateOf(layer7),
-                    neckRubberBanded
+                    mouthRubberBanded
                 )
             }
         }
