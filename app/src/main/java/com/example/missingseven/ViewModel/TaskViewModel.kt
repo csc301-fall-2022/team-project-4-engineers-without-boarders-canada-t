@@ -407,9 +407,10 @@ class TaskViewModel @Inject constructor(
 
     fun lRSubmitHandler(){
         (getCurrentTask() as TaskUiState.LiteracyRateTask).apply {
-            completed.value = studentAnswer.value == "South Africa"
+            completed.value = studentAnswer.value == "Malawi"
             (getCurrentTaskType() as TaskType.LiteracyRateTask).let { task ->
                 task.completed = completed.value
+                task.studentAnswer = studentAnswer.value
                 viewModelScope.launch {
                     taskRepository.updateLRTask(task)
                 }

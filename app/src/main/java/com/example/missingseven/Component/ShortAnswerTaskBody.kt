@@ -24,15 +24,8 @@ fun ShortAnswerTaskBody(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .fillMaxHeight(0.8f)
-            .padding(10.dp)
+        modifier = Modifier.padding(10.dp).fillMaxHeight(0.6f)
     ) {
-//        Text(
-//            text = task.question,
-//            style = typography.h5,
-//            textAlign = TextAlign.Center
-//        )
 
         OutlinedTextField(
             value = task.answer.value,

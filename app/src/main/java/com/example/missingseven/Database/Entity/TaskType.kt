@@ -77,7 +77,7 @@ sealed class TaskType(
         val KuwaitRate: Float,
         val MalawiRate: Float,
         val SouthAfricaRate: Float,
-        val studentAnswer: String,
+        var studentAnswer: String,
         val successPopUp: String
     ): TaskType(tid, completed)
 

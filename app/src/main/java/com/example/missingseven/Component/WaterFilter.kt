@@ -51,7 +51,7 @@ fun FilterGrid(
     Box(
         modifier = Modifier
             .fillMaxWidth(widthPercentage)
-            .height(60.dp)
+            .height(40.dp)
             .border(
                 1.dp,
                 brush = SolidColor(boarderColor),
@@ -62,7 +62,7 @@ fun FilterGrid(
     ){
         if (boarderColor == Color.Green){
             val text = if (isEvaluated) "You have evaluated, unable to add materials!"
-            else "Click to add material here!"
+            else "Click to add material"
             Text(text = text)
         } else {
             item?.let {
