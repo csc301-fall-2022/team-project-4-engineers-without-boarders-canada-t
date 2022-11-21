@@ -155,6 +155,9 @@ class FilterViewModel @Inject constructor(
         viewModelScope.launch {
             playerRepository.updatePlayer(player)
         }
+        setupPlayerUiState()
+        setupStack()
+        navControl.navigate(Screen.Task.route, Screen.Filter.route)
     }
 
     fun getInstruction(): String{

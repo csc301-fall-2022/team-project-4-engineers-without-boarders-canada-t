@@ -26,9 +26,7 @@ fun WaterFilterScreen(
     taskCompleteHandler: () -> Unit
 ) {
     LaunchedEffect(Unit){
-        if (!filterViewModel.setupCompleted.value) {
-            filterViewModel.setup(navControl, task)
-        }
+        filterViewModel.setup(navControl, task)
     }
 
     if (filterViewModel.fetchCompleted()){
@@ -39,16 +37,15 @@ fun WaterFilterScreen(
                 listB = pair.second,
             countryClick = {country -> filterViewModel.countrySelect(country) }){
                 filterViewModel.navigateBack()
-                filterViewModel.setupPlayerUiState()
-                filterViewModel.setupStack()
             }
         } else {
             if (!filterViewModel.setupCompleted.value){
                 filterViewModel.setupPlayerUiState()
                 filterViewModel.setupStack()
-            }
-            FilterMainBody(task = task, filterViewModel = filterViewModel) {
-                taskCompleteHandler()
+            } else {
+                FilterMainBody(task = task, filterViewModel = filterViewModel) {
+                    taskCompleteHandler()
+                }
             }
 
         }
