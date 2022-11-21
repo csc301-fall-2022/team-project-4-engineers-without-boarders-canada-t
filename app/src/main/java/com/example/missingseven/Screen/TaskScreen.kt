@@ -28,7 +28,9 @@ fun TaskScreen(
                 is TaskUiState.ShortAnswerTask -> {
                     ShortAnswerTaskBody({viewModel.shortAnswerSaveHandler()},
                         viewModel.getCurrentTask() as TaskUiState.ShortAnswerTask,
-                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)})
+                        {value -> viewModel.shortAnswerTaskValueChangeHandler(value)},
+                        submitHandler = {context -> viewModel.submitAnswerHandler(context) }
+                    )
                 }
                 is TaskUiState.FilterTask -> {
                     WaterFilterScreen(

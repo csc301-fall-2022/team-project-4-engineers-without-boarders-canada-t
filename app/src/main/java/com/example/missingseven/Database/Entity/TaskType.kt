@@ -49,7 +49,8 @@ sealed class TaskType(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "question") val question: String,
-        @ColumnInfo(name = "answer") var answer: String
+        @ColumnInfo(name = "answer") var answer: String,
+        val isLast: Boolean = false
     ) : TaskType(tid, completed)
 
     @Entity

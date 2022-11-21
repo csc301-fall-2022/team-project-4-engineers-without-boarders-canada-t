@@ -94,7 +94,7 @@ class DataInitializer constructor(
         TaskType.ShortAnswerTask(11, false, context.getString(R.string.task8_question), ""),
         TaskType.ShortAnswerTask(12, false, context.getString(R.string.task9_question), ""),
         TaskType.ShortAnswerTask(13, false, context.getString(R.string.task10_question), ""),
-        TaskType.ShortAnswerTask(14, false, context.getString(R.string.task11_question), ""),
+        TaskType.ShortAnswerTask(14, false, context.getString(R.string.task11_question), "", true),
     )
 
     fun getAllCountries(): List<Country> = listOf(

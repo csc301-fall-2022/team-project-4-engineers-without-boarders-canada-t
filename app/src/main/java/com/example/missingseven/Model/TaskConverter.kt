@@ -59,7 +59,8 @@ class TaskConverter {
                             tid,
                             mutableStateOf(completed),
                             question,
-                            mutableStateOf(answer)
+                            mutableStateOf(answer),
+                            isLast
                         )
                     }
                     is TaskType.WelcomeTask -> {
