@@ -63,11 +63,19 @@ sealed class TaskUiState(
         val KuwaitRate: Float,
         val MalawiRate: Float,
         val SouthAfricaRate: Float,
-//        val studentAnswerIndex: MutableState<Int>,
         val studentAnswer: MutableState<String>,
         val answerCorrect: MutableState<Boolean>,
         val successPopUp: String
     ): TaskUiState(tid, completed, header)
+
+    data class GlobalLiteracyRateTask(
+        override val tid: Int,
+        override val header: String,
+        val content: String,
+        val image: Int,
+        val hyperlinkText: String,
+        val hyperlink: String
+    ): TaskUiState(tid, mutableStateOf(true), header)
 
     data class WelcomeTask(
         override val tid: Int,
