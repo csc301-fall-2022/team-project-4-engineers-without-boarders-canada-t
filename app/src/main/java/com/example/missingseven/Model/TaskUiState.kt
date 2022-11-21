@@ -1,6 +1,7 @@
 package com.example.missingseven.Model
 
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 
 sealed class TaskUiState(
     open val tid: Int,
