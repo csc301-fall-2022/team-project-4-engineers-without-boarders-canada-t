@@ -1,6 +1,7 @@
 package com.example.missingseven.Model
 
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 
 sealed class TaskUiState(
     open val tid: Int,
@@ -50,5 +51,22 @@ sealed class TaskUiState(
         val question: String,
         val answer: MutableState<String>
     ): TaskUiState(tid, completed, question)
+
+    data class LiteracyRateTask(
+        override val tid: Int,
+        override val completed: MutableState<Boolean>,
+        override val header: String,
+        val CanadaRate: Float,
+        val GermanyRate: Float,
+        val GhanaRate: Float,
+        val KenyaRate: Float,
+        val KuwaitRate: Float,
+        val MalawiRate: Float,
+        val SouthAfricaRate: Float,
+//        val studentAnswerIndex: MutableState<Int>,
+        val studentAnswer: MutableState<String>,
+        val answerCorrect: MutableState<Boolean>,
+        val successPopUp: String
+    ): TaskUiState(tid, completed, header)
 }
 
