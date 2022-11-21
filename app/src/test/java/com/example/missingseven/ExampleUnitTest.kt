@@ -72,8 +72,8 @@ class ExampleUnitTest {
 
     @Test
     fun testFilterViewModelSetup() = runBlocking {
-        val player1 = Player(2, 222, 100, 11, 22, 33,
-            44, 55, 66,77, 88)
+        val player1 = Player(2, 222, 100, 10, 20, 11, 22, 33,
+            44, 55, 66,77, 88, true)
 
         whenever(playerDAO.getAllPlayers()).thenReturn(
             flow {
@@ -94,8 +94,8 @@ class ExampleUnitTest {
 
     @Test
     fun testFetchPlayer() = runBlocking{
-        val player1 = Player(2, 222, 100, 11, 22, 33,
-            44, 55, 66,77, 88)
+        val player1 = Player(2, 222, 100, 10, 20, 11, 22, 33,
+            44, 55, 66,77, 88, true)
 
         whenever(playerDAO.getAllPlayers()).thenReturn(
             flow {
@@ -111,6 +111,8 @@ class ExampleUnitTest {
         assertEquals(viewModel.player.pid, 2)
         assertEquals(viewModel.player.cid, 222)
         assertEquals(viewModel.player.curr_money, 100)
+        assertEquals(viewModel.player.neck, 10)
+        assertEquals(viewModel.player.mouth, 20)
         assertEquals(viewModel.player.layer0, 11)
         assertEquals(viewModel.player.layer1, 22)
         assertEquals(viewModel.player.layer2, 33)
@@ -119,34 +121,17 @@ class ExampleUnitTest {
         assertEquals(viewModel.player.layer5, 66)
         assertEquals(viewModel.player.layer6, 77)
         assertEquals(viewModel.player.layer7, 88)
+        assertEquals(viewModel.player.neckRubberBanded, true)
     }
-
-//    @Test
-//    fun testFetchCountries(){
-//        val country1 = Country(1, "Canada", 500, "developed country")
-//        val country2 = Country(2, "China", 300, "developing country")
-//        val country3 = Country(3, "Niger", 100, "underdeveloped country")
-//        whenever(countryDAO.getAllCountries()).thenReturn(
-//            flow {
-//                emit(listOf(country1, country2, country3))
-//            }
-//        )
-//        val player1 = Player(2, 222, 100, 11, 22, 33,
-//            44, 55, 66,77, 88)
-//
-//        whenever(playerDAO.getAllPlayers()).thenReturn(
-//            flow {
-//                emit(listOf(player1))
-//            }
-//        )
-//
-//    }
 
     @Test
     fun testFetchItems() = runBlocking {
-        val item1 = Item(1, "item1", 10, 3,5)
-        val item2 = Item(2, "item2", 20, 10, 10)
-        val item3 = Item(3, "item3", 30, 20, 15)
+        val item1 = Item(1, "item1", 10, 3, 5.0F,
+            3.0F, listOf(0.8F, 0.5F), listOf(0.7F, 0.4F))
+        val item2 = Item(2, "item2", 20, 10, 10.0F,
+            10.0F, listOf(0.85F, 0.55F), listOf(0.75F, 0.45F))
+        val item3 = Item(3, "item3", 30, 20, 15.0F,
+            12.0F, listOf(0.4F, 0.2F), listOf(0.3F, 0.1F))
         val control = NavControl(mock())
         val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
 
@@ -175,16 +160,29 @@ class ExampleUnitTest {
         assertEquals(3, ItemConverter.databaseEntityToUiState(item1).price)
         assertEquals(10, ItemConverter.databaseEntityToUiState(item2).price)
         assertEquals(20, ItemConverter.databaseEntityToUiState(item3).price)
-        assertEquals(5, ItemConverter.databaseEntityToUiState(item1).mark)
-        assertEquals(10, ItemConverter.databaseEntityToUiState(item2).mark)
-        assertEquals(15, ItemConverter.databaseEntityToUiState(item3).mark)
+        assertEquals(5.0F, ItemConverter.databaseEntityToUiState(item1).strength)
+        assertEquals(10.0F, ItemConverter.databaseEntityToUiState(item2).strength)
+        assertEquals(15.0F, ItemConverter.databaseEntityToUiState(item3).strength)
+        assertEquals(3.0F, ItemConverter.databaseEntityToUiState(item1).cleanedStrength)
+        assertEquals(10.0F, ItemConverter.databaseEntityToUiState(item2).cleanedStrength)
+        assertEquals(12.0F, ItemConverter.databaseEntityToUiState(item3).cleanedStrength)
+        assertEquals(listOf(0.8F, 0.5F), ItemConverter.databaseEntityToUiState(item1).effectiveness)
+        assertEquals(listOf(0.85F, 0.55F), ItemConverter.databaseEntityToUiState(item2).effectiveness)
+        assertEquals(listOf(0.4F, 0.2F), ItemConverter.databaseEntityToUiState(item3).effectiveness)
+        assertEquals(listOf(0.7F, 0.4F), ItemConverter.databaseEntityToUiState(item1).cleanedEffectiveness)
+        assertEquals(listOf(0.75F, 0.45F), ItemConverter.databaseEntityToUiState(item2).cleanedEffectiveness)
+        assertEquals(listOf(0.3F, 0.1F), ItemConverter.databaseEntityToUiState(item3).cleanedEffectiveness)
+
     }
 
     @Test
     fun testGetSelectableItemList(){
-        val item1 = Item(1, "item1", 10, 3,5)
-        val item2 = Item(2, "item2", 20, 10, 10)
-        val item3 = Item(3, "item3", 30, 20, 15)
+        val item1 = Item(1, "item1", 10, 3, 5.0F,
+            3.0F, listOf(0.8F, 0.5F), listOf(0.7F, 0.4F))
+        val item2 = Item(2, "item2", 20, 10, 10.0F,
+            10.0F, listOf(0.85F, 0.55F), listOf(0.75F, 0.45F))
+        val item3 = Item(3, "item3", 30, 20, 15.0F,
+            12.0F, listOf(0.4F, 0.2F), listOf(0.3F, 0.1F))
         val control = NavControl(mock())
         val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
 
@@ -201,12 +199,57 @@ class ExampleUnitTest {
     }
 
 
+//    @Test
+//    fun testSelectItem(){
+//        val item1 = Item(1, "item1", 10, 3, 5.0F,
+//            3.0F, listOf(0.8F, 0.5F), listOf(0.7F, 0.4F))
+//        val item2 = Item(2, "item2", 20, 10, 10.0F,
+//            10.0F, listOf(0.85F, 0.55F), listOf(0.75F, 0.45F))
+//        val item3 = Item(3, "item3", 30, 20, 15.0F,
+//            12.0F, listOf(0.4F, 0.2F), listOf(0.3F, 0.1F))
+//        val player1 = Player(2, 222, 100, 10, 20, 11, 22, 33,
+//            44, 55, 66,77, 88, true)
+//
+//        whenever(playerDAO.getAllPlayers()).thenReturn(
+//            flow {
+//                emit(listOf(player1))
+//            }
+//        )
+//        val control = NavControl(mock())
+//        val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
+//
+//        viewModel.setup(control, filter)
+//        assertEquals(viewModel.filterStack.add())
+//    }
+
+
     @Test
     fun testAdd(){
         viewModel.shopIidCountMap[0] = mutableStateOf(0)
         viewModel.add(0)
         assertEquals(1, viewModel.shopIidCountMap[0]?.value ?: -1)
     }
+
+    //    @Test
+//    fun testFetchCountries(){
+//        val country1 = Country(1, "Canada", 500, "developed country")
+//        val country2 = Country(2, "China", 300, "developing country")
+//        val country3 = Country(3, "Niger", 100, "underdeveloped country")
+//        whenever(countryDAO.getAllCountries()).thenReturn(
+//            flow {
+//                emit(listOf(country1, country2, country3))
+//            }
+//        )
+//        val player1 = Player(2, 222, 100, 11, 22, 33,
+//            44, 55, 66,77, 88)
+//
+//        whenever(playerDAO.getAllPlayers()).thenReturn(
+//            flow {
+//                emit(listOf(player1))
+//            }
+//        )
+//
+//    }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @After
