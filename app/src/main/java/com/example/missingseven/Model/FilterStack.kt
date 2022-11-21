@@ -28,7 +28,7 @@ class FilterStack(
                         var rare = itemList[i]?.cleanedStrength
                         for (k in i+1..topIndex.value){
                             if (rare != null) {
-                                rare *= itemList[i]?.cleanedEffectiveness!![k]
+                                rare *= itemList[i]?.cleanedEffectiveness!![itemList[k]?.iid!!]
                             }
                         }
                         score = (score + rare!!)
@@ -36,7 +36,7 @@ class FilterStack(
                         var rare = itemList[i]?.strength
                         for (k in i+1..topIndex.value){
                             if (rare != null) {
-                                rare *= itemList[i]?.effectiveness!![k]
+                                rare *= itemList[i]?.effectiveness!![itemList[k]?.iid!!]
                             }
                         }
                         score = (score + rare!!)
