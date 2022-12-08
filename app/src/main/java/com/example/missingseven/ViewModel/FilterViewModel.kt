@@ -83,7 +83,7 @@ class FilterViewModel @Inject constructor(
         return Pair(countries.filter { it.cid < 4 }, countries.filter { it.cid >= 4 })
     }
 
-    private fun fetchCountries(){
+    fun fetchCountries(){
         viewModelScope.launch{
             countryRepository.getAllCountries {
                 countries = it

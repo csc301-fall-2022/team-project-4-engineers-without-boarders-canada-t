@@ -4,6 +4,7 @@ import androidx.compose.runtime.mutableStateOf
 import com.example.missingseven.Database.DAO.CountryDAO
 import com.example.missingseven.Database.DAO.ItemDAO
 import com.example.missingseven.Database.DAO.PlayerDAO
+import com.example.missingseven.Database.Entity.Country
 import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Database.Entity.Player
 import com.example.missingseven.Database.IntPair
@@ -109,6 +110,33 @@ class FilterViewModelTest {
         assertEquals(viewModel.player.layer5, 66)
         assertEquals(viewModel.player.layer6, 77)
         assertEquals(viewModel.player.layer7, 88)
+    }
+
+    @Test
+    fun testFetchCountries() = runBlocking {
+        val country1 = Country(
+            cid = 1,
+            name = "Country 1",
+            money = 1000,
+            instruction = "Instruction 1"
+        )
+        val country2 = Country(
+            cid = 2,
+            name = "Country 2",
+            money = 2000,
+            instruction = "Instruction 2"
+        )
+
+        whenever(countryDAO.getAllCountries()).thenReturn(
+            flow {
+                emit(
+                    listOf(country1, country2)
+                )
+            }
+        )
+        viewModel.fetchCountries()
+        assertEquals(country1, viewModel.countries[0])
+        assertEquals(country2, viewModel.countries[1])
     }
 
     @Test
