@@ -34,7 +34,7 @@ import org.mockito.kotlin.whenever
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ExampleUnitTest {
+class FilterViewModelTest {
     private val playerDAO: PlayerDAO = mock()
     private val countryDAO: CountryDAO = mock()
     private val itemDAO: ItemDAO = mock()
@@ -45,7 +45,7 @@ class ExampleUnitTest {
     private val itemRepository = ItemRepository(prefManager, itemDAO)
 
     private lateinit var viewModel: FilterViewModel
-    val dispatcher = TestCoroutineDispatcher()
+    private val dispatcher = TestCoroutineDispatcher()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Before
@@ -56,7 +56,7 @@ class ExampleUnitTest {
             itemRepository
         )
         Dispatchers.setMain(dispatcher)
-        whenever(prefManager.getInt(IntPair.CurrTask)).thenReturn(1)
+        whenever(prefManager.getInt(IntPair.CurrTask)).thenReturn(9)
     }
 
 
@@ -119,8 +119,6 @@ class ExampleUnitTest {
             10.0F, listOf(0.85F, 0.55F), listOf(0.75F, 0.45F))
         val item3 = Item(3, "item3", 30, 20, 15.0F,
             12.0F, listOf(0.4F, 0.2F), listOf(0.3F, 0.1F))
-        val control = NavControl(mock())
-        val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
 
 
         whenever(itemDAO.getAllItems()).thenReturn(
@@ -129,12 +127,12 @@ class ExampleUnitTest {
             }
         )
         viewModel.fetchItems()
-        assertEquals(viewModel.shopIidCountMap[1]?.value, 0)
-        assertEquals(viewModel.shopIidCountMap[2]?.value, 0)
-        assertEquals(viewModel.shopIidCountMap[3]?.value, 0)
-        assertEquals(viewModel.allIIdItemsMap[1], ItemConverter.databaseEntityToUiState(item1))
-        assertEquals(viewModel.allIIdItemsMap[2], ItemConverter.databaseEntityToUiState(item2))
-        assertEquals(viewModel.allIIdItemsMap[3], ItemConverter.databaseEntityToUiState(item3))
+        assertEquals(0, viewModel.shopIidCountMap[1]?.value)
+        assertEquals(0, viewModel.shopIidCountMap[2]?.value)
+        assertEquals(0, viewModel.shopIidCountMap[3]?.value)
+        assertEquals(ItemConverter.databaseEntityToUiState(item1), viewModel.allIIdItemsMap[1])
+        assertEquals(ItemConverter.databaseEntityToUiState(item2), viewModel.allIIdItemsMap[2])
+        assertEquals(ItemConverter.databaseEntityToUiState(item3), viewModel.allIIdItemsMap[3])
         assertEquals(1, ItemConverter.databaseEntityToUiState(item1).iid)
         assertEquals(2, ItemConverter.databaseEntityToUiState(item2).iid)
         assertEquals(3, ItemConverter.databaseEntityToUiState(item3).iid)
@@ -170,8 +168,6 @@ class ExampleUnitTest {
             10.0F, listOf(0.85F, 0.55F), listOf(0.75F, 0.45F))
         val item3 = Item(3, "item3", 30, 20, 15.0F,
             12.0F, listOf(0.4F, 0.2F), listOf(0.3F, 0.1F))
-        val control = NavControl(mock())
-        val filter = TaskUiState.FilterTask(1, mutableStateOf(true),111)
 
 
         whenever(itemDAO.getAllItems()).thenReturn(
@@ -217,26 +213,6 @@ class ExampleUnitTest {
         assertEquals(1, viewModel.shopIidCountMap[0]?.value ?: -1)
     }
 
-    //    @Test
-//    fun testFetchCountries(){
-//        val country1 = Country(1, "Canada", 500, "developed country")
-//        val country2 = Country(2, "China", 300, "developing country")
-//        val country3 = Country(3, "Niger", 100, "underdeveloped country")
-//        whenever(countryDAO.getAllCountries()).thenReturn(
-//            flow {
-//                emit(listOf(country1, country2, country3))
-//            }
-//        )
-//        val player1 = Player(2, 222, 100, 11, 22, 33,
-//            44, 55, 66,77, 88)
-//
-//        whenever(playerDAO.getAllPlayers()).thenReturn(
-//            flow {
-//                emit(listOf(player1))
-//            }
-//        )
-//
-//    }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @After
