@@ -11,6 +11,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.TaskUiState
+import kotlin.math.roundToInt
 
 @Composable
 fun SlidingScaleTaskBody(
@@ -24,8 +25,19 @@ fun SlidingScaleTaskBody(
             .fillMaxWidth()
             .padding(10.dp)
     ){
+        Text(
+            text = displayedText(task),
+            modifier = Modifier.padding(top =5.dp, bottom = 60.dp)
+        )
+        Text(
+            text = "Use the slider to place your answer",
+            modifier = Modifier.padding(top =5.dp, bottom = 5.dp)
+        )
+        Text(
+            text = toFriendlyNumber(task.current.value),
+            modifier = Modifier.padding(top = 5.dp, bottom = 5.dp))
         Row(
-            modifier = Modifier.padding(top = 60.dp, start = 12.dp, end = 12.dp)
+            modifier = Modifier.padding(start = 12.dp, end = 12.dp)
         ) {
             Text(text = toFriendlyNumber(task.start))
             Spacer(modifier = Modifier.weight(1f))
@@ -36,15 +48,6 @@ fun SlidingScaleTaskBody(
             onValueChange = { valueChangeHandler(it.toInt()) },
             valueRange = task.start.toFloat()..task.end.toFloat(),
             enabled = !task.completed.value
-        )
-        Text(
-            text = "Use the slider to place your answer",
-            modifier = Modifier.padding(top =5.dp)
-        )
-        Text(text = toFriendlyNumber(task.current.value))
-        Text(
-            text = displayedText(task),
-            modifier = Modifier.padding(top =5.dp)
         )
     }
 }
