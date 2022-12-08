@@ -4,18 +4,14 @@ import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import com.example.missingseven.Model.TaskUiState
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
+import com.example.missingseven.Model.TaskUiState
 
 @Composable
 fun ShortAnswerTaskBody(
@@ -28,8 +24,7 @@ fun ShortAnswerTaskBody(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
-            .padding(10.dp)
-            .fillMaxHeight(0.6f)
+            .padding(top = 10.dp)
     ) {
 
         OutlinedTextField(
@@ -37,7 +32,11 @@ fun ShortAnswerTaskBody(
             label = { Text(text = "Enter Your Answer") },
             onValueChange = {
                 answerValueHandler(it)
-            }
+            },
+            modifier = Modifier
+                .height(250.dp)
+                .padding(horizontal = 5.dp, vertical = 20.dp)
+                .fillMaxWidth()
         )
 
         Button(
