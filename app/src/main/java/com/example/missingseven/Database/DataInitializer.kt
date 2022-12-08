@@ -81,8 +81,17 @@ class DataInitializer constructor(
 
     fun getLiteracyRateTasks(): List<TaskType.LiteracyRateTask> = listOf(
         TaskType.LiteracyRateTask(
-            4, true, "The literacy rate is defined by the percentage of the population of a given age group that can read and write.", 99F, 99F, 79.04F, 81.54F, 96.46F, 62.14F, 95.02F,
-            "", "Yes, literacy rates are lowest in the Sub-Saharan African countries."
+            tid = 4,
+            completed = true,
+            header = context.getString(R.string.task4_header),
+            subtitle = context.getString(R.string.task4_subtitle),
+            CanadaRate = 99F,
+            GermanyRate = 99F,
+            GhanaRate = 79.04F,
+            KenyaRate = 81.54F,
+            KuwaitRate = 96.46F,
+            MalawiRate = 62.14F,
+            SouthAfricaRate = 95.02F
         )
     )
 

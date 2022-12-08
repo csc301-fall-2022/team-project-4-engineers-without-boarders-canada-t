@@ -72,15 +72,14 @@ sealed class TaskType(
         @PrimaryKey override val tid: Int,
         override var completed: Boolean,
         val header: String,
+        val subtitle: String,
         val CanadaRate: Float,
         val GermanyRate: Float,
         val GhanaRate: Float,
         val KenyaRate: Float,
         val KuwaitRate: Float,
         val MalawiRate: Float,
-        val SouthAfricaRate: Float,
-        var studentAnswer: String,
-        val successPopUp: String
+        val SouthAfricaRate: Float
     ): TaskType(tid, completed)
 
     @Entity

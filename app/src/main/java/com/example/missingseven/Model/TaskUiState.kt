@@ -60,6 +60,7 @@ sealed class TaskUiState(
         override val tid: Int,
         override val completed: MutableState<Boolean>,
         override val header: String,
+        override val subtitle: String,
         val CanadaRate: Float,
         val GermanyRate: Float,
         val GhanaRate: Float,
@@ -67,9 +68,7 @@ sealed class TaskUiState(
         val KuwaitRate: Float,
         val MalawiRate: Float,
         val SouthAfricaRate: Float,
-        val studentAnswer: MutableState<String>,
-        val successPopUp: String
-    ): TaskUiState(tid, completed, header)
+    ): TaskUiState(tid, completed, header, subtitle)
 
     data class GlobalLiteracyRateTask(
         override val tid: Int,

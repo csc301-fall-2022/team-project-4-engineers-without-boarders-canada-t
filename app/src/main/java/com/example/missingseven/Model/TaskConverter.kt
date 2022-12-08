@@ -76,14 +76,14 @@ class TaskConverter {
                             tid,
                             mutableStateOf(completed),
                             header,
+                            subtitle,
                             CanadaRate,
                             GermanyRate,
                             GhanaRate,
                             KenyaRate,
                             KuwaitRate,
                             MalawiRate,
-                            SouthAfricaRate,
-                            mutableStateOf (studentAnswer), successPopUp
+                            SouthAfricaRate
                         )
                     }
                     is TaskType.GlobalLiteracyRateTask -> {

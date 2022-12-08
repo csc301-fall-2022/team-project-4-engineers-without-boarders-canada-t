@@ -30,9 +30,6 @@ fun LiteracyRateTaskBody(
     var selectedCountry by remember {
         mutableStateOf("")
     }
-    var successPopup by remember {
-        mutableStateOf(false)
-    }
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -138,31 +135,6 @@ fun LiteracyRateTaskBody(
                     }
                     Text(
                         text = text,
-                        textAlign = TextAlign.Center,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(8.dp)
-                    )
-                }
-            }
-        }
-        if (successPopup){
-            Popup(
-                onDismissRequest = { successPopup = false },
-                alignment = Alignment.Center
-            ) {
-                Box(
-                    modifier = Modifier
-                        .padding(24.dp)
-                        .background(Color.White)
-                        .border(
-                            0.dp,
-                            brush = SolidColor(Color.Black),
-                            shape = RoundedCornerShape(5.dp)
-                        )
-                ) {
-                    Text(
-                        text = if (task.completed.value) task.successPopUp else "Wrong Answer",
                         textAlign = TextAlign.Center,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
