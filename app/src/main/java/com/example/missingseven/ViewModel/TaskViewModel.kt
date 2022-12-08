@@ -309,6 +309,7 @@ class TaskViewModel @Inject constructor(
 
     fun onFilterExitClicked(){
         navControl.navigateBack()
+        navControl.navigateBack()
         currentTaskId.value += 1
         putCurrTaskToSharedPreference()
     }
