@@ -13,7 +13,10 @@ fun TaskScreen(
         content = {
             when (viewModel.getCurrentTask()){
                 is TaskUiState.ReadingTask -> {
-                    ReadingTaskBody(viewModel.getCurrentTask() as TaskUiState.ReadingTask)
+                    ReadingTaskBody(
+                        task = viewModel.getCurrentTask() as TaskUiState.ReadingTask,
+                        skipHandler = viewModel::navigateBack
+                    )
                 }
                 is TaskUiState.MultipleChoiceTask -> {
                     MultipleChoiceTaskBody({index->viewModel.updateChooseHandler(index)},

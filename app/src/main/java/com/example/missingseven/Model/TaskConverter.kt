@@ -16,6 +16,7 @@ class TaskConverter {
                             tid,
                             mutableStateOf(completed),
                             header,
+                            subtitle,
                             content,
                             isSpecial
                         )

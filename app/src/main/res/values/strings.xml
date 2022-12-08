@@ -9,6 +9,11 @@
     <string name="task9_content">Many people in the world drink dirty water and get sick or die.\nYour challenge is to build a water filter to turn the glass of water</string>
     <string name="task9_footer">Press NEXT to start the challenge</string>
 
+    <string name="task10_header">Well Done!</string>
+    <string name="task10_subtitle">Now you have tried to build a filter you will realise how difficult it is for people in sub-Saharan Africa to access to clean water</string>
+    <string name="task10_content">By now you will be aware of some of the issues around access to clean water in subSaharan Africa. Press NEXT to answer questions about the exercise for your teacher or presenter or press skip to end the workshop.\nPress NEXT to start the challenge or press SKIP to end the workshop.
+</string>
+
     <!-- sliding scale task -->
     <string name="tooShort">The answer is too small</string>
     <string name="tooLarge">The answer is too large</string>
@@ -41,14 +46,14 @@
 
     <!-- short answer task -->
 
-    <string name="task10_header">Question 1</string>
-    <string name="task10_question">How did the money and literacy rate you were given for each affect your ability to build a water filter?</string>
-    <string name="task11_header">Question 2</string>
-    <string name="task11_question">Do you think water and its use around the world is fair and equal? Should people have the same access to water everywhere?</string>
-    <string name="task12_header">Question 3</string>
-    <string name="task12_question">What can you do in your daily life to conserve water?</string>
-    <string name="task13_header">Question 4</string>
-    <string name="task13_question">What is the most important thing you have learned doing this activity?</string>
+    <string name="task11_header">Question 1</string>
+    <string name="task11_question">How did the money and literacy rate you were given for each affect your ability to build a water filter?</string>
+    <string name="task12_header">Question 2</string>
+    <string name="task12_question">Do you think water and its use around the world is fair and equal? Should people have the same access to water everywhere?</string>
+    <string name="task13_header">Question 3</string>
+    <string name="task13_question">What can you do in your daily life to conserve water?</string>
+    <string name="task14_header">Question 4</string>
+    <string name="task14_question">What is the most important thing you have learned doing this activity?</string>
     
     <string name="instruction_developed">1. Loosely put a cotton plug in the neck of the cut bottle, then cover the neck of the bottle with a piece of cheese cloth secured with a rubber band.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm of coarse sand, fine gravel, and coarse gravel.\n3. Now, test your water filter by pouring half of the dirty water through the filter. </string>
     <string name="instruction_South_Africa">1.Loosely put a cotton  in the of the cut bottle, then cover the neck of the with a of cheese cloth secured with aband.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm sand, fine , and gravel.\n3. Now, test your  filterhalf of the dirty  through the filter.</string>

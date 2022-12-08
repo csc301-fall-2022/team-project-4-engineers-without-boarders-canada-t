@@ -132,7 +132,7 @@ fun HeaderView(
 fun TaskTemplatePreview(){
     TaskTemplate(
         {},
-        TaskUiState.ReadingTask(1, mutableStateOf(false), "ABsssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCafaefafaABC", "qwertyuiop[qwertyuiopqwertyuiopqwertyuiop"),
+        TaskUiState.ReadingTask(1, mutableStateOf(false), "ABsssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCafaefafaABC","", "qwertyuiop[qwertyuiopqwertyuiopqwertyuiop"),
         {},
         {},
         {},

@@ -23,7 +23,15 @@ class DataInitializer constructor(
             completed = true,
             header = context.getString(R.string.task9_header),
             content = context.getString(R.string.task9_content),
-            true)
+            isSpecial = true),
+        TaskType.ReadingTask(
+            tid = 10,
+            completed = true,
+            header = context.getString(R.string.task10_header),
+            subtitle = context.getString(R.string.task10_subtitle),
+            content = context.getString(R.string.task10_content),
+            isSpecial = false
+        )
 
     )
 
@@ -128,21 +136,14 @@ class DataInitializer constructor(
 
     fun getShortAnswerTasks(): List<TaskType.ShortAnswerTask> = listOf(
         TaskType.ShortAnswerTask(
-            tid = 10,
-            completed = false,
-            header = context.getString(R.string.task10_header),
-            question = context.getString(R.string.task10_question),
-            answer = "",
-            isLast = false
-        ),
-        TaskType.ShortAnswerTask(
             tid = 11,
             completed = false,
             header = context.getString(R.string.task11_header),
             question = context.getString(R.string.task11_question),
             answer = "",
             isLast = false
-        ),        TaskType.ShortAnswerTask(
+        ),
+        TaskType.ShortAnswerTask(
             tid = 12,
             completed = false,
             header = context.getString(R.string.task12_header),
@@ -154,6 +155,13 @@ class DataInitializer constructor(
             completed = false,
             header = context.getString(R.string.task13_header),
             question = context.getString(R.string.task13_question),
+            answer = "",
+            isLast = false
+        ),        TaskType.ShortAnswerTask(
+            tid = 14,
+            completed = false,
+            header = context.getString(R.string.task14_header),
+            question = context.getString(R.string.task14_question),
             answer = "",
             isLast = true
         ),

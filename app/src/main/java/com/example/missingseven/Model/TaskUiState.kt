@@ -12,9 +12,10 @@ sealed class TaskUiState(
         override val tid: Int,
         override val completed:  MutableState<Boolean>,
         override val header: String,
+        override val subtitle: String,
         val content: String,
         val isSpecial: Boolean = false
-    ): TaskUiState(tid, completed, header)
+    ): TaskUiState(tid, completed, header, subtitle)
 
     data class MultipleChoiceTask(
         override val tid: Int,
@@ -87,4 +88,6 @@ sealed class TaskUiState(
         override val header: String
     ): TaskUiState(tid, completed, header)
 }
+
+fun TaskUiState.ReadingTask.skipAble() = tid == 10
 
