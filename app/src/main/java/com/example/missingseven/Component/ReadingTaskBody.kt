@@ -31,6 +31,8 @@ fun ReadingTaskBody(
         }
     }
     else{
-        FilterBuildingIntroBody()
+        FilterBuildingIntroBody(
+            task
+        )
     }
 }

@@ -1,16 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">W4TW Workshop</string>
 
     <!-- reading task -->
-    <string name="reading_task0_header">Introduction</string>
-    <string name="reading_task0_content">The Water for the World Workshop introduces participants to the issues of clean water access and how local economy, geography and literacy are all connected. Using this app, you will try to build a water filter to access clean water for yourself!</string>
+    <string name="task0_header">Introduction</string>
+    <string name="task0_content">The Water for the World Workshop introduces participants to the issues of clean water access and how local economy, geography and literacy are all connected. Using this app, you will try to build a water filter to access clean water for yourself!</string>
 
-    <string name="reading_task1_header">The Workshop</string>
-    <string name="reading_task1_content">The Water for the World presentation is an engaging hour and a half that educates, challenges, and inspires students to think about creative solutions to global water access issues. Our program is divided into a three–part learning format as recommended by the Ontario Ministry of Education – Opening (Minds On), Middle (Action – Interactive/Hands–On), Closing (Debrief/Consolidation).\nA large component of the presentation involves hands–on interaction where groups of 4–6 students construct their own water filters using recycled plastic bottles and multiple layers of sand and gravel. The students are grouped into different countries, and are provided with different levels of information and amounts of play money, depending on their country’s literacy rate and wealth, respectively.\nThrough this activity, students are challenged to think critically and creatively, while collaborating with their peers. Students will gain a better understanding of social issues in technological development, while being exposed to the concept of international interdependence and cooperation as it relates to the global need for potable water. We also aim to engage students by highlighting the potential role youth can have in addressing these issues.</string>
-
-    <string name="task12_header">Filter Building Challenge</string>
-    <string name="task12_content">Many people in the world drink dirty water and get sick or die.\nYour challenge is to build a water filter to turn the glass of water</string>
-    <string name="task12_footer">Press NEXT to start the challenge</string>
+    <string name="task9_header">Filter Building Challenge</string>
+    <string name="task9_content">Many people in the world drink dirty water and get sick or die.\nYour challenge is to build a water filter to turn the glass of water</string>
+    <string name="task9_footer">Press NEXT to start the challenge</string>
 
     <!-- sliding scale task -->
     <string name="tooShort">The answer is too small</string>
@@ -21,7 +18,7 @@
 
     <string name="task6_header">Q: What is Extreme Poverty ?</string>
     <string name="task6_subtitle">A: Living on less than $2.50 a day\nHow many people do you think live on less than $2.50 a day?</string>
-    <string name="task6_correctInfo">Yes! 1 Billion people in the world live in Extreme Poverty – think what you could buy with $2.50 – what could you eat and how would your or your parents be able to pay your rent</string>
+    <string name="task6_correctInfo" tools:ignore="Typos">Yes! 1 Billion people in the world live in Extreme Poverty – think what you could buy with $2.50 – what could you eat and how would your or your parents be able to pay your rent</string>
 
     <!-- mc task-->
     <string name="task3_header">Where do most of the people without clean water access live?</string>

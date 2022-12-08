@@ -11,8 +11,19 @@ class DataInitializer constructor(
     private val context: Context
 ) {
     fun getAllReadingTasks(): List<TaskType.ReadingTask> = listOf(
-        TaskType.ReadingTask(1, true, context.getString(R.string.reading_task0_header), context.getString(R.string.reading_task0_content)),
-        TaskType.ReadingTask(9, true, context.getString(R.string.task12_header),context.getString(R.string.task12_content), true)
+        TaskType.ReadingTask(
+            tid = 1,
+            completed = true,
+            header = context.getString(R.string.task0_header),
+            content = context.getString(R.string.task0_content),
+            isSpecial = false
+        ),
+        TaskType.ReadingTask(
+            tid = 9,
+            completed = true,
+            header = context.getString(R.string.task9_header),
+            content = context.getString(R.string.task9_content),
+            true)
 
     )
 
