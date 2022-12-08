@@ -53,9 +53,9 @@
 
     <!-- GLR task -->
     <string name="task5_header">Global Literacy Rate</string>
-    <string name="task5_content">The literacy rate is defined by the percentage of the population of a given age group that can read and write.</string>
+    <string name="task5_content">The literacy rate is defined by the percentage of the population of a given age group that can read and write. As you can see on the map, the lack of education in Sub-Saharan Africa is a problem.</string>
     <string name="task8_header">Global Extreme Poverty</string>
-    <string name="task8_content">Extreme Poverty is defined by the percentage of the population living on less than $2.50 a say. This amp shows where most of those suffering from extreme poverty live:</string>
+    <string name="task8_content">Extreme Poverty is defined by the percentage of the population living on less than $2.50 a say. This map shows where most of those suffering from extreme poverty live. Not surprisingly with a lack of clean water and education, many people in Sub-Saharan Africa suffer from Extreme Poverty</string>
 
     <!-- literacy rate task -->
     <string name="task4_header">Literacy Rate</string>

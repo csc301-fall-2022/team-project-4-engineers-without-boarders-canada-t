@@ -100,7 +100,7 @@ class DataInitializer constructor(
             tid = 5,
             completed = true,
             header = context.getString(R.string.task5_header),
-            content = context.getString(R.string.task5_header),
+            content = context.getString(R.string.task5_content),
             hyperlinkText = context.getString(R.string.our_world_in_data),
             hyperlink = context.getString(R.string.our_world_in_data_url)
         ),
