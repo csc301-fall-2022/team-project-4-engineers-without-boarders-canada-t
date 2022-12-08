@@ -43,7 +43,7 @@ class FilterStack(
                 }
                 }
             // scale up by 100/ 88
-            score *= (100 / 88)
+            score *= (100.0 / 88.0)
             return if (score>20.0){
                 100.0
             }else{
