@@ -318,7 +318,7 @@ class TaskViewModel @Inject constructor(
     }
 
     fun isFirstTask(): Boolean {
-        return currentTaskId.value == 0 || preferenceManager.getBoolean(BooleanPair.Skip)
+        return currentTaskId.value == 0 || (preferenceManager.getBoolean(BooleanPair.Skip) && currentTaskId.value == 9)
     }
 
     fun onBackClicked(){
