@@ -27,7 +27,9 @@ class NavControl constructor(
             }
 
             composable(route = Screen.Task.route){
-                TaskScreen(viewModel)
+                if (viewModel.allFetched.value){
+                    TaskScreen(viewModel)
+                }
             }
 
             composable(route = Screen.Instruction.route){
