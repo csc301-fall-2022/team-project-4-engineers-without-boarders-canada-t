@@ -186,27 +186,6 @@ class FilterViewModelTest {
 
     }
 
-    @Test
-    fun testGetSelectableItemList(){
-        val item1 = Item(1, "item1", 10, 3, 5.0F,
-            3.0F, listOf(0.8F, 0.5F), listOf(0.7F, 0.4F))
-        val item2 = Item(2, "item2", 20, 10, 10.0F,
-            10.0F, listOf(0.85F, 0.55F), listOf(0.75F, 0.45F))
-        val item3 = Item(3, "item3", 30, 20, 15.0F,
-            12.0F, listOf(0.4F, 0.2F), listOf(0.3F, 0.1F))
-
-
-        whenever(itemDAO.getAllItems()).thenReturn(
-            flow {
-                emit(listOf(item1, item2, item3))
-            }
-        )
-        viewModel.fetchItems()
-        assertEquals(viewModel.getSelectableItemList()[0], ItemConverter.databaseEntityToUiState(item1))
-        assertEquals(viewModel.getSelectableItemList()[1], ItemConverter.databaseEntityToUiState(item2))
-        assertEquals(viewModel.getSelectableItemList()[2], ItemConverter.databaseEntityToUiState(item3))
-    }
-
 
 //    @Test
 //    fun testSelectItem(){
@@ -232,12 +211,6 @@ class FilterViewModelTest {
 //    }
 
 
-    @Test
-    fun testAdd(){
-        viewModel.shopIidCountMap[0] = mutableStateOf(0)
-        viewModel.add(0)
-        assertEquals(1, viewModel.shopIidCountMap[0]?.value ?: -1)
-    }
 
 
     @After

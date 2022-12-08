@@ -172,36 +172,15 @@ class FilterViewModel @Inject constructor(
         navControl.navigateBack()
     }
 
-
-    fun onStackClicked(){
-        if (!filterStack.isFull() && !filterTask.completed.value){
-            navControl.navigate(Screen.Filter.route, Screen.ItemSelect.route)
-        }
-    }
-
-    fun getSelectableItemList(): List<ItemUiState>{
-        val result = mutableListOf<ItemUiState>()
-        for (item in allIIdItemsMap.values) {
-            if (item.quantity > 0){
-                result.add(item)
-            }
-        }
-        return result
-    }
-
-    fun selectItem(item: ItemUiState){
+    fun addItem(item: ItemUiState){
+        if (player.curr_money < item.price) return
+        playerUiState.currMoney.value -= item.price
+        player.curr_money = playerUiState.currMoney.value
         filterStack.add(item)
         player.updatePlayerByIndex(filterStack.topIndex.value - 1, item.iid)
-        allIIdItemsMap[item.iid]?.apply {
-            quantity -= 1
-            viewModelScope.launch {
-                itemRepository.updateItem(ItemConverter.UiStateToDatabaseEntity(this@apply))
-            }
-            viewModelScope.launch {
-                playerRepository.updatePlayer(player)
-            }
+        viewModelScope.launch {
+            playerRepository.updatePlayer(player)
         }
-//        navControl.navigateBack()
     }
 
     fun getPlayerCountry(): Country?{
@@ -213,41 +192,6 @@ class FilterViewModel @Inject constructor(
         return null
     }
 
-    fun shopClicked(){
-        navControl.navigate(Screen.Filter.route, Screen.Shop.route)
-    }
-
-    fun add(iid: Int){
-        shopIidCountMap[iid]?.let{
-            it.value += 1
-        }
-    }
-
-    fun sub(iid: Int){
-        shopIidCountMap[iid]?.let{
-            if (it.value > 0){
-                it.value -= 1
-            }
-        }
-    }
-
-    fun checkout(){
-        playerUiState.currMoney.value -= totalPrice()
-        for ((iid) in allIIdItemsMap) {
-            allIIdItemsMap[iid]?.let{
-                it.quantity += shopIidCountMap[iid]!!.value
-                viewModelScope.launch {
-                    itemRepository.updateItem(ItemConverter.UiStateToDatabaseEntity(it))
-                }
-            }
-            shopIidCountMap[iid]!!.value = 0
-        }
-        player.curr_money = playerUiState.currMoney.value
-        viewModelScope.launch {
-            playerRepository.updatePlayer(player)
-        }
-        navControl.navigateBack()
-    }
 
     fun playerScore(): Int {
         var score = 0

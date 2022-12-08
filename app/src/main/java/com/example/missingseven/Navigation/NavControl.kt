@@ -33,14 +33,6 @@ class NavControl constructor(
                 TaskScreen(viewModel)
             }
 
-            composable(route = Screen.Shop.route){
-                ShopScreen(viewModel = filterViewModel)
-            }
-
-            composable(route = Screen.ItemSelect.route){
-                ItemSelectScreen(viewModel = filterViewModel)
-            }
-
             composable(route = Screen.Instruction.route){
                 InstructionScreen(viewModel = filterViewModel)
             }
@@ -92,8 +84,6 @@ sealed class Screen(val route: String) {
     object Home: Screen("home")
     object Task: Screen("task")
     object Instruction: Screen("instruction")
-    object Shop: Screen("shop")
-    object ItemSelect: Screen("item select")
     object WorkshopContact: Screen("workshop contact")
     object Login: Screen("login")
     object Filter: Screen("filter")

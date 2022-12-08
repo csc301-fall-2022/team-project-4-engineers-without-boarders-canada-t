@@ -1,19 +1,14 @@
 package com.example.missingseven.Screen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
 import androidx.compose.material.Card
-import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.missingseven.Component.DragAbleItem
@@ -22,11 +17,7 @@ import com.example.missingseven.Component.LongPressDraggable
 import com.example.missingseven.Component.WaterFilter
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
-import com.example.missingseven.Navigation.Screen
-import com.example.missingseven.R
 import com.example.missingseven.ViewModel.FilterViewModel
-import kotlin.math.round
-import kotlin.math.roundToInt
 
 @Composable
 fun WaterFilterScreen(
@@ -84,10 +75,10 @@ fun FilterMainBody(
                 DropTarget() { isInBound, data ->
                     if (isInBound){
                         data?.let {
-                            filterViewModel.selectItem(it)
+                            filterViewModel.addItem(it)
                         }
                     }
-                    WaterFilter(stack = filterViewModel.filterStack, task.completed.value)
+                    WaterFilter(stack = filterViewModel.filterStack)
                 }
                 LazyRow(
                 ){
