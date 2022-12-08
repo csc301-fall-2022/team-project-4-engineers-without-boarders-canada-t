@@ -2,23 +2,20 @@ package com.example.missingseven.Component
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Checkbox
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import com.example.missingseven.Model.TaskUiState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import com.example.missingseven.Database.Entity.TaskType
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.R
 import com.example.missingseven.Screen.DeepLinkText
 
@@ -33,7 +30,8 @@ fun GlobalLiteracyRateBody(
     ) {
         Text(
             text = task.content,
-            modifier = Modifier.padding(top = 15.dp)
+            modifier = Modifier.padding(top = 15.dp),
+            style = typography.h6,
         )
 
         Image(
