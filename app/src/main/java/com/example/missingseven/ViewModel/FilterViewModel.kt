@@ -50,6 +50,8 @@ class FilterViewModel @Inject constructor(
     // store all items by the key-value pair of the items iid and the ItemUiState
     val allIIdItemsMap: MutableMap<Int, ItemUiState> = mutableMapOf()
 
+    lateinit var items: List<ItemUiState>
+
     private val fetchCount = mutableStateOf(0)
 
     fun setup(control: NavControl, filter:TaskUiState.FilterTask){
@@ -106,11 +108,12 @@ class FilterViewModel @Inject constructor(
 
     fun fetchItems() {
         viewModelScope.launch {
-            itemRepository.getItems {
+            itemRepository.getItems { it ->
                 for (item in it) {
                     shopIidCountMap[item.iid] = mutableStateOf(0)
                     allIIdItemsMap[item.iid] = ItemConverter.databaseEntityToUiState(item)
                 }
+                items = it.map { item -> ItemConverter.databaseEntityToUiState(item) }
                 fetchCallback()
 //                setupPlayerUiState()
 //                setupStack()
@@ -198,7 +201,7 @@ class FilterViewModel @Inject constructor(
                 playerRepository.updatePlayer(player)
             }
         }
-        navControl.navigateBack()
+//        navControl.navigateBack()
     }
 
     fun getPlayerCountry(): Country?{

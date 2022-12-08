@@ -20,13 +20,9 @@ import com.example.missingseven.Model.ItemUiState
 @Composable
 fun WaterFilter(
     stack: FilterStack,
-    isEvaluated: Boolean,
-    clickHandler: () -> Unit,
+    isEvaluated: Boolean
 ){
     Column(
-        modifier = Modifier.clickable {
-            clickHandler()
-        },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
