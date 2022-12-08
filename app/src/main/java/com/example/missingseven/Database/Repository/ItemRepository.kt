@@ -13,7 +13,7 @@ class ItemRepository @Inject constructor(
 ) {
     suspend fun getItems(callback: (List<Item>)->Unit){
         itemDAO.getAllItems().collect {
-            if (prefManager.getInt(IntPair.CurrTask) != -1 && prefManager.getInt(IntPair.CurrTask) != -0){
+            if (prefManager.getInt(IntPair.CurrTask) == 9){
                 callback(it)
             }
         }

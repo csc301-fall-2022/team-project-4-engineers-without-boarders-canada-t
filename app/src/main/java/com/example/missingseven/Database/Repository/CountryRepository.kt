@@ -11,7 +11,7 @@ class CountryRepository @Inject constructor(
     private val countryDAO: CountryDAO, private val prefManager: PrefManager) {
     suspend fun getAllCountries(callback: (List<Country>) -> Unit){
         countryDAO.getAllCountries().collect() {
-            if (prefManager.getInt(IntPair.CurrTask) != -1 && prefManager.getInt(IntPair.CurrTask) != -0){
+            if (prefManager.getInt(IntPair.CurrTask) == 9){
                 callback(it)
             }
         }

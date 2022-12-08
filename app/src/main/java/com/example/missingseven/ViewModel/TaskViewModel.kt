@@ -63,6 +63,7 @@ class TaskViewModel @Inject constructor(
         allUiStates.clear()
         preferenceManager.putInt(PrefManager.CURR_TASK_ID, -1)
         preferenceManager.putBoolean(PrefManager.DATA_INITIALIZED, false)
+        preferenceManager.putBoolean(PrefManager.SKIP, false)
     }
 
     private fun insertTasks(){
@@ -317,7 +318,7 @@ class TaskViewModel @Inject constructor(
     }
 
     fun isFirstTask(): Boolean {
-        return currentTaskId.value == 0
+        return currentTaskId.value == 0 || preferenceManager.getBoolean(BooleanPair.Skip)
     }
 
     fun onBackClicked(){
@@ -450,5 +451,11 @@ class TaskViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun skip(){
+        currentTaskId.value = 9
+        preferenceManager.putInt(PrefManager.CURR_TASK_ID, 9)
+        preferenceManager.putBoolean(PrefManager.SKIP, true)
     }
 }

@@ -30,6 +30,7 @@ class PrefManager @Inject constructor(
         const val CURR_TASK_ID = "FLAG_CURR_TASK_ID"
         const val DATA_INITIALIZED = "FLAG_DATA_INITIALIZED"
         const val IS_UNDER_RESETTING = "FLAG_IS_UNDER_RESETTING"
+        const val SKIP = "FLAG_SKIP"
         const val EMAIL = "EMAIL"
         const val NAME = "NAME"
     }
@@ -48,6 +49,7 @@ sealed class BooleanPair(
 ) {
     object DataInitialized: BooleanPair(PrefManager.DATA_INITIALIZED, false)
     object IsUnderResetting: BooleanPair(PrefManager.IS_UNDER_RESETTING, false)
+    object Skip: BooleanPair(PrefManager.SKIP, false)
 }
 
 sealed class StringPair(

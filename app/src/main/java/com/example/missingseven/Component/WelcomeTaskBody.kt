@@ -1,11 +1,12 @@
 package com.example.missingseven.Component
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
@@ -17,7 +18,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.ViewModel.TaskViewModel
 
 
@@ -25,7 +25,9 @@ import com.example.missingseven.ViewModel.TaskViewModel
 fun WelcomeTaskBody(
     viewModel: TaskViewModel
 ) {
-    Column {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         AnnotatedClickableText(
             before = "This app supports the purpose of ",
             annotated = "Water for the World Workshops",
@@ -40,6 +42,11 @@ fun WelcomeTaskBody(
             after = " screen",
             modifier = Modifier.padding(top = 100.dp)) {
             viewModel.loginClicked()
+        }
+        Button(
+            modifier = Modifier.padding(top = 12.dp),
+            onClick = { viewModel.skip() }) {
+            Text(text = "Skip to water filter exercise")
         }
     }
 }

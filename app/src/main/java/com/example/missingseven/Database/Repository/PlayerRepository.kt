@@ -11,7 +11,7 @@ class PlayerRepository @Inject constructor(
     private val playerDAO: PlayerDAO) {
     suspend fun getPlayers(callback: (List<Player>) -> Unit){
         playerDAO.getAllPlayers().collect {
-            if (prefManager.getInt(IntPair.CurrTask) != -1 && prefManager.getInt(IntPair.CurrTask) != -0){
+            if (prefManager.getInt(IntPair.CurrTask) == 9){
                 callback(it)
             }
         }
