@@ -64,4 +64,7 @@
 
     <string name="our_world_in_data">Our World in Data</string>
     <string name="our_world_in_data_url">ourworldindata.org/</string>
+
+    <string name="filter_hint">Long press a material above to drag it into your filter.When you are ready, press the button to test your filter
+</string>
 </resources>

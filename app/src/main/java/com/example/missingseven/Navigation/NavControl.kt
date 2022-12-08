@@ -1,7 +1,5 @@
 package com.example.missingseven.Navigation
 
-import android.os.Parcelable
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -15,7 +13,6 @@ class NavControl constructor(
     private val navController: NavHostController,
 ) {
 
-    @OptIn(ExperimentalFoundationApi::class)
     @Composable
     fun SetUpNavGraph() {
         val viewModel: TaskViewModel = hiltViewModel()
@@ -44,12 +41,9 @@ class NavControl constructor(
             }
             composable(route = Screen.Filter.route){
                 WaterFilterScreen(
-                    filterViewModel = filterViewModel,
-                    navControl = this@NavControl,
                     task = viewModel.filterUiState,
-                    nextClick = {
-                        viewModel.onFilterNextClicked()
-                    }
+                    filterViewModel = filterViewModel,
+                    navControl = this@NavControl
                 ) {
                     viewModel.completeFilterHandler()
                 }
@@ -57,21 +51,12 @@ class NavControl constructor(
         }
     }
 
-    fun navigate(backRoute: String, destinationRoute: String, paramSet: ParamSet? = null){
-        navController.getBackStackEntry(backRoute).savedStateHandle.set(
-                key = destinationRoute,
-                value = paramSet
-        )
+    fun navigate(backRoute: String, destinationRoute: String){
         navController.navigate(destinationRoute){
             popUpTo(backRoute)
         }
     }
 
-    fun getArguments(route: String): ParamSet? {
-        navController.previousBackStackEntry?.savedStateHandle.let {
-            return it?.get<ParamSet>(route)
-        }
-    }
 
     fun navigateBack(){
         navController.popBackStack()
@@ -87,9 +72,5 @@ sealed class Screen(val route: String) {
     object WorkshopContact: Screen("workshop contact")
     object Login: Screen("login")
     object Filter: Screen("filter")
-
-}
-
-sealed class ParamSet : Parcelable {
 
 }

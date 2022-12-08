@@ -90,33 +90,19 @@ class FilterViewModel @Inject constructor(
             countryRepository.getAllCountries {
                 countries = it
                 fetchCallback()
-//                if (player.cid == -1){
-//                    viewModelScope.launch{
-//                        val random = countries.random()
-//                        player.cid = random.cid
-//                        player.curr_money = random.money
-//                        viewModelScope.launch {
-//                            playerRepository.updatePlayer(player)
-//                        }
-//                    }
-//                }
-//                fetchItems()
             }
         }
-
     }
 
     fun fetchItems() {
         viewModelScope.launch {
-            itemRepository.getItems { it ->
+            itemRepository.getItems {
                 for (item in it) {
                     shopIidCountMap[item.iid] = mutableStateOf(0)
                     allIIdItemsMap[item.iid] = ItemConverter.databaseEntityToUiState(item)
                 }
                 items = it.map { item -> ItemConverter.databaseEntityToUiState(item) }
                 fetchCallback()
-//                setupPlayerUiState()
-//                setupStack()
             }
         }
     }
@@ -191,29 +177,5 @@ class FilterViewModel @Inject constructor(
         }
         return null
     }
-
-
-    fun playerScore(): Int {
-        var score = 0
-        filterStack.itemList.forEach {
-            it?.let { item ->
-                score += 0
-            }
-        }
-        return score
-    }
-
-    fun checkoutAble() = totalPrice() <= player.curr_money
-
-    fun totalPrice(): Int {
-        var total = 0
-        shopIidCountMap.forEach {
-            allIIdItemsMap[it.key]?.let { item ->
-                total += item.price * it.value.value
-            }
-        }
-        return total
-    }
-
 
 }

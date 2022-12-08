@@ -3,12 +3,14 @@ package com.example.missingseven.Screen
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.missingseven.Component.DragAbleItem
@@ -18,13 +20,13 @@ import com.example.missingseven.Component.WaterFilter
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.ViewModel.FilterViewModel
+import com.example.missingseven.R
 
 @Composable
 fun WaterFilterScreen(
     task: TaskUiState.FilterTask,
     filterViewModel: FilterViewModel,
     navControl: NavControl,
-    nextClick: () -> Unit,
     taskCompleteHandler: () -> Unit
 ) {
     LaunchedEffect(Unit){
@@ -45,7 +47,7 @@ fun WaterFilterScreen(
                 filterViewModel.setupPlayerUiState()
                 filterViewModel.setupStack()
             } else {
-                FilterMainBody(task = task, filterViewModel = filterViewModel, nextClick) {
+                FilterMainBody(task = task, filterViewModel = filterViewModel) {
                     taskCompleteHandler()
                 }
             }
@@ -58,20 +60,21 @@ fun WaterFilterScreen(
 fun FilterMainBody(
     task: TaskUiState.FilterTask,
     filterViewModel: FilterViewModel,
-    nextClick: () -> Unit,
     taskCompleteHandler: () -> Unit
 ){
         LongPressDraggable(
             modifier = Modifier.padding(10.dp)
         ) {
             Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(text = "Country: " + filterViewModel.getPlayerCountry()?.name.orEmpty(),
-                    fontSize = 15.sp)
-                Text(text = "Money: " + filterViewModel.playerUiState.currMoney.value
-                    , modifier = Modifier.padding(vertical = 10.dp), fontSize = 15.sp)
+                Text(
+                    text = "${filterViewModel.getPlayerCountry()?.name.orEmpty()} - Build filter",
+                    fontSize = 15.sp,
+                    modifier = Modifier.padding(bottom = 10.dp)
+                )
                 DropTarget() { isInBound, data ->
                     if (isInBound){
                         data?.let {
@@ -80,8 +83,9 @@ fun FilterMainBody(
                     }
                     WaterFilter(stack = filterViewModel.filterStack)
                 }
-                LazyRow(
-                ){
+                Text(text = "You have ${filterViewModel.playerUiState.currMoney.value}$ remaining to spend on materials"
+                    , modifier = Modifier.padding(vertical = 10.dp), fontSize = 15.sp)
+                LazyRow {
                     items(items = filterViewModel.items
                     ){
                         DragAbleItem(dataToDrop = it) {
@@ -97,38 +101,15 @@ fun FilterMainBody(
                                 }
                             }
                         }
-                    }
-            }
+                    } 
+                }
+                Text(text = stringResource(id = R.string.filter_hint))
+                Button(onClick = filterViewModel::openInstruction) {
+                    Text(text = "See instructions")
+                }
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "TEST")
+                }
             }
         }
-//        Row(modifier = Modifier.padding(top = 10.dp),
-//            horizontalArrangement = Arrangement.Center) {
-//            IconButton(onClick = { filterViewModel.shopClicked()},
-//                modifier = Modifier.padding(horizontal = 10.dp)) {
-//                Image(
-//                    painter = painterResource(id = R.drawable.ic_shop),
-//                    contentDescription = "Shop",
-//                    modifier = Modifier.size(40.dp)
-//                )
-//            }
-//            Button(onClick = { filterViewModel.openInstruction() },
-//                modifier = Modifier.padding(horizontal = 10.dp)) {
-//                Text(text = "Instruction")
-//            }
-//            Button(onClick = {
-//                taskCompleteHandler()
-//            }, modifier = Modifier.padding(horizontal = 10.dp)) {
-//                Text(text = "Evaluate")
-//            }
-//        }
-//        val text = if (task.completed.value) "You have scored " +
-//                round( filterViewModel.filterStack.evaluation() * 100 / 100)+ "% on your water filter!" else
-//            "Warning: You cannot edit your filter once you click evaluate!"
-//        Text(text = text, modifier = Modifier.padding(10.dp))
-//        if (task.completed.value){
-//            Button(onClick = { nextClick() }) {
-//                Text(text = "Next")
-//            }
-//        }
-//    }
 }
