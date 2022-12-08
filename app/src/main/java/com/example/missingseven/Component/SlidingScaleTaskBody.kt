@@ -24,10 +24,12 @@ fun SlidingScaleTaskBody(
             .fillMaxWidth()
             .padding(10.dp)
     ){
-        Slider(value = task.current.value.toFloat(),
+        Slider(
+            value = task.current.value.toFloat(),
             onValueChange = { valueChangeHandler(it.toInt()) },
             valueRange = task.start.toFloat()..task.end.toFloat(),
-            modifier = Modifier.padding(top =60.dp)
+            modifier = Modifier.padding(top =60.dp),
+            enabled = !task.completed.value
         )
         Text(
             text = "Use the slider to place your answer",
@@ -40,7 +42,15 @@ fun SlidingScaleTaskBody(
     }
 }
 
-private fun displayedText(task: TaskUiState.SlidingScaleTask) = task.current.value.toString() + task.unit + ": "+ task.current.value.run {
+private fun toFriendlyNumber(number: Int) =
+    if (number < 1000){
+        "$number Million"
+    } else {
+        "${(number.toFloat() / 1000) * 100 / 100} Billion"
+    }
+
+private fun displayedText(task: TaskUiState.SlidingScaleTask) = toFriendlyNumber(
+    task.current.value) + ": "+ with(task.current.value) {
     if (this < task.correct - task.offset){
         task.tooSmallInfo
     } else if (this > task.correct + task.offset){
