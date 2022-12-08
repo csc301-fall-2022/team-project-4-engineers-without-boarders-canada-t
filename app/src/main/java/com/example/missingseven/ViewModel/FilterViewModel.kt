@@ -17,6 +17,9 @@ import com.example.missingseven.Model.*
 import com.example.missingseven.Navigation.Screen
 import kotlinx.coroutines.launch
 
+/***
+ * view model class used for the water filter exercise
+ */
 @HiltViewModel
 class FilterViewModel @Inject constructor(
     private val playerRepository: PlayerRepository,

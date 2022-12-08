@@ -20,7 +20,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.missingseven.ViewModel.TaskViewModel
 
-
+/***
+ * composable function for the welcome screen
+ */
 @Composable
 fun WelcomeTaskBody(
     viewModel: TaskViewModel
@@ -51,6 +53,9 @@ fun WelcomeTaskBody(
     }
 }
 
+/***
+ * composable function for the deeplink text
+ */
 @Composable
 fun AnnotatedClickableText(
     before: String,

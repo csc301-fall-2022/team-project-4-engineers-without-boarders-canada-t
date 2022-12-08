@@ -3,6 +3,9 @@ package com.example.missingseven.Database
 import android.content.SharedPreferences
 import javax.inject.Inject
 
+/***
+ * wrapper class for the android [SharedPreferences]
+ */
 class PrefManager @Inject constructor(
     private val preferences: SharedPreferences
 ){

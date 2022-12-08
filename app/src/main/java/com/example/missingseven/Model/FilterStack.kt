@@ -3,8 +3,11 @@ package com.example.missingseven.Model
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.graphics.Color
 
+/***
+ * data class for the water filter
+ */
 class FilterStack(
-    val itemList: MutableList<ItemUiState?>,
+    private val itemList: MutableList<ItemUiState?>,
     val topIndex: MutableState<Int>,
     val neck: MutableState<ItemUiState?>,
     val mouth: MutableState<ItemUiState?>,

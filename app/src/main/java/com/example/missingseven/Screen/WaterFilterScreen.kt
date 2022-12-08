@@ -22,6 +22,10 @@ import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.R
 
+
+/***
+ * composable function for water filter exercise screen
+ */
 @Composable
 fun WaterFilterScreen(
     task: TaskUiState.FilterTask,

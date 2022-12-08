@@ -5,7 +5,9 @@ import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-
+/***
+ * composable function for the multiple choice option
+ */
 @Composable
 fun MultipleChoiceOption(
     index: Int,

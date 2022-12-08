@@ -9,6 +9,9 @@ import com.example.missingseven.Screen.*
 import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ViewModel.TaskViewModel
 
+/***
+ * controller for navigation
+ */
 class NavControl constructor(
     private val navController: NavHostController,
 ) {

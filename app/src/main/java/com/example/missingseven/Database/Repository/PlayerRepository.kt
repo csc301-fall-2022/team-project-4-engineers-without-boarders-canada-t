@@ -6,6 +6,10 @@ import com.example.missingseven.Database.IntPair
 import com.example.missingseven.Database.PrefManager
 import javax.inject.Inject
 
+
+/***
+ * repository to call methods in [PlayerDAO]
+ */
 class PlayerRepository @Inject constructor(
     private val prefManager: PrefManager,
     private val playerDAO: PlayerDAO) {

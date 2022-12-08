@@ -18,6 +18,9 @@ import androidx.core.content.res.ResourcesCompat.ID_NULL
 import com.example.missingseven.Database.Entity.getImageRes
 import com.example.missingseven.ViewModel.FilterViewModel
 
+/***
+ * composable function for instruction screen
+ */
 @Composable
 fun InstructionScreen(
     viewModel: FilterViewModel

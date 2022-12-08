@@ -18,6 +18,10 @@ import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.R
 
+
+/***
+ * composable function that is the bask template for all the tasks
+ */
 @Composable
 fun TaskTemplate(
     content: @Composable () -> Unit = { Surface {

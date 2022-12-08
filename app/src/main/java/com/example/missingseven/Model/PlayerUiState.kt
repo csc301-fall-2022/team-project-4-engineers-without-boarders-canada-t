@@ -3,7 +3,11 @@ package com.example.missingseven.Model
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 
+import com.example.missingseven.Database.Entity.Player
 
+/***
+ * data class of the ui model for [Player]
+ */
 data class PlayerUiState(
     val pid: Int,
     val cid: Int,

@@ -22,6 +22,9 @@ import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.R
 import com.example.missingseven.Screen.DeepLinkText
 
+/***
+ * composable function for the global literacy rate screen
+ */
 @Composable
 fun GlobalLiteracyRateBody(
     task: TaskUiState.GlobalLiteracyRateTask

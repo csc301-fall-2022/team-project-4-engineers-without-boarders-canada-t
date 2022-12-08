@@ -5,6 +5,9 @@ import com.example.missingseven.Component.*
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.ViewModel.TaskViewModel
 
+/***
+ * composable function for task screen
+ */
 @Composable
 fun TaskScreen(
     viewModel: TaskViewModel

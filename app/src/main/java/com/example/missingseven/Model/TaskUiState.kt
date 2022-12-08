@@ -2,6 +2,12 @@ package com.example.missingseven.Model
 
 import androidx.compose.runtime.MutableState
 
+
+import com.example.missingseven.Database.Entity.TaskType
+
+/***
+ * data class of the ui model for [TaskType]
+ */
 sealed class TaskUiState(
     open val tid: Int,
     open val completed: MutableState<Boolean>,

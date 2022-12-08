@@ -12,6 +12,9 @@ import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Database.Entity.Player
 import com.example.missingseven.Database.Entity.TaskType
 
+/***
+ * database
+ */
 @Database(entities = [
     TaskType.ReadingTask:: class,
     TaskType.MultipleChoiceTask::class,

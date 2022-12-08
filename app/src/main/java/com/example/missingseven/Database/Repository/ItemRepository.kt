@@ -5,8 +5,10 @@ import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Database.IntPair
 import com.example.missingseven.Database.PrefManager
 import javax.inject.Inject
-import javax.security.auth.callback.Callback
 
+/***
+ * repository to call methods in [ItemDAO]
+ */
 class ItemRepository @Inject constructor(
     private val prefManager: PrefManager,
     private val itemDAO: ItemDAO
@@ -21,10 +23,6 @@ class ItemRepository @Inject constructor(
 
     suspend fun insertAllItems(items: List<Item>, callback: ()->Unit){
         itemDAO.insertAllItems(items).run { callback() }
-    }
-
-    suspend fun updateItem(item: Item){
-        itemDAO.updateItem(item)
     }
 
     suspend fun deleteAllItems(callback: () -> Unit){

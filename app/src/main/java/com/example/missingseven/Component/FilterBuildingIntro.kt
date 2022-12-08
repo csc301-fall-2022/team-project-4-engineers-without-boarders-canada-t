@@ -17,6 +17,9 @@ import androidx.compose.ui.unit.sp
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.R
 
+/***
+ * composable function for the filter building introduction screen
+ */
 @Composable
 fun FilterBuildingIntroBody(
     task: TaskUiState.ReadingTask

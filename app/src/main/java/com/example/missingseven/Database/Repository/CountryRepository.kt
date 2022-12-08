@@ -5,8 +5,10 @@ import com.example.missingseven.Database.Entity.Country
 import com.example.missingseven.Database.IntPair
 import com.example.missingseven.Database.PrefManager
 import javax.inject.Inject
-import javax.security.auth.callback.Callback
 
+/***
+ * repository to call methods in [CountryDAO]
+ */
 class CountryRepository @Inject constructor(
     private val countryDAO: CountryDAO, private val prefManager: PrefManager) {
     suspend fun getAllCountries(callback: (List<Country>) -> Unit){

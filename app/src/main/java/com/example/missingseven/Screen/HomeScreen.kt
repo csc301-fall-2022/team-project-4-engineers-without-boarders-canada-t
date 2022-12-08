@@ -17,6 +17,10 @@ import androidx.compose.ui.unit.sp
 import com.example.missingseven.R
 import com.example.missingseven.ViewModel.TaskViewModel
 
+
+/***
+ * composable function for the home screen
+ */
 @Composable
 fun HomeScreen(
     viewModel: TaskViewModel

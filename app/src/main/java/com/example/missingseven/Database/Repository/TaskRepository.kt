@@ -4,6 +4,10 @@ import com.example.missingseven.Database.DAO.TaskDao
 import com.example.missingseven.Database.Entity.TaskType
 import javax.inject.Inject
 
+
+/***
+ * repository to call methods in [TaskDao]
+ */
 class TaskRepository @Inject constructor(
     private val taskDao: TaskDao
 ) {
@@ -122,22 +126,10 @@ class TaskRepository @Inject constructor(
         taskDao.updateSlidingScaleTasks(task)
     }
 
-    suspend fun updateFilterTask(
-        task: TaskType.FilterTask
-    ) {
-        taskDao.updateFilterTasks(task)
-    }
-
     suspend fun updateShortAnswerTask(
         task: TaskType.ShortAnswerTask
     ) {
         taskDao.updateShortAnswerTasks(task)
-    }
-
-    suspend fun updateLRTask(
-        task: TaskType.LiteracyRateTask
-    ) {
-        taskDao.updateLRTasks(task)
     }
 
     suspend fun deleteReadingTasks(callback: () -> Unit){

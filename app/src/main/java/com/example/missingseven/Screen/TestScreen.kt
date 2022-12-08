@@ -21,6 +21,10 @@ import com.example.missingseven.R
 import com.example.missingseven.ViewModel.FilterViewModel
 import kotlin.math.round
 
+
+/***
+ * composable function for filter test screen
+ */
 @Composable
 fun TestScreen(
     viewModel: FilterViewModel,

@@ -7,6 +7,9 @@ import androidx.room.PrimaryKey
 
 import com.example.missingseven.R
 
+/***
+ * data class for the table [Country]
+ */
 @Entity
 data class Country(
     @PrimaryKey val cid: Int,

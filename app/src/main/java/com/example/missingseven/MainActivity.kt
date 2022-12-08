@@ -7,6 +7,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.missingseven.Navigation.NavControl
 import dagger.hilt.android.AndroidEntryPoint
 
+/***
+ * only activity in our project
+ */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -4,12 +4,10 @@ import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.consumeAllChanges
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.onGloballyPositioned
@@ -18,6 +16,9 @@ import com.example.missingseven.Model.ItemUiState
 
 internal val LocalDragTargetInfo = compositionLocalOf { DragTargetInfo() }
 
+/***
+ * composable function used for long press drag and drop
+ */
 @Composable
 fun LongPressDraggable(
     modifier: Modifier = Modifier,
@@ -75,7 +76,7 @@ fun DragAbleItem(
                 currentState.dragPosition = currentPosition + it
                 currentState.draggableComposable = content
             }, onDrag = { change, dragAmount ->
-                change.consumeAllChanges()
+                change.consume()
                 currentState.dragOffset += Offset(dragAmount.x, dragAmount.y)
             }, onDragEnd = {
                 currentState.isDragging = false

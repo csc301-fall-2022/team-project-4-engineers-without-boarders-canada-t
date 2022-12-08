@@ -7,6 +7,9 @@ import com.example.missingseven.Database.Entity.Player
 import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.R
 
+/***
+ * class to initialize different tables
+ */
 class DataInitializer constructor(
     private val context: Context
 ) {

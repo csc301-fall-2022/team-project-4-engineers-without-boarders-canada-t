@@ -11,6 +11,10 @@ import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.TaskUiState
 import kotlin.math.roundToInt
 
+
+/***
+ * composable function for the sliding scale screen
+ */
 @Composable
 fun SlidingScaleTaskBody(
     valueChangeHandler: (Int) -> Unit,
