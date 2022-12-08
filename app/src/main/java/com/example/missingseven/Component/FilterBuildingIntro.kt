@@ -6,18 +6,16 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import com.example.missingseven.Model.TaskUiState
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.missingseven.R
 
 @Preview
@@ -33,13 +31,9 @@ fun FilterBuildingIntroBody(
             .background(Color.White)
     ) {
         Text(
-            text = stringResource(id = R.string.task12_header),
-            style = typography.h5,
-            textAlign = TextAlign.Center
-        )
-        Text(
             text = stringResource(id = R.string.task12_content),
-            modifier = Modifier.paddingFromBaseline(top =40.dp, bottom = 10.dp)
+            modifier = Modifier.paddingFromBaseline(top =40.dp, bottom = 10.dp),
+            fontSize = 18.sp
         )
         Row {
             Column() {
@@ -70,7 +64,8 @@ fun FilterBuildingIntroBody(
         }
         Text(
             text = stringResource(id = R.string.task12_footer),
-            modifier = Modifier.paddingFromBaseline(top =40.dp, bottom = 10.dp)
+            modifier = Modifier.paddingFromBaseline(top =40.dp, bottom = 10.dp),
+            fontSize = 18.sp
         )
     }
 }

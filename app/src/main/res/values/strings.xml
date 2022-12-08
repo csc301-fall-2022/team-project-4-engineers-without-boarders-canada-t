@@ -9,8 +9,7 @@
     <string name="reading_task1_content">The Water for the World presentation is an engaging hour and a half that educates, challenges, and inspires students to think about creative solutions to global water access issues. Our program is divided into a three–part learning format as recommended by the Ontario Ministry of Education – Opening (Minds On), Middle (Action – Interactive/Hands–On), Closing (Debrief/Consolidation).\nA large component of the presentation involves hands–on interaction where groups of 4–6 students construct their own water filters using recycled plastic bottles and multiple layers of sand and gravel. The students are grouped into different countries, and are provided with different levels of information and amounts of play money, depending on their country’s literacy rate and wealth, respectively.\nThrough this activity, students are challenged to think critically and creatively, while collaborating with their peers. Students will gain a better understanding of social issues in technological development, while being exposed to the concept of international interdependence and cooperation as it relates to the global need for potable water. We also aim to engage students by highlighting the potential role youth can have in addressing these issues.</string>
 
     <string name="task12_header">Filter Building Challenge</string>
-    <string name="task12_content">Many people in the world drink dirty water and get sick or die. \n
-    Your challenge is to build a water filter to turn the glass of water</string>
+    <string name="task12_content">Many people in the world drink dirty water and get sick or die.\nYour challenge is to build a water filter to turn the glass of water</string>
     <string name="task12_footer">Press NEXT to start the challenge</string>
 
     <!-- sliding scale task -->
