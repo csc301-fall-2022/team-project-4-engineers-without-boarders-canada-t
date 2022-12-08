@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.TaskUiState
+import kotlin.math.roundToInt
 
 @Composable
 fun SlidingScaleTaskBody(
@@ -52,7 +53,8 @@ private fun toFriendlyNumber(number: Int) =
     if (number < 1000){
         "$number Million"
     } else {
-        "${(number.toFloat() / 1000) * 100 / 100} Billion"
+        // round to 2 decimal places
+        "${((number.toFloat() / 1000) * 100).roundToInt().toFloat() / 100} Billion"
     }
 
 private fun displayedText(task: TaskUiState.SlidingScaleTask) =
