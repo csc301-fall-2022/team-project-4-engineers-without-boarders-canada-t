@@ -52,9 +52,15 @@
     <string name="instruction_general">1. Loosely put a cotton plug in the neck of the cut bottle, then cover the neck of the bottle with a piece of cheese cloth secured with a rubber band.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm of coarse sand, fine gravel, and coarse gravel.\n3. Clean the filter by slowly and carefully pouring through 1-litre of clean water (over a bucket).\n4.Place the filter over a plastic cup. Now, test your water filter by pouring half of the dirty water through the filter.</string>
 
     <!-- GLR task -->
-    <string name="task_8_content">Extreme Poverty is defined by the percentage of the population living on less than $2.50 a say. This amp shows where most of those suffering from extreme poverty live:</string>
+    <string name="task5_header">Global Literacy Rate</string>
+    <string name="task5_content">The literacy rate is defined by the percentage of the population of a given age group that can read and write.</string>
+    <string name="task8_header">Global Extreme Poverty</string>
+    <string name="task8_content">Extreme Poverty is defined by the percentage of the population living on less than $2.50 a say. This amp shows where most of those suffering from extreme poverty live:</string>
 
     <!-- literacy rate task -->
     <string name="task4_header">Literacy Rate</string>
     <string name="task4_subtitle">Definition:\nThe percentage of the population of a given age group that can read and write.</string>
+
+    <string name="our_world_in_data">Our World in Data</string>
+    <string name="our_world_in_data_url">ourworldindata.org/</string>
 </resources>

@@ -97,19 +97,20 @@ class DataInitializer constructor(
 
     fun getGLRTasks(): List<TaskType.GlobalLiteracyRateTask> = listOf(
         TaskType.GlobalLiteracyRateTask(
-            5, true,
-            "Global Literacy Rate",
-            "The literacy rate is defined by the percentage of the population of " +
-                    "a given age group that can read and write.",
-            "Our World in Data",
-            "ourworldindata.org/"
+            tid = 5,
+            completed = true,
+            header = context.getString(R.string.task5_header),
+            content = context.getString(R.string.task5_header),
+            hyperlinkText = context.getString(R.string.our_world_in_data),
+            hyperlink = context.getString(R.string.our_world_in_data_url)
         ),
         TaskType.GlobalLiteracyRateTask(
-            8, true,
-            "Global Extreme Poverty",
-            context.getString(R.string.task_8_content),
-            "Our World in Data",
-            "ourworldindata.org/"
+            tid = 8,
+            completed = true,
+            header = context.getString(R.string.task8_header),
+            content = context.getString(R.string.task8_content),
+            hyperlinkText = context.getString(R.string.our_world_in_data),
+            hyperlink = context.getString(R.string.our_world_in_data_url)
         )
 
     )
