@@ -8,16 +8,15 @@ class FilterStack(
     val topIndex: MutableState<Int>,
     val neck: MutableState<ItemUiState?>,
     val mouth: MutableState<ItemUiState?>,
-    var mouthRubberBanded: Boolean,
     var cleaned: Boolean = false
 ) {
     fun isFull() = topIndex.value == MAX_LAYER
 
     fun evaluation(): Double {
         if ((mouth.value?.iid ?: -1) != 4){
-            return 0.0;
+            return 0.0
         } else if ((neck.value?.iid ?: -1) != 5){
-            return (0.5/20)*100;
+            return (0.5/20)*100
         } else{
             var score = 1.5
             for (i in 0 until topIndex.value){
@@ -43,10 +42,12 @@ class FilterStack(
                     }
                 }
                 }
+            // scale up by 100/ 88
+            score *= (100 / 88)
             return if (score>20.0){
                 100.0
             }else{
-                (score/20.0)*100;
+                (score/20.0)*100
             }
             }
     }

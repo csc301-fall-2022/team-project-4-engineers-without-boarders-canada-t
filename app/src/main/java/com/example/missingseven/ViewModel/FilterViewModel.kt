@@ -129,8 +129,7 @@ class FilterViewModel @Inject constructor(
             itemList,
             mutableStateOf(currTop),
             neck = mutableStateOf(allIIdItemsMap[playerUiState.neck.value]),
-            mouth = mutableStateOf(allIIdItemsMap[playerUiState.mouth.value]), // place holder for value of mouth
-            playerUiState.neckRubberBanded,
+            mouth = mutableStateOf(allIIdItemsMap[playerUiState.mouth.value])
         )
 
         setupCompleted.value = true
@@ -160,7 +159,7 @@ class FilterViewModel @Inject constructor(
     }
 
     fun addItem(item: ItemUiState){
-        if (player.curr_money < item.price) return
+        if (player.curr_money < item.price || filterStack.isFull()) return
         playerUiState.currMoney.value -= item.price
         player.curr_money = playerUiState.currMoney.value
         filterStack.add(item)
