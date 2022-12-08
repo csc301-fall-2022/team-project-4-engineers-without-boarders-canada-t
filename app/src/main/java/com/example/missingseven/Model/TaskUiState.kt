@@ -51,10 +51,11 @@ sealed class TaskUiState(
     data class ShortAnswerTask(
         override val tid: Int,
         override val completed: MutableState<Boolean>,
+        override val header: String,
         val question: String,
         val answer: MutableState<String>,
         val isLast: Boolean = false
-    ): TaskUiState(tid, completed, question)
+    ): TaskUiState(tid, completed, header, question)
 
     data class LiteracyRateTask(
         override val tid: Int,

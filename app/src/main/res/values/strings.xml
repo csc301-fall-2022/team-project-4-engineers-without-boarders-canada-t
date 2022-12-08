@@ -40,10 +40,15 @@
 </string>
 
     <!-- short answer task -->
-    <string name="task8_question">How did the money and literacy rate you were given for each affect your ability to build a water filter?</string>
-    <string name="task9_question">Do you think water and its use around the world is fair and equal? Should people have the same access to water everywhere?</string>
-    <string name="task10_question">What can you do in your daily life to conserve water?</string>
-    <string name="task11_question">What is the most important thing you have learned doing this activity?</string>
+
+    <string name="task10_header">Question 1</string>
+    <string name="task10_question">How did the money and literacy rate you were given for each affect your ability to build a water filter?</string>
+    <string name="task11_header">Question 2</string>
+    <string name="task11_question">Do you think water and its use around the world is fair and equal? Should people have the same access to water everywhere?</string>
+    <string name="task12_header">Question 3</string>
+    <string name="task12_question">What can you do in your daily life to conserve water?</string>
+    <string name="task13_header">Question 4</string>
+    <string name="task13_question">What is the most important thing you have learned doing this activity?</string>
 
     <string name="instruction_general">1. Loosely put a cotton plug in the neck of the cut bottle, then cover the neck of the bottle with a piece of cheese cloth secured with a rubber band.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm of coarse sand, fine gravel, and coarse gravel.\n3. Clean the filter by slowly and carefully pouring through 1-litre of clean water (over a bucket).\n4.Place the filter over a plastic cup. Now, test your water filter by pouring half of the dirty water through the filter.</string>
 

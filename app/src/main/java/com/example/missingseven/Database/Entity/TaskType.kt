@@ -49,6 +49,7 @@ sealed class TaskType(
     data class ShortAnswerTask(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
+        @ColumnInfo val header: String,
         @ColumnInfo(name = "question") val question: String,
         @ColumnInfo(name = "answer") var answer: String,
         val isLast: Boolean = false

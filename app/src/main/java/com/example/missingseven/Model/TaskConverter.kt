@@ -59,6 +59,7 @@ class TaskConverter {
                         TaskUiState.ShortAnswerTask(
                             tid,
                             mutableStateOf(completed),
+                            header,
                             question,
                             mutableStateOf(answer),
                             isLast

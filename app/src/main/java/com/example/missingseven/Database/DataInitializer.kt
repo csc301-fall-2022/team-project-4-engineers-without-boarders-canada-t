@@ -127,10 +127,36 @@ class DataInitializer constructor(
     )
 
     fun getShortAnswerTasks(): List<TaskType.ShortAnswerTask> = listOf(
-        TaskType.ShortAnswerTask(10, false, context.getString(R.string.task8_question), ""),
-        TaskType.ShortAnswerTask(11, false, context.getString(R.string.task9_question), ""),
-        TaskType.ShortAnswerTask(12, false, context.getString(R.string.task10_question), ""),
-        TaskType.ShortAnswerTask(13, false, context.getString(R.string.task11_question), "", true),
+        TaskType.ShortAnswerTask(
+            tid = 10,
+            completed = false,
+            header = context.getString(R.string.task10_header),
+            question = context.getString(R.string.task10_question),
+            answer = "",
+            isLast = false
+        ),
+        TaskType.ShortAnswerTask(
+            tid = 11,
+            completed = false,
+            header = context.getString(R.string.task11_header),
+            question = context.getString(R.string.task11_question),
+            answer = "",
+            isLast = false
+        ),        TaskType.ShortAnswerTask(
+            tid = 12,
+            completed = false,
+            header = context.getString(R.string.task12_header),
+            question = context.getString(R.string.task12_question),
+            answer = "",
+            isLast = false
+        ),        TaskType.ShortAnswerTask(
+            tid = 13,
+            completed = false,
+            header = context.getString(R.string.task13_header),
+            question = context.getString(R.string.task13_question),
+            answer = "",
+            isLast = true
+        ),
     )
 
     fun getAllCountries(): List<Country> = listOf(
