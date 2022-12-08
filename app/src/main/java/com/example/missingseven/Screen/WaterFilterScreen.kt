@@ -77,7 +77,7 @@ fun FilterMainBody(
                     }
                     WaterFilter(stack = filterViewModel.filterStack)
                 }
-                Text(text = "You have ${filterViewModel.playerUiState.currMoney.value}$ remaining to spend on materials"
+                Text(text = "You have $${filterViewModel.playerUiState.currMoney.value} remaining to spend on materials"
                     , modifier = Modifier.padding(vertical = 10.dp), fontSize = 15.sp)
                 LazyRow {
                     items(items = filterViewModel.items
@@ -91,7 +91,7 @@ fun FilterMainBody(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ){
                                     Text(text = it.name)
-                                    Text(text = "${it.price}$")
+                                    Text(text = "$${it.price}")
                                 }
                             }
                         }
