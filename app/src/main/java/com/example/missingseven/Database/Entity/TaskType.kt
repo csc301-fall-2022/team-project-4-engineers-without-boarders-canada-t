@@ -1,6 +1,5 @@
 package com.example.missingseven.Database.Entity
 
-import androidx.compose.runtime.MutableState
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -34,6 +33,7 @@ sealed class TaskType(
         @PrimaryKey override val tid: Int,
         @ColumnInfo override var completed: Boolean,
         @ColumnInfo(name = "content") val content: String,
+        @ColumnInfo(name = "subtitle") val subtitle: String,
         @ColumnInfo(name = "start") val start: Int,
         @ColumnInfo(name = "end") val end: Int,
         @ColumnInfo(name = "offset") var offset: Int,

@@ -19,11 +19,13 @@
     <!-- sliding scale task -->
     <string name="tooShort">The answer is too small</string>
     <string name="tooLarge">The answer is too large</string>
-    <string name="task2_header">Clean Water Access\nThere are approaching 8 billion people in the world. How many of them do you think do not have access to clean drinking water in their home?</string>
+    <string name="task2_header">Clean Water Access</string>
+    <string name="task2_subtitle">There are approaching 8 billion people in the world. How many of them do you think do not have access to clean drinking water in their home?</string>
     <string name="task2_correctInfo">Yes! around 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home</string>
 
-    <string name="task5_header">Q: What is Extreme Poverty ?\nA: Living on less than $2.50 a day\nHow many people do you think live on less than $2.50 a day?</string>
-    <string name="task5_correctInfo">Yes! 1 Billion people in the world live in Extreme Poverty – think what you could buy with $2.50 – what could you eat and how would your or your parents be able to pay your rent</string>
+    <string name="task6_header">Q: What is Extreme Poverty ?</string>
+    <string name="task6_subtitle">A: Living on less than $2.50 a day\nHow many people do you think live on less than $2.50 a day?</string>
+    <string name="task6_correctInfo">Yes! 1 Billion people in the world live in Extreme Poverty – think what you could buy with $2.50 – what could you eat and how would your or your parents be able to pay your rent</string>
 
     <!-- mc task-->
     <string name="task3_header">Where do most of the people without clean water access live?</string>

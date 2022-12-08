@@ -1,7 +1,6 @@
 package com.example.missingseven.Database
 
 import android.content.Context
-import androidx.compose.runtime.mutableStateOf
 import com.example.missingseven.Database.Entity.Country
 import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.Database.Entity.Player
@@ -41,18 +40,34 @@ class DataInitializer constructor(
 
     fun getAllSlidingScaleTasks(): List<TaskType.SlidingScaleTask> = listOf(
         TaskType.SlidingScaleTask(
-            2, false, context.getString(R.string.task2_header), 0, 8000,
-            50,"M", 800, 4000,
-            context.getString(R.string.tooShort),
-            context.getString(R.string.tooLarge),
-            context.getString(R.string.task2_correctInfo),
+            tid = 2,
+            completed = false,
+            content = context.getString(R.string.task2_header),
+            subtitle = context.getString(R.string.task2_subtitle),
+            start = 0,
+            end = 8000,
+            offset = 50,
+            unit = "M",
+            correct = 800,
+            current = 4000,
+            tooSmallInfo = context.getString(R.string.tooShort),
+            tooLargeInfo = context.getString(R.string.tooLarge),
+            correctInfo = context.getString(R.string.task2_correctInfo),
         ),
         TaskType.SlidingScaleTask(
-            6, false, context.getString(R.string.task5_header), 0, 8000,
-            50, "M", 1000, 4000,
-            context.getString(R.string.tooShort),
-            context.getString(R.string.tooLarge),
-            context.getString(R.string.task5_correctInfo)
+            tid = 6,
+            completed = false,
+            content = context.getString(R.string.task6_header),
+            subtitle = context.getString(R.string.task6_subtitle),
+            start = 0,
+            end = 8000,
+            offset = 50,
+            unit = "M",
+            correct = 1000,
+            current = 4000,
+            tooSmallInfo = context.getString(R.string.tooShort),
+            tooLargeInfo = context.getString(R.string.tooLarge),
+            correctInfo = context.getString(R.string.task6_correctInfo)
         )
     )
 

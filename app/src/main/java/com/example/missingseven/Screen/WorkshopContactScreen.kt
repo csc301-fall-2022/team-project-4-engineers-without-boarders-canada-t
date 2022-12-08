@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -16,7 +15,6 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat.startActivity
 import com.example.missingseven.Component.HeaderView
 import com.example.missingseven.ViewModel.TaskViewModel
 
@@ -26,7 +24,8 @@ fun WorkshopContactScreen(
 ){
     Column {
         HeaderView(
-            header = "Water for the World (W4TW)"
+            header = "Water for the World (W4TW)",
+            subtitle = ""
         )
         Text(
             modifier = Modifier.padding(10.dp),

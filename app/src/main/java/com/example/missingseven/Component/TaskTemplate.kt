@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.TaskUiState
@@ -19,7 +20,7 @@ import com.example.missingseven.R
 
 @Composable
 fun TaskTemplate(
-    content: @Composable () -> Unit = { Surface() {
+    content: @Composable () -> Unit = { Surface {
         Text(text = "Hello")
     }
     },
@@ -39,7 +40,7 @@ fun TaskTemplate(
             content()
             Spacer(modifier = Modifier.weight(1f))
 
-            Row() {
+            Row {
                 if (shouldShowFirst){
                     Button(onClick =  backHandler ) {
                         Text(text = "Back")
@@ -54,7 +55,10 @@ fun TaskTemplate(
                 }
             }
         } else {
-            HeaderView(header = taskUiState.header)
+            HeaderView(
+                header = taskUiState.header,
+                subtitle = taskUiState.subtitle
+            )
             content()
             Spacer(modifier = Modifier.weight(1f))
             Image(
@@ -62,7 +66,7 @@ fun TaskTemplate(
                 contentDescription = "engineers without borders",
                 modifier = Modifier.size(100.dp)
             )
-            Row() {
+            Row {
                 if (shouldShowFirst){
                     Button(onClick =  backHandler ) {
                         Text(text = "Back")
@@ -89,17 +93,29 @@ fun TaskTemplate(
 
 @Composable
 fun HeaderView(
-    header: String
+    header: String,
+    subtitle: String
 ){
     Row(
         verticalAlignment = Alignment.CenterVertically
     ){
-        Text(
-            text = header,
-            style = MaterialTheme.typography.h5,
-            modifier = Modifier.fillMaxWidth(0.7f),
-            textAlign = TextAlign.Center
-        )
+        Column() {
+            Text(
+                text = header,
+                style = MaterialTheme.typography.h5,
+                modifier = Modifier.fillMaxWidth(0.7f),
+                textAlign = TextAlign.Center,
+                textDecoration = TextDecoration.Underline
+            )
+            if (subtitle.isNotEmpty()){
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.h6,
+                    modifier = Modifier.fillMaxWidth(0.7f)
+                        .padding(start = 5.dp, top = 5.dp)
+                )
+            }
+        }
 
         Spacer(modifier = Modifier.weight(1f))
         Image(

@@ -36,6 +36,7 @@ class TaskConverter {
                             tid,
                             mutableStateOf(completed),
                             content,
+                            subtitle,
                             start,
                             end,
                             offset,

@@ -1,12 +1,12 @@
 package com.example.missingseven.Model
 
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 
 sealed class TaskUiState(
     open val tid: Int,
     open val completed: MutableState<Boolean>,
-    open val header: String
+    open val header: String,
+    open val subtitle: String = ""
 ) {
     data class ReadingTask(
         override val tid: Int,
@@ -30,6 +30,7 @@ sealed class TaskUiState(
         override val tid: Int,
         override val completed: MutableState<Boolean>,
         val content: String,
+        override val subtitle: String,
         val start: Int,
         val end: Int,
         val offset: Int,
@@ -39,7 +40,7 @@ sealed class TaskUiState(
         val tooSmallInfo: String,
         val tooLargeInfo: String,
         val correctInfo: String
-    ): TaskUiState(tid, completed, content)
+    ): TaskUiState(tid, completed, content, subtitle)
 
     data class FilterTask(
         override val tid: Int,

@@ -30,7 +30,7 @@ class NavControl constructor(
             }
 
             composable(route = Screen.Task.route){
-                TaskScreen(viewModel, filterViewModel)
+                TaskScreen(viewModel)
             }
 
             composable(route = Screen.Shop.route){

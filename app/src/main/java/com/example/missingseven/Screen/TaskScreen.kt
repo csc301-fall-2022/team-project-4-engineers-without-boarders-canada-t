@@ -3,13 +3,11 @@ package com.example.missingseven.Screen
 import androidx.compose.runtime.Composable
 import com.example.missingseven.Component.*
 import com.example.missingseven.Model.TaskUiState
-import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ViewModel.TaskViewModel
 
 @Composable
 fun TaskScreen(
-    viewModel: TaskViewModel,
-    filterViewModel: FilterViewModel
+    viewModel: TaskViewModel
 ){
     TaskTemplate(
         content = {
