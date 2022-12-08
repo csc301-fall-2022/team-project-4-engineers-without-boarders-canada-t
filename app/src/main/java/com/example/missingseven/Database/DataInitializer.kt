@@ -160,13 +160,13 @@ class DataInitializer constructor(
     )
 
     fun getAllCountries(): List<Country> = listOf(
-        Country(1, "Canada", 500, context.getString(R.string.instruction_general)),
-        Country(2, "Canadian First Nations", 500, context.getString(R.string.instruction_general)),
-        Country(3, "Kuwait", 400, context.getString(R.string.instruction_general)),
-        Country(4, "South Africa", 65, context.getString(R.string.instruction_general)),
-        Country(5, "Ghana", 40, context.getString(R.string.instruction_general)),
-        Country(6, "Kenya", 30, context.getString(R.string.instruction_general)),
-        Country(7, "Malawi", 50, context.getString(R.string.instruction_general)),
+        Country(1, "Canada", 500, context.getString(R.string.instruction_developed)),
+        Country(2, "Canadian First Nations", 500, context.getString(R.string.instruction_developed)),
+        Country(3, "Kuwait", 400, context.getString(R.string.instruction_developed)),
+        Country(4, "South Africa", 65, context.getString(R.string.instruction_South_Africa)),
+        Country(5, "Ghana", 40, context.getString(R.string.instruction_Ghana)),
+        Country(6, "Kenya", 30, context.getString(R.string.instruction_Kenya)),
+        Country(7, "Malawi", 50, context.getString(R.string.instruction_Malawi)),
     )
     fun getAllItem(): List<Item> = listOf(
         Item(0, "Fine Sand", 0, 20, 3f, 4f, listOf(0.25f, 0.40f, 1.30f, 1.10f,1f,1f), listOf(0.5f, 0.8f, 1.3f, 1.1f,1f,1f)),

@@ -49,8 +49,12 @@
     <string name="task12_question">What can you do in your daily life to conserve water?</string>
     <string name="task13_header">Question 4</string>
     <string name="task13_question">What is the most important thing you have learned doing this activity?</string>
-
-    <string name="instruction_general">1. Loosely put a cotton plug in the neck of the cut bottle, then cover the neck of the bottle with a piece of cheese cloth secured with a rubber band.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm of coarse sand, fine gravel, and coarse gravel.\n3. Clean the filter by slowly and carefully pouring through 1-litre of clean water (over a bucket).\n4.Place the filter over a plastic cup. Now, test your water filter by pouring half of the dirty water through the filter.</string>
+    
+    <string name="instruction_developed">1. Loosely put a cotton plug in the neck of the cut bottle, then cover the neck of the bottle with a piece of cheese cloth secured with a rubber band.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm of coarse sand, fine gravel, and coarse gravel.\n3. Now, test your water filter by pouring half of the dirty water through the filter. </string>
+    <string name="instruction_South_Africa">1.Loosely put a cotton  in the of the cut bottle, then cover the neck of the with a of cheese cloth secured with aband.\n2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm sand, fine , and gravel.\n3. Now, test your  filterhalf of the dirty  through the filter.</string>
+    <string name="instruction_Ghana">1. put a cotton  neck of the c u t , then  the neck of the  a piece of cheese  w i t h a rubber band.\n2.Pour a 1-cm  of fine sand over the  plug,   by 1- cm of , fine gravel, and coarse .\n3. , test  water filter by pouring of the dirty  through the filter.</string>
+    <string name="instruction_Kenya">1. put a  plug in the  of the cut , then the  of the  with a  of cheese secured  a rubber.\n2. a 1-cm  of  sand  the cotton plug, by 1-cm of sand, and  gravel.\n3.Now,  your water filter by pouring of the dirty water through the filter</string>
+    <string name="instruction_Malawi">1.Loosely put a cotton  in the of the cut bottle, then cover the neck of the with aof cheese cloth secured with aband.\n2. Pour a 1-cm layer of  over the cotton plug, followed by 1-cm sand, fine , and gravel.\n3. Place the filter over a plastic cup. Now, test your  filterhalf of the dirty  through the filter.</string>
 
     <!-- GLR task -->
     <string name="task5_header">Global Literacy Rate</string>
