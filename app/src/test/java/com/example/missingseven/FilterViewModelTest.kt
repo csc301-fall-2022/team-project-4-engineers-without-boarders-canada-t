@@ -20,7 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -31,10 +31,9 @@ import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * unit tests for filter view model
  */
+@OptIn(ExperimentalCoroutinesApi::class)
 class FilterViewModelTest {
     private val playerDAO: PlayerDAO = mock()
     private val countryDAO: CountryDAO = mock()
@@ -46,9 +45,8 @@ class FilterViewModelTest {
     private val itemRepository = ItemRepository(prefManager, itemDAO)
 
     private lateinit var viewModel: FilterViewModel
-    private val dispatcher = TestCoroutineDispatcher()
+    private val dispatcher = UnconfinedTestDispatcher()
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @Before
     fun setup(){
         viewModel = FilterViewModel(
@@ -242,7 +240,6 @@ class FilterViewModelTest {
     }
 
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @After
     fun tearDown(){
         Dispatchers.resetMain()
