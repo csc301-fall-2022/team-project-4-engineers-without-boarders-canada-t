@@ -1,6 +1,7 @@
 package com.example.missingseven.Component
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import com.example.missingseven.Model.TaskUiState
@@ -23,7 +24,8 @@ fun ReadingTaskBody(
         ) {
             Text(
                 text = task.content,
-                modifier = Modifier.paddingFromBaseline(top = 40.dp)
+                modifier = Modifier.paddingFromBaseline(top = 40.dp),
+                style = MaterialTheme.typography.h5
             )
         }
     }
