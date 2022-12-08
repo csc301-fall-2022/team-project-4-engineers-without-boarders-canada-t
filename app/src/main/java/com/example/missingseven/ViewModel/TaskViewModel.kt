@@ -307,7 +307,7 @@ class TaskViewModel @Inject constructor(
         }
     }
 
-    fun onFilterNextClicked(){
+    fun onFilterExitClicked(){
         navControl.navigateBack()
         currentTaskId.value += 1
         putCurrTaskToSharedPreference()
@@ -408,18 +408,6 @@ class TaskViewModel @Inject constructor(
                 subject = "Water For The World Workshop Answers",
                 text = text
             )
-        }
-    }
-
-    fun completeFilterHandler(){
-        filterUiState.apply {
-            completed.value = true
-            filterTask.let { task ->
-                task.completed = completed.value
-                viewModelScope.launch {
-                    taskRepository.updateFilterTask(task)
-                }
-            }
         }
     }
 

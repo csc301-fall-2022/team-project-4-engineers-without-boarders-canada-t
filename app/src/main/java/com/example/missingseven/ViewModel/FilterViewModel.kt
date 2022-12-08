@@ -12,6 +12,7 @@ import com.example.missingseven.Navigation.NavControl
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
+import com.example.missingseven.Database.Entity.reset
 import com.example.missingseven.Model.*
 import com.example.missingseven.Navigation.Screen
 import kotlinx.coroutines.launch
@@ -176,6 +177,23 @@ class FilterViewModel @Inject constructor(
             }
         }
         return null
+    }
+
+    fun onTestClicked(){
+        filterStack.cleaned = true
+        navControl.navigate(
+            backRoute = Screen.Filter.route,
+            destinationRoute = Screen.Test.route
+        )
+    }
+
+    fun tryAnotherCountry(){
+        setupCompleted.value = false
+        player = reset()
+        viewModelScope.launch {
+            playerRepository.updatePlayer(player)
+        }
+        navigateBack()
     }
 
 }

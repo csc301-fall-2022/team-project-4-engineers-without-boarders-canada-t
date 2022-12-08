@@ -44,8 +44,11 @@ class NavControl constructor(
                     task = viewModel.filterUiState,
                     filterViewModel = filterViewModel,
                     navControl = this@NavControl
-                ) {
-                    viewModel.completeFilterHandler()
+                )
+            }
+            composable(route = Screen.Test.route){
+                TestScreen(viewModel = filterViewModel){
+                    viewModel.onFilterExitClicked()
                 }
             }
         }
@@ -72,5 +75,6 @@ sealed class Screen(val route: String) {
     object WorkshopContact: Screen("workshop contact")
     object Login: Screen("login")
     object Filter: Screen("filter")
+    object Test: Screen("test")
 
 }

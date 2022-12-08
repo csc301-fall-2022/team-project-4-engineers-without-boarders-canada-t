@@ -26,8 +26,7 @@ import com.example.missingseven.R
 fun WaterFilterScreen(
     task: TaskUiState.FilterTask,
     filterViewModel: FilterViewModel,
-    navControl: NavControl,
-    taskCompleteHandler: () -> Unit
+    navControl: NavControl
 ) {
     LaunchedEffect(Unit){
         filterViewModel.setup(navControl, task)
@@ -47,20 +46,15 @@ fun WaterFilterScreen(
                 filterViewModel.setupPlayerUiState()
                 filterViewModel.setupStack()
             } else {
-                FilterMainBody(task = task, filterViewModel = filterViewModel) {
-                    taskCompleteHandler()
-                }
+                FilterMainBody(filterViewModel = filterViewModel)
             }
-
         }
     }
 }
 
 @Composable
 fun FilterMainBody(
-    task: TaskUiState.FilterTask,
-    filterViewModel: FilterViewModel,
-    taskCompleteHandler: () -> Unit
+    filterViewModel: FilterViewModel
 ){
         LongPressDraggable(
             modifier = Modifier.padding(10.dp)
@@ -107,7 +101,7 @@ fun FilterMainBody(
                 Button(onClick = filterViewModel::openInstruction) {
                     Text(text = "See instructions")
                 }
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = filterViewModel::onTestClicked) {
                     Text(text = "TEST")
                 }
             }
