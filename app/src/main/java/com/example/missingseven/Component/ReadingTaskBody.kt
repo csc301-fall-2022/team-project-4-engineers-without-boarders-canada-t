@@ -28,8 +28,7 @@ fun ReadingTaskBody(
         ) {
             Text(
                 text = task.content,
-                modifier = Modifier.paddingFromBaseline(top = 40.dp),
-                style = MaterialTheme.typography.h5
+                style = MaterialTheme.typography.h6
             )
             if (task.skipAble()){
                 Button(onClick = skipHandler) {

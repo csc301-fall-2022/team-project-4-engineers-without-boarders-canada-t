@@ -79,6 +79,10 @@ fun FilterMainBody(
                 }
                 Text(text = "You have $${filterViewModel.playerUiState.currMoney.value} remaining to spend on materials"
                     , modifier = Modifier.padding(vertical = 10.dp), fontSize = 15.sp)
+                Text(
+                    text = "Scroll left and right to see more materials",
+                    fontSize = 15.sp
+                )
                 LazyRow {
                     items(items = filterViewModel.items
                     ){

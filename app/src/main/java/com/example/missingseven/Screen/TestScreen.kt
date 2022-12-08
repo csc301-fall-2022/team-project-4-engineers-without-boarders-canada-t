@@ -58,7 +58,7 @@ fun TestScreen(
             textAlign = TextAlign.Center
         )
         Text(
-            text = if (score < 65) {
+            text = if (score < 95) {
                 "DO NOT DRINK - you may get sick and die!!"
             } else {
                 "CONGRATULATIONS - you can drink this water - it is clean enough to drink"

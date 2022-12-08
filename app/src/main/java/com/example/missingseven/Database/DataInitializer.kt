@@ -183,7 +183,6 @@ class DataInitializer constructor(
         Item(3, "Coarse Gravel", 0, 10, 1.25f, 1.3f, listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f), listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f)),
         Item(4, "Cheesecloth", 0, 5, 0.5f, 0.5f, listOf(), listOf()),
         Item(5, "Cotton", 0, 5,1f, 1f, listOf(), listOf()),
-        Item(6, "Rubber band", 0, 5, -1f, -1f, listOf(), listOf()),
     )
     fun getAllPlayer(): List<Player> = listOf(
         Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,false)

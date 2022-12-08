@@ -14,7 +14,7 @@ class FilterStack(
     fun isFull() = topIndex.value == MAX_LAYER
 
     fun evaluation(): Double {
-        if (!mouthRubberBanded || (mouth.value?.iid ?: -1) != 4){
+        if ((mouth.value?.iid ?: -1) != 4){
             return 0.0;
         } else if ((neck.value?.iid ?: -1) != 5){
             return (0.5/20)*100;
@@ -51,11 +51,7 @@ class FilterStack(
             }
     }
     fun add(item: ItemUiState){
-        if (item.isRubberBand()){
-            if (mouth.value == null) {
-                mouthRubberBanded = true
-            }
-        } else if (mouth.value == null){
+        if (mouth.value == null){
             mouth.value = item
         } else if (neck.value == null){
             neck.value = item

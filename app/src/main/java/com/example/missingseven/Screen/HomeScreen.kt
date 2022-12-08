@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.missingseven.R
@@ -34,8 +35,12 @@ fun HomeScreen(
             contentDescription = "engineers without borders",
             modifier = Modifier.size(300.dp)
         )
-        Text(text = "This App is a joint project by W4TW", fontSize = 20.sp)
-        Text(text = "World and EWB-Canada!", fontSize = 20.sp)
+        Text(
+            text = "This App is a joint project by W4TW and EWB-Canada!",
+            fontSize = 20.sp,
+            modifier = Modifier.padding(10.dp),
+            textAlign = TextAlign.Center
+        )
         val color = if (viewModel.isResumeAble()) Color.Green else Color.Gray
         Button(onClick = {
             if (viewModel.isResumeAble()){
