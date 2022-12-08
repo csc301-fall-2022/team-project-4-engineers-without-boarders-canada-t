@@ -25,7 +25,8 @@ sealed class TaskType(
         @ColumnInfo(name = "header") val header: String,
         @ColumnInfo(name = "options") val options: List<String>,
         @ColumnInfo(name = "correctIndex") val correctIndex: Int,
-        @ColumnInfo(name = "ansIndex") var studentAnswerIndex: Int
+        @ColumnInfo(name = "ansIndex") var studentAnswerIndex: Int,
+        @ColumnInfo(name = "popup") val popup: String
     ) : TaskType(tid, completed)
 
     @Entity

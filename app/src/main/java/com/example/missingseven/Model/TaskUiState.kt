@@ -22,7 +22,8 @@ sealed class TaskUiState(
         override val header: String,
         val options: List<String>,
         val correctIndex: Int,
-        val studentAnswerIndex: MutableState<Int>
+        val studentAnswerIndex: MutableState<Int>,
+        val popup: String
     ): TaskUiState(tid, completed, header)
 
     data class SlidingScaleTask(

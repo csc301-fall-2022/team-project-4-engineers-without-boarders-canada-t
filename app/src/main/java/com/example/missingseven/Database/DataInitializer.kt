@@ -19,23 +19,23 @@ class DataInitializer constructor(
 
     fun getAllMultipleChoiceTasks(): List<TaskType.MultipleChoiceTask> = listOf(
         TaskType.MultipleChoiceTask(
-            3, false, context.getString(R.string.mc_task2_header),
+            3, false, context.getString(R.string.task3_header),
             listOf(
-                context.getString(R.string.mc_task2_option0),
-                context.getString(R.string.mc_task2_option1),
-                context.getString(R.string.mc_task2_option2),
-                context.getString(R.string.mc_task2_option3),
-                context.getString(R.string.mc_task2_option4),
-            ), 4, -1),
+                context.getString(R.string.task3_option0),
+                context.getString(R.string.task3_option1),
+                context.getString(R.string.task3_option2),
+                context.getString(R.string.task3_option3),
+                context.getString(R.string.task3_option4),
+            ), 4, -1, context.getString(R.string.task3_popup)),
         TaskType.MultipleChoiceTask(
-            7, false, context.getString(R.string.mc_task2_header),
+            7, false, context.getString(R.string.task3_header),
             listOf(
-                context.getString(R.string.mc_task2_option0),
-                context.getString(R.string.mc_task2_option1),
-                context.getString(R.string.mc_task2_option2),
-                context.getString(R.string.mc_task2_option3),
-                context.getString(R.string.mc_task2_option4),
-            ), 4, -1
+                context.getString(R.string.task7_option0),
+                context.getString(R.string.task7_option1),
+                context.getString(R.string.task7_option2),
+                context.getString(R.string.task7_option3),
+                context.getString(R.string.task7_option4),
+            ), 4, -1, context.getString(R.string.task7_popup)
         )
     )
 

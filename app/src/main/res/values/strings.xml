@@ -26,12 +26,23 @@
     <string name="task5_correctInfo">Yes! 1 Billion people in the world live in Extreme Poverty – think what you could buy with $2.50 – what could you eat and how would your or your parents be able to pay your rent</string>
 
     <!-- mc task-->
-    <string name="mc_task2_header">Where do most of the people in extreme poverty live?</string>
-    <string name="mc_task2_option0">North America</string>
-    <string name="mc_task2_option1">South America</string>
-    <string name="mc_task2_option2">Europe</string>
-    <string name="mc_task2_option3">Asia</string>
-    <string name="mc_task2_option4">Africa</string>
+    <string name="task3_header">Where do most of the people without clean water access live?</string>
+    <string name="task3_option0">North America</string>
+    <string name="task3_option1">South America</string>
+    <string name="task3_option2">Europe</string>
+    <string name="task3_option3">Asia</string>
+    <string name="task3_option4">Africa</string>
+    <string name="task3_popup">Yes, most of the people in the world living without clean water live in Sub-Saharan Africa – the part of Africa south of the Sahara </string>
+
+    <string name="task7_header">Where do most of the people in extreme poverty live?
+</string>
+    <string name="task7_option0">North America</string>
+    <string name="task7_option1">South America</string>
+    <string name="task7_option2">Europe</string>
+    <string name="task7_option3">Asia</string>
+    <string name="task7_option4">Africa</string>
+    <string name="task7_popup">Yes, most of the people in the world living in extreme poverty live in Sub-Saharan Africa – the part of Africa south of the Sahara. Click NEXT to see how poverty varies around the world.
+</string>
 
     <!-- short answer task -->
     <string name="task8_question">How did the money and literacy rate you were given for each affect your ability to build a water filter?</string>

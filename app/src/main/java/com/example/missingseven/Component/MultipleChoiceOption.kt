@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 
 @Composable
 fun MultipleChoiceOption(
@@ -12,7 +13,9 @@ fun MultipleChoiceOption(
     onSelected: () -> Unit,
     content: String
 ){
-    Row() {
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         RadioButton(
             selected = index == correctIndex,
             onClick = onSelected)

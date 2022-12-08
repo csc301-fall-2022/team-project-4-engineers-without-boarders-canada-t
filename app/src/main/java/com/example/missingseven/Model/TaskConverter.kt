@@ -27,8 +27,8 @@ class TaskConverter {
                             header,
                             options,
                             correctIndex,
-                            mutableStateOf(studentAnswerIndex)
-
+                            mutableStateOf(studentAnswerIndex),
+                            popup
                         )
                     }
                     is TaskType.SlidingScaleTask -> {
