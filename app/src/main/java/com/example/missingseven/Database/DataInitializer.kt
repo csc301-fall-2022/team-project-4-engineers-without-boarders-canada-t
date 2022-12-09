@@ -186,24 +186,116 @@ class DataInitializer constructor(
     )
 
     fun getAllCountries(): List<Country> = listOf(
-        Country(1, "Canada", 500, context.getString(R.string.instruction_developed)),
-        Country(2, "Canadian First Nations", 500, context.getString(R.string.instruction_developed)),
-        Country(3, "Kuwait", 400, context.getString(R.string.instruction_developed)),
-        Country(4, "South Africa", 65, context.getString(R.string.instruction_South_Africa)),
-        Country(5, "Ghana", 40, context.getString(R.string.instruction_Ghana)),
-        Country(6, "Kenya", 30, context.getString(R.string.instruction_Kenya)),
-        Country(7, "Malawi", 50, context.getString(R.string.instruction_Malawi)),
+        Country(
+            cid = 1,
+            name = "Canada",
+            money = 500,
+            instruction = context.getString(R.string.instruction_developed)),
+        Country(
+            cid = 2,
+            name = "Canadian First Nations",
+            money = 500,
+            instruction = context.getString(R.string.instruction_developed)),
+        Country(
+            cid = 3,
+            name = "Kuwait",
+            money = 400,
+            instruction = context.getString(R.string.instruction_developed)),
+        Country(
+            cid = 4,
+            name = "South Africa",
+            money = 65,
+            instruction = context.getString(R.string.instruction_South_Africa)),
+        Country(
+            cid = 5,
+            name = "Ghana",
+            money = 40,
+            instruction = context.getString(R.string.instruction_Ghana)),
+        Country(
+            cid = 6,
+            name = "Kenya",
+            money = 30,
+            instruction = context.getString(R.string.instruction_Kenya)),
+        Country(
+            cid = 7,
+            name = "Malawi",
+            money = 50,
+            instruction = context.getString(R.string.instruction_Malawi)),
     )
     fun getAllItem(): List<Item> = listOf(
-        Item(0, "Fine Sand", 0, 20, 3f, 4f, listOf(0.25f, 0.40f, 1.30f, 1.10f,1f,1f), listOf(0.5f, 0.8f, 1.3f, 1.1f,1f,1f)),
-        Item(1, "Coarse Sand", 0, 20, 2.5f, 3f, listOf(0.3f, 0.4f, 1.2f, 1.1f,1f,1f), listOf(0.6f, 0.8f, 1.2f, 1.1f,1f,1f)),
-        Item(2, "Fine Gravel", 0, 10, 2f, 2.25f, listOf(0.75f, 0.8f, 1f, 1.1f,1f,1f), listOf(0.75f, 0.8f, 1f, 1.1f,1f,1f)),
-        Item(3, "Coarse Gravel", 0, 10, 1.25f, 1.3f, listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f), listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f)),
-        Item(4, "Cheesecloth", 0, 5, 0.5f, 0.5f, listOf(), listOf()),
-        Item(5, "Cotton", 0, 5,1f, 1f, listOf(), listOf()),
+        Item(
+            iid = 0,
+            name = "Fine Sand",
+            quantity = 0,
+            price = 20,
+            strength = 3f,
+            cleanedStrength = 4f,
+            effectiveness = listOf(0.25f, 0.40f, 1.30f, 1.10f,1f,1f),
+            cleanedEffectiveness = listOf(0.5f, 0.8f, 1.3f, 1.1f,1f,1f)),
+        Item(
+            iid = 1,
+            name = "Coarse Sand",
+            quantity = 0,
+            price = 20,
+            strength = 2.5f,
+            cleanedStrength = 3f,
+            effectiveness = listOf(0.3f, 0.4f, 1.2f, 1.1f,1f,1f),
+            cleanedEffectiveness = listOf(0.6f, 0.8f, 1.2f, 1.1f,1f,1f)),
+        Item(
+            iid = 2,
+            name = "Fine Gravel",
+            quantity = 0,
+            price = 10,
+            strength = 2f,
+            cleanedStrength = 2.25f,
+            effectiveness = listOf(0.75f, 0.8f, 1f, 1.1f,1f,1f),
+            cleanedEffectiveness = listOf(0.75f, 0.8f, 1f, 1.1f,1f,1f)),
+        Item(
+            iid = 3,
+            name = "Coarse Gravel",
+            quantity = 0,
+            price = 10,
+            strength = 1.25f,
+            cleanedStrength = 1.3f,
+            effectiveness = listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f),
+            cleanedEffectiveness = listOf(0.8f, 0.9f, 0.9f, 1f,1f,1f)),
+        Item(
+            iid = 4,
+            name = "Cheesecloth",
+            quantity = 0,
+            price = 5,
+            strength = 0.5f,
+            cleanedStrength = 0.5f,
+            effectiveness = emptyList(),
+            cleanedEffectiveness = emptyList()
+        ),
+        Item(
+            iid = 5,
+            name = "Cotton",
+            quantity = 0,
+            price = 5,
+            strength = 1f,
+            cleanedStrength = 1f,
+            effectiveness = emptyList(),
+            cleanedEffectiveness = emptyList()
+        ),
     )
     fun getAllPlayer(): List<Player> = listOf(
-        Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,false)
+        Player(
+            pid = 0,
+            cid = -1,
+            curr_money = 0,
+            neck = -1,
+            mouth = -1,
+            layer0 = -1,
+            layer1 = -1,
+            layer2 = -1,
+            layer3 = -1,
+            layer4 = -1,
+            layer5 = -1,
+            layer6 = -1,
+            layer7 = -1,
+            mouthRubberBanded = false)
     )
 
     companion object {
