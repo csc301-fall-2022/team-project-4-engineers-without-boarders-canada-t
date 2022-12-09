@@ -13,6 +13,7 @@ import com.example.missingseven.Database.Repository.CountryRepository
 import com.example.missingseven.Database.Repository.ItemRepository
 import com.example.missingseven.Database.Repository.PlayerRepository
 import com.example.missingseven.Model.ItemConverter
+import com.example.missingseven.Model.PlayerUiState
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.ViewModel.FilterViewModel
@@ -210,11 +211,97 @@ class FilterViewModelTest {
 //        assertEquals(viewModel.filterStack.add())
 //    }
 
+    @Test
+    fun testGetPlayerCountrySuccess(){
+        viewModel.countries = listOf(
+            COUNTRY1, COUNTRY2, COUNTRY3
+        )
+        viewModel.player = PLAYER
+        val result = viewModel.getPlayerCountry()
+        assertEquals(COUNTRY2, result)
+    }
+
+    @Test
+    fun testGetPlayerCountryFail(){
+        viewModel.countries = listOf()
+        viewModel.player = PLAYER
+        val result = viewModel.getPlayerCountry()
+        assertEquals(null, result)
+    }
+
+
+    @Test
+    fun testSetupPlayerUiState(){
+        viewModel.player = PLAYER
+        viewModel.countries = listOf(COUNTRY2)
+        viewModel.setupPlayerUiState()
+        assertEquals(viewModel.playerUiState.pid, PLAYER_UI_STATE.pid)
+        assertEquals(viewModel.playerUiState.cid, PLAYER_UI_STATE.cid)
+        assertEquals(viewModel.playerUiState.currMoney.value, PLAYER_UI_STATE.currMoney.value)
+        assertEquals(viewModel.playerUiState.countryName, PLAYER_UI_STATE.countryName)
+        assertEquals(viewModel.playerUiState.instruction, PLAYER_UI_STATE.instruction)
+    }
 
 
 
     @After
     fun tearDown(){
         Dispatchers.resetMain()
+    }
+
+    companion object {
+        val COUNTRY1 = Country(
+            cid = 1,
+            name = "c1",
+            money = 10,
+            instruction = "i1"
+        )
+        val COUNTRY2 = Country(
+            cid = 2,
+            name = "c2",
+            money = 20,
+            instruction = "i2"
+        )
+        val COUNTRY3 = Country(
+            cid = 3,
+            name = "c3",
+            money = 30,
+            instruction = "i3"
+        )
+
+        val PLAYER = Player(
+            pid = 1,
+            cid = 2,
+            curr_money = 0,
+            neck = -1,
+            mouth = -1,
+            layer1 = -1,
+            layer2 = -1,
+            layer3 = -1,
+            layer4 = -1,
+            layer5 = -1,
+            layer6 = -1,
+            layer0 = -1,
+            layer7 = -1,
+            mouthRubberBanded = true
+        )
+        val PLAYER_UI_STATE = PlayerUiState(
+            pid = 1,
+            cid = 2,
+            currMoney = mutableStateOf(0),
+            neck = mutableStateOf(-1),
+            neckRubberBanded = true,
+            mouth = mutableStateOf(-1),
+            layer7 = mutableStateOf(-1),
+            layer0 = mutableStateOf(-1),
+            layer6 = mutableStateOf(-1),
+            layer5 = mutableStateOf(-1),
+            layer4 = mutableStateOf(-1),
+            layer3 = mutableStateOf(-1),
+            layer2 = mutableStateOf(-1),
+            layer1 = mutableStateOf(-1),
+            countryName = "c2",
+            instruction = "i2"
+        )
     }
 }

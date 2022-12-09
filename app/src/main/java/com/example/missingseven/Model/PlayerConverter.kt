@@ -8,8 +8,8 @@ class PlayerConverter {
         fun databaseEntityToUiState(playerType: Player, countryName: String, instructions: String): PlayerUiState {
             return playerType.run {
                 PlayerUiState(
-                    cid,
                     pid,
+                    cid,
                     mutableStateOf(curr_money),
                     countryName,
                     instructions,
