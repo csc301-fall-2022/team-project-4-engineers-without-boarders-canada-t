@@ -1,6 +1,7 @@
 package com.example.missingseven
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.core.content.res.ResourcesCompat.ID_NULL
 import com.example.missingseven.Database.DAO.CountryDAO
 import com.example.missingseven.Database.DAO.ItemDAO
 import com.example.missingseven.Database.DAO.PlayerDAO
@@ -12,9 +13,7 @@ import com.example.missingseven.Database.PrefManager
 import com.example.missingseven.Database.Repository.CountryRepository
 import com.example.missingseven.Database.Repository.ItemRepository
 import com.example.missingseven.Database.Repository.PlayerRepository
-import com.example.missingseven.Model.ItemConverter
-import com.example.missingseven.Model.PlayerUiState
-import com.example.missingseven.Model.TaskUiState
+import com.example.missingseven.Model.*
 import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.ViewModel.FilterViewModel
 import kotlinx.coroutines.Dispatchers
@@ -28,6 +27,8 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doNothing
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
@@ -242,6 +243,63 @@ class FilterViewModelTest {
         assertEquals(viewModel.playerUiState.instruction, PLAYER_UI_STATE.instruction)
     }
 
+    @Test
+    fun testGetParallelCountryList(){
+        viewModel.countries = listOf(COUNTRY2, COUNTRY1, COUNTRY3)
+        val result = viewModel.getParallelCountryList()
+        assertEquals(listOf(COUNTRY2, COUNTRY1, COUNTRY3) to emptyList<Country>(), result)
+    }
+
+    @Test
+    fun testOnTestClicked(){
+        val navControl: NavControl = mock()
+        viewModel.navControl = navControl
+        doNothing().`when`(navControl).navigate(any(), any())
+        viewModel.filterStack = FILTER_STACK
+        viewModel.onTestClicked()
+        assertEquals(viewModel.filterStack.cleaned, true)
+    }
+
+    @Test
+    fun testTryAnotherCountry() = runBlocking {
+        val navControl: NavControl = mock()
+        viewModel.player = PLAYER
+        viewModel.navControl = navControl
+        whenever(playerDAO.updatePlayer(any())).then {  }
+        doNothing().`when`(navControl).navigateBack()
+        viewModel.tryAnotherCountry()
+        assertEquals(false, viewModel.setupCompleted.value)
+        assertEquals(0, viewModel.player.pid)
+        assertEquals(-1, viewModel.player.cid)
+        assertEquals(0, viewModel.player.curr_money)
+        assertEquals(-1, viewModel.player.neck)
+        assertEquals(-1, viewModel.player.mouth)
+        assertEquals(-1, viewModel.player.layer0)
+        assertEquals(-1, viewModel.player.layer1)
+        assertEquals(-1, viewModel.player.layer2)
+        assertEquals(-1, viewModel.player.layer3)
+        assertEquals(-1, viewModel.player.layer4)
+        assertEquals(-1, viewModel.player.layer5)
+        assertEquals(-1, viewModel.player.layer6)
+        assertEquals(false, viewModel.player.mouthRubberBanded)
+    }
+
+    @Test
+    fun testAddItemWhenNoMoney(){
+        viewModel.player = PLAYER
+        viewModel.addItem(ITEM)
+        assertEquals(0, viewModel.player.curr_money)
+    }
+
+    fun testAddItemWhenFilterFull(){
+        viewModel.player = PLAYER
+        viewModel.player.curr_money = 1000000
+        viewModel.filterStack = FILTER_STACK
+        viewModel.filterStack.topIndex.value = 8
+        viewModel.addItem(ITEM)
+        assertEquals(1000000, viewModel.player.curr_money)
+    }
+
 
 
     @After
@@ -302,6 +360,25 @@ class FilterViewModelTest {
             layer1 = mutableStateOf(-1),
             countryName = "c2",
             instruction = "i2"
+        )
+        val FILTER_STACK = FilterStack(
+            itemList = mutableListOf(),
+            topIndex = mutableStateOf(0),
+            neck = mutableStateOf(null),
+            mouth = mutableStateOf(null),
+            cleaned = false
+        )
+
+        val ITEM = ItemUiState(
+            iid = 1,
+            name = "i1",
+            quantity = 0,
+            price = 10,
+            img = ID_NULL,
+            strength = 1f,
+            cleanedStrength = 1f,
+            effectiveness = emptyList(),
+            cleanedEffectiveness = emptyList()
         )
     }
 }
