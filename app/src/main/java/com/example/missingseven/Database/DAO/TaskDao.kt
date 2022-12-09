@@ -7,6 +7,9 @@ import androidx.room.Update
 import com.example.missingseven.Database.Entity.TaskType
 import kotlinx.coroutines.flow.Flow
 
+/***
+ * Data Access Object for the different task tables
+ */
 @Dao
 interface TaskDao {
 

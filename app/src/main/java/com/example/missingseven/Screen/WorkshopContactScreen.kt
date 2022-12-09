@@ -18,6 +18,9 @@ import androidx.compose.ui.unit.dp
 import com.example.missingseven.Component.HeaderView
 import com.example.missingseven.ViewModel.TaskViewModel
 
+/***
+ * composable function for workshop contact screen
+ */
 @Composable
 fun WorkshopContactScreen(
     viewModel: TaskViewModel

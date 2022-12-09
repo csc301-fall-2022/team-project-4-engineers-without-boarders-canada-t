@@ -12,6 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import com.example.missingseven.ViewModel.TaskViewModel
 
+/***
+ * composable function for login screen
+ */
 @Composable
 fun LoginScreen(
     viewModel: TaskViewModel

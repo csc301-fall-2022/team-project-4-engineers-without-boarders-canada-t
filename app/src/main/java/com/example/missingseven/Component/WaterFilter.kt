@@ -15,6 +15,10 @@ import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.FilterStack
 import com.example.missingseven.Model.ItemUiState
 
+
+/***
+ * composable function for the water filter stack
+ */
 @Composable
 fun WaterFilter(
     stack: FilterStack

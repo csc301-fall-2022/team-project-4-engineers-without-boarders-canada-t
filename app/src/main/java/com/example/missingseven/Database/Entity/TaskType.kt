@@ -4,6 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/***
+ * data class for different tasks
+ */
 sealed class TaskType(
     open val tid: Int,
     open var completed: Boolean

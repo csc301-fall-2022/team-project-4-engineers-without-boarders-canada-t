@@ -3,21 +3,23 @@ package com.example.missingseven.Model
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.graphics.Color
 
+/***
+ * data class for the water filter
+ */
 class FilterStack(
-    val itemList: MutableList<ItemUiState?>,
+    private val itemList: MutableList<ItemUiState?>,
     val topIndex: MutableState<Int>,
     val neck: MutableState<ItemUiState?>,
     val mouth: MutableState<ItemUiState?>,
-    var mouthRubberBanded: Boolean,
     var cleaned: Boolean = false
 ) {
     fun isFull() = topIndex.value == MAX_LAYER
 
     fun evaluation(): Double {
-        if (!mouthRubberBanded || (mouth.value?.iid ?: -1) != 4){
-            return 0.0;
+        if ((mouth.value?.iid ?: -1) != 4){
+            return 0.0
         } else if ((neck.value?.iid ?: -1) != 5){
-            return (0.5/20)*100;
+            return (0.5/20)*100
         } else{
             var score = 1.5
             for (i in 0 until topIndex.value){
@@ -43,19 +45,17 @@ class FilterStack(
                     }
                 }
                 }
+            // scale up by 100/ 88
+            score *= (100.0 / 88.0)
             return if (score>20.0){
                 100.0
             }else{
-                (score/20.0)*100;
+                (score/20.0)*100
             }
             }
     }
     fun add(item: ItemUiState){
-        if (item.isRubberBand()){
-            if (mouth.value == null) {
-                mouthRubberBanded = true
-            }
-        } else if (mouth.value == null){
+        if (mouth.value == null){
             mouth.value = item
         } else if (neck.value == null){
             neck.value = item

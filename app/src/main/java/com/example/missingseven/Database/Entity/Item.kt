@@ -4,6 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/***
+ * data class for the table [Item]
+ */
 @Entity
 data class Item(
     @PrimaryKey val iid: Int,

@@ -7,6 +7,9 @@ import androidx.room.Update
 import com.example.missingseven.Database.Entity.Item
 import kotlinx.coroutines.flow.Flow
 
+/***
+ * Data Access Object for the table [Item]
+ */
 @Dao
 interface ItemDAO {
     @Query("SELECT * FROM item")

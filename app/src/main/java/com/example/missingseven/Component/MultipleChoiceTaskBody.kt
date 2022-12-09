@@ -29,6 +29,10 @@ import androidx.compose.ui.window.PopupProperties
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.R
 
+
+/***
+ * composable function for the multiple choice screen
+ */
 @Composable
 @LazyScopeMarker
 fun MultipleChoiceTaskBody(

@@ -4,6 +4,9 @@ import androidx.compose.runtime.mutableStateOf
 import com.example.missingseven.Database.Entity.TaskType
 import com.example.missingseven.R
 
+/***
+ * static class to convert database model to ui model for [TaskType]
+ */
 class TaskConverter {
 
     companion object {

@@ -22,6 +22,10 @@ import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.R
 
+
+/***
+ * composable function for water filter exercise screen
+ */
 @Composable
 fun WaterFilterScreen(
     task: TaskUiState.FilterTask,
@@ -77,8 +81,12 @@ fun FilterMainBody(
                     }
                     WaterFilter(stack = filterViewModel.filterStack)
                 }
-                Text(text = "You have ${filterViewModel.playerUiState.currMoney.value}$ remaining to spend on materials"
+                Text(text = "You have $${filterViewModel.playerUiState.currMoney.value} remaining to spend on materials"
                     , modifier = Modifier.padding(vertical = 10.dp), fontSize = 15.sp)
+                Text(
+                    text = "Scroll left and right to see more materials",
+                    fontSize = 15.sp
+                )
                 LazyRow {
                     items(items = filterViewModel.items
                     ){
@@ -91,7 +99,7 @@ fun FilterMainBody(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ){
                                     Text(text = it.name)
-                                    Text(text = "${it.price}$")
+                                    Text(text = "$${it.price}")
                                 }
                             }
                         }

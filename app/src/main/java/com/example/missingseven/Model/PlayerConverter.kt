@@ -2,6 +2,10 @@ package com.example.missingseven.Model
 
 import androidx.compose.runtime.mutableStateOf
 import com.example.missingseven.Database.Entity.Player
+
+/***
+ * static class to convert data base model to ui state for [Player]
+ */
 class PlayerConverter {
 
     companion object {

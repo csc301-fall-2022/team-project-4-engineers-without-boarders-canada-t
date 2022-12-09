@@ -3,6 +3,9 @@ package com.example.missingseven.Model
 import com.example.missingseven.Database.Entity.Item
 import com.example.missingseven.R
 
+/***
+ * static class to convert database model to ui model for [Item]
+ */
 class ItemConverter {
 
     companion object {
@@ -18,21 +21,6 @@ class ItemConverter {
                         cleanedStrength,
                         effectiveness,
                         cleanedEffectiveness)
-            }
-        }
-
-        fun UiStateToDatabaseEntity(item: ItemUiState): Item{
-            return item.run {
-                Item(
-                    iid,
-                    name,
-                    quantity,
-                    price,
-                    strength,
-                    cleanedStrength,
-                    effectiveness,
-                    cleanedEffectiveness
-                )
             }
         }
 

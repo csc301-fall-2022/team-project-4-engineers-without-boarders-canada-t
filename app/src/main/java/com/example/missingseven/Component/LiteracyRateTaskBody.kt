@@ -22,6 +22,9 @@ import androidx.compose.ui.window.Popup
 import com.example.missingseven.Model.TaskUiState
 import com.example.missingseven.R
 
+/***
+ * composable function for the literacy rate screen
+ */
 @Composable
 @LazyScopeMarker
 fun LiteracyRateTaskBody(

@@ -1,6 +1,10 @@
 package com.example.missingseven.Model
 
+import com.example.missingseven.Database.Entity.Item
 
+/***
+ * data class of the ui model for [Item]
+ */
 data class ItemUiState(
     val iid: Int,
     val name: String,
@@ -11,6 +15,4 @@ data class ItemUiState(
     val cleanedStrength: Float,
     val effectiveness: List<Float>,
     val cleanedEffectiveness: List<Float>
-){
-    fun isRubberBand() = iid == 6
-}
+)

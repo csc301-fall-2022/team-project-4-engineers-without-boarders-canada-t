@@ -13,6 +13,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.missingseven.Model.TaskUiState
 
+/***
+ * composable function for the short answer screen
+ */
 @Composable
 fun ShortAnswerTaskBody(
     saveHandler: () -> Unit,

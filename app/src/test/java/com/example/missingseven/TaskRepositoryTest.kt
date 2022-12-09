@@ -28,7 +28,7 @@ class TaskRepositoryTest {
 
     @Test
     fun testGetReadingTask() = runBlocking {
-        val result = mutableListOf<TaskType.ReadingTask>()
+        val result = mutableListOf<TaskType>()
         val task1 = TaskType.ReadingTask(
             tid = 1,
             completed = false,
@@ -51,7 +51,7 @@ class TaskRepositoryTest {
             }
         )
         taskRepository.getReadingTasks {
-            result.addAll(it as List<TaskType.ReadingTask>)
+            result.addAll(it)
         }
         assertEquals(listOf(task1, task2), result)
 

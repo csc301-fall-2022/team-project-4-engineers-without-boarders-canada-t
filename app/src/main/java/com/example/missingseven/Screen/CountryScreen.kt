@@ -1,6 +1,5 @@
 package com.example.missingseven.Screen
 
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -16,10 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.missingseven.Database.Entity.Country
@@ -38,6 +35,9 @@ val resIdMap = hashMapOf(
     Pair("Malawi", R.mipmap.ic_country_malawi),
 )
 
+/***
+ * composable function for country selecting screen
+ */
 @Composable
 fun CountryScreen(
     listA: List<Country>,
@@ -58,7 +58,7 @@ fun CountryScreen(
             fontSize = 30.sp
         )
         Text(
-            text = "In this section you will be given a set of some money to buy materials for the filter and a set of instructions on how to assemble the filter.",
+            text = "In this section you will be given some money to buy materials for the filter and a set of instructions on how to assemble the filter.",
             modifier = Modifier
                 .padding(vertical = 5.dp, horizontal = 10.dp),
             color = TextDes,
@@ -67,13 +67,23 @@ fun CountryScreen(
         Text(
             text = "MAKE at least TWO filters:" +
                     "\nOne from list A ......and One from list B." +
-                    "\nClick on a country to begin.",
+                    "\nScroll/Click on a country to begin.",
             modifier = Modifier
                 .padding(vertical = 5.dp, horizontal = 10.dp),
             color = TextContent,
             textAlign = TextAlign.Center,
             fontSize = 18.sp
         )
+        Row(
+            modifier = Modifier.padding(horizontal = 80.dp)
+        ) {
+            Text(
+                text = "List A",
+
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Text(text = "List B")
+        }
         Row(modifier = Modifier.weight(1f)) {
             LazyColumn(
                 Modifier
@@ -137,7 +147,7 @@ fun CountryItemView(
                         id = resIdMap[item.name] ?: R.mipmap.ic_country_canada
                     ),
                     contentDescription = "img",
-                    modifier = Modifier.size(100.dp, 100.dp)
+                    modifier = Modifier.size(60.dp)
                 )
                 Text(
                     text = item.name,

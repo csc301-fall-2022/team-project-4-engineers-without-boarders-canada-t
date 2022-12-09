@@ -9,6 +9,9 @@ import com.example.missingseven.Screen.*
 import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.ViewModel.TaskViewModel
 
+/***
+ * controller for navigation
+ */
 class NavControl constructor(
     private val navController: NavHostController,
 ) {
@@ -27,7 +30,9 @@ class NavControl constructor(
             }
 
             composable(route = Screen.Task.route){
-                TaskScreen(viewModel)
+                if (viewModel.allFetched.value){
+                    TaskScreen(viewModel)
+                }
             }
 
             composable(route = Screen.Instruction.route){

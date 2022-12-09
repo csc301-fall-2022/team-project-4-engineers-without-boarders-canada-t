@@ -4,7 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
+/***
+ * data class for the table [Player]
+ */
 @Entity
 data class Player(
     @PrimaryKey val pid: Int,
@@ -50,4 +52,18 @@ data class Player(
 }
 
 fun reset() =
-    Player(0, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,false)
+    Player(
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        false)
