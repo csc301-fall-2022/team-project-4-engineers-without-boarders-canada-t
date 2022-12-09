@@ -40,23 +40,33 @@ class DataInitializer constructor(
 
     fun getAllMultipleChoiceTasks(): List<TaskType.MultipleChoiceTask> = listOf(
         TaskType.MultipleChoiceTask(
-            3, false, context.getString(R.string.task3_header),
-            listOf(
+            tid = 3,
+            completed = false,
+            header = context.getString(R.string.task3_header),
+            options = listOf(
                 context.getString(R.string.task3_option0),
                 context.getString(R.string.task3_option1),
                 context.getString(R.string.task3_option2),
                 context.getString(R.string.task3_option3),
                 context.getString(R.string.task3_option4),
-            ), 4, -1, context.getString(R.string.task3_popup)),
+            ),
+            correctIndex = 4,
+            studentAnswerIndex = -1,
+            popup = context.getString(R.string.task3_popup)),
         TaskType.MultipleChoiceTask(
-            7, false, context.getString(R.string.task3_header),
-            listOf(
+            tid = 7,
+            completed = false,
+            header = context.getString(R.string.task3_header),
+            options = listOf(
                 context.getString(R.string.task7_option0),
                 context.getString(R.string.task7_option1),
                 context.getString(R.string.task7_option2),
                 context.getString(R.string.task7_option3),
                 context.getString(R.string.task7_option4),
-            ), 4, -1, context.getString(R.string.task7_popup)
+            ),
+            correctIndex = 4,
+            studentAnswerIndex = -1,
+            popup = context.getString(R.string.task7_popup)
         )
     )
 
@@ -94,11 +104,16 @@ class DataInitializer constructor(
     )
 
     fun getFilterTasks(): List<TaskType.FilterTask> = listOf(
-        TaskType.FilterTask(99, false, -1)
+        TaskType.FilterTask(
+            tid = 99,
+            completed = false,
+            pid = -1)
     )
 
     fun getWelcomeTask(): List<TaskType.WelcomeTask> = listOf(
-        TaskType.WelcomeTask(0, true)
+        TaskType.WelcomeTask(
+            tid = 0,
+            completed = true)
     )
 
     fun getLiteracyRateTasks(): List<TaskType.LiteracyRateTask> = listOf(
