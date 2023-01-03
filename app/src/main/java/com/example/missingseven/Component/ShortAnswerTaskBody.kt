@@ -60,7 +60,10 @@ fun ShortAnswerTaskBody(
         Button(
             modifier =  Modifier.padding(10.dp),
             shape = RoundedCornerShape(50),
-            onClick = {saveHandler()}
+            onClick = {
+                saveHandler()
+                keyboardController?.hide()
+            }
         ) {
             val text = if (task.completed.value) "Saved" else "Save Answer"
             Text(text = text)
