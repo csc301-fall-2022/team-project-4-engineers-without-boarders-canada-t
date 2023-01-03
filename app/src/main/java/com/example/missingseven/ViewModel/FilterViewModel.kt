@@ -159,12 +159,8 @@ class FilterViewModel @Inject constructor(
     }
 
     fun onUndoClick(){
-        resetFilter()
-    }
-
-    private fun resetFilter(){
         playerUiState = playerUiState.resetLayers(getPlayerCountry()?.money ?: 0)
-        player = player.resetFilter(player.curr_money)
+        player = player.resetFilter(playerUiState.currMoney.value)
         setupStack()
         viewModelScope.launch {
             playerRepository.updatePlayer(player)

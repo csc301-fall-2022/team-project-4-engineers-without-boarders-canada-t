@@ -67,7 +67,7 @@ fun FilterMainBody(
             Column(
                 modifier = Modifier
                     .fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = "${filterViewModel.getPlayerCountry()?.name.orEmpty()} - Build filter",
@@ -117,14 +117,18 @@ fun FilterMainBody(
                     } 
                 }
                 Text(text = stringResource(id = R.string.filter_hint))
-                Button(onClick = filterViewModel::openInstruction) {
-                    Text(text = "See instructions")
-                }
-                Button(onClick =  filterViewModel::onUndoClick ) {
-                    Text(text = "Redo filter")
-                }
-                Button(onClick = filterViewModel::onTestClicked) {
-                    Text(text = "TEST")
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    Button(onClick = filterViewModel::openInstruction) {
+                        Text(text = stringResource(id = R.string.see_instructions))
+                    }
+                    Button(onClick = filterViewModel::onUndoClick) {
+                        Text(text = stringResource(id = R.string.undo))
+                    }
+                    Button(onClick = filterViewModel::onTestClicked) {
+                        Text(text = stringResource(id = R.string.test))
+                    }
                 }
             }
         }

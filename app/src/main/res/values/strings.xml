@@ -75,6 +75,9 @@
     <string name="our_world_in_data_url">ourworldindata.org/</string>
 
     <string name="filter_hint">Long press a material above to drag it into your filter.When you are ready, press the button to test your filter</string>
+    <string name="see_instructions">instructions</string>
+    <string name="undo">undo</string>
+    <string name="test">TEST</string>
     <!-- hint for price multiplier -->
     <string name="cfn_hint">You receive less funding than the rest of Canada and costs for materials are 5 times higher due to geographical and political issues</string>
 </resources>
