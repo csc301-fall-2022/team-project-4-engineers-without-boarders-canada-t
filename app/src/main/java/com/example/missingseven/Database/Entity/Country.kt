@@ -17,7 +17,8 @@ data class Country(
     @ColumnInfo val money: Int,
     @ColumnInfo val instruction: String,
     @ColumnInfo val priceMultiplier: Int = 1,
-    @ColumnInfo val multiplierHint: String = ""
+    @ColumnInfo val multiplierHint: String = "",
+    @ColumnInfo val hasDifficultyReading: Boolean = false
 )
 
 fun Country.getImageRes() = when (cid) {

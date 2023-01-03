@@ -190,39 +190,50 @@ class DataInitializer constructor(
             cid = 1,
             name = "Canada",
             money = 500,
-            instruction = context.getString(R.string.instruction_developed)),
+            instruction = context.getString(R.string.instruction_developed)
+        ),
         Country(
             cid = 2,
             name = "Canadian First Nations",
             money = 500,
             instruction = context.getString(R.string.instruction_developed),
             priceMultiplier = 5,
-            multiplierHint = context.getString(R.string.cfn_hint)),
+            multiplierHint = context.getString(R.string.cfn_hint)
+        ),
         Country(
             cid = 3,
             name = "Kuwait",
             money = 400,
-            instruction = context.getString(R.string.instruction_developed)),
+            instruction = context.getString(R.string.instruction_developed)
+        ),
         Country(
             cid = 4,
             name = "South Africa",
             money = 65,
-            instruction = context.getString(R.string.instruction_South_Africa)),
+            instruction = context.getString(R.string.instruction_developing),
+            hasDifficultyReading = true
+        ),
         Country(
             cid = 5,
             name = "Ghana",
             money = 40,
-            instruction = context.getString(R.string.instruction_Ghana)),
+            instruction = context.getString(R.string.instruction_developing),
+            hasDifficultyReading = true
+        ),
         Country(
             cid = 6,
             name = "Kenya",
             money = 30,
-            instruction = context.getString(R.string.instruction_Kenya)),
+            instruction = context.getString(R.string.instruction_developing),
+            hasDifficultyReading = true
+        ),
         Country(
             cid = 7,
             name = "Malawi",
             money = 50,
-            instruction = context.getString(R.string.instruction_Malawi)),
+            instruction = context.getString(R.string.instruction_Malawi),
+            hasDifficultyReading = true
+        )
     )
     fun getAllItem(): List<Item> = listOf(
         Item(
