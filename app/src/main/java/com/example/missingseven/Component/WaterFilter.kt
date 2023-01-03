@@ -27,21 +27,27 @@ fun WaterFilter(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        LazyColumn(){
+        LazyColumn(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
             itemsIndexed(items = stack.displayedStack()){ index, item ->
                 val boarderColor = stack.getBoarderColor(index)
-                FilterGrid(item = item, boarderColor = boarderColor, widthPercentage = 0.75f)
+                FilterGrid(
+                    item = item,
+                    boarderColor = boarderColor,
+                    widthPercentage = if (index == 7) 0.55f else 0.75f
+                )
             }
         }
         FilterGrid(
             item = stack.neck.value,
             boarderColor = stack.getNeckColor(),
-            widthPercentage = 0.6f
+            widthPercentage = 0.4f
         )
         FilterGrid(
             item = stack.mouth.value,
             boarderColor = stack.getMouthColor(),
-            widthPercentage = 0.5f
+            widthPercentage = 0.4f
         )
     }
 }
