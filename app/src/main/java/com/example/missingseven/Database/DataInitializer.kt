@@ -195,7 +195,9 @@ class DataInitializer constructor(
             cid = 2,
             name = "Canadian First Nations",
             money = 500,
-            instruction = context.getString(R.string.instruction_developed)),
+            instruction = context.getString(R.string.instruction_developed),
+            priceMultiplier = 5,
+            multiplierHint = context.getString(R.string.cfn_hint)),
         Country(
             cid = 3,
             name = "Kuwait",

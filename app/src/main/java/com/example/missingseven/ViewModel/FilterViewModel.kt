@@ -13,6 +13,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.example.missingseven.Database.Entity.reset
+import com.example.missingseven.Database.Entity.resetFilter
 import com.example.missingseven.Model.*
 import com.example.missingseven.Navigation.Screen
 import kotlinx.coroutines.launch
@@ -77,7 +78,7 @@ class FilterViewModel @Inject constructor(
         }
     }
 
-    fun fetchCompleted() = fetchCount.value == 3
+    fun fetchCompleted() = fetchCount.value == FETCH_COUNT
 
     private fun fetchCallback(){
         if (!fetchCompleted()){
@@ -157,13 +158,28 @@ class FilterViewModel @Inject constructor(
         navControl.navigate(Screen.Filter.route, Screen.Instruction.route)
     }
 
+    fun onUndoClick(){
+        resetFilter()
+    }
+
+    private fun resetFilter(){
+        playerUiState = playerUiState.resetLayers(getPlayerCountry()?.money ?: 0)
+        player = player.resetFilter(player.curr_money)
+        setupStack()
+        viewModelScope.launch {
+            playerRepository.updatePlayer(player)
+        }
+    }
+
     fun navigateBack(){
         navControl.navigateBack()
     }
 
+    fun getPriceMultiplier() = getPlayerCountry()?.priceMultiplier ?: 1
+
     fun addItem(item: ItemUiState){
-        if (player.curr_money < item.price || filterStack.isFull()) return
-        playerUiState.currMoney.value -= item.price
+        if (player.curr_money < item.getMultipliedPrice(getPriceMultiplier()) || filterStack.isFull()) return
+        playerUiState.currMoney.value -= item.getMultipliedPrice(getPriceMultiplier())
         player.curr_money = playerUiState.currMoney.value
         filterStack.add(item)
         player.updatePlayerByIndex(filterStack.topIndex.value - 1, item.iid)
@@ -196,6 +212,10 @@ class FilterViewModel @Inject constructor(
             playerRepository.updatePlayer(player)
         }
         navigateBack()
+    }
+
+    companion object {
+        const val FETCH_COUNT = 3
     }
 
 }

@@ -41,3 +41,19 @@ data class PlayerUiState(
     }
 
 }
+
+fun PlayerUiState.resetLayers(
+    money: Int
+) = copy(
+    currMoney = currMoney.apply { this.value = money },
+    neck = neck.apply { this.value = -1 },
+    mouth = mouth.apply { this.value = -1 },
+    layer0 = layer0.apply { this.value = -1 },
+    layer1 = layer1.apply { this.value = -1 },
+    layer2 = layer2.apply { this.value = -1 },
+    layer3 = layer3.apply { this.value = -1 },
+    layer4 = layer4.apply { this.value = -1 },
+    layer5 = layer5.apply { this.value = -1 },
+    layer6 = layer6.apply { this.value = -1 },
+    layer7 = layer7.apply { this.value = -1 },
+)

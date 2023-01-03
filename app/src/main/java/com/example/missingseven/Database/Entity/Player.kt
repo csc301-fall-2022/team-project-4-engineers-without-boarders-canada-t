@@ -67,3 +67,17 @@ fun reset() =
         -1,
         -1,
         false)
+
+fun Player.resetFilter(money: Int) = copy(
+    curr_money = money,
+    neck = -1,
+    mouth = -1,
+    layer0 = -1,
+    layer1 = -1,
+    layer2 = -1,
+    layer3 = -1,
+    layer4 = -1,
+    layer5 = -1,
+    layer6 = -1,
+    layer7 = -1
+)

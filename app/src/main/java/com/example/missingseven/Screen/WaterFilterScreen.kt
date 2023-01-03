@@ -18,6 +18,7 @@ import com.example.missingseven.Component.DropTarget
 import com.example.missingseven.Component.LongPressDraggable
 import com.example.missingseven.Component.WaterFilter
 import com.example.missingseven.Model.TaskUiState
+import com.example.missingseven.Model.getMultipliedPrice
 import com.example.missingseven.Navigation.NavControl
 import com.example.missingseven.ViewModel.FilterViewModel
 import com.example.missingseven.R
@@ -73,6 +74,15 @@ fun FilterMainBody(
                     fontSize = 15.sp,
                     modifier = Modifier.padding(bottom = 10.dp)
                 )
+                filterViewModel.getPlayerCountry()?.let {
+                    if (it.multiplierHint.isNotEmpty()){
+                        Text(
+                            text = it.multiplierHint,
+                            fontSize = 15.sp,
+                            modifier = Modifier.padding(bottom = 10.dp)
+                        )
+                    }
+                }
                 DropTarget() { isInBound, data ->
                     if (isInBound){
                         data?.let {
@@ -99,7 +109,8 @@ fun FilterMainBody(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ){
                                     Text(text = it.name)
-                                    Text(text = "$${it.price}")
+                                    Text(text = "$${it.getMultipliedPrice(
+                                        filterViewModel.getPriceMultiplier())}")
                                 }
                             }
                         }
@@ -108,6 +119,9 @@ fun FilterMainBody(
                 Text(text = stringResource(id = R.string.filter_hint))
                 Button(onClick = filterViewModel::openInstruction) {
                     Text(text = "See instructions")
+                }
+                Button(onClick =  filterViewModel::onUndoClick ) {
+                    Text(text = "Redo filter")
                 }
                 Button(onClick = filterViewModel::onTestClicked) {
                     Text(text = "TEST")

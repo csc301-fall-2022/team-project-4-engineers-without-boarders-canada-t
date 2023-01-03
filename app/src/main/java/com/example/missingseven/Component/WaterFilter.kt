@@ -30,13 +30,13 @@ fun WaterFilter(
         LazyColumn(){
             itemsIndexed(items = stack.displayedStack()){ index, item ->
                 val boarderColor = stack.getBoarderColor(index)
-                FilterGrid(item = item, boarderColor = boarderColor, widthPercentage = 0.9f)
+                FilterGrid(item = item, boarderColor = boarderColor, widthPercentage = 0.75f)
             }
         }
         FilterGrid(
             item = stack.neck.value,
             boarderColor = stack.getNeckColor(),
-            widthPercentage = 0.7f
+            widthPercentage = 0.6f
         )
         FilterGrid(
             item = stack.mouth.value,

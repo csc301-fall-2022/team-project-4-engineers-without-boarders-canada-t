@@ -16,3 +16,5 @@ data class ItemUiState(
     val effectiveness: List<Float>,
     val cleanedEffectiveness: List<Float>
 )
+
+fun ItemUiState.getMultipliedPrice(multiplier: Int) = price * multiplier
