@@ -65,12 +65,9 @@ fun SlidingScaleTaskBody(
 }
 
 private fun toFriendlyNumber(number: Int) =
-    if (number < 1000){
-        "$number Million"
-    } else {
-        // round to 2 decimal places
-        "${((number.toFloat() / 1000) * 100).roundToInt().toFloat() / 100} Billion"
-    }
+    // round to 2 decimal places
+    "${((number.toFloat() / 1000) * 100).roundToInt().toFloat() / 100} Billion"
+
 
 private fun displayedText(task: TaskUiState.SlidingScaleTask) =
     with(task.current.value) {
